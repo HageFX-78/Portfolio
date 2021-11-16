@@ -1,0 +1,42 @@
+@font-face {
+    font-family: pixelfont;
+    src: url(DisposableDroidBB.ttf);
+}
+  
+.mgrid-head { grid-area: header; }
+.mgrid-sidenav { grid-area: nav; }
+.mgrid-main { 
+    grid-area: main;
+}
+.mgrid-right { grid-area: right; }
+.mgrid-footer { grid-area: footer; }
+
+.main-grid {
+    display: grid;
+    grid-template-areas:
+        'nav header header header header right'
+        'nav main main main main right'
+        'nav main main main main right'
+        'footer footer footer footer footer footer';
+    grid-gap: 10px;
+    padding: 20px;
+    background-color: black;
+}
+
+.main-grid div {
+    background-color: grey;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+}
+
+.head-cont{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+    background-color: green;
+    padding: 10px;
+    color: white;
+    font-family: pixelfont;
+}
