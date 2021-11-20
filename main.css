@@ -1,8 +1,174 @@
-@font-face {
+@font-face{
+    /*Disposable droid font*/
     font-family: pixelfont;
-    src: url(DisposableDroidBB.ttf);
+    src: url(fonts/db.ttf);   
 }
-  
+@font-face{
+    /*Disposable droid bold font*/
+    font-family: pixelfont2;
+    src: url(fonts/dbB.ttf);   
+}
+@font-face{
+    /*Karmatic arcade font*/
+    font-family: arcade;
+    src: url(fonts/ka1.ttf);
+}
+html{
+    font-family: pixelfont;
+}
+body{
+    margin: 0;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~T o p S T U F F */
+.head-cont{
+    display: block;
+    background-image:url('img/backdrop2b.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 100%;
+    width:auto;
+    color: black;
+    padding: 14px;
+}
+.tgrid-name{
+    grid-area:name;
+    font-size:20px;
+    font-family:arcade;
+    
+    float:bottom;
+}
+.tgrid-title{grid-area:title;font-size:20px;font-family:pixelfont2;}
+.tgrid-pfp{grid-area:pfp;width:100px;}
+.tgrid-pfp img{
+    border-radius:75px;
+    width:100px;
+    height:100px;
+    background-color:#ffb638;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding:4px;
+}
+.top-grid{
+    display:grid;
+    margin: 0 auto;
+    width: 400px;
+    grid-template-areas:
+        'name pfp'
+        'title pfp';
+    grid-gap: 0;
+    padding: 20px;
+    /*background-color: yellow;*/
+    padding: 80px 10px;
+}
+.top-grid div{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding:10px;
+    text-align: center;
+    text-shadow:1px;
+    letter-spacing: 2px;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~NAV BAR S T U F F */
+#navbar{
+    overflow: hidden;
+    background-color: #333;
+}
+
+#navbar a{
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+}
+.navL{
+    float: left;
+}
+.navR{
+    float:right;
+}
+#navbar a:hover{
+    background-color: #ddd;
+    color: black;
+}
+
+#navbar a.active{
+    background-color: #ffb638;
+    color: #333;
+    font-size: 28px;
+}
+
+.sticky{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.sticky + .skill-grid {
+    padding-top: 60px;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~SKillset */
+.skill-grid{
+    display:grid;
+    grid-template-areas:
+        'title title title title title title'
+        'tools tools lang lang field field'
+        'listn1 listp1 listn2 listp2 listn3 listp3';
+    grid-template-columns: 23% 9% 23% 9% 23% 9%;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    margin: auto 160px;
+    font-size:20px;
+    padding: 10px;
+}
+.skill-grid div{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 0;
+    text-align: center;
+}
+.skill-grid li{
+    padding: 4px;
+    margin: 4px auto;
+}
+.skill-grid ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+}
+.sgrid-title{
+    font-family: pixelfont2;
+    grid-area: title;
+    font-size:44px;
+    padding: 40px auto;
+}
+.sgrid-tools{grid-area: tools;}
+.sgrid-lang{grid-area: lang;}
+.sgrid-field{grid-area: field;}
+.sgrid-listnames1{grid-area:listn1;}
+.sgrid-listprof1{grid-area:listp1;}
+.sgrid-listnames2{grid-area:listn2;}
+.sgrid-listprof2{grid-area:listp2;}
+.sgrid-listnames3{grid-area:listn3;}
+.sgrid-listprof3{grid-area:listp3;}
+/*Common class of sgrid tools, lang and field*/
+.sgrid-c{
+    font-size: 30px;
+    background-color:#ffbe44;
+    box-shadow: 6px 6px #333;
+}
+/*Proficiency colors*/
+.p1,.p2,.p3{
+    border-radius:25px;
+}
+.p1{background-color: rgb(255, 79, 79);color:rgb(255, 79, 79);}
+.p2{background-color:rgb(255, 192, 75);color:rgb(255, 192, 75);}
+.p3{background-color: rgb(90, 233, 90);color: rgb(90, 233, 90);}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~G R I D S T U F F */
 .mgrid-head { grid-area: header; }
 .mgrid-sidenav { grid-area: nav; }
 .mgrid-main { 
@@ -21,6 +187,7 @@
     grid-gap: 10px;
     padding: 20px;
     background-color: black;
+    height:1000px;
 }
 
 .main-grid div {
@@ -28,15 +195,4 @@
     text-align: center;
     padding: 20px 0;
     font-size: 30px;
-}
-
-.head-cont{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 800px;
-    background-color: green;
-    padding: 10px;
-    color: white;
-    font-family: pixelfont;
 }

@@ -4,9 +4,107 @@
   </head>
   <body>
     <div class="head-cont">
-      <h1>Portfolio</h1>   
-      <p>Lim Jun Jie's Portfolio</p>
+      <div class="back-img"></div>
+      <div class="top-grid">
+        <div class="tgrid-name">
+          <br>Lim Jun Jie - JJ
+        </div>
+        <div class="tgrid-title">
+          Junior Game Programmer  
+        </div>
+        <div class="tgrid-pfp">
+          <img src="img/PFP.png" alt="Nightmare Fuel"/>  
+        </div>
+      </div>
     </div>
+    <div id="navbar">
+      <a class="navL active" href="javascript:void(0)">Skills</a>
+      <a class="navL" href="javascript:void(0)">My Games</a>
+      <a class="navL" href="javascript:void(0)">Other Works</a>
+      <a class="navL" href="javascript:void(0)">Contacts</a>
+      <a class="navL" href="javascript:void(0)">Secret?</a>
+      <a class="navR" href="https://github.com/HageFX-78" target="_blank">Github</a>
+      <a class="navR" href="https://itch.io/" target="_blank">Itch.io</a>
+    </div>
+
+    <!--      Skill section      -->
+    <div class="skill-grid">
+      <div class="sgrid-title">My skillset</div>
+      <div class="sgrid-tools sgrid-c">Tools</div>
+      <div class="sgrid-listnames1 lncommon">     
+          <ul>
+            <li>Unity</li>
+            <li>Visual Studio Code</li>
+            <li>Stencyl</li>
+            <li>Notepad++</li>
+            <li>PhpMyAdmin</li>
+            <li>Github</li>
+            <li>Blender</li>
+            <li>Adobe Photoshop</li>
+            <li>Adobe Premiere</li>
+          </ul>
+      </div> 
+      <div class="sgrid-listprof1">
+          <ul>
+            <li class='p1'>.</li>
+            <li class='p2'>.</li>
+            <li class='p2'>.</li>
+            <li class='p2'>.</li>
+            <li class='p3'>.</li>
+            <li class='p1'>.</li>
+            <li class='p2'>.</li>
+            <li class='p3'>.</li>
+            <li class='p3'>.</li>
+          </ul>
+      </div>
+      <div class="sgrid-lang sgrid-c">Code Languages</div>
+      <div class="sgrid-listnames2">     
+          <ul>
+            <li>C++</li>
+            <li>Html5</li>
+            <li>Css3</li>
+            <li>JavaScript</li>
+            <li>PHP</li>
+            <li>Java</li>
+            <li>Ruby</li>
+            <li>SQL</li>
+          </ul>
+      </div> 
+      <div class="sgrid-listprof2">
+          <ul>
+            <li class='p2'>.</li>
+            <li class='p3'>.</li>
+            <li class='p3'>.</li>
+            <li class='p2'>.</li>
+            <li class='p3'>.</li>
+            <li class='p2'>.</li>
+            <li class='p1'>.</li>
+            <li class='p2'>.</li>
+          </ul>
+      </div>
+      <div class="sgrid-field sgrid-c">Fields</div>
+      <div class="sgrid-listnames3">     
+        <ul>
+          <li>Gamplay Programming</li>
+          <li>Application Programming</li>
+          <li>UI/UX</li>
+          <li>Web Development(WAMP)</li>
+          <li>Database Design</li>
+          <li>Video Editing</li>
+        </ul>
+      </div> 
+      <div class="sgrid-listprof3">
+          <ul>
+            <li class='p2'>.</li>
+            <li class='p2'>.</li>
+            <li class='p2'>.</li>
+            <li class='p3'>.</li>
+            <li class='p3'>.</li>
+            <li class='p1'>.</li>
+          </ul>
+      </div>     
+    </div>
+    <!--next section-->
     <div class="main-grid">
       <div class="mgrid-head">Header</div>
       <div class="mgrid-sidenav">Nav Items</div>
@@ -16,4 +114,27 @@
     </div>
     
   </body>
+  <script>
+    window.onscroll = function() {navbarscroll()};
+    
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+    //Switch active element on navigation bar
+    var links = document.getElementsByClassName("navL");
+    for (var i = 0; i < links.length; i++) {
+      links[i].addEventListener("click", function() {
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+      });
+    }
+
+    function navbarscroll() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky");
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
+  </script>
 </html>
