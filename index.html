@@ -4,7 +4,7 @@
   </head>
   <body>
     <div class="head-cont">
-      <div class="back-img"></div>
+      <div class="backdrop-img"></div>
       <div class="top-grid">
         <div class="tgrid-name">
           <br>Lim Jun Jie - JJ
@@ -18,18 +18,87 @@
       </div>
     </div>
     <div id="navbar">
-      <a class="navL active" href="javascript:void(0)">Skills</a>
-      <a class="navL" href="javascript:void(0)">My Games</a>
+      <a class="navL active" href="javascript:void(0);" id="navMyGames">My Games</a>
+      <a class="navL" href="javascript:void(0)" id="navAboutMe">About Me</a>
       <a class="navL" href="javascript:void(0)">Other Works</a>
       <a class="navL" href="javascript:void(0)">Contacts</a>
       <a class="navL" href="javascript:void(0)">Secret?</a>
+      <a class="navR" href="https://www.linkedin.com/in/lim-jun-jie-000881224/" target="_blank">LinkedIn</a>
       <a class="navR" href="https://github.com/HageFX-78" target="_blank">Github</a>
       <a class="navR" href="https://itch.io/" target="_blank">Itch.io</a>
     </div>
 
+
+    <!--      My Games section      -->
+    <a name="mygames" ></a>
+    <div id="mygamesID" class="mygames main-sections stickyoffset">
+      <div class="maintitle">My Games</div>
+      <!--Game Block-->
+      <div class="mygame-block">
+        <div class="mygame-title">
+          <p>
+            <span>Insemination</span><br>
+            A simple shoot'em up game where you play as a mutated sperm in someone's womb...
+          </p>
+        </div>
+        <div class="mygame-link">Link to Game<p id="link-icon">&nbsp;&#10148;</p></div>
+        <div class="mygame-image"></div>
+        <div class="mygame-description">
+          <p><span>My Role</span>
+            <ul>
+              <li>All features and programming.</li>
+              <li>Overall design of the game levels and user interface as well as user experience.</li>
+              <li>All game art assets were made in photoshop in a pixel art style.</li>
+            </ul>
+            <br><br><span>Made With</span><br>
+            Stencyl
+            <br><br><span>Available On</span><br>
+            Itch.io
+          </p>
+        </div>
+      </div>
+      <!--Game Block-->
+      <!--Game Block-->
+      <div class="mygame-block">
+        <div class="mygame-title">
+          <p>
+            <span>Pong Game</span><br>
+            A remake of the pong game with additional gameplay fetaures...
+          </p>
+        </div>
+        <div class="mygame-link">Link to Game<p id="link-icon">&nbsp;&#10148;</p></div>
+        <div class="mygame-image"></div>
+        <div class="mygame-description">
+          <p><span>My Role</span>
+            <ul>
+              <li>All features and programming.</li>
+              <li>Overall design of the game levels and user interface as well as user experience.</li>
+              <li>All game art assets were made in photoshop in a pixel art style.</li>
+            </ul>
+            <br><br><span>Made With</span><br>
+            Stencyl
+            <br><br><span>Available On</span><br>
+            Nowhere
+          </p>
+        </div>
+      </div>
+      <!--Game Block-->
+    </div>
+
+
+    <!--      About Me section      -->
+    <a name="aboutme" id="aboutmeID"></a>
+    <div class="aboutme main-sections"> 
+      <div class="maintitle">About Me</div>
+      <div class="aboutme-content">
+        Work in progress...
+      </div>
+    </div>
+
+
     <!--      Skill section      -->
     <div class="skill-grid">
-      <div class="sgrid-title">My skillset</div>
+      <div class="sgrid-title">My Skillset</div>
       <div class="sgrid-tools sgrid-c">Tools</div>
       <div class="sgrid-listnames1 lncommon">     
           <ul>
@@ -112,29 +181,57 @@
       <div class="mgrid-right">Right</div>
       <div class="mgrid-footer">Footer</div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/3.0.0/noframework.waypoints.min.js" integrity="sha512-lzIDzaYCox5oeC0ymj6ho5fRdMrCYkhHfVEm3fySZStdwG85y9SxTcIFYYEUiW1KYbkfiInVFkGofRlYlkHgLw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+    window.onscroll = function() {navbarscroll();};
     
-  </body>
-  <script>
-    window.onscroll = function() {navbarscroll()};
-    
-    var navbar = document.getElementById("navbar");
-    var sticky = navbar.offsetTop;
     //Switch active element on navigation bar
     var links = document.getElementsByClassName("navL");
-    for (var i = 0; i < links.length; i++) {
-      links[i].addEventListener("click", function() {
+    for (var i = 0; i < links.length; i++){
+      links[i].addEventListener("click", function(){
         var current = document.getElementsByClassName("active");
         current[0].className = current[0].className.replace(" active", "");
         this.className += " active";
+        
+        var currentsec = "";
+        if(this.getAttribute("id")=="navMyGames"){currentsec=document.getElementById("mygamesID");}
+        else{currentsec=document.getElementById("aboutmeID");}
+        currentsec.scrollIntoView({
+          behavior: 'smooth', // smooth scroll
+          block: 'start',
+          inline: 'start'
+        });
       });
     }
 
-    function navbarscroll() {
+    //Scroll to section test
+    //Navbar sticky effect
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+    function navbarscroll(){
       if (window.pageYOffset >= sticky) {
         navbar.classList.add("sticky");
       } else {
         navbar.classList.remove("sticky");
       }
     }
+
+    //Waypoint to switch anchor link and active tab(using noframework jquery waypoint lib)
+    var waypoint1 = new Waypoint({
+      element: document.getElementById('navMyGames'),
+      handler: function() {
+        $('.navL').removeClass("active");
+        $('#navMyGames').addClass("active");
+      }
+    })
+    var waypoint2 = new Waypoint({
+      element: document.getElementById('aboutmeID'),
+      handler: function() {
+        $('.navL').removeClass("active");
+        $('#navAboutMe').addClass("active");   
+      },
+      offset: 160
+    })
   </script>
 </html>

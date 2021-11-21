@@ -18,24 +18,49 @@ html{
 }
 body{
     margin: 0;
+    background-color: #f1f1f1;
+}
+.main-sections{
+    margin: 40px auto;
+    width:80%;
+}
+.maintitle{
+    display:inline-block;
+    background-color: #ffbe44;
+    letter-spacing: 2px;
+    font-family: pixelfont2;
+    font-size:44px;
+    padding: 10px 50px;
+    box-shadow: 6px 6px #333;
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~T o p S T U F F */
 .head-cont{
     display: block;
-    background-image:url('img/backdrop2b.jpg');
+    position: relative; 
+    width:auto;
+    color: black;
+    padding: 14px;
+    
+}
+.backdrop-img{
+    position: absolute;
+    background-image:url('img/backdrop2.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size: 100%;
-    width:auto;
-    color: black;
-    padding: 14px;
+    background-color:#333;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    filter: blur(1.2px) brightness(100%);
+    z-index: -1;
 }
 .tgrid-name{
     grid-area:name;
     font-size:20px;
     font-family:arcade;
-    
     float:bottom;
 }
 .tgrid-title{grid-area:title;font-size:20px;font-family:pixelfont2;}
@@ -75,6 +100,7 @@ body{
 #navbar{
     overflow: hidden;
     background-color: #333;
+    box-shadow: 0px 6px #ffbe44;
 }
 
 #navbar a{
@@ -97,18 +123,104 @@ body{
 }
 
 #navbar a.active{
-    background-color: #ffb638;
+    background-color: #ffbe44;
     color: #333;
     font-size: 28px;
+    font-family: pixelfont2;
 }
 
 .sticky{
     position: fixed;
+    z-index: 3;
     top: 0;
     width: 100%;
 }
-.sticky + .skill-grid {
+.sticky + .stickyoffset{
     padding-top: 60px;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~My Games */
+.mygames{
+    margin: 40px auto;
+    width:80%;
+}
+.mygame-block{
+    display:grid;
+    grid-template-areas:
+        'title title title link'
+        'image image desc desc';
+    grid-template-rows: 25% 75%;
+    grid-template-columns: 25% 25% 25% 25%;
+    background-color: #ffffff;
+    box-shadow: 6px 6px #ffb638;
+    margin: 20px 0;
+    height:auto;
+    max-height:600px;
+}
+.mygame-block div{
+    padding: 0 30px;
+}
+.mygame-title{
+    grid-area:title;
+    background-color:#ffbe44;
+    box-shadow: 6px 6px #333;
+    display:flex;
+    justify-content: left;
+    align-items: center;
+}
+.mygame-title span{font-size:34px;font-family: pixelfont2;letter-spacing: 3px;}
+.mygame-title p{font-size:18px;}
+.mygame-link{
+    grid-area:link;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#333;
+    color: white;
+    font-size: 30px;
+    box-shadow: 6px 6px #ffbe44;
+}
+/*Id for the small arrow on my-game link button*/
+#link-icon{
+    transform:translate(0, 1px);
+}
+.mygame-link:hover{
+    background-color:#ffbe44;
+    transition: 0.3s ease;
+    transform: translate(6px, 6px);
+    box-shadow: -6px -6px #333;
+    color:black;
+    cursor: pointer;
+}
+.mygame-image{
+    grid-area:image;
+    background-image:url('img/backdrop.jpg');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100%;
+}
+.mygame-description{
+    grid-area:desc;
+    align-items: center;
+    margin-bottom:20px;
+}
+.mygame-description span{
+    margin: 0;
+    padding:0;
+    font-size:26px;
+    font-family: pixelfont2;
+}
+.mygame-description p{font-size:20px;}
+.mygame-description ul{
+    font-size:20px;
+    margin:0;
+    list-style-type: square;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~About Me */
+.aboutme-content{
+    margin: 20px 0;
+    background-color: white;
+    height: 800px;
+    box-shadow: 6px 6px #ffb638;
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~SKillset */
 .skill-grid{
@@ -118,27 +230,28 @@ body{
         'tools tools lang lang field field'
         'listn1 listp1 listn2 listp2 listn3 listp3';
     grid-template-columns: 23% 9% 23% 9% 23% 9%;
-    grid-column-gap: 10px;
+    grid-column-gap: 8px;
     grid-row-gap: 10px;
-    margin: auto 160px;
+    margin: auto;
+    width:80%;
     font-size:20px;
-    padding: 10px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 5px 5px 4px #cacaca;
 }
 .skill-grid div{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 0;
     text-align: center;
+    
 }
 .skill-grid li{
     padding: 4px;
-    margin: 4px auto;
+    margin: 2px auto;
 }
 .skill-grid ul{
     list-style-type: none;
     margin: 0;
-    padding: 10px;
+    padding: 2px;
+    text-align:right;
 }
 .sgrid-title{
     font-family: pixelfont2;
@@ -160,13 +273,16 @@ body{
     font-size: 30px;
     background-color:#ffbe44;
     box-shadow: 6px 6px #333;
+    padding:4px;
 }
 /*Proficiency colors*/
 .p1,.p2,.p3{
-    border-radius:25px;
+    border-radius:2px;
+    width:2px;
+    box-shadow: 2px 2px #333;
 }
-.p1{background-color: rgb(255, 79, 79);color:rgb(255, 79, 79);}
-.p2{background-color:rgb(255, 192, 75);color:rgb(255, 192, 75);}
+.p1{background-color: rgb(210, 54, 241);color:rgb(210, 54, 241);}
+.p2{background-color:rgb(75, 198, 255);color:rgb(75, 198, 255);}
 .p3{background-color: rgb(90, 233, 90);color: rgb(90, 233, 90);}
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~G R I D S T U F F */
 .mgrid-head { grid-area: header; }
