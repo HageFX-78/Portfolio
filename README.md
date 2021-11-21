@@ -12,12 +12,12 @@ Portfolio site for future use
 -Added My skillset section
 
 ## **Log 21-Nov-2021**
--Changed some arrangement on elements
--Added My Games section(might change name)
--Minor aesthethic tweaks to navigation bar
--Scroll animation after clicking a tab in the nav bar
-&nbsp;&nbsp;-Added waypoint lib for it
-&nbsp;&nbsp;-Kinda buggy
-&nbsp;&nbsp;-Might remove and use legacy methods
--Added jquery(things might get messy)
--Added base for about me section
+-Changed some arrangement on elements<br>
+-Added My Games section(might change name)<br>
+-Minor aesthethic tweaks to navigation bar<br>
+-Scroll animation after clicking a tab in the nav bar<br>
+&nbsp;&nbsp;-Added waypoint lib for it<br>
+&nbsp;&nbsp;-Kinda buggy<br>
+&nbsp;&nbsp;-Might remove and use legacy methods<br>
+-Added jquery(things might get messy)<br>
+-Added base for about me section<br>
