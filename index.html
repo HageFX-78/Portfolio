@@ -1,5 +1,6 @@
 <html>
   <head>
+    <title>Portfolio</title>
     <link rel="stylesheet" href="main.css">
   </head>
   <body>
@@ -7,10 +8,8 @@
       <div class="backdrop-img"></div>
       <div class="top-grid">
         <div class="tgrid-name">
-          <br>Lim Jun Jie - JJ
-        </div>
-        <div class="tgrid-title">
-          Junior Game Programmer  
+          <div>Lim Jun Jie - JJ</div><br>
+          Game Programmer hoping to learn  
         </div>
         <div class="tgrid-pfp">
           <img src="img/PFP.png" alt="Nightmare Fuel"/>  
@@ -20,18 +19,19 @@
     <div id="navbar">
       <a class="navL active" href="javascript:void(0);" id="navMyGames">My Games</a>
       <a class="navL" href="javascript:void(0)" id="navAboutMe">About Me</a>
-      <a class="navL" href="javascript:void(0)">Other Works</a>
+      <a class="navL" href="javascript:void(0)" id="navSkillSet">Skillset</a>
+      <a class="navL" href="javascript:void(0)" id="navOtherProject">Other Projects</a>
+      <a class="navL" href="javascript:void(0)">Resume</a>
       <a class="navL" href="javascript:void(0)">Contacts</a>
-      <a class="navL" href="javascript:void(0)">Secret?</a>
-      <a class="navR" href="https://www.linkedin.com/in/lim-jun-jie-000881224/" target="_blank">LinkedIn</a>
-      <a class="navR" href="https://github.com/HageFX-78" target="_blank">Github</a>
-      <a class="navR" href="https://itch.io/" target="_blank">Itch.io</a>
+      <a class="navR" id="linkedinICON" href="https://www.linkedin.com/in/lim-jun-jie-000881224/" target="_blank"></a>
+      <a class="navR" id="githubICON" href="https://github.com/HageFX-78" target="_blank"></a>
+      <a class="navR" id="itchioICON" href="https://itch.io/" target="_blank"></a>
     </div>
 
 
     <!--      My Games section      -->
-    <a name="mygames" ></a>
-    <div id="mygamesID" class="mygames main-sections stickyoffset">
+    <span name="mygames" id="mygamesID"></span>
+    <div class="mygames main-sections stickyoffset">
       <div class="maintitle">My Games</div>
       <!--Game Block-->
       <div class="mygame-block">
@@ -84,154 +84,203 @@
       </div>
       <!--Game Block-->
     </div>
-
-
     <!--      About Me section      -->
-    <a name="aboutme" id="aboutmeID"></a>
+    <span name="aboutme" id="aboutmeID"></span>
     <div class="aboutme main-sections"> 
       <div class="maintitle">About Me</div>
       <div class="aboutme-content">
-        Work in progress...
+        <div class="agrid-content">
+          <div>Intro</div><br>
+          My name is Lim Jun Jie and is currently a student in game
+          development from UOW KDU.
+          <br>
+          <br><div>Experience</div><br>
+          2 Months in Moondo Studios (As an intern 3d modeller in 2019):<br>
+          <ul>
+            <li>3D Modelling for static scene assets</li>
+            <li>Motion capture implementation with Kinect 1.0</li>
+            <li>2D Gif animation effects for storyboard in photoshop</li>
+          </ul>
+          2 Months in IwiDigital (As an intern in 2021):<br>
+          <ul>
+            <li>Designed and implemented website for clients</li>
+            <li>Typewriting</li>
+            <li>Social Post Design</li>
+            <li>Market Research for company product</li>
+          </ul>
+          <div>Favourite Genres of Games</div><br>
+          Metroidvania, Puzzle, PixelArt
+        </div>
+        <div class="agrid-image"></div>
       </div>
     </div>
-
 
     <!--      Skill section      -->
-    <div class="skill-grid">
-      <div class="sgrid-title">My Skillset</div>
-      <div class="sgrid-tools sgrid-c">Tools</div>
-      <div class="sgrid-listnames1 lncommon">     
+    <span name="skillset" id="skillsetID"></span>
+    <div class="skillset main-sections">
+      <div class="maintitle">Skillset</div>
+      <div class="skill-grid">      
+        <div class="sgrid-tools sgrid-c">Tools</div>
+        <div class="sgrid-listnames1 lncommon">     
+            <ul>
+              <li>Unity</li>
+              <li>Visual Studio Code</li>
+              <li>Stencyl</li>
+              <li>Notepad++</li>
+              <li>PhpMyAdmin</li>
+              <li>Github</li>
+              <li>Blender</li>
+              <li>Adobe Photoshop</li>
+              <li>Adobe Premiere</li>
+            </ul>
+        </div> 
+        <div class="sgrid-listprof1 lncommon">
+            <ul>
+              <li class='p1'>.</li>
+              <li class='p2'>.</li>
+              <li class='p2'>.</li>
+              <li class='p2'>.</li>
+              <li class='p3'>.</li>
+              <li class='p1'>.</li>
+              <li class='p2'>.</li>
+              <li class='p3'>.</li>
+              <li class='p3'>.</li>
+            </ul>
+        </div>
+        <div class="sgrid-lang sgrid-c">Code Languages</div>
+        <div class="sgrid-listnames2 lncommon">     
+            <ul>
+              <li>C++</li>
+              <li>Html5</li>
+              <li>Css3</li>
+              <li>JavaScript</li>
+              <li>PHP</li>
+              <li>Java</li>
+              <li>Ruby</li>
+              <li>SQL</li>
+            </ul>
+        </div> 
+        <div class="sgrid-listprof2 lncommon">
+            <ul>
+              <li class='p2'>.</li>
+              <li class='p3'>.</li>
+              <li class='p3'>.</li>
+              <li class='p2'>.</li>
+              <li class='p3'>.</li>
+              <li class='p2'>.</li>
+              <li class='p1'>.</li>
+              <li class='p2'>.</li>
+            </ul>
+        </div>
+        <div class="sgrid-field sgrid-c">Fields</div>
+        <div class="sgrid-listnames3 lncommon">     
           <ul>
-            <li>Unity</li>
-            <li>Visual Studio Code</li>
-            <li>Stencyl</li>
-            <li>Notepad++</li>
-            <li>PhpMyAdmin</li>
-            <li>Github</li>
-            <li>Blender</li>
-            <li>Adobe Photoshop</li>
-            <li>Adobe Premiere</li>
+            <li>Gamplay Programming</li>
+            <li>Application Programming</li>
+            <li>UI/UX</li>
+            <li>Web Development(WAMP)</li>
+            <li>Database Design</li>
+            <li>Video Editing</li>
           </ul>
-      </div> 
-      <div class="sgrid-listprof1">
-          <ul>
-            <li class='p1'>.</li>
-            <li class='p2'>.</li>
-            <li class='p2'>.</li>
-            <li class='p2'>.</li>
-            <li class='p3'>.</li>
-            <li class='p1'>.</li>
-            <li class='p2'>.</li>
-            <li class='p3'>.</li>
-            <li class='p3'>.</li>
-          </ul>
-      </div>
-      <div class="sgrid-lang sgrid-c">Code Languages</div>
-      <div class="sgrid-listnames2">     
-          <ul>
-            <li>C++</li>
-            <li>Html5</li>
-            <li>Css3</li>
-            <li>JavaScript</li>
-            <li>PHP</li>
-            <li>Java</li>
-            <li>Ruby</li>
-            <li>SQL</li>
-          </ul>
-      </div> 
-      <div class="sgrid-listprof2">
-          <ul>
-            <li class='p2'>.</li>
-            <li class='p3'>.</li>
-            <li class='p3'>.</li>
-            <li class='p2'>.</li>
-            <li class='p3'>.</li>
-            <li class='p2'>.</li>
-            <li class='p1'>.</li>
-            <li class='p2'>.</li>
-          </ul>
-      </div>
-      <div class="sgrid-field sgrid-c">Fields</div>
-      <div class="sgrid-listnames3">     
-        <ul>
-          <li>Gamplay Programming</li>
-          <li>Application Programming</li>
-          <li>UI/UX</li>
-          <li>Web Development(WAMP)</li>
-          <li>Database Design</li>
-          <li>Video Editing</li>
-        </ul>
-      </div> 
-      <div class="sgrid-listprof3">
-          <ul>
-            <li class='p2'>.</li>
-            <li class='p2'>.</li>
-            <li class='p2'>.</li>
-            <li class='p3'>.</li>
-            <li class='p3'>.</li>
-            <li class='p1'>.</li>
-          </ul>
+        </div> 
+        <div class="sgrid-listprof3 lncommon">
+            <ul>
+              <li class='p2'>.</li>
+              <li class='p2'>.</li>
+              <li class='p2'>.</li>
+              <li class='p3'>.</li>
+              <li class='p3'>.</li>
+              <li class='p1'>.</li>
+            </ul>
+        </div>
       </div>     
     </div>
-    <!--next section-->
-    <div class="main-grid">
-      <div class="mgrid-head">Header</div>
-      <div class="mgrid-sidenav">Nav Items</div>
-      <div class="mgrid-main">Main</div>  
-      <div class="mgrid-right">Right</div>
-      <div class="mgrid-footer">Footer</div>
+    <!--      Other Project section      -->
+    <span name="otherproject" id="otherprojectID"></span>
+    <div class="otherproject main-sections">
+      <div class="maintitle">Other Projects</div>
+      <div class="op-cards-block">
+        <div class="op-cards"></div>
+      </div>
     </div>
+    <!--next section-->
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/3.0.0/noframework.waypoints.min.js" integrity="sha512-lzIDzaYCox5oeC0ymj6ho5fRdMrCYkhHfVEm3fySZStdwG85y9SxTcIFYYEUiW1KYbkfiInVFkGofRlYlkHgLw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-    window.onscroll = function() {navbarscroll();};
-    
-    //Switch active element on navigation bar
-    var links = document.getElementsByClassName("navL");
-    for (var i = 0; i < links.length; i++){
-      links[i].addEventListener("click", function(){
-        var current = document.getElementsByClassName("active");
-        current[0].className = current[0].className.replace(" active", "");
-        this.className += " active";
-        
-        var currentsec = "";
-        if(this.getAttribute("id")=="navMyGames"){currentsec=document.getElementById("mygamesID");}
-        else{currentsec=document.getElementById("aboutmeID");}
-        currentsec.scrollIntoView({
-          behavior: 'smooth', // smooth scroll
-          block: 'start',
-          inline: 'start'
+      //Scroll that triggers sticky
+      window.onscroll = function() {navbarscroll();};
+      //Boolean to check if user clicked on nav bar, disable if it's true
+      var AllowSwitchActive = true;
+
+      //Switch active element on navigation bar
+      var links = document.getElementsByClassName("navL");
+      for (var i = 0; i < links.length; i++){
+        links[i].addEventListener("click", function(){
+          var current = document.getElementsByClassName("active");
+          current[0].className = current[0].className.replace(" active", "");
+          this.className += " active";
+          
+          AllowSwitchActive = false;
+          var currentsec = "";
+          if(this.getAttribute("id")=="navMyGames"){currentsec=document.getElementById("mygamesID");}
+          else if(this.getAttribute("id")=="navAboutMe"){currentsec=document.getElementById("aboutmeID");}
+          else if(this.getAttribute("id")=="navSkillSet"){currentsec=document.getElementById("skillsetID");}
+
+          //Scroll event
+          currentsec.scrollIntoView({
+            behavior: 'smooth', 
+            block: 'start',
+            inline: 'start'
+          });
+          //Timer to re-enable waypoint
+          setInterval(function(){AllowSwitchActive=true;},5000);
         });
-      });
-    }
-
-    //Scroll to section test
-    //Navbar sticky effect
-    var navbar = document.getElementById("navbar");
-    var sticky = navbar.offsetTop;
-    function navbarscroll(){
-      if (window.pageYOffset >= sticky) {
-        navbar.classList.add("sticky");
-      } else {
-        navbar.classList.remove("sticky");
       }
-    }
 
-    //Waypoint to switch anchor link and active tab(using noframework jquery waypoint lib)
-    var waypoint1 = new Waypoint({
-      element: document.getElementById('navMyGames'),
-      handler: function() {
-        $('.navL').removeClass("active");
-        $('#navMyGames').addClass("active");
+      //Scroll to section test
+      //Navbar sticky effect
+      var navbar = document.getElementById("navbar");
+      var sticky = navbar.offsetTop;
+      function navbarscroll(){
+        if (window.pageYOffset >= sticky) {
+          navbar.classList.add("sticky");
+        } else {
+          navbar.classList.remove("sticky");
+        }
       }
-    })
-    var waypoint2 = new Waypoint({
-      element: document.getElementById('aboutmeID'),
-      handler: function() {
-        $('.navL').removeClass("active");
-        $('#navAboutMe').addClass("active");   
-      },
-      offset: 160
-    })
-  </script>
+      //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      //Waypoints to switch anchor link and active tab(using noframework jquery waypoint lib)
+      //
+      var wpgame1 = new Waypoint({
+        element: document.getElementById('mygamesID'),
+        handler: function() {
+          if(AllowSwitchActive == true){
+            $('.navL').removeClass("active");
+            $('#navMyGames').addClass("active");
+          }
+        }
+      })
+      var wpabout1 = new Waypoint({
+        element: document.getElementById('aboutmeID'),
+        handler: function() {
+          if(AllowSwitchActive == true){
+            $('.navL').removeClass("active");
+            $('#navAboutMe').addClass("active");
+          }   
+        },
+        offset: 50
+      })
+      var wpskill1 = new Waypoint({
+        element: document.getElementById('skillsetID'),
+        handler: function() {
+          if(AllowSwitchActive == true){
+            $('.navL').removeClass("active");
+            $('#navSkillSet').addClass("active");
+          }   
+        },
+        offset: 100
+      })
+      </script>
+  </body>
 </html>

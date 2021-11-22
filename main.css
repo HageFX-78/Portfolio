@@ -22,7 +22,7 @@ body{
 }
 .main-sections{
     margin: 40px auto;
-    width:80%;
+    width:60%;
 }
 .maintitle{
     display:inline-block;
@@ -60,41 +60,40 @@ body{
 .tgrid-name{
     grid-area:name;
     font-size:20px;
-    font-family:arcade;
-    float:bottom;
+    font-family:pixelfont2;
 }
-.tgrid-title{grid-area:title;font-size:20px;font-family:pixelfont2;}
-.tgrid-pfp{grid-area:pfp;width:100px;}
+.tgrid-name div{
+    display: block;
+    font-size:24px;
+    font-family:arcade;
+    transform:translateY(10px);
+}
+.tgrid-pfp{grid-area:pfp;}
 .tgrid-pfp img{
-    border-radius:75px;
     width:100px;
     height:100px;
-    background-color:#ffb638;
+    background-color:rgb(255, 247, 244);
     display: block;
     margin-left: auto;
     margin-right: auto;
     padding:4px;
+    box-shadow: 6px 6px #333;
 }
 .top-grid{
     display:grid;
-    margin: 0 auto;
-    width: 400px;
+    margin: 70px auto;
+    max-width: 500px;
+    width: auto;
     grid-template-areas:
-        'name pfp'
-        'title pfp';
+        'name pfp';
     grid-gap: 0;
-    padding: 20px;
-    /*background-color: yellow;*/
-    padding: 80px 10px;
+    background-color: #ffb638;;
+    padding: 10px;
+    text-align:center;
+    box-shadow: 6px 6px #333;
 }
 .top-grid div{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    padding:10px;
-    text-align: center;
-    text-shadow:1px;
-    letter-spacing: 2px;
+    margin: auto 0;
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~NAV BAR S T U F F */
 #navbar{
@@ -111,13 +110,24 @@ body{
     text-decoration: none;
     font-size: 20px;
 }
-.navL{
-    float: left;
-}
+.navL{float: left;}
 .navR{
     float:right;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    background-color:#333;
+    border-radius:2px;
+    margin-right: 15px;
+    transform:translateY(10px);
 }
-#navbar a:hover{
+.navR:hover{
+    filter:brightness(125%);
+}
+#itchioICON{background-image:url('https://static.itch.io/images/itchio-textless-white.svg');}
+#githubICON{background-image:url('https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png');}
+#linkedinICON{background-image:url('img/linkedin.png');}
+.navL:hover{
     background-color: #ddd;
     color: black;
 }
@@ -202,12 +212,14 @@ body{
     grid-area:desc;
     align-items: center;
     margin-bottom:20px;
+    color:rgb(43, 43, 43);
 }
 .mygame-description span{
     margin: 0;
     padding:0;
     font-size:26px;
     font-family: pixelfont2;
+    color:black;
 }
 .mygame-description p{font-size:20px;}
 .mygame-description ul{
@@ -219,29 +231,62 @@ body{
 .aboutme-content{
     margin: 20px 0;
     background-color: white;
-    height: 800px;
+    height: auto;
     box-shadow: 6px 6px #ffb638;
+    display:grid;
+    grid-template-areas:
+        'desc img';
+    grid-template-columns: 55% 45%;
+    background-color: #ffffff;
+}
+.agrid-content{
+    grid-area: desc;
+    padding: 40px 40px 40px 60px;
+    font-size: 22px;
+    color:rgb(43, 43, 43);
+}
+.agrid-content ul{
+    list-style-type: square;
+    color:rgb(80, 80, 80);
+}
+.agrid-content div{
+    font-size: 30px;
+    font-family: pixelfont2;
+    color:black;
+    background-color:#ffbe44;
+    padding:4px;
+    margin-bottom:8px;
+    transform:translateX(-26px);
+    display:inline-block;
+    box-shadow: 3px 3px #333;
+}
+.agrid-image{
+    grid-area: img;
+    background-image:url('img/backdrop.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #333;
+    height:100%;
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~SKillset */
 .skill-grid{
     display:grid;
     grid-template-areas:
-        'title title title title title title'
         'tools tools lang lang field field'
         'listn1 listp1 listn2 listp2 listn3 listp3';
-    grid-template-columns: 23% 9% 23% 9% 23% 9%;
-    grid-column-gap: 8px;
-    grid-row-gap: 10px;
-    margin: auto;
-    width:80%;
+    grid-template-columns: 25% 9% 25% 8% 25% 8%;
     font-size:20px;
-    padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 5px 5px 4px #cacaca;
+    background-color: #333;
+    box-shadow: 6px 6px #ffbe44;
+    margin: 20px 0;
 }
 .skill-grid div{
-    text-align: center;
-    
+    text-align: center;   
+}
+.lncommon{
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
 }
 .skill-grid li{
     padding: 4px;
@@ -252,12 +297,6 @@ body{
     margin: 0;
     padding: 2px;
     text-align:right;
-}
-.sgrid-title{
-    font-family: pixelfont2;
-    grid-area: title;
-    font-size:44px;
-    padding: 40px auto;
 }
 .sgrid-tools{grid-area: tools;}
 .sgrid-lang{grid-area: lang;}
@@ -277,38 +316,10 @@ body{
 }
 /*Proficiency colors*/
 .p1,.p2,.p3{
-    border-radius:2px;
     width:2px;
-    box-shadow: 2px 2px #333;
+    box-shadow: 3px 0px #ffbe44;
 }
-.p1{background-color: rgb(210, 54, 241);color:rgb(210, 54, 241);}
-.p2{background-color:rgb(75, 198, 255);color:rgb(75, 198, 255);}
-.p3{background-color: rgb(90, 233, 90);color: rgb(90, 233, 90);}
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~G R I D S T U F F */
-.mgrid-head { grid-area: header; }
-.mgrid-sidenav { grid-area: nav; }
-.mgrid-main { 
-    grid-area: main;
-}
-.mgrid-right { grid-area: right; }
-.mgrid-footer { grid-area: footer; }
-
-.main-grid {
-    display: grid;
-    grid-template-areas:
-        'nav header header header header right'
-        'nav main main main main right'
-        'nav main main main main right'
-        'footer footer footer footer footer footer';
-    grid-gap: 10px;
-    padding: 20px;
-    background-color: black;
-    height:1000px;
-}
-
-.main-grid div {
-    background-color: grey;
-    text-align: center;
-    padding: 20px 0;
-    font-size: 30px;
-}
+.p1{background-color: rgb(163, 255, 43);color:rgb(163, 255, 43);}
+.p2{background-color:rgb(255, 92, 28);color:rgb(255, 92, 28);}
+.p3{background-color: rgb(75, 198, 255);color:rgb(75, 198, 255);}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Other projects */

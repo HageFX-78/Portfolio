@@ -12,12 +12,20 @@ Portfolio site for future use
 -Added My skillset section
 
 ## **Log 21-Nov-2021**
--Changed some arrangement on elements
--Added My Games section(might change name)
--Minor aesthethic tweaks to navigation bar
--Scroll animation after clicking a tab in the nav bar
-&nbsp;&nbsp;-Added waypoint lib for it
-&nbsp;&nbsp;-Kinda buggy
-&nbsp;&nbsp;-Might remove and use legacy methods
--Added jquery(things might get messy)
+-Changed some arrangement on elements<br>
+-Added My Games section(might change name)<br>
+-Minor aesthethic tweaks to navigation bar<br>
+-Scroll animation after clicking a tab in the nav bar<br>
+&nbsp;&nbsp;-Added waypoint lib for it<br>
+&nbsp;&nbsp;-Kinda buggy<br>
+&nbsp;&nbsp;-Might remove and use legacy methods<br>
+-Added jquery(things might get messy)<br>
 -Added base for about me section
+
+## **Log 22-Nov-2021**
+-Somewhat fixed the issue where window.scrolltoview function triggers waypoint functions by adding a timer that disables waypoint for 5sec(might change)<br>
+-Finished About Me section<br>
+-Change the styling of skillset section<br>
+-Updated icons for external links to github, itch and linkedin<br>
+-Improved top div where my name and pfp is at<br>
+-Regret about a lot of things
