@@ -28,4 +28,3 @@ Portfolio site for future use
 -Change the styling of skillset section<br>
 -Updated icons for external links to github, itch and linkedin<br>
 -Improved top div where my name and pfp is at<br>
--Regret about a lot of things
