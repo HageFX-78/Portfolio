@@ -54,7 +54,7 @@ body{
     left: 0;
     right: 0;
     bottom: 0;
-    filter: blur(1.2px) brightness(100%);
+    filter: brightness(120%);
     z-index: -1;
 }
 .tgrid-name{
@@ -203,11 +203,13 @@ body{
 }
 .mygame-image{
     grid-area:image;
-    background-image:url('img/backdrop.jpg');
+    background-color: #333;
+    background-image:url('');
     background-repeat: no-repeat;
-    background-position: bottom;
+    background-position: center;
     background-size: 100%;
 }
+#game-insemination{background-image: url('img/insemination.png');}
 .mygame-description{
     grid-area:desc;
     align-items: center;
@@ -262,7 +264,8 @@ body{
 }
 .agrid-image{
     grid-area: img;
-    background-image:url('img/backdrop.jpg');
+    background-color: black;
+    background-image:url('');
     background-repeat: no-repeat;
     background-position: center;
     background-color: #333;
