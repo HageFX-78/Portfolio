@@ -35,6 +35,21 @@
     <div class="mygames main-sections stickyoffset">
       <div class="maintitle">My Games</div>
       <!--Game Block-->
+        <!--Modal Div-->
+        <div id="insemination-modal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="modal-close" onclick="xclose()">&times;</span>
+            <div class="modal-image"><img src="img/backdrop.jpg"/></div>
+            <div class="modal-text">
+              <span>Problem</span>
+              <p>Some Problem i guess</p>
+              <span>Solution</span>
+              <p>Kys Faggot.</p>
+            </div>
+          </div>
+        </div>
+        <!----------------------->
       <div class="mygame-block">
         <div class="mygame-title">
           <p>
@@ -47,7 +62,7 @@
         <div class="mygame-description">
           <p><span>Notable Features</span>
             <ul>
-              <li>I've tried to imitate Touhou's mechanics such as the Graze and Bullet Leveling Mechanics.</li>
+              <li>Bullet leveling mechanic up to 5 levels each allowing the player to fire bullets in varying patterns similar to Touhou!</li>
               <li>Both mechanics works fine but far from perfect, the Bullet Leveling especially, the mechanic itself works ok but the code is far from desirable to me and I wish to learn more on improving it.</li>
               <li>Three bosses were added each with 3 different stages of attack, I am quite satisfied with one of the two as it had fairly unique attack patterns.</li>
             </ul>
@@ -56,10 +71,26 @@
             <br><br><span>Available On</span><br>
             Itch.io
           </p>
+          <div class="mygame-challengesbtn" onclick="showModal('insemination-modal')">Challenges</div>
         </div>
       </div>
       <!--Game Block-->
       <!--Game Block-->
+      <!--Modal Div-->
+      <div id="pong-modal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="modal-close" onclick="xclose()">&times;</span>
+          <div class="modal-image"><img src="img/backdrop.jpg"/></div>
+          <div class="modal-text">
+            <span>Problem</span>
+            <p>Do after function</p>
+            <span>Solution</span>
+            <p>Kys Faggot.</p>
+          </div>
+        </div>
+      </div>
+      <!----------------------->
       <div class="mygame-block">
         <div class="mygame-title">
           <p>
@@ -81,6 +112,7 @@
             <br><br><span>Available On</span><br>
             Nowhere
           </p>
+          <div class="mygame-challengesbtn" onclick="showModal('pong-modal')">Challenges</div>
         </div>
       </div>
       <!--Game Block-->
@@ -208,7 +240,12 @@
     <div class="otherproject main-sections">
       <div class="maintitle">Other Projects</div>
       <div class="op-cards-block">
-        <div class="op-cards"></div>
+        <div class="op-cards">sgges</div>
+        <div class="op-cards">sgges</div>
+        <div class="op-cards">sgges</div>
+        <div class="op-cards">sgges</div>
+        <div class="op-cards">sgges</div>
+        <div class="op-cards">sgges</div>
       </div>
     </div>
     <!--next section-->
@@ -216,6 +253,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/3.0.0/noframework.waypoints.min.js" integrity="sha512-lzIDzaYCox5oeC0ymj6ho5fRdMrCYkhHfVEm3fySZStdwG85y9SxTcIFYYEUiW1KYbkfiInVFkGofRlYlkHgLw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
+      //Modal boxes stuff
+      var modal = document.getElementById("nothing");
+
+      function showModal(x){
+        modal = document.getElementById(x);
+        modal.style.display = "block";
+      }
+      function xclose(){modal.style.display = "none";}
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+      //-------------------------------------------------------
       //Scroll that triggers sticky
       window.onscroll = function() {navbarscroll();};
       //Boolean to check if user clicked on nav bar, disable if it's true

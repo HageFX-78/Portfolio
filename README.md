@@ -28,3 +28,8 @@ Portfolio site for future use
 -Change the styling of skillset section<br>
 -Updated icons for external links to github, itch and linkedin<br>
 -Improved top div where my name and pfp is at<br>
+
+## **Log 27-Nov-2021**
+-Added challenges button to each game block<br>
+-Added modals to display challenges<br>
+-Created base layout for Other projects section
