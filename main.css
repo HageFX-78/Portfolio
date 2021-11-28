@@ -421,8 +421,36 @@ body{
 }
 .op-cards{
     width:28%;
+    max-width: 28%;
     margin:2%;
-    height: 200px;
+    height: 300px;
+    max-height:300px;
     display: inline-block;
     background-color: white;
+    position: relative;
+    box-shadow: 6px 6px #ffbe44;
+}
+.op-cards:hover{box-shadow: 6px 6px #333;}
+.op-cards:hover > .op-cardcont{
+    cursor:pointer;
+    background-color: rgb(255, 190, 68);
+    color: #333;
+}
+.op-img{
+    max-width: 100%;
+    min-height: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    object-fit: cover;
+}
+.op-cardcont{
+    position:absolute;
+    bottom:0;
+    color: white;
+    padding:8px;
+    background-color:rgb(51, 51, 51, 0.8);
+}
+.op-cardcont span{
+    font-size: 24px;
+    font-family: pixelfont2;
 }

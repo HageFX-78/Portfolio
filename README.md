@@ -33,3 +33,7 @@ Portfolio site for future use
 -Added challenges button to each game block<br>
 -Added modals to display challenges<br>
 -Created base layout for Other projects section
+
+## **Log 28-Nov-2021**
+-Somewhat finished other projects section.
+-Overall Progress 70%
