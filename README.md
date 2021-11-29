@@ -37,3 +37,7 @@ Portfolio site for future use
 ## **Log 28-Nov-2021**
 -Somewhat finished other projects section.
 -Overall Progress 70%
+
+## **Log 29-Nov-2021**
+-Added rest of the sections
+-Somewhat completed descriptions of game and challenges

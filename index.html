@@ -40,12 +40,19 @@
           <!-- Modal content -->
           <div class="modal-content">
             <span class="modal-close" onclick="xclose()">&times;</span>
-            <div class="modal-image"><img src="img/backdrop.jpg"/></div>
+            <div class="modal-image"><img src="img/insemination-code.png"/></div>
             <div class="modal-text">
               <span>Problem</span>
-              <p>You</p>
+              <p>Each boss has 3 phases and they should only be activated once after a certain of damage has been dealt to it.</p>
               <span>Solution</span>
-              <p>Kys Faggot.</p>
+              <p>The solution I decided to go with is shown on the left where I have an Updating event
+                to constantly check if the current boss phase(global variable) is equal to 2 or 3.<br>
+                And within each if contains a small condition check on a local boolean variable, Phase2Ready and Phase3Ready before triggering the phases themselves.<br>
+                As for the "ReachMark1Reverse" variable, it is another boolean to ensure the boss is in the right position to execute phase 3.<br>
+                AC stands for attack chance, for the first two phases the boss will switch between the normal behavior and an attack chance behavior by swithching postions, allowing players to attack.<br>
+                The booleans are then set to false at the end to ensure it only activate once.<br>
+
+              </p>
             </div>
           </div>
         </div>
@@ -54,7 +61,7 @@
         <div class="mygame-title">
           <p>
             <span>Insemination</span><br>
-            A simple shoot'em up game where you play as a mutated sperm in someone's womb...
+            A simple shoot'em up game where you play as a mutated sperm in someone's womb inspired by Touhou Series.
           </p>
         </div>
         <div class="mygame-link">Link to Game<p id="link-icon">&nbsp;&#10148;</p></div>
@@ -62,9 +69,9 @@
         <div class="mygame-description">
           <p><span>Notable Features</span>
             <ul>
-              <li>Bullet leveling mechanic up to 5 levels each allowing the player to fire bullets in varying patterns similar to Touhou!</li>
-              <li>Both mechanics works fine but far from perfect, the Bullet Leveling especially, the mechanic itself works ok but the code is far from desirable to me and I wish to learn more on improving it.</li>
-              <li>Three bosses were added each with 3 different stages of attack, I am quite satisfied with one of the two as it had fairly unique attack patterns.</li>
+              <li>Bullet leveling mechanic up to 5 levels each allowing the player to fire bullets in varying patterns!</li>
+              <li>Sneak/Focus fire mechanic by holding down Shift</li>
+              <li>3 Phase Boss fights</li>
             </ul>
             <br><br><span>Made With</span><br>
             Stencyl
@@ -74,19 +81,21 @@
           <div class="mygame-challengesbtn" onclick="showModal('insemination-modal')">Challenges</div>
         </div>
       </div>
-      <!--Game Block-->
+      <!--Game Block END-->
       <!--Game Block-->
       <!--Modal Div-->
       <div id="pong-modal" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
           <span class="modal-close" onclick="xclose()">&times;</span>
-          <div class="modal-image"><img src="img/backdrop.jpg"/></div>
+          <div class="modal-image"><img src="img/pong-code.png"/></div>
           <div class="modal-text">
             <span>Problem</span>
-            <p>Do after function</p>
+            <p>Immunity wall deflect player ball similar to how players deflect it.</p>
             <span>Solution</span>
-            <p>Kys Faggot.</p>
+            <p>
+              I have the ball deflected based on the side it collided with the immunity wall.
+            </p>
           </div>
         </div>
       </div>
@@ -99,13 +108,15 @@
           </p>
         </div>
         <div class="mygame-link">Link to Game<p id="link-icon">&nbsp;&#10148;</p></div>
-        <div class="mygame-image"></div>
+        <div class="mygame-image" id="game-pong"></div>
         <div class="mygame-description">
-          <p><span>My Role</span>
+          <p><span>Notable Features</span>
             <ul>
-              <li>All features and programming.</li>
-              <li>Overall design of the game levels and user interface as well as user experience.</li>
-              <li>All game art assets were made in photoshop in a pixel art style.</li>
+              <li>3 types of powerups, immunity wall, speed-up and point addition.</li>
+              <li>Stage selection each with different atmosphere</li>
+              <li>Immunity wall creates a wall behind the player blocking the goal.</li>
+              <li>Speed-up doubles the speed of the player and can also be stacked.</li>
+              <li>Point addition basically adds extra point instantly.</li>
             </ul>
             <br><br><span>Made With</span><br>
             Stencyl
@@ -124,15 +135,15 @@
       <div class="aboutme-content">
         <div class="agrid-content">
           <div>Intro</div><br>
-          My name is Lim Jun Jie and is currently a student in game
+          My name is Lim Jun Jie and currently a student in game
           development from UOW KDU. 
           <br>
           I'm more of a technical person who
-          doesn't really like thinking very much but I really enjoy working on
-          most things related to programming even though it stresses me most of the time...
+          doesn't really like thinking very much but I enjoy working on
+          most things related to programming even though it's stressful at times...
           <br>
-          Kind of contradicting but the ability
-          to turn a few lines of text into entertainment is entertaining in itself.
+          Kind of contradicting but the idea of turning a few lines of 
+          text into entertainment is entertaining in itself.
           <br>
           <br><div>Experience</div><br>
           2 Months in Moondo Studios (As an intern 3d modeller in 2019):<br>
@@ -263,7 +274,19 @@
             <p>Some background assets for a 3D animation during my intern.</p>
           </div>
         </div>
+        <div class="op-cards" onclick="showModal('op-modal1')">
+          <img class="op-img" src="img/backdrop.jpg"/>
+          <div class="op-cardcont">
+            <span>Something Else</span>
+            <p>A game made in C++ maybe</p>
+          </div>
+        </div>
       </div>
+    </div>
+    <!--      Resume Section       -->
+    <span name="resume" id="resumeID"></span>
+    <div class="resume main-sections"> 
+      <div class="maintitle">Resume</div>
     </div>
     <!--next section-->
     
@@ -359,4 +382,21 @@
       })
       </script>
   </body>
+  <footer>
+    <div class='footer-title'>Contacts</div>
+    <hr id="footer-line">
+    <div class='footer-cont'>
+      <div class='footer-contacts'>
+        <span>Email:</span>
+        <p>0133532@kdu-online.com</p>
+      </div>
+      <div class='footer-contacts'>
+        <span>Phone:</span>
+        <p>012-9704195</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div id='footer-left'>Website available at <a href="https://github.com/HageFX-78" target="_blank">Github</a></div>
+    </div>
+  </footer>
 </html>
