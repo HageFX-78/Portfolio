@@ -10,7 +10,7 @@
       <div class="top-grid">
         <div class="tgrid-name">
           <div>Lim Jun Jie - JJ</div><br>
-          Game Programmer  
+          Aspiring Game Programmer  
         </div>
         <div class="tgrid-pfp">
           <img src="img/PFP.png" alt="Nightmare Fuel"/>  
@@ -21,9 +21,9 @@
       <a class="navL active" href="javascript:void(0);" id="navMyGames">My Games</a>
       <a class="navL" href="javascript:void(0)" id="navAboutMe">About Me</a>
       <a class="navL" href="javascript:void(0)" id="navSkillSet">Skillset</a>
-      <a class="navL" href="javascript:void(0)" id="navOtherProject">Other Projects</a>
-      <a class="navL" href="javascript:void(0)">Resume</a>
-      <a class="navL" href="javascript:void(0)">Contacts</a>
+      <a class="navL" href="javascript:void(0)" id="navOtherProject">Personal Projects</a>
+      <a class="navL" href="javascript:void(0)" id="navResume">Resume</a>
+      <a class="navL" href="javascript:void(0)" id="navContacts">Contacts</a>
       <a class="navR" id="linkedinICON" href="https://www.linkedin.com/in/lim-jun-jie-000881224/" target="_blank"></a>
       <a class="navR" id="githubICON" href="https://github.com/HageFX-78" target="_blank"></a>
       <a class="navR" id="itchioICON" href="https://itch.io/" target="_blank"></a>
@@ -46,10 +46,10 @@
               <p>Each boss has 3 phases and they should only be activated once after a certain of damage has been dealt to it.</p>
               <span>Solution</span>
               <p>The solution I decided to go with is shown on the left where I have an Updating event
-                to constantly check if the current boss phase(global variable) is equal to 2 or 3.<br>
-                And within each if contains a small condition check on a local boolean variable, Phase2Ready and Phase3Ready before triggering the phases themselves.<br>
-                As for the "ReachMark1Reverse" variable, it is another boolean to ensure the boss is in the right position to execute phase 3.<br>
-                AC stands for attack chance, for the first two phases the boss will switch between the normal behavior and an attack chance behavior by swithching postions, allowing players to attack.<br>
+                to constantly check if the current boss phase(global variable) is equal to 2 or 3.<br><br>
+                And within each if contains a small condition check on a local boolean variable, Phase2Ready and Phase3Ready before triggering the phases themselves.<br><br>
+                As for the "ReachMark1Reverse" variable, it is another boolean to ensure the boss is in the right position to execute phase 3.<br><br>
+                AC stands for attack chance, for the first two phases the boss will switch between the normal behavior and an attack chance behavior by swithching postions, allowing players to attack.<br><br>
                 The booleans are then set to false at the end to ensure it only activate once.<br>
 
               </p>
@@ -249,7 +249,7 @@
     <!--      Other Project section      -->
     <span name="otherproject" id="otherprojectID"></span>
     <div class="otherproject main-sections">
-      <div class="maintitle">Other Projects</div>
+      <div class="maintitle">Personal Projects</div>
       <!--All cards-->
       <div class="op-cards-block">
         <div class="op-cards" onclick="showModal('op-modal1')">
@@ -258,27 +258,25 @@
             <!-- Modal content -->
             <div class="modal-content">
               <span class="modal-close" onclick="xclose();">&times;</span>
-              <div class="modal-image"><img src="img/backdrop.jpg"/></div>
+              <div class="modal-image"><img src=""/></div>
               <div class="modal-text">
-                <span>SOmething</span>
-                <p>You</p>
-                <span>Solution</span>
-                <p>Kys Faggot.</p>
+                <span>Placeholder</span>
+                <p>Some Description</p>
               </div>
             </div>
           </div>
           <!----------------------->
-          <img class="op-img" src="img/backdrop.jpg"/>
+          <img class="op-img" src=""/>
           <div class="op-cardcont">
-            <span>Blender Models</span>
-            <p>Some background assets for a 3D animation during my intern.</p>
+            <span>OTMS Website</span>
+            <p>Final software development project with a team of 4 in diploma.</p>
           </div>
         </div>
-        <div class="op-cards" onclick="showModal('op-modal1')">
-          <img class="op-img" src="img/backdrop.jpg"/>
+        <div class="op-cards" onclick="">
+          <img class="op-img" src=""/>
           <div class="op-cardcont">
-            <span>Something Else</span>
-            <p>A game made in C++ maybe</p>
+            <span>Web-based Game</span>
+            <p>Description</p>
           </div>
         </div>
       </div>
@@ -325,6 +323,9 @@
           if(this.getAttribute("id")=="navMyGames"){currentsec=document.getElementById("mygamesID");}
           else if(this.getAttribute("id")=="navAboutMe"){currentsec=document.getElementById("aboutmeID");}
           else if(this.getAttribute("id")=="navSkillSet"){currentsec=document.getElementById("skillsetID");}
+          else if(this.getAttribute("id")=="navOtherProject"){currentsec=document.getElementById("otherprojectID");}
+          else if(this.getAttribute("id")=="navResume"){currentsec=document.getElementById("resumeID");}
+          else if(this.getAttribute("id")=="navContacts"){currentsec=document.getElementById("contactsID");}
 
           //Scroll event
           currentsec.scrollIntoView({
@@ -380,9 +381,40 @@
         },
         offset: 100
       })
+      var wppersonalp1 = new Waypoint({
+        element: document.getElementById('otherprojectID'),
+        handler: function() {
+          if(AllowSwitchActive == true){
+            $('.navL').removeClass("active");
+            $('#navOtherProject').addClass("active");
+          }   
+        },
+        offset: 10
+      })
+      var wpresume1 = new Waypoint({
+        element: document.getElementById('resumeID'),
+        handler: function() {
+          if(AllowSwitchActive == true){
+            $('.navL').removeClass("active");
+            $('#navResume').addClass("active");
+          }   
+        },
+        offset: 100
+      })
+      var wpcontacts1 = new Waypoint({
+        element: document.getElementById('contactsID'),
+        handler: function() {
+          if(AllowSwitchActive == true){
+            $('.navL').removeClass("active");
+            $('#navContacts').addClass("active");
+          }   
+        },
+        offset: 100
+      })
       </script>
   </body>
   <footer>
+    <span name="contacts" id="contactsID"></span>
     <div class='footer-title'>Contacts</div>
     <hr id="footer-line">
     <div class='footer-cont'>
