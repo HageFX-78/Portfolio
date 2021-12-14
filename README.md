@@ -41,3 +41,8 @@ Portfolio site for future use
 ## **Log 29-Nov-2021**
 -Added rest of the sections
 -Somewhat completed descriptions of game and challenges
+
+## **Log 14-Dec-2011**
+-Changed challenge button to more details linking to a seperate page for each game.
+-Added latest game:Waddle Quest, and implemented game page to a certain degree.
+-Overall Progress 74%

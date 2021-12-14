@@ -1,0 +1,102 @@
+@font-face{
+    /*Disposable droid font*/
+    font-family: pixelfont;
+    src: url(fonts/db.ttf);   
+}
+@font-face{
+    /*Disposable droid bold font*/
+    font-family: pixelfont2;
+    src: url(fonts/dbB.ttf);   
+}
+@font-face{
+    /*Karmatic arcade font*/
+    font-family: arcade;
+    src: url(fonts/ka1.ttf);
+}
+html{
+    font-family: pixelfont;
+}
+body{
+    margin: 0;
+    background-color: #f1f1f1;
+}
+.head-cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+    width:auto;
+    color: black;
+    padding: 14px;
+    height:24%;
+    box-shadow: 0px 6px #ffb638;
+}
+.backdrop-img{
+    position: absolute;
+    background-image:url('img/backdrop2.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 100%;
+    background-color:#333;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    filter: brightness(120%);
+    z-index: -1;
+}
+.top-title{
+    display:inline-block;
+    margin: 70px auto;
+    width: auto;
+    font-size: 36px;
+    font-family: pixelfont2;
+    padding: 10px 24px;
+    color: black;
+    text-align: center;
+    background-color: #ffb638;
+    box-shadow: 6px 6px #333;
+}
+.content-cont{
+    margin: 30px 10%;
+}
+.content-block{
+    background-color:white;
+    display: flex;
+    align-items:center;
+    margin: 24px 0;
+    box-shadow: 6px 6px #ffb638;
+}
+.content-image{
+    width:30%;
+}
+.block-description{
+    max-width: 60%;
+    display:inline-block;
+    top:0;
+    margin: 0 5%;
+}
+.block-description h3{
+    font-size: 26px;
+    font-family: pixelfont2;
+    background-color: #ffb638;
+    box-shadow: 3px 3px #333;
+    padding: 8px;
+    letter-spacing: 2px;
+    display:inline-block;
+}
+.block-description p {
+    font-size: 22px;
+    margin:0;
+}
+.block-description ul{
+    font-size: 20px;
+}
+/** Secondary titles within the description**/
+.sub-title{
+    font-family:pixelfont2;
+    font-size:22px;
+    letter-spacing: 2px;
+    margin: 0;
+}
