@@ -18,7 +18,7 @@ html{
 }
 body{
     margin: 0;
-    background-color: #f1f1f1;
+    background-color: #333;
 }
 .head-cont{
     display: flex;
@@ -58,24 +58,51 @@ body{
     background-color: #ffb638;
     box-shadow: 6px 6px #333;
 }
+.return-btn, .link-game{
+    position:absolute;
+    background-color:#ffb638;
+    padding: 12px;
+    font-family: pixelfont2;
+    font-size: 28px;
+    box-shadow: 0 6px #333;
+}
+.return-btn:hover, .link-game:hover{
+    background-color: #333;
+    color:#ffb638;
+    transition: 0.4s ease;
+    transform: translate(0, 6px);
+    box-shadow: 0 -6px #ffb638;
+    cursor: pointer;
+}
+.return-btn{
+    left:0;
+}
+.link-game{
+    right:0;
+}
 .content-cont{
     margin: 30px 10%;
 }
 .content-block{
-    background-color:white;
+    
     display: flex;
     align-items:center;
     margin: 24px 0;
-    box-shadow: 6px 6px #ffb638;
+    
 }
 .content-image{
     width:30%;
+    margin: 5% 2%;
+    box-shadow: 6px 6px #ffb638;
 }
 .block-description{
     max-width: 60%;
     display:inline-block;
     top:0;
-    margin: 0 5%;
+    margin: 5% 2%;
+    padding: 6px 20px;
+    background-color:white;
+    box-shadow: 6px 6px #ffb638;
 }
 .block-description h3{
     font-size: 26px;
@@ -90,7 +117,7 @@ body{
     font-size: 22px;
     margin:0;
 }
-.block-description ul{
+.block-description ul, .block-description ol{
     font-size: 20px;
 }
 /** Secondary titles within the description**/
@@ -100,3 +127,17 @@ body{
     letter-spacing: 2px;
     margin: 0;
 }
+footer{
+    background-color: #333;
+    height: 100px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    position:relative;
+    border-top: solid 6px #ffbe44;
+    align-items: center;
+    justify-content: center;
+    display:flex;
+}
+#footer-left a{
+    text-decoration: none;
+    color: #ffbe44;

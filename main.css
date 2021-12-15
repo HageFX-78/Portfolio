@@ -130,16 +130,21 @@ body{
     filter: brightness(120%);
     z-index: -1;
 }
-.tgrid-name{
-    grid-area:name;
+.tgrid-name, .tgrid-number, .tgrid-email{
     font-size:20px;
     font-family:pixelfont2;
 }
+.tgrid-name{grid-area:name;}
 .tgrid-name div{
     display: block;
     font-size:24px;
     font-family:arcade;
     transform:translateY(10px);
+}
+.tgrid-number{grid-area:number;color:rgb(75, 75, 75);}
+.tgrid-email{grid-area:email;color:rgb(75, 75, 75);}
+.top-grid span{
+    font-size: 24px;
 }
 .tgrid-pfp{grid-area:pfp;}
 .tgrid-pfp img{
@@ -158,7 +163,8 @@ body{
     max-width: 500px;
     width: auto;
     grid-template-areas:
-        'name pfp';
+        'name name pfp'
+        'number email pfp';
     grid-gap: 0;
     background-color: #ffb638;;
     padding: 10px;
@@ -322,6 +328,7 @@ body{
     transform: translate(3px, 3px);
     color: white;
 }
+#game-waddle{background-image: url('img/waddle_quest/title-screen.png');}
 #game-insemination{background-image: url('img/insemination.png');}
 #game-pong{background-image: url('img/pong.png');}
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~About Me */
@@ -463,50 +470,17 @@ body{
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~FOOTER */
 footer{
     background-color: #333;
-    height: 150px;
-    padding: 24px 0;
+    height: 100px;
     color: white;
     font-size: 18px;
     letter-spacing: 2px;
     position:relative;
     border-top: solid 6px #ffbe44;
+    align-items: center;
+    justify-content: center;
+    display:flex;
 }
-.footer-title{
-    text-align: center;
-    font-size: 34px;
-    font-family: pixelfont2;
-}
-.footer-cont{
-    width:100%;
-}
-.footer-contacts{
-    width:49%;
-    text-align: center;
-    display:inline-block;
-}
-.footer-contacts p{
-    margin: 4px 0;
-}
-.footer-bottom{
-    position:absolute;
-    bottom:0;
-    margin:20px;
-}
-#footer-left > a{
-    text-decoration: underline;
+#footer-left a{
+    text-decoration: none;
     color: #ffbe44;
-}
-#footer-left > a:hover{
-    color:#ffe1aa;
-}
-#footer-left{
-    display:inline-block;
-}
-#footer-line{
-    height:2px;
-    width:90%;
-    color:#ffbe44;
-    background-color:#ffbe44;
-    border-width:0;
-    margin: 10px 0;
 }

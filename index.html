@@ -12,6 +12,8 @@
           <div>Lim Jun Jie - JJ</div><br>
           Aspiring Game Programmer  
         </div>
+        <div class="tgrid-number">012-9704195</div>
+        <div class="tgrid-email">0133352@kdu-online.com</div>
         <div class="tgrid-pfp">
           <img src="img/PFP.png" alt="Nightmare Fuel"/>  
         </div>
@@ -23,7 +25,6 @@
       <a class="navL" href="javascript:void(0)" id="navSkillSet">Skillset</a>
       <a class="navL" href="javascript:void(0)" id="navOtherProject">Personal Projects</a>
       <a class="navL" href="javascript:void(0)" id="navResume">Resume</a>
-      <a class="navL" href="javascript:void(0)" id="navContacts">Contacts</a>
       <a class="navR" id="linkedinICON" href="https://www.linkedin.com/in/lim-jun-jie-000881224/" target="_blank"></a>
       <a class="navR" id="githubICON" href="https://github.com/HageFX-78" target="_blank"></a>
       <a class="navR" id="itchioICON" href="https://itch.io/" target="_blank"></a>
@@ -61,28 +62,6 @@
       </div>
       <!--Game Block END-->
       <!--Game Block-->
-        <!--Modal Div-->
-        <div id="insemination-modal" class="modal">
-          <!-- Modal content -->
-          <div class="modal-content">
-            <span class="modal-close" onclick="xclose()">&times;</span>
-            <div class="modal-image"><img src="img/insemination-code.png"/></div>
-            <div class="modal-text">
-              <span>Problem</span>
-              <p>Each boss has 3 phases and they should only be activated once after a certain of damage has been dealt to it.</p>
-              <span>Solution</span>
-              <p>The solution I decided to go with is shown on the left where I have an Updating event
-                to constantly check if the current boss phase(global variable) is equal to 2 or 3.<br><br>
-                And within each if contains a small condition check on a local boolean variable, Phase2Ready and Phase3Ready before triggering the phases themselves.<br><br>
-                As for the "ReachMark1Reverse" variable, it is another boolean to ensure the boss is in the right position to execute phase 3.<br><br>
-                AC stands for attack chance, for the first two phases the boss will switch between the normal behavior and an attack chance behavior by swithching postions, allowing players to attack.<br><br>
-                The booleans are then set to false at the end to ensure it only activate once.<br>
-
-              </p>
-            </div>
-          </div>
-        </div>
-        <!----------------------->
       <div class="mygame-block">
         <div class="mygame-title">
           <p>
@@ -104,7 +83,7 @@
             <br><br><span>Available On</span><br>
             Itch.io
           </p>
-          <div class="mygame-challengesbtn" onclick="showModal('insemination-modal')">Challenges</div>
+          <div class="mygame-challengesbtn" onclick="window.location.href ='insemination.html';">Details</div>
         </div>
       </div>
       <!--Game Block END-->
@@ -440,19 +419,6 @@
       </script>
   </body>
   <footer>
-    <span name="contacts" id="contactsID"></span>
-    <div class='footer-title'>Contacts</div>
-    <hr id="footer-line">
-    <div class='footer-cont'>
-      <div class='footer-contacts'>
-        <span>Email:</span>
-        <p>0133532@kdu-online.com</p>
-      </div>
-      <div class='footer-contacts'>
-        <span>Phone:</span>
-        <p>012-9704195</p>
-      </div>
-    </div>
     <div class="footer-bottom">
       <div id='footer-left'>Website available at <a href="https://github.com/HageFX-78" target="_blank">Github</a></div>
     </div>

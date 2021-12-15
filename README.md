@@ -35,14 +35,19 @@ Portfolio site for future use
 -Created base layout for Other projects section
 
 ## **Log 28-Nov-2021**
--Somewhat finished other projects section.
+-Somewhat finished other projects section.<br>
 -Overall Progress 70%
 
 ## **Log 29-Nov-2021**
--Added rest of the sections
+-Added rest of the sections<br>
 -Somewhat completed descriptions of game and challenges
 
 ## **Log 14-Dec-2011**
--Changed challenge button to more details linking to a seperate page for each game.
--Added latest game:Waddle Quest, and implemented game page to a certain degree.
+-Changed challenge button to more details linking to a seperate page for each game.<br>
+-Added latest game:Waddle Quest, and implemented game page to a certain degree.<br>
 -Overall Progress 74%
+
+## **Log 15-Dec-2011**
+-Finished Waddle Queast page.<br>
+-Currently finishing Insemination page.<br>
+-Remove contacts from footer and added to the top of the page.
