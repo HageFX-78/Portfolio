@@ -51,3 +51,7 @@ Portfolio site for future use
 -Finished Waddle Queast page.<br>
 -Currently finishing Insemination page.<br>
 -Remove contacts from footer and added to the top of the page.
+
+## **Log 16-Dec-2011**
+-Added all necesarry content(Hopefully)
+-Added links to games in itch.io

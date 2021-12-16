@@ -8,14 +8,14 @@
     <div class="head-cont">
         <div class="backdrop-img"></div>
         <div class="return-btn" onclick="window.location.href ='index.html';">Return to Homepage</div>
-        <div class="link-game">Link to Game</div>
+        <div class="link-game" onclick="window.open('https://hagefx78.itch.io/insemination', '_blank')">Link to Game</div>
         <div class="top-title">
           Insemination
         </div>
     </div>
     <div class="content-cont">
         <div class="content-block">
-            <img class="content-image" src="img/backdrop.jpg"/>
+            <img class="content-image" src="img/insemination/title-screen.png"/>
             <div  class="block-description">
                 <h3>Description</h3>
                 <p>A shoot'em up game heavily inspired by Touhou series but you play as a mutated sperm trying to get to the end-goal of all sperms... the ovum.
@@ -34,88 +34,48 @@
                 </ul>
                 <P class="sub-title">Sneak/Focus Fire</P>
                 <ul>
-                    <li>A simple mechanic that allows the player to glide  while mid-air.</li>
-                    <li>Lowers fall speed to around half the original value.</li>
-                    <li>Player however cannot perform sliding in this state.</li>
-                </ul>
-                <P class="sub-title">Slapping</P>
-                <ul>
-                    <li>A basic melee attack that could kill any enemy with a slap!</li>
-                    <li>Has a fairly short range but can be performed in any state other than sliding.</li>
-                    <li>Has a small cooldown of 0.5 seconds to prevent spamming.</li>
+                    <li>A mechanic inspired from a similar mechanic in Touhou.</li>
+                    <li>By holding down shift, player can half their movement speed as well as focus all bullets upwards.</li>
+                    <li>Only applicable at bullet level 2.</li>
                 </ul>
             </div>
-            <img class="content-image" src="img/backdrop.jpg"/>
+            <img class="content-image" src="img/insemination/stage1.png"/>
         </div>
         <div class="content-block">
-            <img class="content-image" src="img/waddle_quest/sliding-code.png"/>
+            <img class="content-image" src="img/insemination/bullet-level.png"/>
             <div  class="block-description">
-                <h3>Implementation: Sliding</h3>
+                <h3>Implementation: Bullet Leveling</h3>
                 <ol>
                     <li>
-                        Before implementation begins, I first set a few essential conditions for the behavior which are:
+                        I first identify the general rules of the mechanic:
                         <ul>
-                            <li>Sliding cannot be performed when Jumping(Airborne).</li>
-                            <li>Slapping cannot occur while Sliding.</li>
-                            <li>Sliding can only trigger when player speed is larger or smaller than 0.</li>
-                            <li>Player will not return from Sliding state while the player is stuck within a half block (A type of obstacle for to slide across.)</li>
+                            <li>Maximum level for bullet upgrade is 5</li>
+                            <li>Require 10 "Pills" to upgrade one bullet level.</li>
+                            <li>Player gain "Pills" by colliding with one.</li>
+                            <li></li>
                         </ul>
                     </li>
-                    <li>Next I implement the conditions as shown in the image:
+                    <li>Next I implement the conditions:
                         <ul>
-                            <li>In line 1, If not "Jumping", run the code.</li>
-                            <li>The disable slapping condition is done similarly in slapping event. If not "Sliding", run the code.</li>
-                            <li>In line 2, the code will only execute if the "Ctrl" button is held down, AND x-speed of self (Player) is any value other than 0.</li>
-                            <li>In line 11, the lower section where If not "Slide_lock" can be seen, lock slide is a boolean that is set to true whenever the player collides with aforementioned half-blocks.</li>
+                            <li>This is done by calculating if the total pills acquired goes over 50, then set it to 50 contantly.</li>
+                            <li>Every 10 pills acquired, bullet level will be added 1 to it.</li>
+                            <li>Basically when player collides with a "Pill" actor, the pill acquired variable will be incremented.</li>
                         </ul>
                     </li>
-                    <li>After that I set a global boolean known as Sliding to true in line 3.</li>
-                    <li>Next is to check if the player is facing left or right with another global boolean known as Facing_Right in line 4.</li>
-                    <li>Based on the direction facing, I then set x-speed to a predetermined slide speed as well as switching them to their respective animations, negating the speed if it's the opposite.</li>    
+                    <li>Then one by one I set the bullet counts for each type of bullets based on the bullet level manually as they are pre-set.</li>
+                    <li>The custom event shown in the image will trigger everytime player collides with a "Pill", checking the amounts of pill acquired and setting their respective levels.</li>    
                 </ol>
             </div>
         </div>
         <div class="content-block">
             <div class="block-description">
-                <h3>Implementation: Gliding</h3>
+                <h3>Implementation: Sneak/Focus Fire</h3>
                 <ol>
-                    <li>Similar to the implementation of sliding, I first identify the conditions:
-                        <ul>
-                            <li>Gliding can only be performed while player is in mid-air.</li>
-                            <li>Player can switch glide directions.</li>
-                        </ul>
-                    </li>
-                    <li>Then comes the implementation of conditions:
-                        <ul>
-                            <li>In line 1, the boolean known as Glide_Allow can be seen, it is set to true if the player's center Y position deviates from the recorded Y center position when player is on the ground.</li>
-                            <li>This is done by adding an additional If statement within walk event, where it checks if the player is "Gliding" or not and disables the normal walking code.</li>
-                        </ul>
-                    </li>
-                    <li>The reducing of the fall speed itself is simple, just set the fall speed to a new fall speed that is half of the normal fall speed.</li>    
+                    <li>A very simple mechanic where if the Shift button is held down, set movement speed to half of itself, if released, set it to original movement speed (stored in a seperate variable).</li>
+                    <li>By holding down Shift, a global variable known as "Sneak" state is set to true, false if released, this helps governs the angle bullets fire, hence creating a focus fire effect, this can referenced from the image beside.</li>    
                 </ol>
             </div>
-            <img class="content-image" src="img/waddle_quest/gliding-code.png"/>
-        </div>
-        <div class="content-block">
-            <img class="content-image" src="img/waddle_quest/slapping-code.png"/>
-            <div  class="block-description">
-                <h3>Implementation: Slapping</h3>
-                <ol>
-                    <li>Conditions for slapping:
-                        <ul>
-                            <li>Cannot be performed while Sliding.</li>
-                            <li>Has a cooldown of 0.5 seconds.</li>
-                        </ul>
-                    </li>
-                    <li>The implementation of the conditions:
-                        <ul>
-                            <li>In line 1, the Sliding global boolean is checked to ensure that the player is not Sliding before executing anything.</li>
-                            <li>In line 2, a local boolean known as Attack_Ready is checked before running the code, it is set to be true by default and once the code within is executed, it is set to false, before resetting it to True again after 0.5 seconds, the aforementioned cooldown.</li>
-                        </ul>
-                    </li>
-                    <li>The slapping action is itself is also very simple, I just create a seperate actor that is rectangular hitbox right beside the player based on the direction it is facing.</li>
-                </ol>
-            </div>
+            <img class="content-image" src="img/insemination/sneak.png"/>
         </div>
     </div>
   </body>

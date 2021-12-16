@@ -329,7 +329,7 @@ body{
     color: white;
 }
 #game-waddle{background-image: url('img/waddle_quest/title-screen.png');}
-#game-insemination{background-image: url('img/insemination.png');}
+#game-insemination{background-image: url('img/insemination/title-screen.png');}
 #game-pong{background-image: url('img/pong.png');}
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~About Me */
 .aboutme-content{
@@ -366,12 +366,11 @@ body{
 }
 .agrid-image{
     grid-area: img;
-    background-color: black;
-    background-image:url('');
+    background-image:url('img/self.png');
     background-repeat: no-repeat;
     background-position: center;
     background-color: #333;
-    height:100%;
+    background-size: 140%;
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~SKillset */
 .skill-grid{
@@ -445,8 +444,12 @@ body{
 .op-cards:hover{box-shadow: 6px 6px #333;}
 .op-cards:hover > .op-cardcont{
     cursor:pointer;
+    transition: 0.3s ease;
     background-color: rgb(255, 190, 68);
     color: #333;
+}
+.op-cards-block:hover{
+    cursor:pointer;
 }
 .op-img{
     max-width: 100%;
