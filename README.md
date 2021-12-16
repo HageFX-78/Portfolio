@@ -1,5 +1,7 @@
 # Portfolio
-Portfolio site for future use
+Portfolio site for future use, made for assignment currently!<br>
+Direct link to website:<br>
+https://hagefx-78.github.io/Portfolio/
 
 ## **Log 16-Nov-2021**
 -Added font and played around with grids
