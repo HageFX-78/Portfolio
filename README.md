@@ -1,5 +1,8 @@
 # Portfolio
 Portfolio site for future use, made for assignment currently!<br>
+
+Reminder to self: It's time to update this dirty swamp soon
+
 Direct link to website:<br>
 https://hagefx-78.github.io/Portfolio/
 
