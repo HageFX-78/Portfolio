@@ -2,12 +2,13 @@
 Portfolio site for future use, made for assignment currently!<br>
 
 - [x] Procrastinate for a while
-- [] Remake portfolio site
+- [ ] Redesign portfolio site
+- [ ] Remake the actual site
 
 Direct link to website: [Here] (https://hagefx-78.github.io/Portfolio/)<br>
 
 
-# Changes Log
+# Changes Log (Will move to a seperate file in due time)
 ## **Log 16-Nov-2021**
 -Added font and played around with grids
 
