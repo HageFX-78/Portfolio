@@ -366,7 +366,7 @@ body{
 }
 .agrid-image{
     grid-area: img;
-    background-image:url('img/pfp.jpg');
+    background-image:url('img/self.png');
     background-repeat: no-repeat;
     background-position: center;
     background-color: #333;
