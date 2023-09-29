@@ -107,6 +107,24 @@ body{
     transition: 0.2 ease;
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~T o p S T U F F */
+.sticky-general
+{
+    position: fixed;
+    bottom: 5%;
+    right: 2%;
+    background-color: ffbe44;
+    box-shadow: 3px 3px #333;
+    padding: 14px;
+    font-size: 16px;
+    z-index: 99;
+    width: auto;
+    height: auto;
+}
+.sticky-general a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
 .head-cont{
     display: block;
     position: relative; 
@@ -201,11 +219,11 @@ body{
     transform:translateY(10px);
 }
 .navR:hover{
-    filter:brightness(125%);
+    filter:brightness(145%);
 }
 #itchioICON{background-image:url('https://static.itch.io/images/itchio-textless-white.svg');}
 #githubICON{background-image:url('https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png');}
-#linkedinICON{background-image:url('https://www.iconsdb.com/icons/preview/white/linkedin-2-xxl.png');}
+#linkedinICON{background-image:url('img/linkedin.png');}
 .navL:hover{
     background-color: #ddd;
     color: black;
@@ -243,7 +261,7 @@ body{
     box-shadow: 6px 6px #ffb638;
     margin: 20px 0;
     height:auto;
-    max-height:600px;
+    max-height:500px;
 }
 .mygame-block div{
     padding: 0 30px;
@@ -331,6 +349,8 @@ body{
 #game-waddle{background-image: url('img/waddle_quest/title-screen.png');}
 #game-insemination{background-image: url('img/insemination/title-screen.png');}
 #game-pong{background-image: url('img/pong.png');}
+#game-2hublack{background-image: url('img/2hu/2hu.png');}
+#game-midnightSnacks{background-image: url('img/midnight/ms.png');}
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~About Me */
 .aboutme-content{
     margin: 20px 0;
