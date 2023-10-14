@@ -94,6 +94,7 @@ pre {
 .terminalText {
     display: flex;
     align-items: center;
+    padding: 1px 0px;
 }
 .terminalText > span{
     -webkit-touch-callout: none;

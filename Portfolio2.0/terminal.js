@@ -1,3 +1,43 @@
+const commandList = {
+    'help': {
+        execute: showHelp,
+        description: "Show all commands",
+        usage: "help"
+    },
+    'clr': {
+        execute: clearTerminal,
+        description: "Clears the terminal",
+        usage: "clr"
+    },
+    'cowsay': {
+        execute: cowsay,
+        description: "Moo",
+        usage: "cowsay"
+    },
+    'color': {
+        execute: setBackgroundColor,
+        description: "Sets the background color",
+        usage: "color [color]",
+        args: 1
+    },
+    'echo': {
+        execute: echo,
+        description: "Prints any following text",
+        usage: "echo [args]"
+    },
+    'man':{
+        execute: man,
+        description: "Shows the manual for a command",
+        usage: "man [cmd]"
+    }
+    
+};
+
+
+function AppendTerminalText(strVal) {
+    var appendElement = "<div class='terminalText historyText'><pre>" + strVal + "</pre></div>";
+    $("#textInputLine").after(appendElement);
+}
 
 $(document).ready(function() {
     let isDragging = false;
@@ -41,32 +81,21 @@ $(document).ready(function() {
             $("#textInputLine").after(appendElement);
             $(this).val("");
 
-            if(inputValue == "help") {
-                AppendTerminalText("help - shows other commands");
-            }
-            else if(inputValue == "clr"){
-                $(".historyText").remove();
-            }
-            else if(inputValue== "cowsay")
-            {
-                AppendTerminalText("  _________________");
-                AppendTerminalText(" < Fuck you, moo! >");
-                AppendTerminalText("  -----------------");
-                AppendTerminalText("         \\   ^__^");
-                AppendTerminalText("          \\  (oo)\\_______");
-                AppendTerminalText("             (__)\\       )\\/\\");
-                AppendTerminalText("                 ||----w |");
-                AppendTerminalText("                 ||     ||");
-            }
-            else
-            {
+            const inputParts = inputValue.split(/\s+/); // Split input by spaces
+            const commandName = inputParts[0]; // First part is the command
+            const optionalArgs = inputParts.slice(1); // Rest are optional arguments
+
+            const commandInfo = commandList[commandName];
+            if (commandInfo) {
+                if(optionalArgs.length > 0)
+                    commandInfo.execute(optionalArgs);
+                else
+                    commandInfo.execute();
+            } else {
                 AppendTerminalText("No such command found. Type 'help' for more information.");
             }
         }
     });
 
-    function AppendTerminalText(strVal) {
-        var appendElement = "<div class='terminalText historyText'><pre>" + strVal + "</pre></div>";
-        $("#textInputLine").after(appendElement);
-    }
+    
 });
