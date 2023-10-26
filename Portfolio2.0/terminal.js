@@ -39,6 +39,22 @@ function AppendTerminalText(strVal) {
     $("#textInputLine").after(appendElement);
 }
 
+
+let animationSpeed = 600;
+
+function ToggleTerminal() {
+    if($(".terminal").height() == 0){
+        $(".terminal").height('60%');
+        $(".terminal").width('60%');
+        $("#draggableTerminal").animate({ top: "20%", left: "20%" }, animationSpeed)
+    }
+    else{
+        $(".terminal").height(0);
+        $(".terminal").width(0);
+        $("#draggableTerminal").animate({ top: '200%', left: '200%' }, animationSpeed)
+    }
+}
+
 $(document).ready(function() {
     let isDragging = false;
     let offsetX, offsetY;
@@ -68,22 +84,25 @@ $(document).ready(function() {
         }
     });
     $("#minimizeButton").on("click", function() {
-        $("#draggableTerminal").hide(); // Hide the terminal when the minimize button is clicked
+        ToggleTerminal();
     });
 
+    $("#terminal-toggle").on("click", function() {
+        ToggleTerminal();
+    });
 
     // Temp Command enter event listener
-    $(".inputBox").on("keypress", function(event) {
+    $(".inputBox").keypress(function (event) {
         if (event.key === "Enter") {
             //Cmd insert
             var inputValue = $(this).val();
-            var appendElement = "<div class='terminalText historyText'><span class='gtext'>guest</span><span class='gPort'>@portfolio</span><span class='gCash'>$</span>" + inputValue + "</div>";
+            var appendElement = "<div class='terminalText historyText'><span class='gtext'>guest</span><span class='gPort'>@portfolio</span><span class='gCash'>$</span><pre>" + inputValue + "</pre></div>";
             $("#textInputLine").after(appendElement);
             $(this).val("");
 
-            const inputParts = inputValue.split(/\s+/); // Split input by spaces
-            const commandName = inputParts[0]; // First part is the command
-            const optionalArgs = inputParts.slice(1); // Rest are optional arguments
+            const inputParts = inputValue.split(/\s+/);
+            const commandName = inputParts[0];
+            const optionalArgs = inputParts.slice(1); // Optional args to be processed by each cmd function
 
             const commandInfo = commandList[commandName];
             if (commandInfo) {
@@ -97,5 +116,15 @@ $(document).ready(function() {
         }
     });
 
-    
+    //Key press terminal toggle
+    $(document).keypress(function (event) {
+ 
+        if(!event.key === "Space")
+            return;
+
+        if(!$(".inputBox").is(":focus")) {
+            $("#terminal-toggle").trigger("click");
+        }
+            
+    });
 });

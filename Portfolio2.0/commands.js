@@ -21,15 +21,20 @@ function clearTerminal()
 }
 function cowsay()
 {
-    AppendTerminalText("  _________________");
-    AppendTerminalText(" < Fuck you, moo! >");
-    AppendTerminalText("  -----------------");
-    AppendTerminalText("         \\   ^__^");
-    AppendTerminalText("          \\  (oo)\\_______");
-    AppendTerminalText("             (__)\\       )\\/\\");
-    AppendTerminalText("                 ||----w |");
-    AppendTerminalText("                 ||     ||");
+    AppendTerminalText(" _______________________");
+    AppendTerminalText("< Moo, I'm a cow. FR. >");
+    AppendTerminalText(" -----------------------");
+    AppendTerminalText("  &bsol;&bsol;");
+    AppendTerminalText("   &bsol;&bsol;");
+    AppendTerminalText("           . - - .");
+    AppendTerminalText("          |o_o |");
+    AppendTerminalText("          |:_/   |");
+    AppendTerminalText("     //     &bsol;&bsol; &bsol;&bsol;");
+    AppendTerminalText("    (|                 | )");
+    AppendTerminalText("   /'&bsol;&bsol;_     _/`&bsol;&bsol;");
+    AppendTerminalText("   &bsol;&bsol;___)=(___/");
 }
+
 function setBackgroundColor(color = '#000000')
 {
     $('body').css("background-color", color);
