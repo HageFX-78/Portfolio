@@ -1,0 +1,111 @@
+#portfolio-body{
+    
+    height: 80%;
+    width: 80%;
+    max-width: 80%;
+    display: grid;
+    grid-template-rows: 40px auto; /* First row smaller, rest auto */
+    grid-template-columns: auto auto auto auto;
+    grid-template-areas:
+        'ext ext tabs tabs'
+        'tabC tabC tabC tabC';
+}
+.portfolio-externals{
+    grid-area: ext;
+}
+.portfolio-tabs {
+    justify-content: flex-end; 
+    display: flex;
+    grid-area: tabs;
+    padding-right: 25px;
+}
+
+.portfolio-tab {
+    padding: 10px 15px;
+
+    background-color: #ffbf3e;
+    border-top: 5px solid #ffdd66; 
+    border-left: 5px solid #ffdd66;
+    border-right: 5px solid #a97305;
+    cursor: pointer;
+    
+    /* clip-path: polygon(0 100%, 100% 100%, 95% 0, 5% 0); file like shape but border wont change so gave up*/
+    transition: background-color 0.2s, transform 0.2s;
+}
+.portfolio-tab:hover {
+    background-color: #ffdd66;
+    transform: translateY(-2px) scale(1.05);
+}
+.portfolio-tab.active {
+    background-color: #ffdd66;
+    transform: translateY(-2px) scale(1.15);
+}
+
+.portfolio-tab-content {
+    grid-area: tabC;
+
+    border-top: 5px solid #ffdd66; 
+    border-left: 5px solid #ffdd66; 
+    border-bottom: 5px solid #a97305;
+    border-right: 5px solid #a97305;
+
+    overflow-Y: hidden;
+}
+
+.portfolio-tab-pane {
+    display: none;
+}
+
+.portfolio-tab-pane.active {
+    display: grid;
+    height: 100%;
+}
+
+/* Tab content styling: P r o j e c t s */
+#projects-tab{
+
+    /* position:relative; */
+    grid-template-rows: auto;
+    grid-template-columns: 30% auto;
+    grid-template-areas: 'banner content';
+    
+    
+}
+.projects-banner{
+    grid-area: banner;
+    display: block;
+    overflow-y: scroll;
+}
+.projects-thumbnail img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.projects-thumbnail{
+    width: 100%;
+    height: 40%;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;/* Prevents small gap between inlink blocks */
+    
+}
+.projects-thumbnail:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: transform 0.2s;
+}
+.projects-content{
+    grid-area: content;
+    background-color: rgba(224, 224, 224, 0.2);
+    
+}
+
+
+.portfolio-header{
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #ffbf3e;
+}

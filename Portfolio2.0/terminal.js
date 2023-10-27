@@ -41,21 +41,35 @@ function AppendTerminalText(strVal) {
 
 
 let animationSpeed = 600;
-
+let terminalState = true;
+let terminalAnimating = false;
 function ToggleTerminal() {
-    if($(".terminal").height() == 0){
-        $(".terminal").height('60%');
-        $(".terminal").width('60%');
-        $("#draggableTerminal").animate({ top: "20%", left: "20%" }, animationSpeed)
+    if(!terminalState){
+        terminalAnimating = true;
+        $(".terminal").height('55%');
+        $(".terminal").width('45%');
+        $("#draggableTerminal").animate({ top: "25%", left: "25%" }, animationSpeed, function() {
+            terminalState = true;
+            $("terminal").show();
+            terminalAnimating = false;
+        });
     }
     else{
+        terminalAnimating = true;
         $(".terminal").height(0);
         $(".terminal").width(0);
-        $("#draggableTerminal").animate({ top: '200%', left: '200%' }, animationSpeed)
+        $("#draggableTerminal").animate({ top: '200%', left: '200%' }, animationSpeed, function() {
+            terminalState = false;
+            $("terminal").hide();
+            terminalAnimating = false;
+        });
     }
 }
 
 $(document).ready(function() {
+    //ToggleTerminal();
+
+
     let isDragging = false;
     let offsetX, offsetY;
 
@@ -119,12 +133,12 @@ $(document).ready(function() {
     //Key press terminal toggle
     $(document).keypress(function (event) {
  
-        if(!event.key === "Space")
-            return;
+        if(event.keyCode == 32 && !terminalAnimating)
+        {
 
-        if(!$(".inputBox").is(":focus")) {
-            $("#terminal-toggle").trigger("click");
-        }
-            
+            if(!$(".inputBox").is(":focus")) {
+                $("#terminal-toggle").trigger("click");
+            }
+        }   
     });
 });

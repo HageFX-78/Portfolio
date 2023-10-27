@@ -1,0 +1,182 @@
+pre {
+    white-space: pre;
+    /*font-family: 'Source Code Pro', monospace;*/
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 16px; 
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+}
+
+#terminal-toggle {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    position: absolute;
+    background-color: #ffbf3e; /* Background color of the button */
+    bottom: 3%;
+    right: 2%;
+    width: auto;
+    height: auto;
+    padding: 10px 15px;
+
+    border-top: 5px solid #ffdd66; 
+    border-left: 5px solid #ffdd66; 
+    border-bottom: 5px solid #a97305;
+    border-right: 5px solid #a97305;
+
+    transition: background-color 0.2s, border-top 0.2s, border-left 0.2s, border-bottom 0.2s, border-right 0.3s;
+}
+#terminal-toggle:hover {
+    background-color: #ffbf3e;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+#terminal-toggle:active {
+    transform: scale(1.0);
+    background-color: #c5870a;
+    border-top: 5px solid #a97305; 
+    border-left: 5px solid #a97305; 
+    border-bottom: 5px solid #ffdd66;
+    border-right: 5px solid #ffdd66;
+}
+
+/* Failed animation frames */
+@keyframes buttonClickAnimation {
+    from {
+        background-color: #ffbf3e; /* Background color of the button */
+        transform: scale(1.0);
+        border-top: 5px solid #ffdd66; 
+        border-left: 5px solid #ffdd66; 
+        border-bottom: 5px solid #a97305;
+        border-right: 5px solid #a97305;
+    }
+    to {
+        transform: scale(1.2);
+        background-color: #c5870a;
+        border-top: 5px solid #a97305; 
+        border-left: 5px solid #a97305; 
+        border-bottom: 5px solid #ffdd66;
+        border-right: 5px solid #ffdd66;
+    }
+}
+
+.animation-trigger {
+    animation: buttonClickAnimation 0.2s ease-in-out alternate infinite;
+}
+
+/* ------------------Terminal */
+.terminal{
+    background-color: #333;
+    color: #c8c8c8;
+    padding: 5px 0px 0px 0px;
+    border-radius: 0px;
+    /*box-shadow: 2px 2px 5px 1px rgba(45, 45, 45, 0.8);*/
+    width: 45%;
+    height: 55%;
+    display: flex;
+    flex-direction: column;
+    transition: height 0.35s ease-in-out, width 0.35s ease-in-out;
+
+    border-top: 5px solid #4a4a4a; 
+    border-left: 5px solid #606060; 
+    border-bottom: 5px solid rgb(0, 0, 0);
+    border-right: 5px solid rgb(0, 0, 0);
+    z-index: 999;
+}
+#draggableTerminal {
+    user-select: none;
+    position: absolute;
+    top: 25%; /* Center vertically */
+    left: 25%; /* Center horizontally */
+}
+.handle {
+    width: 100%;
+    height: 15px; /* Height of the handle area */
+    background-color: #333; /* Background color of the handle area */
+    cursor: move;
+    font-size: 16px;
+    line-height: 15px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding-bottom:5px;
+}
+.terminalBody {
+    padding: 15px;
+    background-color: black;
+    width: 100%;
+    flex: 1; /* Make it take up available space */
+    box-sizing: border-box; 
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex;
+    overflow-y:scroll;
+}
+.minimizeButton {
+    background-color: #434343; 
+    color: #ffbf3e;
+    border: none;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    right: 3%;
+    top: 0;
+    font-size: 28px;
+    text-align: center;
+    line-height: 15px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.minimizeButton:hover {
+    background-color: #555; /* Darken the button a bit on hover */
+}
+.terminalText {
+    display: flex;
+    align-items: center;
+    padding: 1px 0px;
+}
+.terminalText > span{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.terminalText > .gtext{
+    color: #ffb235;
+}
+.terminalText > .gPort{
+    color: #ffe44e;
+}
+.terminalText > .gCash{
+    color: #43ff2e;
+    margin-right: 5px;
+}
+
+.inputBox {
+    background-color: #000;
+    color: #ffffff;
+    border: none;
+    width: 100%;
+    flex: 1;
+    padding: 0;
+    /*font-family: 'Source Code Pro', monospace;*/
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 16px;
+    color: #c8c8c8;
+}
+.inputBox:focus{
+    outline: none;
+}
