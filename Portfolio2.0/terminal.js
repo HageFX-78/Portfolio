@@ -67,7 +67,7 @@ function ToggleTerminal() {
 }
 
 $(document).ready(function() {
-    //ToggleTerminal();
+    AppendTerminalText("Welcome to my portfolio! \\(@^0^@)/ Type 'help' for a list of commands. <br><br> &nbsp;&nbsp;&nbsp;<i>Tip: Press space to toggle the terminal.</i><br><br>");
 
 
     let isDragging = false;
@@ -86,7 +86,7 @@ $(document).ready(function() {
 
     $(document).on("mouseup", function() {
         isDragging = false;
-        $("#draggableTerminal").css("z-index", "auto");
+        $("#draggableTerminal").css("z-index", "999");
         $("#draggableTerminal").css("user-select", "auto"); // Enable text selection
     });
 

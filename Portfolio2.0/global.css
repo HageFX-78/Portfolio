@@ -34,13 +34,23 @@ body{
   /* Handle */
   ::-webkit-scrollbar-thumb {
     background: #ffbf3e; 
+    box-shadow: inset 1px 0px 6px rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
   }
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #e4a629; 
   }
-
+  ::-moz-selection { /* Code for Firefox */
+    color: rgb(237, 237, 237);
+    background: #ffbf3e;
+  }
+  
+  ::selection {
+    color: rgb(237, 237, 237);
+    background: #ffbf3e;
+  }
   /*Prevent image highlight*/
 img {
   -webkit-user-select: none;
@@ -49,3 +59,10 @@ img {
   -o-user-select: none;
   user-select: none;
 }
+/* div{
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+} */

@@ -2,14 +2,14 @@ pre {
     white-space: pre;
     /*font-family: 'Source Code Pro', monospace;*/
     font-family: 'Pixelify Sans', sans-serif;
-    font-size: 16px; 
+    font-size: 14px; 
     line-height: 1;
     margin: 0;
     padding: 0;
 }
 
 #terminal-toggle {
-    font-size: 24px;
+    font-size: 14px;
     font-weight: bold;
     text-align: center;
     -webkit-touch-callout: none;
@@ -110,7 +110,7 @@ pre {
     padding-bottom:5px;
 }
 .terminalBody {
-    padding: 15px;
+    padding: 12px;
     background-color: black;
     width: 100%;
     flex: 1; /* Make it take up available space */
@@ -156,13 +156,16 @@ pre {
 }
 .terminalText > .gtext{
     color: #ffb235;
+    font-size: 14px;
 }
 .terminalText > .gPort{
     color: #ffe44e;
+    font-size: 14px;
 }
 .terminalText > .gCash{
     color: #43ff2e;
     margin-right: 5px;
+    font-size: 14px;
 }
 
 .inputBox {
@@ -174,9 +177,18 @@ pre {
     padding: 0;
     /*font-family: 'Source Code Pro', monospace;*/
     font-family: 'Pixelify Sans', sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     color: #c8c8c8;
 }
 .inputBox:focus{
     outline: none;
 }
+
+
+/* Media query for smaller screens (e.g., mobile devices) */
+@media screen and (max-width: 768px) {
+    .terminal{
+      width: 80%;
+      left: 0;
+    }
+  }
