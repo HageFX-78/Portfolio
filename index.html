@@ -1,486 +1,98 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Portfolio</title>
-    <link rel="icon" href="img/PFP.png">
-    <link rel="stylesheet" href="main.css">
-  </head>
-  <body>
-    <div class = "sticky-general">
-      Website made from scratch in 2021, this is the <a href="https://github.com/HageFX-78/Portfolio" target="_blank">repo </a><br>
-      New Site at <a href="https://hagefx-78.github.io/Portfolio/" target="_blank">CLICK ME </a>
-    </div>
+    <head>
+        
+        <link rel="stylesheet" href="Portfolio2.0/global.css">
+        <link rel="stylesheet" href="Portfolio2.0/terminal.css">
+        <link rel="stylesheet" href="Portfolio2.0/portfolio.css">
+        <link rel="stylesheet" href="Portfolio2.0/projects.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <div class="head-cont">
-      <div class="backdrop-img"></div>
-      <div class="top-grid">
-        <div class="tgrid-name">
-          <div>Lim Jun Jie - JJ</div><br>
-          Aspiring Game Programmer  
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700">
+        <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="Portfolio2.0/commands.js"></script>
+        <script src="Portfolio2.0/terminal.js"></script>
+        <script src="Portfolio2.0/tabs.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>HageFX Portfolio</title>
+    </head>
+    <body>
+        <div id ="terminal-toggle">
+            >_
         </div>
-        <div class="tgrid-number">012-9704195</div>
-        <div class="tgrid-email">0133352@student.uow.edu.my</div>
-        <div class="tgrid-pfp">
-          <img src="img/PFP.png" alt="Nightmare Fuel"/>  
-        </div>
-      </div>
-    </div>
-    <div id="navbar">
-      <a class="navL active" href="javascript:void(0);" id="navMyGames">My Games</a>
-      <a class="navL" href="javascript:void(0)" id="navAboutMe">About Me</a>
-      <a class="navL" href="javascript:void(0)" id="navSkillSet">Skillset</a>
-      <a class="navL" href="javascript:void(0)" id="navOtherProject">Personal Projects</a>
-      <a class="navL" href="javascript:void(0)" id="navResume">Resume</a>
-      <a class="navR" id="linkedinICON" href="https://www.linkedin.com/in/thisisanuke216882/" target="_blank"></a>
-      <a class="navR" id="githubICON" href="https://github.com/HageFX-78" target="_blank"></a>
-      <a class="navR" id="itchioICON" href="https://hagefx78.itch.io" target="_blank"></a>
-    </div>
-
-
-    <!--      My Games section      -->
-    <span name="mygames" id="mygamesID"></span>
-    <div class="mygames main-sections stickyoffset">
-      <div class="maintitle">My Games</div>
-      <!--Game Block-->
-      <div class="mygame-block">
-        <div class="mygame-title">
-          <p>
-            <span>Midnight Snacks</span><br>
-            Sneaky blob wants to eat a family
-          </p>
-        </div>
-        <div class="mygame-link" onclick="window.open('https://hagefx78.itch.io/midnight-snacks', '_blank')">Link to Game<p id="link-icon">&nbsp;&#10148;</p></div>
-        <div class="mygame-image" id="game-midnightSnacks"></div>
-        <div class="mygame-description">
-          <p><span>Focus of Work</span>
-            <ul>
-              <li>Experimenting with 'eating', player can eat any character and turn into them</li>
-              <li>Experimenting on creating a level design that encompasses the 'eating' mechanic</li>
-              <li>Experimenting with Unity</li>
-            </ul>
-            <br><br><span>Made With</span><br>
-            Unity
-            <br><br><span>Available On</span><br>
-            Itch.io
-          </p>
-          <div class="mygame-challengesbtn" onclick="window.location.href ='';">Details(Not yet available)</div>
-        </div>
-      </div>
-      <!--Game Block END-->
-      <!--Game Block-->
-      <div class="mygame-block">
-        <div class="mygame-title">
-          <p>
-            <span>Touhou Endless Black</span><br>
-            Parody fan-game of the Touhou series, attempt at recreating the mechanics
-          </p>
-        </div>
-        <div class="mygame-link" onclick="window.open('https://hagefx78.itch.io/touhou-endless-black', '_blank')">Link to Game<p id="link-icon">&nbsp;&#10148;</p></div>
-        <div class="mygame-image" id="game-2hublack"></div>
-        <div class="mygame-description">
-          <p><span>Focus of Work</span>
-            <ul>
-              <li>Recreating movement and firing of bullets</li>
-              <li>Finding interesting bullet patterns, can be seen in the boss stage</li>
-              <li>Experimenting with Unity</li>
-            </ul>
-            <br><br><span>Made With</span><br>
-            Unity
-            <br><br><span>Available On</span><br>
-            Itch.io
-          </p>
-          <div class="mygame-challengesbtn" onclick="window.location.href ='';">Details(Not yet available)</div>
-        </div>
-      </div>
-      <!--Game Block END-->
-      <!--Game Block-->
-      <div class="mygame-block">
-        <div class="mygame-title">
-          <p>
-            <span>Waddle Quest</span><br>
-            A platformer where you play as an adorable penguin to find where your family went...
-          </p>
-        </div>
-        <div class="mygame-link" onclick="window.open('https://hagefx78.itch.io/waddle-quest', '_blank')">Link to Game<p id="link-icon">&nbsp;&#10148;</p></div>
-        <div class="mygame-image" id="game-waddle"></div>
-        <div class="mygame-description">
-          <p><span>Notable Features</span>
-            <ul>
-              <li>Sliding Mechanic to get past obstacles and increase movement speed.</li>
-              <li>Gliding mechanic to slow down fall speed</li>
-              <li>Slapping mechanic which is basically a melee attack</li>
-            </ul>
-            <br><br><span>Made With</span><br>
-            Stencyl
-            <br><br><span>Available On</span><br>
-            Itch.io
-          </p>
-          <div class="mygame-challengesbtn" onclick="window.location.href ='waddle_quest.html';">Details</div>
-        </div>
-      </div>
-      <!--Game Block END-->
-      <!--Game Block-->
-      <div class="mygame-block">
-        <div class="mygame-title">
-          <p>
-            <span>Insemination</span><br>
-            A simple shoot'em up game where you play as a mutated sperm in someone's womb inspired by Touhou Series.
-          </p>
-        </div>
-        <div class="mygame-link" onclick="window.open('https://hagefx78.itch.io/insemination', '_blank')">Link to Game<p id="link-icon">&nbsp;&#10148;</p></div>
-        <div class="mygame-image" id="game-insemination"></div>
-        <div class="mygame-description">
-          <p><span>Notable Features</span>
-            <ul>
-              <li>Bullet leveling mechanic up to 5 levels each allowing the player to fire bullets in varying patterns!</li>
-              <li>Sneak/Focus fire mechanic by holding down Shift</li>
-              <li>3 Phase Boss fights</li>
-            </ul>
-            <br><br><span>Made With</span><br>
-            Stencyl
-            <br><br><span>Available On</span><br>
-            Itch.io
-          </p>
-          <div class="mygame-challengesbtn" onclick="window.location.href ='insemination.html';">Details</div>
-        </div>
-      </div>
-      <!--Game Block END-->
-      <!--Game Block-->
-      <!--Modal Div-->
-      <div id="pong-modal" class="modal">
-        <!-- Modal content -->
-        <div class="modal-content">
-          <span class="modal-close" onclick="xclose()">&times;</span>
-          <div class="modal-image"><img src="img/pong-code.png"/></div>
-          <div class="modal-text">
-            <span>Objective</span>
-            <p>Immunity wall deflect player ball similar to how players deflect it.</p>
-            <span>Solution</span>
-            <p>
-              I have the ball deflected based on the side it collided with the immunity wall, for example, if ball collides with left-side of the wall, set new velocity for ball negating its current values.
-            </p>
-          </div>
-        </div>
-      </div>
-      <!----------------------->
-      <div class="mygame-block">
-        <div class="mygame-title">
-          <p>
-            <span>Pong Game</span><br>
-            A remake of the pong game with additional gameplay fetaures...
-          </p>
-        </div>
-        <div class="mygame-link" onclick="window.open('https://hagefx78.itch.io/modified-pong-game-kdu', '_blank')">Link to Game<p id="link-icon">&nbsp;&#10148;</p></div>
-        <div class="mygame-image" id="game-pong"></div>
-        <div class="mygame-description">
-          <p><span>Notable Features</span>
-            <ul>
-              <li>3 types of powerups, immunity wall, speed-up and point addition.</li>
-              <li>Stage selection each with different atmosphere</li>
-              <li>Immunity wall creates a wall behind the player blocking the goal.</li>
-              <li>Speed-up doubles the speed of the player and can also be stacked.</li>
-              <li>Point addition basically adds extra point instantly.</li>
-            </ul>
-            <br><br><span>Made With</span><br>
-            Stencyl
-            <br><br><span>Available On</span><br>
-            Nowhere
-          </p>
-          <div class="mygame-challengesbtn" onclick="showModal('pong-modal')">Minor Details</div>
-        </div>
-      </div>
-      <!--Game Block-->
-    </div>
-    <!--      About Me section      -->
-    <span name="aboutme" id="aboutmeID"></span>
-    <div class="aboutme main-sections"> 
-      <div class="maintitle">About Me</div>
-      <div class="aboutme-content">
-        <div class="agrid-content">
-          <div>Intro</div><br>
-          My name is Lim Jun Jie and currently a student in game
-          development from UOW KDU. 
-          <br>
-          I'm more of a technical person who
-          doesn't really like thinking very much but I enjoy working on
-          most things related to programming even though it's stressful at times...
-          <br>
-          Kind of contradicting but the idea of turning a few lines of 
-          text into entertainment is entertaining in itself.
-          <br>
-          <br><div>Experience</div><br>
-          2 Months in Moondo Studios (As an intern 3d modeller in 2019):<br>
-          <ul>
-            <li>3D Modelling for static scene assets</li>
-            <li>Motion capture implementation with Kinect 1.0</li>
-            <li>2D Gif animation effects for storyboard in photoshop</li>
-          </ul>
-          2 Months in IwiDigital (As an intern in 2021):<br>
-          <ul>
-            <li>Designed and implemented website for clients</li>
-            <li>Typewriting</li>
-            <li>Social Post Design</li>
-            <li>Market Research for company product</li>
-          </ul>
-          <div>Favourite Genres of Games</div><br>
-          Metroidvania, Puzzle, Horror, R18(Favourite), Mecha
-        </div>
-        <div class="agrid-image"></div>
-      </div>
-    </div>
-
-    <!--      Skill section      -->
-    <span name="skillset" id="skillsetID"></span>
-    <div class="skillset main-sections">
-      <div class="maintitle">Skillset</div>
-      <div class="skill-grid">      
-        <div class="sgrid-tools sgrid-c">Tools</div>
-        <div class="sgrid-listnames1 lncommon">     
-            <ul>
-              <li>Unity</li>
-              <li>Visual Studio Code</li>
-              <li>Stencyl</li>
-              <li>Notepad++</li>
-              <li>PhpMyAdmin</li>
-              <li>Github</li>
-              <li>Blender</li>
-              <li>Adobe Photoshop</li>
-              <li>Adobe Premiere</li>
-            </ul>
-        </div> 
-        <div class="sgrid-listprof1 lncommon">
-            <ul>
-              <li class='p1'>.</li>
-              <li class='p2'>.</li>
-              <li class='p2'>.</li>
-              <li class='p2'>.</li>
-              <li class='p3'>.</li>
-              <li class='p1'>.</li>
-              <li class='p2'>.</li>
-              <li class='p3'>.</li>
-              <li class='p3'>.</li>
-            </ul>
-        </div>
-        <div class="sgrid-lang sgrid-c">Code Languages</div>
-        <div class="sgrid-listnames2 lncommon">     
-            <ul>
-              <li>C++</li>
-              <li>Html5</li>
-              <li>Css3</li>
-              <li>JavaScript</li>
-              <li>PHP</li>
-              <li>Java</li>
-              <li>Ruby</li>
-              <li>SQL</li>
-            </ul>
-        </div> 
-        <div class="sgrid-listprof2 lncommon">
-            <ul>
-              <li class='p2'>.</li>
-              <li class='p3'>.</li>
-              <li class='p3'>.</li>
-              <li class='p2'>.</li>
-              <li class='p3'>.</li>
-              <li class='p2'>.</li>
-              <li class='p1'>.</li>
-              <li class='p2'>.</li>
-            </ul>
-        </div>
-        <div class="sgrid-field sgrid-c">Fields</div>
-        <div class="sgrid-listnames3 lncommon">     
-          <ul>
-            <li>Gamplay Programming</li>
-            <li>Application Programming</li>
-            <li>UI/UX</li>
-            <li>Web Development(WAMP)</li>
-            <li>Database Design</li>
-            <li>Video Editing</li>
-          </ul>
-        </div> 
-        <div class="sgrid-listprof3 lncommon">
-            <ul>
-              <li class='p2'>.</li>
-              <li class='p2'>.</li>
-              <li class='p2'>.</li>
-              <li class='p3'>.</li>
-              <li class='p3'>.</li>
-              <li class='p1'>.</li>
-            </ul>
-        </div>
-      </div>
-      <div class="indication-bar"><img src="img/indication.png"/></div>     
-    </div>
-    <!--      Other Project section      -->
-    <span name="otherproject" id="otherprojectID"></span>
-    <div class="otherproject main-sections">
-      <div class="maintitle">Personal Projects</div>
-      <!--All cards-->
-      <div class="op-cards-block">
-        <div class="op-cards" onclick="showModal('op-modal1')">
-          <!--Modal Div-->
-          <div id="op-modal1" class="modal">
-            <!-- Modal content -->
-            <div class="modal-content">
-              <span class="modal-close" onclick="xclose();">&times;</span>
-              <div class="modal-image"><img src="img/other-projects/otms-logo.png"/></div>
-              <div class="modal-text">
-                <span>Description</span>
-                <p>A website made to schedule and plan online tuition classes catered towards students and all tutors made developed in a WAMP environment.</p>
-                <p>The website is discontinued.</p>
-              </div>
+        <div class="terminal" id="draggableTerminal">
+            <div class="handle">&nbsp;&nbsp;&nbsp;Cool Terminal</div>
+            <div class="terminalBody" >
+                <button class="minimizeButton" id="minimizeButton"> - </button>
+                <div id= "textInputLine" class="terminalText">
+                    <span class="gtext">guest</span><span class="gPort">@portfolio</span><span class="gCash">$</span>
+                    <input type="text" class="inputBox" autofocus />
+                </div>
+                
             </div>
-          </div>
-          <!----------------------->
-          <img class="op-img" src="img/other-projects/otms-logo.png"/>
-          <div class="op-cardcont">
-            <span>OTMS Website</span>
-            <p>Final software development project with a team of 4 in diploma.</p>
-          </div>
         </div>
-        <div class="op-cards" onclick="">
-          <img class="op-img" src=""/>
-          <div class="op-cardcont">
-            <span>Web-based Game</span>
-            <p>A web-based game that is currently being developed in C++, Coming soon...</p>
-          </div>
+
+        <!--Main pages -->
+        <div id="portfolio-body">
+            <div class = "portfolio-externals"></div>
+            <div class="portfolio-tabs">
+                <div class="portfolio-tab">Portfolio</div>
+                <div class="portfolio-tab active">Games</div>
+                <div class="portfolio-tab">Side Projects</div>
+                <div class="portfolio-tab">About Me</div>
+                <div class="portfolio-tab">Skills</div>
+            </div>
+            <div class="portfolio-tab-content">
+                <div id="front-tab" class="portfolio-tab-pane">
+                    <div class="portfolio-face">
+                        <img src="img/pfp.jpg" alt="pong_tn" draggable="false" >
+                    </div>
+                    <div class="portfolio-summary">
+                        <div class="summary-blocks">
+                            Lim Jun Jie | HageFX
+                        </div>
+                    </div>
+                </div>
+                <div id="projects-tab" class="portfolio-tab-pane active">
+                    <div class="projects-banner">
+                        <div class="projects-thumbnail" readID="2"><img src="img/hazepoint/tn.png" alt="insemination_tn" draggable="false" ></div>
+
+                        <div class="projects-thumbnail" readID="4"><img src="img/shadow/shadow1.png" alt="guiltTrio_tn" draggable="false" ></div>
+
+                        <div class="projects-thumbnail" readID="3"><img src="img/gt/gt1.png" alt="guiltTrio_tn" draggable="false" ></div>
+
+                        <div class="projects-thumbnail" readID="5"><img src="img/tpmsw/tn.png" alt="guiltTrio_tn" draggable="false" ></div>
+
+                        <div class="projects-thumbnail" readID="7"><img src="img/midnight/ms.png" alt="guiltTrio_tn" draggable="false" ></div>
+                        
+                        <div class="projects-thumbnail" readID="6"><img src="img/2hu/2hu.png" alt="guiltTrio_tn" draggable="false" ></div>
+
+                        <div class="projects-thumbnail" readID="1"><img src="img/insemination/title-screen.png" alt="insemination_tn" draggable="false" ></div>
+
+                        <div class="projects-thumbnail" readID="0"><img src="img/pong.png" alt="pong_tn" draggable="false" ></div>
+
+                        
+                        
+                    </div>
+                    <div class="projects-content">
+                        <div class="project-content-title-container">
+                            <div class="project-content-title">Select a game!</div>
+                            <div class="project-content-title-link">Itch<i style="font-size:24px" class="fa">&#xf08e;</i></div>
+                        </div> 
+                        <div class="project-content-text"></div>
+                    </div>
+                </div>
+                <div class="portfolio-tab-pane">
+                    Side projects
+                </div>
+                <div class="portfolio-tab-pane">Content for Tab 2</div>
+                <div class="portfolio-tab-pane">Content for Tab 3</div>
+            </div>
         </div>
-      </div>
-    </div>
-    <!--      Resume Section       -->
-    <span name="resume" id="resumeID"></span>
-    <div class="resume main-sections"> 
-      <div class="maintitle">Resume</div>
-      <div class="resume-block"><span>Placeholder for future resume :D</span></div>
-    </div>
-    <!--next section-->
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/3.0.0/noframework.waypoints.min.js" integrity="sha512-lzIDzaYCox5oeC0ymj6ho5fRdMrCYkhHfVEm3fySZStdwG85y9SxTcIFYYEUiW1KYbkfiInVFkGofRlYlkHgLw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-      //Modal boxes stuff
-      var modal = document.getElementById("nothing");
-
-      function showModal(x){
-        modal = document.getElementById(x);
-        modal.style.display = "block";
-      }
-      function xclose(){modal.style.display = "none";}
-      window.onclick = function(event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      }
-      //-------------------------------------------------------
-      //Scroll that triggers sticky
-      window.onscroll = function() {navbarscroll();};
-      //Boolean to check if user clicked on nav bar, disable if it's true
-      var AllowSwitchActive = true;
-
-      //Switch active element on navigation bar
-      var links = document.getElementsByClassName("navL");
-      for (var i = 0; i < links.length; i++){
-        links[i].addEventListener("click", function(){
-          var current = document.getElementsByClassName("active");
-          current[0].className = current[0].className.replace(" active", "");
-          this.className += " active";
-          
-          AllowSwitchActive = false;
-          var currentsec = "";
-          if(this.getAttribute("id")=="navMyGames"){currentsec=document.getElementById("mygamesID");}
-          else if(this.getAttribute("id")=="navAboutMe"){currentsec=document.getElementById("aboutmeID");}
-          else if(this.getAttribute("id")=="navSkillSet"){currentsec=document.getElementById("skillsetID");}
-          else if(this.getAttribute("id")=="navOtherProject"){currentsec=document.getElementById("otherprojectID");}
-          else if(this.getAttribute("id")=="navResume"){currentsec=document.getElementById("resumeID");}
-          else if(this.getAttribute("id")=="navContacts"){currentsec=document.getElementById("contactsID");}
-
-          //Scroll event
-          currentsec.scrollIntoView({
-            behavior: 'smooth', 
-            block: 'start',
-            inline: 'start'
-          });
-          //Timer to re-enable waypoint
-          setInterval(function(){AllowSwitchActive=true;},5000);
-        });
-      }
-
-      //Scroll to section test
-      //Navbar sticky effect
-      var navbar = document.getElementById("navbar");
-      var sticky = navbar.offsetTop;
-      function navbarscroll(){
-        if (window.pageYOffset >= sticky) {
-          navbar.classList.add("sticky");
-        } else {
-          navbar.classList.remove("sticky");
-        }
-      }
-      //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      //Waypoints to switch anchor link and active tab(using noframework jquery waypoint lib)
-      //
-      var wpgame1 = new Waypoint({
-        element: document.getElementById('mygamesID'),
-        handler: function() {
-          if(AllowSwitchActive == true){
-            $('.navL').removeClass("active");
-            $('#navMyGames').addClass("active");
-          }
-        }
-      })
-      var wpabout1 = new Waypoint({
-        element: document.getElementById('aboutmeID'),
-        handler: function() {
-          if(AllowSwitchActive == true){
-            $('.navL').removeClass("active");
-            $('#navAboutMe').addClass("active");
-          }   
-        },
-        offset: 50
-      })
-      var wpskill1 = new Waypoint({
-        element: document.getElementById('skillsetID'),
-        handler: function() {
-          if(AllowSwitchActive == true){
-            $('.navL').removeClass("active");
-            $('#navSkillSet').addClass("active");
-          }   
-        },
-        offset: 100
-      })
-      var wppersonalp1 = new Waypoint({
-        element: document.getElementById('otherprojectID'),
-        handler: function() {
-          if(AllowSwitchActive == true){
-            $('.navL').removeClass("active");
-            $('#navOtherProject').addClass("active");
-          }   
-        },
-        offset: 10
-      })
-      var wpresume1 = new Waypoint({
-        element: document.getElementById('resumeID'),
-        handler: function() {
-          if(AllowSwitchActive == true){
-            $('.navL').removeClass("active");
-            $('#navResume').addClass("active");
-          }   
-        },
-        offset: 100
-      })
-      var wpcontacts1 = new Waypoint({
-        element: document.getElementById('contactsID'),
-        handler: function() {
-          if(AllowSwitchActive == true){
-            $('.navL').removeClass("active");
-            $('#navContacts').addClass("active");
-          }   
-        },
-        offset: 100
-      })
-      </script>
-  </body>
-  <footer>
-    <div class="footer-bottom">
-      <div id='footer-left'>Website made from scratch, this is the <a href="https://github.com/HageFX-78/Portfolio" target="_blank">repo</a></div>
-    </div>
-  </footer>
+    </body>
+    <footer>
+        
+    </footer>
 </html>
+
