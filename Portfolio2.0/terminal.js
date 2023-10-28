@@ -40,7 +40,7 @@ function AppendTerminalText(strVal) {
 }
 
 
-let animationSpeed = 600;
+let animationSpeed = 400;
 let terminalState = true;
 let terminalAnimating = false;
 function ToggleTerminal() {
@@ -70,7 +70,7 @@ function ToggleTerminal() {
 $(document).ready(function() {
     AppendTerminalText("Welcome to my portfolio! \\(@^0^@)/ Type 'help' for a list of commands. <br><br> &nbsp;&nbsp;&nbsp;<i>Tip: Press space to toggle the terminal.</i><br><br>");
 
-
+    ToggleTerminal();
     let isDragging = false;
     let offsetX, offsetY;
 

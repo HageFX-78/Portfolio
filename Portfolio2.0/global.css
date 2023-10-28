@@ -1,3 +1,8 @@
+@font-face{
+  /*Disposable droid font*/
+  font-family: pixelfont;
+  src: url(../fonts/db.ttf);   
+}
 html{
     font-family: 'Pixelify Sans', sans-serif;
     /*font-family: 'Source Code Pro', monospace;*/
@@ -33,9 +38,10 @@ body{
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #ffbf3e; 
-    box-shadow: inset 1px 0px 6px rgba(255, 255, 255, 0.5);
+    background: #ffc582; 
+    box-shadow: inset 1px 0px 6px rgba(68, 68, 68, 0.5);
     border-radius: 10px;
+    box-shadow: 3px 3px 10px #333333;
   }
   
   /* Handle on hover */
