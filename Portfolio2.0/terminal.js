@@ -43,15 +43,31 @@ function AppendTerminalText(strVal) {
 let animationSpeed = 400;
 let terminalState = true;
 let terminalAnimating = false;
+let resetPosX = 0;
+let resetPosY = 0;
+
+var hasTouchScreen = false;
+
+
 function ToggleTerminal() {
     if(!terminalState){
+        
+
         terminalAnimating = true;
         $(".terminal").show();
-        $(".terminal").height('55%');
-        $(".terminal").width('45%');
-        $("#draggableTerminal").animate({ top: "20%", left: "25%" }, animationSpeed, function() {
+        if(hasTouchScreen)
+        {
+            $(".terminal").height('55%');
+            $(".terminal").width('95%');
+        }
+        else
+        {
+            $(".terminal").height('55%');
+            $(".terminal").width('45%');
+        }
+        
+        $("#draggableTerminal").animate({ top: resetPosY, left: resetPosX }, animationSpeed, function() {
             terminalState = true;
-            
             terminalAnimating = false;
         });
     }
@@ -67,7 +83,22 @@ function ToggleTerminal() {
     }
 }
 
+
 $(document).ready(function() {
+    
+    // Check if the user is on a touch screen device
+    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)){
+        hasTouchScreen = true;
+        resetPosX = "0";
+        resetPosY = "20%";
+    }
+    else{
+        resetPosX = "25%";
+        resetPosY = "20%";
+    }
+
+
+    // Start on terminal
     AppendTerminalText("Welcome to my portfolio! \\(@^0^@)/ Type 'help' for a list of commands. <br><br> &nbsp;&nbsp;&nbsp;<i>Tip: Press space to toggle the terminal.</i><br><br>");
 
     ToggleTerminal();

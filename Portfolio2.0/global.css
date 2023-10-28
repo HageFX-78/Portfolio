@@ -6,6 +6,9 @@
 html{
     font-family: 'Pixelify Sans', sans-serif;
     /*font-family: 'Source Code Pro', monospace;*/
+    background-image: url('../img/raymoo.png');
+    background-size: 30%;
+    background-repeat: repeat;
 }
 body{
     background-image: url('../img/P2/aiArt2.jpg');

@@ -37,7 +37,7 @@
 }
 .projects-content{
     grid-area: content;
-    background-color: rgba(224, 224, 224, 0.15);
+    background-color: rgba(56, 56, 56, 0.873);
     overflow-y: scroll;
 }
 
@@ -70,8 +70,6 @@
     border-bottom: 5px solid #1f1d19;
     border-right: 5px solid #1f1d19;
 
-    box-shadow: 3px 3px 10px #333333;
-    text-shadow: 0.8px 0.8px 2px #2d2d2d;
     
 }
 .project-content-title-link{
@@ -91,7 +89,6 @@
     border-right: 5px solid #a97305;
 
     box-shadow: 3px 3px 10px #333333;
-    text-shadow: 0.8px 0.8px 2px #e2e2e2;
 }
 .project-content-title-link:hover{
     transform: scale(1.05);
@@ -160,8 +157,6 @@
     border-right: 5px solid #1f1d19;
     line-height: 90%;
 
-    box-shadow: 2px 2px 10px #333333;
-    text-shadow: 0.8px 0.8px 2px #282828;
 }
 .game-cat{
     display: inline-block;
@@ -177,8 +172,8 @@
     border-bottom: 5px solid #a97305;
     border-right: 5px solid #a97305;
 
-    box-shadow: 2px 2px 10px #333333;
-    text-shadow: 0.8px 0.8px 2px #ffffff;
+    text-shadow: white 0.2px 0.2px 0px;
+
 }
 .game-text{
     padding: 15px;
@@ -190,9 +185,6 @@
     border-bottom: 5px solid #1f1d19;
     border-right: 5px solid #1f1d19;
     line-height: 90%;
-
-    box-shadow: 2px 2px 10px #333333;
-    text-shadow: 0.8px 0.8px 2px #282828;
 }
 
 iframe{
@@ -234,8 +226,9 @@ iframe{
         
     }
     .project-content-text{
-        font-size: 12px;
-        padding: 12px;
+        font-size: 16px;
+        font-weight: lighter;
+        padding: 10px;
         overflow-x:hidden;
         line-height: 100%;
     }

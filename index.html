@@ -22,12 +22,12 @@
             >_
         </div>
         <div class="terminal" id="draggableTerminal">
-            <div class="handle">&nbsp;&nbsp;&nbsp;Cool Terminal</div>
+            <div class="handle">&nbsp;&nbsp;&nbsp;PFX2.0 Terminal</div>
             <div class="terminalBody" >
                 <button class="minimizeButton" id="minimizeButton"> - </button>
                 <div id= "textInputLine" class="terminalText">
-                    <span class="gtext">guest</span><span class="gPort">@portfolio</span><span class="gCash">$</span>
-                    <input type="text" class="inputBox" autofocus />
+                  <span class="gtext">guest</span><span class="gPort">@portfolio</span><span class="gCash">$</span>
+                  <input type="text" class="inputBox" autofocus />
                 </div>
                 
             </div>
@@ -37,24 +37,24 @@
         <div id="portfolio-body">
             <div class = "portfolio-externals"></div>
             <div class="portfolio-tabs">
-                <div class="portfolio-tab">Portfolio</div>
-                <div class="portfolio-tab active">Games</div>
+                <div class="portfolio-tab active">Portfolio</div>
+                <div class="portfolio-tab">Games</div>
                 <div class="portfolio-tab">Side Projects</div>
                 <div class="portfolio-tab">About Me</div>
                 <div class="portfolio-tab">Skills</div>
             </div>
             <div class="portfolio-tab-content">
-                <div id="front-tab" class="portfolio-tab-pane">
-                    <div class="portfolio-face">
-                        <img src="img/pfp.jpg" alt="pong_tn" draggable="false" >
-                    </div>
-                    <div class="portfolio-summary">
-                        <div class="summary-blocks">
-                            Lim Jun Jie | HageFX
-                        </div>
+                <!--  Splash Tab  -->
+                <div id="splash-tab" class="portfolio-tab-pane active">
+                    <div class="splash-tab-inner">
+                      <img id="raymoo" src="img/raymoo.png" alt="pong_tn" draggable="false" ><br>
+                      Lim Jun Jie | HageFX<br>
+                      <span>Gameplay Programmer / Tools Programmer</span>
                     </div>
                 </div>
-                <div id="projects-tab" class="portfolio-tab-pane active">
+
+                <!--  Games Tab  -->
+                <div id="projects-tab" class="portfolio-tab-pane">
                     <div class="projects-banner">
                         <div class="projects-thumbnail" readID="2"><img src="img/hazepoint/tn.png" alt="insemination_tn" draggable="false" ></div>
 
@@ -83,10 +83,28 @@
                         <div class="project-content-text"></div>
                     </div>
                 </div>
+
+
+                <!--  Side project Tab  -->
                 <div class="portfolio-tab-pane">
                     Side projects
                 </div>
-                <div class="portfolio-tab-pane">Content for Tab 2</div>
+
+
+                <!--  About me Tab  -->
+                <div id="front-tab" class="portfolio-tab-pane">
+                  <div class="portfolio-face">
+                      <img src="img/pfp.jpg" alt="pong_tn" draggable="false" >
+                  </div>
+                  <div class="portfolio-summary-text">
+                    <div class = "portfolio-summary-text-block">
+                      DDescription
+                    </div>
+                  </div>
+                </div>
+
+
+                <!--  Skills Tab  -->
                 <div class="portfolio-tab-pane">Content for Tab 3</div>
             </div>
         </div>

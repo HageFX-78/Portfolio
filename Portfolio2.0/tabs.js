@@ -2,8 +2,8 @@ const projectData = [
     {
         index: 0,
         gameName: "Pong",
-        contentHead: '<iframe width="560" height="315" src="https://www.youtube.com/embed/TGqBs9Fx1bM?si=y7ici8DjnmmCPJwv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
-        contentImg:'<img class ="showcase-img" src="img/gt/gt3.png" alt="guiltTrio_tn" draggable="false" ><img class ="showcase-img" src="img/gt/gt2.png" alt="guiltTrio_tn" draggable="false">',
+        contentHead: 'No Video :C',
+        contentImg:'No Images :(',
         projectDuration: "1 week",
         gameEngine: "Stencyl",
         type: "Solo",
@@ -16,7 +16,7 @@ const projectData = [
     {
         index: 1,
         gameName: "Insemination",
-        contentHead: '<iframe width="560" height="315" src="https://www.youtube.com/embed/TGqBs9Fx1bM?si=y7ici8DjnmmCPJwv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+        contentHead: 'No Video :C',
         contentImg:'<img class ="showcase-img" src="img/gt/gt3.png" alt="guiltTrio_tn" draggable="false" ><img class ="showcase-img" src="img/gt/gt2.png" alt="guiltTrio_tn" draggable="false">',
         projectDuration: "1 week",
         gameEngine: "Stencyl",
@@ -30,7 +30,7 @@ const projectData = [
     {
         index: 2,
         gameName: "Hazepoint (Final Year Project)",
-        contentHead: '<iframe width="560" height="315" src="https://www.youtube.com/embed/TGqBs9Fx1bM?si=y7ici8DjnmmCPJwv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+        contentHead: 'No Video Yet :C',
         contentImg:'<img class ="showcase-img" src="img/hazepoint/s1.png" alt="guiltTrio_tn" draggable="false" ><img class ="showcase-img" src="img/hazepoint/keyart.png" alt="guiltTrio_tn" draggable="false"><img class ="showcase-img" src="img/hazepoint/s2.png" alt="guiltTrio_tn" draggable="false">',
         projectDuration: "6 months",
         gameEngine: "Unreal Engine 5",
@@ -72,7 +72,7 @@ const projectData = [
     {
         index: 5,
         gameName: "To Please My Slimy Wife",
-        contentHead: '<iframe width="560" height="315" src="https://www.youtube.com/embed/TGqBs9Fx1bM?si=y7ici8DjnmmCPJwv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+        contentHead: 'No Video :C',
         contentImg:'<img class ="showcase-img" src="img/tpmsw/tn.png" alt="guiltTrio_tn" draggable="false" >',
         projectDuration: "48 hours",
         gameEngine: "Unity 2D",
@@ -86,7 +86,7 @@ const projectData = [
     {
         index: 6,
         gameName: "Touhou Endless Black",
-        contentHead: '<iframe width="560" height="315" src="https://www.youtube.com/embed/TGqBs9Fx1bM?si=y7ici8DjnmmCPJwv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+        contentHead: 'No Video :C',
         contentImg:'<img class ="showcase-img" src="img/2hu/s1.png" alt="guiltTrio_tn" draggable="false" ><img class ="showcase-img" src="img/2hu/s2.png" alt="guiltTrio_tn" draggable="false" ><img class ="showcase-img" src="img/2hu/s3.png" alt="guiltTrio_tn" draggable="false" >',
         projectDuration: "2 weeks",
         gameEngine: "Unity 2D",
