@@ -188,7 +188,8 @@ pre {
 /* Media query for smaller screens (e.g., mobile devices) */
 @media screen and (max-width: 768px) {
     .terminal{
-      width: 80%;
+      width: 70%;
       left: 0;
+      margin: 0;
     }
   }

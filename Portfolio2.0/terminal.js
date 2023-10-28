@@ -46,11 +46,12 @@ let terminalAnimating = false;
 function ToggleTerminal() {
     if(!terminalState){
         terminalAnimating = true;
+        $(".terminal").show();
         $(".terminal").height('55%');
         $(".terminal").width('45%');
-        $("#draggableTerminal").animate({ top: "25%", left: "25%" }, animationSpeed, function() {
+        $("#draggableTerminal").animate({ top: "20%", left: "25%" }, animationSpeed, function() {
             terminalState = true;
-            $("terminal").show();
+            
             terminalAnimating = false;
         });
     }
@@ -58,9 +59,9 @@ function ToggleTerminal() {
         terminalAnimating = true;
         $(".terminal").height(0);
         $(".terminal").width(0);
-        $("#draggableTerminal").animate({ top: '200%', left: '200%' }, animationSpeed, function() {
+        $("#draggableTerminal").animate({ top: '120%', left: '120%' }, animationSpeed, function() {
             terminalState = false;
-            $("terminal").hide();
+            $(".terminal").hide();
             terminalAnimating = false;
         });
     }
