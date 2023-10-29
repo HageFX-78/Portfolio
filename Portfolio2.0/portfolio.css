@@ -45,11 +45,6 @@
 .portfolio-tab-content {
     grid-area: tabC;
 
-    border-top: 5px solid #ffdd66; 
-    border-left: 5px solid #ffdd66; 
-    border-bottom: 5px solid #a97305;
-    border-right: 5px solid #a97305;
-
     overflow-Y: hidden;
 
     background-color: rgba(255, 168, 46, 0.459);
@@ -97,6 +92,16 @@
     letter-spacing: 2px;
     margin: 0;
 }
+.contact{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 2px;
+    margin: 10px;
+    color: #ffbf3e;
+    cursor: pointer;
+}
 /* - - - - - - - - - - -About me specific */
 #front-tab{
     grid-template-rows: 50% auto;
@@ -129,11 +134,6 @@
     object-fit: cover;
     background-color: #ffbf3e;
     color: black;
-    border-top: 5px solid #ffdd66;
-    border-left: 5px solid #ffdd66;
-    border-bottom: 5px solid #a97305;
-    border-right: 5px solid #a97305;
-    box-shadow: 3px 3px 10px #333333;
     text-shadow: 0.8px 0.8px 2px #e2e2e2;
 }
 .portfolio-summary{
@@ -149,13 +149,6 @@
     display: inline-block;
     background-color: #ffbf3e;
     color: black;
-
-    border-top: 5px solid #ffdd66; 
-    border-left: 5px solid #ffdd66; 
-    border-bottom: 5px solid #a97305;
-    border-right: 5px solid #a97305;
-
-    box-shadow: 3px 3px 10px #333333;
 
 }
 .portfolio-summary-text{

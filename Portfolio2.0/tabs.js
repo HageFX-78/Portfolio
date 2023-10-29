@@ -64,7 +64,7 @@ const projectData = [
         gameEngine: "Unity 3D Mobile",
         type: "Group (7 members)",
         role: "Generalist Programmer / Tools Programmer",
-        content: "Worked on the core mechanic of the game, interactable shadows in a 3D plane.<br>Developed a tool/script to generate shadows of 3D models and place it in the scene, each shadow have a script that determines its size and position based on the distance to the light source and wall casted on.",
+        content: "Worked on the core mechanic of the game, interactable shadows in a 3D plane.<br>Developed a tool/script to generate shadows of 3D models and place it in the scene, each shadow have a script that determines its size and position based on the distance to the light source and wall casted on.<br><br>The main script for shadow generated is as follows:<br><div class='snippet-container'></div>",
         imgurl: "../img/tictactoe.png",
         textColor: "#FFFFFF",
         itchLink: "https://aarontan1.itch.io/shadow-maiden-less"
@@ -119,7 +119,7 @@ let currentItchLink = '_blank';
 function swapGameContent(id)
 {  
     const project = projectData.find((item) => item.index === id);
-    // $(".projects-content::before").css("background-image", "url('" + project.imgurl + "')");
+
     $(".projects-content").css("color", project.textColor);
     
     $(".project-content-title").html(project.gameName);
@@ -128,14 +128,45 @@ function swapGameContent(id)
 
     let container1 = "<div class='ele-container'>" + project.contentHead +"</div><br>";
     let container2 = "<div class='ele-container2'>" + project.contentImg +"</div><br>";
-    let gameCategories ="<div class='game-cat-title'>Project Duration : </div><div class='game-cat'>" + project.projectDuration + "</div><br><div class='game-cat-title'>Made in : </div><div class='game-cat'>" + project.gameEngine + "</div><br><div class='game-cat-title'>Type : </div><div class='game-cat'>" + project.type + "</div><br><div class='game-cat-title'>Role : </div><div class='game-cat'>" + project.role + "</div><br><br>";
+    let gameCategories ="<div class='game-cat-title borderBlack3pxNS'>Project Duration : </div><div class='game-cat borderOrange3pxNS'>" + project.projectDuration + "</div><br><div class='game-cat-title borderBlack3pxNS'>Made in : </div><div class='game-cat borderOrange3pxNS'>" + project.gameEngine + "</div><br><div class='game-cat-title borderBlack3pxNS'>Type : </div><div class='game-cat borderOrange3pxNS'>" + project.type + "</div><br><div class='game-cat-title borderBlack3pxNS'>Role : </div><div class='game-cat borderOrange3pxNS'>" + project.role + "</div><br><br>";
 
-    let finalString = container1  + container2  + gameCategories + "<div class='game-text'>" + project.content + "</div>";
+    let finalString = container1  + container2  + gameCategories + "<div class='game-text borderBlack3pxNS'>" + project.content + "</div>";
 
     $(".project-content-text").html(finalString);
+
+    // $("#gist-frame").attr("src", gistURL);
+
+    $(".snippet-container").html($("#snippet1").html());
 }
 
+
+
+// <script src="https://gist.github.com/HageFX-78/fe25219d983549a44b00583145d5054f.js"></script>
+
+// var gistID = "fe25219d983549a44b00583145d5054f";
+
+// var gistURL = "https://gist.github.com/HageFX-78/" + gistID + ".js";
+
+//  - - - - - - D O C   R E A D Y 
 $(document).ready(function() {
+
+    //Contacts copy
+    $(".contact").click(function() {
+        const textToCopy = $(this).html();
+        const $textArea = $('<textarea>').val(textToCopy);
+        $('body').append($textArea);
+        $textArea.select();
+        document.execCommand('copy');
+        $textArea.remove();
+
+
+        $(".copy-notice").css('bottom', '10px');
+
+        setTimeout(function() {
+            $(".copy-notice").css('bottom', '-50px');
+          }, 2000);
+    });
+
 
     // Tab switch
     $(".portfolio-tab").click(function() {

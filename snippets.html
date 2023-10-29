@@ -1,0 +1,24 @@
+<!-- Shadow snippet 1-->
+<pre id="snippet1" class="code-snippet">
+    <code class='language-csharp code-snippet-text'>
+
+        // - Creating the texture and capturing<br>
+        RenderTexture renderTexture = new RenderTexture(horizontalResolution, verticalResolution, captureDepth);<br>
+        Rect rect = new Rect(0, 0, horizontalResolution, verticalResolution);<br>
+        Texture2D texture = new Texture2D(horizontalResolution, verticalResolution, TextureFormat.ARGB32, false);<br><br>
+    
+        generationCam.targetTexture = renderTexture;<br>
+        generationCam.Render();<br><br>
+    
+        RenderTexture currentRenderTexture = RenderTexture.active;<br>
+        RenderTexture.active = renderTexture;<br>
+        texture.ReadPixels(rect, 0, 0);<br>
+        texture.Apply();<br><br>
+    
+        generationCam.targetTexture = null;<br>
+        RenderTexture.active = currentRenderTexture;<br>
+        DestroyImmediate(renderTexture);<br><br>
+    
+        Sprite sprite = Sprite.Create(texture, rect, Vector2.zero);<br>
+    </code>
+</pre>

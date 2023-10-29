@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
+        <link href="themes/prism.css" rel="stylesheet" />
         <link rel="stylesheet" href="Portfolio2.0/global.css">
         <link rel="stylesheet" href="Portfolio2.0/terminal.css">
         <link rel="stylesheet" href="Portfolio2.0/portfolio.css">
@@ -10,14 +10,19 @@
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700">
         <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
+
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="Portfolio2.0/commands.js"></script>
         <script src="Portfolio2.0/terminal.js"></script>
         <script src="Portfolio2.0/tabs.js"></script>
+
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>HageFX Portfolio</title>
     </head>
     <body>
+        
+        <!-- Terminal -->
         <div id ="terminal-toggle">
             >_
         </div>
@@ -33,6 +38,9 @@
             </div>
         </div>
 
+        <!-- Copy notice box-->
+        <div class="copy-notice borderOrange3px">Copied!</div>
+
         <!--Main pages -->
         <div id="portfolio-body">
             <div class = "portfolio-externals"></div>
@@ -43,13 +51,14 @@
                 <div class="portfolio-tab">About Me</div>
                 <div class="portfolio-tab">Skills</div>
             </div>
-            <div class="portfolio-tab-content">
+            <div class="portfolio-tab-content borderOrange5px">
                 <!--  Splash Tab  -->
                 <div id="splash-tab" class="portfolio-tab-pane active">
                     <div class="splash-tab-inner">
                       <img id="raymoo" src="img/raymoo.png" alt="pong_tn" draggable="false" ><br>
                       Lim Jun Jie | HageFX<br>
-                      <span>Gameplay Programmer / Tools Programmer</span>
+                      <span>Gameplay Programmer / Tools Programmer</span><br>
+                      <pre id="number" class="contact">+60 12-9704195 <i class="fa fa-copy"></i></pre><pre id="email" class="contact">jjfreelim@gmail.com <i class="fa fa-copy"></i></pre><br>
                     </div>
                 </div>
 
@@ -78,7 +87,7 @@
                     <div class="projects-content">
                         <div class="project-content-title-container">
                             <div class="project-content-title">Select a game!</div>
-                            <div class="project-content-title-link">Itch<i style="font-size:24px" class="fa">&#xf08e;</i></div>
+                            <div class="project-content-title-link borderOrange5pxNS">Itch<i style="font-size:24px" class="fa">&#xf08e;</i></div>
                         </div> 
                         <div class="project-content-text"></div>
                     </div>
@@ -105,12 +114,44 @@
 
 
                 <!--  Skills Tab  -->
-                <div class="portfolio-tab-pane">Content for Tab 3</div>
+                <div class="portfolio-tab-pane">
+                    
+                </div>
             </div>
         </div>
+
+        <!--  Syntax hightlight  -->
+        <script src="themes/prism.js"></script>
     </body>
     <footer>
-        
+        <div class="snippet-repo">
+            <!-- Shadow snippet 1-->
+            <pre id="snippet1" class="code-snippet">
+                <code class='language-csharp code-snippet-text'>
+
+                    // - Creating the texture and capturing<br>
+                    RenderTexture renderTexture = new RenderTexture(horizontalResolution, verticalResolution, captureDepth);<br>
+                    Rect rect = new Rect(0, 0, horizontalResolution, verticalResolution);<br>
+                    Texture2D texture = new Texture2D(horizontalResolution, verticalResolution, TextureFormat.ARGB32, false);<br><br>
+                
+                    generationCam.targetTexture = renderTexture;<br>
+                    generationCam.Render();<br><br>
+                
+                    RenderTexture currentRenderTexture = RenderTexture.active;<br>
+                    RenderTexture.active = renderTexture;<br>
+                    texture.ReadPixels(rect, 0, 0);<br>
+                    texture.Apply();<br><br>
+                
+                    generationCam.targetTexture = null;<br>
+                    RenderTexture.active = currentRenderTexture;<br>
+                    DestroyImmediate(renderTexture);<br><br>
+                
+                    Sprite sprite = Sprite.Create(texture, rect, Vector2.zero);<br>
+                </code>
+            </pre>
+
+        </div>
+
     </footer>
 </html>
 
