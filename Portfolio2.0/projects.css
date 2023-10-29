@@ -36,7 +36,7 @@
 }
 .projects-content{
     grid-area: content;
-    background-color: rgb(220, 220, 220);
+    background-color: rgb(40, 40, 40);
     overflow-y: scroll;
 }
 
@@ -157,18 +157,17 @@
     text-shadow: white 0.2px 0.2px 0px;
 }
 .game-text{
-    font-size: 16px;
+    /* font-family: 'Roboto', sans-serif; */
+    /* font-family: pixelfont; */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
     padding: 15px;
     background-color: #333333;
-    color: rgb(221, 221, 221);
-    line-height: 90%;
+    color: rgb(255, 255, 255);
+    line-height: 115%;
 }
 
-iframe{
-    width: 560;
-    height: 315;
-    
-}
+
 .showcase-img{
     width: 454px;
     height: 250px;

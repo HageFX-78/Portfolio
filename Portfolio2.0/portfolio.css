@@ -1,7 +1,7 @@
 #portfolio-body{
     
-    height: 80%;
-    width: 80%;
+    height: 90%;
+    width: 90%;
     display: grid;
     grid-template-rows: 40px auto; /* First row smaller, rest auto */
     grid-template-columns: auto auto auto auto;

@@ -64,7 +64,8 @@ const projectData = [
         gameEngine: "Unity 3D Mobile",
         type: "Group (7 members)",
         role: "Generalist Programmer / Tools Programmer",
-        content: "Worked on the core mechanic of the game, interactable shadows in a 3D plane.<br>Developed a tool/script to generate shadows of 3D models and place it in the scene, each shadow have a script that determines its size and position based on the distance to the light source and wall casted on.<br><br>The main script for shadow generated is as follows:<br><div class='snippet-container'></div>",
+        content: "<b>Contributions :</b><ul><li>Developed and maintained a tool to generate interactable flat 2D shadows from 3D models</li><li>Created the mechanic of light exclusion</li><li>Rigged and animated 2D skeletal meshes of enemy sprites</li><li>Worked on some puzzles</li></ul><br>The way the shadow script genrally works is it generates shadows of 3D models and place it in the scene, each shadow have a script that determines its size and position based on the distance to the light source and wall casted on.<br><br><b>For a basic flow of sequence :</b><ol><li>Assuming you have a 3D object to generate for, instantiate copy of object in front of sub camera.</li><li>Adjust translation and size to fit the camera lens</li><li>Snap a photo with background removed</li><li>Save the picture as sprite and apply some settings to it</li><li>Create an empty object and place a sprite rendere component on it</li><li>Attach to the original 3D game object and adjust the size and positon of the spirite based on distance to the \"main light source\" and \"main wall\"</li></ol><img src='img/shadow/g3.gif' alt='guiltTrio_tn' draggable='false' /><br><br><b>The main script for shadow generated is as follows :</b><br><br>This section is 'snapshot' phase referenced from a screenshot plugin, while this part maybe heavily referenced, the rest of the code are original.<br><br>This code involves the screenshot action and converting into a sprite.<br><br><a href='https://github.com/AaronTan1/GPS2Shadow/blob/7415065366055427e3e728f703ba873a3ac4e3ef/Assets/Scripts/Shadow2DTest/RefreshStaticShadows.cs#L334' target='_blank'>Full Snippet link</a><div class='snippet-container shadow-s1'></div>Then store the sprite in a specified folder, and apply texture settings with UNITY_EDITOR, shadow generation is only done once in the editor as this is a mobile game.<br><br> To change shadow shape in real-time we had a workaround that we did not have the chance to apply but, the idea is to generate multiple frames of the object at different angles then animate between them.<div class='snippet-container shadow-s2'></div><br><br><b>Note</b><br><br>The rest of the code can be found at the snippet link from the first snippet.<br><br>The idea for this way of generating shadows was conceived on week 2 of the project when it was approved by the lecturer, the rest of the time was spent on improving the tool and making it more user friendly.<br><br>It was somewhat of a cheese way that doesn't require real time shadow rendering which is a heavy task for mobile devices, but it was a fun experiment. The other reason for this method is normal 3D shadow has a complex shape, which makes it hard to build a 2D level. <br><br>Our method however snaps the objects in orthographic mode therefore generating flat sprites, allowing for easy level blocking.<br><br><b>Week 2 Concept Demo :</b><br><br><img src='img/shadow/g1.gif' alt='guiltTrio_tn' draggable='false' />",
+        snippets: ['shadow-s1', 'shadow-s2'],
         imgurl: "../img/tictactoe.png",
         textColor: "#FFFFFF",
         itchLink: "https://aarontan1.itch.io/shadow-maiden-less"
@@ -134,9 +135,15 @@ function swapGameContent(id)
 
     $(".project-content-text").html(finalString);
 
+    //Gist refused to connect
     // $("#gist-frame").attr("src", gistURL);
 
-    $(".snippet-container").html($("#snippet1").html());
+    if(project.snippets)
+    {
+        project.snippets.forEach(element => {
+            $(".snippet-container." + element).html($("#" + element).html());
+        });
+    }
 }
 
 
