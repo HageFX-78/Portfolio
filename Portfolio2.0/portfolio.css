@@ -75,11 +75,11 @@
 }
 .splash-tab-inner{
     color: white;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family:'Montserrat', sans-serif;
     font-size: 32px;
     font-weight: bold;
     text-align: center;
-    letter-spacing: 10px;
+    letter-spacing: 5px;
 }
 #raymoo{
     width: 40%;
@@ -93,7 +93,7 @@
     margin: 0;
 }
 .contact{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family:'Montserrat', sans-serif;
     font-size: 14px;
     font-weight: bold;
     text-align: center;

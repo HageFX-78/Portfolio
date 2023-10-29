@@ -22,7 +22,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>HageFX Portfolio</title>
     </head>
-    <body>
+    <body class ="line-numbers">
         
         <!-- Terminal -->
         <div id ="terminal-toggle">
@@ -126,71 +126,77 @@
         <script src="themes/prism.js"></script>
     </body>
     <footer>
-        <div class="snippet-repo">
+        <div class="content-repo">
+
+        </div>
+        <div class="snippet-repo line-numbers">
             <!-- Shadow snippet 1-->
-            <pre id="shadow-s1" class="code-snippet">
-                <code class='language-csharp code-snippet-text'>
+            <div id="shadow-s1" class="code-snippet-plugin-container">
+                <pre class="code-snippet">
+                    <code class='language-csharp code-snippet-text'>
+                        // - Creating the texture and capturing
+                        RenderTexture renderTexture = new RenderTexture(horizontalResolution, verticalResolution, captureDepth);
+                        Rect rect = new Rect(0, 0, horizontalResolution, verticalResolution);
+                        Texture2D texture = new Texture2D(horizontalResolution, verticalResolution, TextureFormat.ARGB32, false);
+                    
+                        generationCam.targetTexture = renderTexture;
+                        generationCam.Render();
+                    
+                        RenderTexture currentRenderTexture = RenderTexture.active;
+                        RenderTexture.active = renderTexture;
+                        texture.ReadPixels(rect, 0, 0);
+                        texture.Apply();
+                    
+                        generationCam.targetTexture = null;
+                        RenderTexture.active = currentRenderTexture;
+                        DestroyImmediate(renderTexture);
+                    
+                        Sprite sprite = Sprite.Create(texture, rect, Vector2.zero);
+                    </code>
+                </pre>
+            </div>
+            <div id="shadow-s2" class="code-snippet-plugin-container">
+                <pre class="code-snippet">
+                    <code class='language-csharp code-snippet-text'>
+                        if (specifiedSpritePath != null)
+                        {
+                            spritePath = specifiedSpritePath;
+                        }
 
-                    // - Creating the texture and capturing<br>
-                    RenderTexture renderTexture = new RenderTexture(horizontalResolution, verticalResolution, captureDepth);<br>
-                    Rect rect = new Rect(0, 0, horizontalResolution, verticalResolution);<br>
-                    Texture2D texture = new Texture2D(horizontalResolution, verticalResolution, TextureFormat.ARGB32, false);<br><br>
-                
-                    generationCam.targetTexture = renderTexture;<br>
-                    generationCam.Render();<br><br>
-                
-                    RenderTexture currentRenderTexture = RenderTexture.active;<br>
-                    RenderTexture.active = renderTexture;<br>
-                    texture.ReadPixels(rect, 0, 0);<br>
-                    texture.Apply();<br><br>
-                
-                    generationCam.targetTexture = null;<br>
-                    RenderTexture.active = currentRenderTexture;<br>
-                    DestroyImmediate(renderTexture);<br><br>
-                
-                    Sprite sprite = Sprite.Create(texture, rect, Vector2.zero);<br>
-                </code>
-            </pre>
-            <pre id="shadow-s2" class="code-snippet">
-                <code class='language-csharp code-snippet-text'>
-                    if (specifiedSpritePath != null)<br>
-                    {<br>
-                        spritePath = specifiedSpritePath;<br>
-                    }<br>
+                        // - Saving texture as PNG
+                        byte[] itemBGBytes = sprite.texture.EncodeToPNG();
+                        outputfilename = $"{parentName}_ShadowSprite";
+                        textureFailsafeID++;
+                        File.WriteAllBytes($"{spritePath}/{outputfilename}.png", itemBGBytes);
 
-                    // - Saving texture as PNG<br>
-                    byte[] itemBGBytes = sprite.texture.EncodeToPNG();<br>
-                    outputfilename = $"{parentName}_ShadowSprite";<br>
-                    textureFailsafeID++;<br>
-                    File.WriteAllBytes($"{spritePath}/{outputfilename}.png", itemBGBytes);<br><br>
+                #if UNITY_EDITOR
 
-            #if UNITY_EDITOR<br>
+                        // - Setting texture settings
+                        UnityEditor.AssetDatabase.Refresh();
+                        TextureImporter importer = (TextureImporter)TextureImporter.GetAtPath($"{spritePath}/{outputfilename}.png");
+                        importer.textureType = TextureImporterType.Sprite;
+                        importer.alphaIsTransparency = true;
+                        importer.filterMode = FilterMode.Point;
+                        importer.spritePixelsPerUnit = (100 * (shadowQuality - 8)) / (shadowSizeOffset / 2);
+                        EditorUtility.SetDirty(importer);
+                        importer.SaveAndReimport();
+                #endif
+                            // - Applying sprite to shadow
+                        if (specifiedSpritePath != null)
+                        {
+                            tempSR.sprite = Resources.Load<Sprite>($"GeneratedShadowTextures/PermanentSprites/{outputfilename}");
+                        }
+                        else
+                        {
+                            tempSR.sprite = Resources.Load<Sprite>($"GeneratedShadowTextures/{SceneManager.GetActiveScene().name}/{outputfilename}");
+                        }
 
-                    // - Setting texture settings<br>
-                    UnityEditor.AssetDatabase.Refresh();<br>
-                    TextureImporter importer = (TextureImporter)TextureImporter.GetAtPath($"{spritePath}/{outputfilename}.png");<br>
-                    importer.textureType = TextureImporterType.Sprite;<br>
-                    importer.alphaIsTransparency = true;<br>
-                    importer.filterMode = FilterMode.Point;<br>
-                    importer.spritePixelsPerUnit = (100 * (shadowQuality - 8)) / (shadowSizeOffset / 2);<br>
-                    EditorUtility.SetDirty(importer);<br>
-                    importer.SaveAndReimport();<br><br>
-            #endif<br><br>
-                        // - Applying sprite to shadow<br>
-                    if (specifiedSpritePath != null)<br>
-                    {<br>
-                        tempSR.sprite = Resources.Load<Sprite>($"GeneratedShadowTextures/PermanentSprites/{outputfilename}");<br>
-                    }<br>
-                    else<br>
-                    {<br>
-                        tempSR.sprite = Resources.Load<Sprite>($"GeneratedShadowTextures/{SceneManager.GetActiveScene().name}/{outputfilename}");<br>
-                    }<br><br>
-
-                    tempSR.color = shadowColor;<br>
-                    tempSR.material = shadowMaterial;<br>
-                    tempSR.gameObject.AddComponent<PolygonCollider2D>();<br>
-                </code>
-            </pre>
+                        tempSR.color = shadowColor;
+                        tempSR.material = shadowMaterial;
+                        tempSR.gameObject.AddComponent<PolygonCollider2D>();
+                    </code>
+                </pre>
+            </div>
         </div>
 
     </footer>

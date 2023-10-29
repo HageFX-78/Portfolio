@@ -37,17 +37,19 @@ b{
   color:#ffbf3e;
 }
 a{
+  font-size: 18px;
+  font-weight: 1000;
   text-shadow: none;
   color:#000000;
   text-decoration: none;
-  padding: 5px;
+  padding: 5px 15px;
   background-color: #ffbf3e;
   border-radius: 2px;
   box-shadow: 2px 2px 0px rgb(255, 193, 77);
 }
 a:hover{
-  color:#ffbf3e;
-  background-color: #595959;
+  color:#000000;
+  background-color: #ffc85b;
 }
 .borderOrange3px{
   border-top: 3px solid #ffdd66; 
@@ -106,21 +108,34 @@ a:hover{
   transition: bottom 0.5s ease-in-out;
 }
 
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - Code snippets */
 .snippet-container{
-  display: block; 
-  height: fit-content;
-  margin: 20px 3%;
-  padding: 20px;
-  background-color: #2D2D2D;
-  border-radius: 10px;
-  box-shadow: inset 0.5px 0.5px 10px rgb(16, 16, 16);
+  display: block;
+  padding: 15px 2px;
+  height: fit-content;  
+  background-color: #2D2D2D !important;
+  border-radius: 10px !important;
+  box-shadow: inset 0.5px 0.5px 10px rgb(16, 16, 16) !important;
+  margin: 20px 0;
+}
+.code-snippet-plugin-container{
+  overflow-x: scroll;
 }
 .code-snippet-text{
   /* white-space: pre-wrap; */
-  font-size: 12px !important;
+  
 }
+
+/* Code SNIPPET STORAGE*/
 .snippet-repo{
   display: none;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  font-size: 0.7rem !important;
 }
 /* ------------------Scrollbar */
 ::-webkit-scrollbar {

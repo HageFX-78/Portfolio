@@ -1,4 +1,4 @@
-terminal pre {
+.terminal pre {
     white-space: pre;
     /*font-family: 'Source Code Pro', monospace;*/
     font-family: 'Pixelify Sans', sans-serif;
@@ -151,6 +151,7 @@ terminal pre {
 .terminalText {
     display: flex;
     align-items: center;
+    margin-left: 5px;
     padding: 1px 0px;
 }
 .terminalText > span{
