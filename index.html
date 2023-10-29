@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="Portfolio2.0/terminal.css">
         <link rel="stylesheet" href="Portfolio2.0/portfolio.css">
         <link rel="stylesheet" href="Portfolio2.0/projects.css">
+        <link rel="stylesheet" href="Portfolio2.0/sidework.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700">
@@ -18,6 +19,7 @@
         <script src="Portfolio2.0/commands.js"></script>
         <script src="Portfolio2.0/terminal.js"></script>
         <script src="Portfolio2.0/tabs.js"></script>
+        <script src="Portfolio2.0/general.js"></script>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>HageFX Portfolio</title>
@@ -25,7 +27,7 @@
     <body class ="line-numbers">
         
         <!-- Terminal -->
-        <div id ="terminal-toggle">
+        <div id ="terminal-toggle" class="borderOrange5px">
             >_
         </div>
         <div class="terminal" id="draggableTerminal">
@@ -43,17 +45,142 @@
         <!-- Copy notice box-->
         <div class="copy-notice borderOrange3px">Copied!</div>
 
+        <!-- Side work Modal box-->
+        <div class="modal-box-back">
+            <div class="modal-box-container borderBlack5pxNS">
+                <h1>Fumo Engine</h1><br>
+                <a href='https://github.com/HageFX-78/FumoEngine' target='_blank'>Github Link <i style="font-size:20px" class="fa">&#xf08e;</i></a>
+                <a href='img/side/fumo/index.html' target='_blank'>Doxygen Documentation <i style="font-size:20px" class="fa">&#xf08e;</i></a>
+
+                <br><br>
+
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/rytMmehe428?si=W1SGpksaj3bwbvzm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <br><br>
+
+                <b>Brief</b><br>
+                A 2D game engine made in game engine class, the engine is made in C++ and uses OpenGL's GLFW rendering and input. Most of the architecture and design was guided by Mr. Faris our lecturer, but the implementation are done ourselves, alonside with the need to 3 new custom features.
+                
+                <br><br>
+                <b>Custom 2D Circle collider</b><br><br>
+                <a href='https://github.com/HageFX-78/FumoEngine/blob/32f968c86de782aa575152f9e0fece53af105e10/source/0133532_AssignmentBase/CircleCollider.cpp#L19C17-L19C17' target='_blank'>Main Script <i style="font-size:20px" class="fa">&#xf08e;</i></a>
+                <br><br>
+                <div class="code-snippet-plugin-container">
+                    <pre class="code-snippet">
+                        <code class='language-cpp code-snippet-text'>
+                            void CircleCollider::update(float deltaTime)
+                            {
+                                if (!isColliding && !collidedCache.empty()) collidedCache.clear();//Clear cache if leftover from before
+
+                                std::unordered_set<GameObject*> currentCollidingObjects;
+
+                                for (GameObject* sceneObj : GameObjectCollection::getCurrentSceneGameObjects())
+                                {
+                                    if (sceneObj == gameObject || !sceneObj->getIsActive() || !sceneObj->getComponent<CircleCollider>()) continue;
+
+                                    for (UserTag tag : collidables)
+                                    {
+                                        if (sceneObj->getTag() != tag) continue;
+
+                                        bool isInCircle = checkCircleCollision(*sceneObj->getComponent<CircleCollider>());
+                                        if (isInCircle)
+                                        {
+                                            if (!isColliding)
+                                            {
+                                                isColliding = true;
+                                                collidedCache.insert(sceneObj);
+                                                OnCollisionEnter(*sceneObj);
+                                            }
+                                        }
+                                    }
+                                }
+
+                                for (GameObject* cc : collidedCache)
+                                {
+                                    bool isInCircle = checkCircleCollision(*cc->getComponent<CircleCollider>());
+                                    if (isInCircle)
+                                    {
+
+                                        OnCollisionStay(*cc);
+                                        currentCollidingObjects.insert(cc); //Latest collided objects list
+                                    }
+                                    else
+                                    {
+                                        isColliding = false;
+                                        OnCollisionExit(*cc);
+                                    }
+                                }
+
+                                collidedCache = currentCollidingObjects;
+                            }
+                        </code>
+                    </pre>
+                </div>
+                
+                <br>
+                <b>Simple Object Pooling </b><br><br>
+                <a href='https://github.com/HageFX-78/FumoEngine/blob/32f968c86de782aa575152f9e0fece53af105e10/source/0133532_AssignmentBase/ShowCaseScene.cpp#L313C35-L313C35' target='_blank'>Main Script <i style="font-size:20px" class="fa">&#xf08e;</i></a>
+                <br><br>
+                <div class="code-snippet-plugin-container">
+                    <pre class="code-snippet">
+                        <code class='language-cpp code-snippet-text'>
+                            void ShowCaseScene::EnqueueBullet(Fumo::GameObject* obj)
+                            {
+                                obj->setIsActive(false);
+                                obj->transform->setPosition(0, 0);
+                                activeBullets.erase(obj);
+                                bulletPool.push(obj);
+
+                            }
+
+                            Fumo::GameObject* ShowCaseScene::DequeueBullet()
+                            {
+                                if (bulletPool.empty()) return nullptr;
+
+                                Fumo::GameObject* deqObj = bulletPool.front();
+                                bulletPool.pop();
+                                activeBullets.insert(deqObj);
+                                deqObj->setIsActive(true);
+
+                                return deqObj;
+                            }
+
+                            void ShowCaseScene::EnqueueEnemy(Fumo::GameObject* obj)
+                            {
+                                obj->setIsActive(false);
+                                obj->transform->setPosition(0, 0);
+                                activeEnemies.erase(obj);
+                                enemyPool.push(obj);
+                            }
+
+                            Fumo::GameObject* ShowCaseScene::DequeueEnemy()
+                            {
+                                if (enemyPool.empty()) return nullptr;
+
+                                Fumo::GameObject* deqObj = enemyPool.front();
+                                enemyPool.pop();
+                                activeEnemies.insert(deqObj);
+                                deqObj->setIsActive(true);
+
+                                return deqObj;
+                            }
+
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+
         <!--Main pages -->
         <div id="portfolio-body">
             <div class = "portfolio-externals"></div>
             <div class="portfolio-tabs">
                 <div class="portfolio-tab active">Portfolio</div>
                 <div class="portfolio-tab">Games</div>
-                <div class="portfolio-tab">Side Projects</div>
+                <div class="portfolio-tab">Side Works</div>
                 <div class="portfolio-tab">About Me</div>
-                <div class="portfolio-tab">Skills</div>
+                <div class="portfolio-tab">Resume</div>
             </div>
-            <div class="portfolio-tab-content borderOrange5px">
+            <div class="portfolio-tab-content borderOrange5pxNS">
                 <!--  Splash Tab  -->
                 <div id="splash-tab" class="portfolio-tab-pane active">
                     <div class="splash-tab-inner">
@@ -61,7 +188,14 @@
                       Lim Jun Jie | HageFX<br>
                       <span>Gameplay Programmer / Tools Programmer</span><br>
                       <pre id="number" class="contact">+60 12-9704195 <i class="fa fa-copy"></i></pre><pre id="email" class="contact">jjfreelim@gmail.com <i class="fa fa-copy"></i></pre><br>
+                      <div id="temp">
+                        This site is made from scratch and still heavily under development, do come back a few days later for a more complete build!<br><br>
+
+                        <div><a href='https://github.com/HageFX-78/Portfolio' target='_blank'>Portfolio Repo <i style="font-size:20px" class="fa">&#xf08e;</i></a></div>
+                      </div>
+                      
                     </div>
+                    
                 </div>
 
                 <!--  Games Tab  -->
@@ -79,6 +213,8 @@
                         
                         <div class="projects-thumbnail" readID="6"><img src="img/2hu/2hu.png" alt="guiltTrio_tn" draggable="false" ></div>
 
+                        <div class="projects-thumbnail" readID="8"><img src="img/waddle_quest/title-screen.png" alt="guiltTrio_tn" draggable="false" ></div>
+
                         <div class="projects-thumbnail" readID="1"><img src="img/insemination/title-screen.png" alt="insemination_tn" draggable="false" ></div>
 
                         <div class="projects-thumbnail" readID="0"><img src="img/pong.png" alt="pong_tn" draggable="false" ></div>
@@ -91,14 +227,18 @@
                             <div class="project-content-title">Select a game!</div>
                             <div class="project-content-title-link borderOrange5pxNS">Itch<i style="font-size:24px" class="fa">&#xf08e;</i></div>
                         </div> 
-                        <div class="project-content-text"></div>
+                        <div id="" class="project-content-text"></div>
                     </div>
                 </div>
 
 
                 <!--  Side project Tab  -->
-                <div class="portfolio-tab-pane">
-                    Side projects
+                <div id="side-work-tab" class="portfolio-tab-pane">
+                    <div class="side-work-container">
+                        <div id="fumo" class="side-work-item">
+                            <img src="img/side/fumoEngine.png" alt="pong_tn" draggable="false" />
+                        </div>
+                    </div>
                 </div>
 
 
@@ -109,15 +249,26 @@
                   </div>
                   <div class="portfolio-summary-text">
                     <div class = "portfolio-summary-text-block">
-                      DDescription
+                      &nbsp;&nbsp;&nbsp;&nbsp;I'm Lim Jun Jie or you can call me JJ, I'm a gameplay programmer and tools programmer. I'm currently a final year student in UOWKDU University College, majoring in Game Development. <span class="secret">There</span><br><br>
+
+                      &nbsp;&nbsp;&nbsp;&nbsp;I'm confident in problem-solving and creating tools to help speed up the development process as the faster you can get a prototype out, the faster you can iterate and improve on it. <span class="secret">is</span><br><br>
+
+                      &nbsp;&nbsp;&nbsp;&nbsp;On a more personal note, my favourtie genre of games are Eroges, Puzzle, Simulation, Comedy and Metroidvanias. My hobbies involve watching anime/reading manga, building Gunpla and creating scripts/tools for fun and jokes. I also like to look into varying topics such as retro hardware emulation, cryptography, astronomy cause who doesn't like space and so much more that I could keep going till this page dies. <span class="secret">no</span><br><br>
+
+                      &nbsp;&nbsp;&nbsp;&nbsp;I love programming and drawing as well, hence why I spent so much effort working on this portfolio be it that it didn't turn out as great as I thought, this was made in a rush in 3 days haha. Nonetheless, thank you for spending time reading through this and visiting my work (this site). <span class="secret">secret</span><br><br>
+
+                      &nbsp;&nbsp;&nbsp;&nbsp;That aside, there's a reason why this site has such weird designs, hmmm, maybe something hidden? Something to do with that terminal? Who knows, maybe you'll find it. Starting from this page perhaps. Good luck. <span class="secret">yet.</span><br><br>
+
+                      <span class="secret">The puzzle is not completed yet so wait a few more days.. lol</span><br>
                     </div>
                   </div>
                 </div>
 
 
                 <!--  Skills Tab  -->
-                <div class="portfolio-tab-pane">
-                    
+                <div id="skills-tab"class="portfolio-tab-pane">
+                    <br><br><b>This page will be replaced in the future!</b>
+                    <embed src="resume.pdf"/>
                 </div>
             </div>
         </div>
@@ -126,9 +277,129 @@
         <script src="themes/prism.js"></script>
     </body>
     <footer>
+        <!-------------------------------------- Game Content Repo---------------------------------------------------------------------------------->
         <div class="content-repo">
+            <!--  Shodow content repo lmao  -->
+            <div id="shadow-content">
+                <b>Contributions :</b>
+                <ul>
+                    <li>Developed and maintained a tool to generate interactable flat 2D shadows from 3D models</li>
+                    <li>Created the mechanic of light exclusion</li>
+                    <li>Rigged and animated 2D skeletal meshes of enemy sprites</li>
+                    <li>Worked on some puzzles</li>
+                </ul><br>
+                The way the shadow script genrally works is it generates shadows of 3D models and place it in the scene, each shadow have a script that determines its size and position based on the distance to the light source and wall casted on.<br><br>
+                
+                <b>For a basic flow of sequence :</b>
+                <ol>
+                    <li>Assuming you have a 3D object to generate for, instantiate copy of object in front of sub camera.</li>
+                    <li>Adjust translation and size to fit the camera lens</li>
+                    <li>Snap a photo with background removed</li>
+                    <li>Save the picture as sprite and apply some settings to it</li>
+                    <li>Create an empty object and place a sprite rendere component on it</li>
+                    <li>Attach to the original 3D game object and adjust the size and positon of the spirite based on distance to the \"main light source\" and \"main wall\"</li>
+                </ol>
+                <div class='gif-container'>
+                    <img src='img/shadow/g3.gif' alt='guiltTrio_tn' draggable='false' />
+                </div><br><br>
+                <b>The main script for shadow generated is as follows :</b><br><br>
+                This section is 'snapshot' phase referenced from a screenshot plugin, while this part maybe heavily referenced, the rest of the code are original.<br><br>
+                This code involves the screenshot action and converting into a sprite.<br><br>
 
+                <a href='https://github.com/AaronTan1/GPS2Shadow/blob/7415065366055427e3e728f703ba873a3ac4e3ef/Assets/Scripts/Shadow2DTest/RefreshStaticShadows.cs#L334' target='_blank'>Full Snippet link  <i style="font-size:20px" class="fa">&#xf08e;</i></a>
+                <div class='snippet-container shadow-s1'></div>
+                Then store the sprite in a specified folder, and apply texture settings with UNITY_EDITOR, shadow generation is only done once in the editor as this is a mobile game.<br><br>
+                To change shadow shape in real-time we had a workaround that we did not have the chance to apply but, the idea is to generate multiple frames of the object at different angles then animate between them.
+
+
+                <div class='snippet-container shadow-s2 line-numbers'></div>
+
+
+                <b>Note</b><br><br>
+
+                The rest of the code can be found at the snippet link from the first snippet.<br><br>
+
+                The idea for this way of generating shadows was conceived on week 2 of the project when it was approved by the lecturer, the rest of the time was spent on improving the tool and making it more user friendly.<br><br>
+
+                It was somewhat of a cheese way that doesn't require real time shadow rendering which is a heavy task for mobile devices, but it was a fun experiment. The other reason for this method is normal 3D shadow has a complex shape, which makes it hard to build a 2D level. <br><br>
+
+                Our method however snaps the objects in orthographic mode therefore generating flat sprites, allowing for easy level blocking.<br><br><b>Week 2 Concept Demo :</b><br><br>
+                <div class='gif-container'>
+                    <img src='img/shadow/g1.gif' alt='guiltTrio_tn' draggable='false' />
+                </div>
+            </div>
+
+            <!--  Hazepoint content repo lmao  -->
+            <div id="hazepoint-content">
+                <b>Brief</b><br><br>
+                <a href='https://github.com/HageFX-78/KaijuMechGame/blob/main/Source/KaijuGameTest/Private/A_PathfindingManager.cpp' target='_blank'>Custom C++ snippet <i style="font-size:20px" class="fa">&#xf08e;</i></a>
+                <br><br>
+                First unreal engine game made for Final Year Project. Still currently being devloped!<br>
+
+                The game is mainly a mech simulator where you have to kill a kaiju 10x the size of the player. The mech is equipped with some utilities that could help traverse the map, attack the kaiju and mainly survive.<br><br>
+
+                There is no core mechanic per say, but the one mechanic that could be considered the main is the grapple ability. Player can grapple onto any building within a set distance, reel towards it OR reel halfway and dangle around. You could imagine it being similar to the classic attack on titan tribute game on PC quite a few years back.
+            </div>
+
+            <!--  Guilt Trip content repo lmao  -->
+            <div id="guilt-content">
+                <b>Contributions :</b><br>
+                <ul>
+                    <li>Turn-based dialogue battle system for mobs</li>
+                    <li>Dialogue system that takes input from text files with custom markup</li>
+                    <li>Modular UI system for collected items that displays on inventory</li>
+                    <li>Few sprite art in tutorial stage</li>
+                </ul><br>
+                <a href='https://github.com/HageFX-78/gps1-Cultured/blob/prototype-base/Assets/Scripts/Battle/Mob/Buttons/DBManager.cs' target='_blank'>Battle system core script <i style="font-size:20px" class="fa">&#xf08e;</i></a>
+                <br><br>
+            </div>
+
+            <!--  Untitled content repo lmao  -->
+            <div id="tpmsw-content">
+                <b>Brief :</b><br>
+                Submission for September Sem Jam 2023, theme was 'Slime'.<br><br>
+                
+                Gameplay is a 2D platformer where you play as a slime trying to please your wife by going on a journey to harden yourself. Game mechanic involves sucking on harder items and become harder yourself.<br>
+                
+                This is also to experiment with 2D softbody physics.
+            </div>
+
+            <!--  Untitled content repo lmao  -->
+            <div id="midnight-content">
+                A 2D puzzle/stealth game where the player plays as a blob that can turn into any human being it eats. You came onto the streets outside an apartment feeling hungry, so you decided to take a quick midnight snack in the apartment.<br><br>
+                
+                The mechanics are simple, you can consume any human as long as you're in blob form. You can morph back and forth to the latest form you've taken. Being spotted in your blob form or somewhere you shouldn't be in as a human (like a cop in some family home) will trigger suspicion.
+
+            </div>
+
+            <!--  Untitled content repo lmao  -->
+            <div id="2huBlack-content">
+                A 2D vertical shooter and a fan-parody of the Touhou series. My first completed Unity game.
+            </div>
+
+            <!--  Untitled content repo lmao  -->
+            <div id="insemination-content">
+                Second stencyl game, a shoot-em-up with 3 stages each with their own boss battles.<br><br>
+
+                All art are drawn by myself.
+            </div>
+
+            <!--  Untitled content repo lmao  -->
+            <div id="waddle-content">
+                My personal favourite game made in Stencyl with 3 difficult stages.<br><br>
+
+                Cool features include gliding, shift-jumping, sliding and blood!
+            </div>
+
+            <!--  Untitled content repo lmao  -->
+            <div id="pong-content">
+                My first stencyl game made for assignment, also my first completed game. A modified pong with additional power ups.
+            </div>
+
+
+            <!--+++++++++++++++++++++++++  End of content Repo  -->
         </div>
+        <!-------------------------------------- Code Repo---------------------------------------------------------------------------------->
         <div class="snippet-repo line-numbers">
             <!-- Shadow snippet 1-->
             <div id="shadow-s1" class="code-snippet-plugin-container">
@@ -155,6 +426,7 @@
                     </code>
                 </pre>
             </div>
+            <!-- Shadow snippet 2-->
             <div id="shadow-s2" class="code-snippet-plugin-container">
                 <pre class="code-snippet">
                     <code class='language-csharp code-snippet-text'>

@@ -99,7 +99,7 @@ $(document).ready(function() {
 
 
     // Start on terminal
-    AppendTerminalText("Welcome to my portfolio! \\(@^0^@)/ Type 'help' for a list of commands. <br><br> &nbsp;&nbsp;&nbsp;<i>Tip: Press space to toggle the terminal.</i><br><br>");
+    AppendTerminalText("Welcome to my portfolio! \\(@^0^@)/ Type 'help' for a list of commands. <br><br> &nbsp;&nbsp;&nbsp;<i>Tip: Press space to toggle the terminal.</i><br><br>Btw there is a powerful command that could break this page if you know your stuff xD <br><br>");
 
     ToggleTerminal();
     let isDragging = false;
