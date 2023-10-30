@@ -35,6 +35,7 @@ const projectData = [
         type: "Solo",
         role: "All",
         content: "hazepoint-content",
+        snippets: ['hazepoint-s1', 'hazepoint-s2'],
         textColor: "#FFFFFF",
         itchLink: "https://uowmgames.itch.io/fyp2-hazepoint"
     },

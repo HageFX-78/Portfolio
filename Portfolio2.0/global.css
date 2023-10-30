@@ -140,7 +140,28 @@ a:hover{
 .secret{
   color: black;
 }
-
+.external-container{
+  width: 100%;
+  height: fit-content;
+  padding-bottom: 50px;
+}
+.externals{
+  height: auto;
+  width:auto;
+  margin:20px;
+  max-width: 50px;
+  max-height: 50px;
+  box-shadow: none;
+}
+#linkedinICON{
+  background-image: url('../img/linkedin.png');
+}
+#githubICON{
+  background-image: url('../img/github.png');
+}
+#itchioICON{
+  background-image: url('../img/itch.png');
+}
 code[class*="language-"],
 pre[class*="language-"] {
   font-size: 0.7rem !important;
