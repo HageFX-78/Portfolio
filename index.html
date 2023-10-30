@@ -334,7 +334,23 @@
                 </div><br><br>
 
                 <b>Shadow/Light exclusion</b><br><br>
-                Another mechanic was planned and added for the second level, but the second level didn't make it to the final build but I'll be explaining it here.<br><br>
+                Another mechanic was planned and added for the second level, but the second level didn't make it to the final build but I'll be explaining it here. This mechanic is to negate shadows, making them passable, it can be enemies or obstacles.<br><br>
+                
+                <b>Light disabling enemy specific colliders and reenabling out of range</b><br><br>
+                <div class='gif-container'>
+                    <img src='img/shadow/g2.gif' alt='guiltTrio_tn' draggable='false' />
+                </div><br><br>
+
+                <b>How it works</b><br><br>
+                The script is a simple one, for context, the enemy has 3 different colliders. Any colliders that intersect with the 'light' will be disabled and enqued into a queue, once the collider is out of range, it will be reenabled based on sequence, hence the queue data structure<br><br>
+
+                There is an Update() in this script that checks whether the light is still colliding with the collider through a custom function as the in-built unity one is catered for 3D collisions and doesn't work in our particular case<br><br>
+
+                <a href='https://github.com/AaronTan1/GPS2Shadow/blob/main/Assets/Scripts/Shadow2DTest/ExclusionLight.cs' target='_blank'>Script link  <i style="font-size:20px" class="fa">&#xf08e;</i></a><br><br>
+
+                <div class='snippet-container shadow-s3'></div>
+
+               
             </div>
 
 
@@ -518,7 +534,57 @@
                     </code>
                 </pre>
             </div>
+            <div id="shadow-s3" class="code-snippet-plugin-container">
+                <pre class="code-snippet">
+                    <code class='language-csharp code-snippet-text'>
+                        [SerializeField] float extentScaleIncreaseX;
+                        [SerializeField] float extentScaleIncreaseY;
+                        private Collider2D thisBounds; //Exclusion own bounds
+                        Queue<KeyValuePair<Collider2D, Vector2>> collidedList = new Queue<KeyValuePair<Collider2D, Vector2>>();
+                        Coroutine crCheck = null;
 
+                        private void Start(){
+                            thisBounds = GetComponent<Collider2D>();
+                        }
+                        void OnTriggerEnter2D(Collider2D collision)
+                        {
+                            //Enqueue collided collider components, and disable them
+                            if (collision.CompareTag("Blight") || collision.CompareTag("ExcludableProp"))
+                            {
+                                collidedList.Enqueue(new KeyValuePair<Collider2D, Vector2>(collision, collision.bounds.extents));
+                                collision.enabled = false;
+                                if (crCheck == null)
+                                {
+                                    //Start coroutine that checks if it's in bound every few milliseconds
+                                    crCheck = StartCoroutine(ColliderUpdate());
+                                }
+                            }
+                        }
+
+                        IEnumerator ColliderUpdate()
+                        {
+                            while (collidedList.Count > 0)
+                            {
+                                KeyValuePair<Collider2D, Vector2> item = collidedList.Dequeue();
+                                if (!IntersectCheck(thisBounds.bounds, item.Key.bounds, item.Value))
+                                {
+                                    item.Key.enabled = true;
+                                }
+                                else
+                                {
+                                    collidedList.Enqueue(item);
+                                }
+                                yield return new WaitForSeconds(0.5f);
+                            }
+                            crCheck = null;
+                        }
+
+                    </code>
+                </pre>
+            </div>
+
+
+            <!------------ Hazepoint code snippet repo ------------>
             <div id="hazepoint-s1" class="code-snippet-plugin-container">
                 <pre class="code-snippet">
                     <code class='language-cpp code-snippet-text'>

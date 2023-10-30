@@ -63,7 +63,7 @@ const projectData = [
         type: "Group (7 members)",
         role: "Generalist Programmer / Tools Programmer",
         content: "shadow-content",//Content id redirect
-        snippets: ['shadow-s1', 'shadow-s2'],
+        snippets: ['shadow-s1', 'shadow-s2', 'shadow-s3'],
         textColor: "#FFFFFF",
         itchLink: "https://aarontan1.itch.io/shadow-maiden-less"
     },
