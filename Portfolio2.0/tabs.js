@@ -27,7 +27,7 @@ const projectData = [
     },
     {
         index: 2,
-        gameName: "Hazepoint (Final Year Project)",
+        gameName: "Hazepoint (Final Year Project) - WIP",
         contentHead: '<iframe width="560" height="315" src="https://www.youtube.com/embed/SRN0U647AJg?si=MI82BEk1xzV_8aIH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
         contentImg:'<img class ="showcase-img" src="img/hazepoint/s1.png" alt="guiltTrio_tn" draggable="false" ><img class ="showcase-img" src="img/hazepoint/keyart.png" alt="guiltTrio_tn" draggable="false"><img class ="showcase-img" src="img/hazepoint/s2.png" alt="guiltTrio_tn" draggable="false">',
         projectDuration: "6 months",
@@ -49,7 +49,7 @@ const projectData = [
         type: "Group (7 members)",
         role: "Generalist Programmer",
         content: "guilt-content",
-        imgurl: "../img/tictactoe.png",
+        snippets: ['guilt-s1', 'guilt-s2', 'guilt-s3'],
         textColor: "#FFFFFF",
         itchLink: "https://uowmgames.itch.io/guilt-trip"
     },
@@ -63,15 +63,15 @@ const projectData = [
         type: "Group (7 members)",
         role: "Generalist Programmer / Tools Programmer",
         content: "shadow-content",//Content id redirect
-        snippets: ['shadow-s1', 'shadow-s2', 'shadow-s3'],
+        snippets: ['shadow-s1', 'shadow-s2', 'shadow-s3', 'shadow-s4'],
         textColor: "#FFFFFF",
         itchLink: "https://aarontan1.itch.io/shadow-maiden-less"
     },
     {
         index: 5,
         gameName: "To Please My Slimy Wife",
-        contentHead: 'No Video :C',
-        contentImg:'<img class ="showcase-img" src="img/tpmsw/tn.png" alt="guiltTrio_tn" draggable="false" >',
+        contentHead: '<iframe width="560" height="315" src="https://www.youtube.com/embed/TGPXmKoQxk8?si=ZU4L3yiYilYavOHu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+        contentImg:'<img class ="showcase-img" src="img/tpmsw/tn.png" alt="guiltTrio_tn" draggable="false" ><img class ="showcase-img" src="img/tpmsw/tps1.png" alt="guiltTrio_tn" draggable="false" ><img class ="showcase-img" src="img/tpmsw/tps2.png" alt="guiltTrio_tn" draggable="false" ><img class ="showcase-img" src="img/tpmsw/tps3.png" alt="guiltTrio_tn" draggable="false" >',
         projectDuration: "48 hours",
         gameEngine: "Unity 2D",
         type: "Solo (September Sem Jam 2023)",
@@ -111,7 +111,7 @@ const projectData = [
         index: 8,
         gameName: "Waddle Quest",
         contentHead: 'No Video :C',
-        contentImg:'<img class ="showcase-img" src="img/waddle_quest/stage1.png" alt="guiltTrio_tn" draggable="false" ><img class ="showcase-img" src="img/waddle_quest/bg.png" alt="guiltTrio_tn" draggable="false" ><img class ="showcase-img" src="img/waddle_quest/gliding-code.png" alt="guiltTrio_tn" draggable="false"><img class ="showcase-img" src="img/waddle_quest/slapping-code.png" alt="guiltTrio_tn" draggable="false"><img class ="showcase-img" src="img/waddle_quest/sliding-code.png" alt="guiltTrio_tn" draggable="false">',
+        contentImg:'<img class ="showcase-img" src="img/waddle_quest/stage1.png" alt="guiltTrio_tn" draggable="false" ><img class ="showcase-img" src="img/waddle_quest/s2.png" alt="guiltTrio_tn" draggable="false"><img class ="showcase-img" src="img/waddle_quest/bg.png" alt="guiltTrio_tn" draggable="false" ><img class ="showcase-img" src="img/waddle_quest/gliding-code.png" alt="guiltTrio_tn" draggable="false"><img class ="showcase-img" src="img/waddle_quest/slapping-code.png" alt="guiltTrio_tn" draggable="false"><img class ="showcase-img" src="img/waddle_quest/sliding-code.png" alt="guiltTrio_tn" draggable="false">',
         projectDuration: "2 week",
         gameEngine: "Stencyl",
         type: "Solo",
