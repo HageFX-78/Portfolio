@@ -3,6 +3,7 @@
     <head>
         <link rel="icon" href="img/PFP.png">
 
+        <!-- CSS -->
         <link href="themes/prism.css" rel="stylesheet" />
         <link rel="stylesheet" href="Portfolio2.0/global.css">
         <link rel="stylesheet" href="Portfolio2.0/terminal.css">
@@ -11,23 +12,30 @@
         <link rel="stylesheet" href="Portfolio2.0/sidework.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+        <!-- Google Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700">
         <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto&display=swap" rel="stylesheet">
 
         
+        <!-- Jquery/AJAX -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <!-- <script src="https://code.jquery.com/jquery-migrate-3.4.1.min.js" integrity="sha256-UnTxHm+zKuDPLfufgEMnKGXDl6fEIjtM+n1Q6lL73ok=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/polymer/3.5.1/polymer-element.min.js" integrity="sha512-UwX4/ImnOxrQDjEb/BLjhXxRzaOn4fZvecUO99O6kQ8DE/c1URP1z84vyZ9dnl7zeOWgKRF0UHI9nxrUYidHuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+
+
         <script src="Portfolio2.0/commands.js"></script>
         <script src="Portfolio2.0/terminal.js"></script>
+        <script src="Portfolio2.0/gameContent.js"></script>
         <script src="Portfolio2.0/tabs.js"></script>
         <script src="Portfolio2.0/general.js"></script>
 
+        <!-- Mobile viewport fix -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>HageFX Portfolio</title>
     </head>
     <body class ="line-numbers">
-        
         <!-- Terminal -->
         <div id ="terminal-toggle" class="borderOrange5px">
             >_
@@ -51,8 +59,8 @@
         <div class="modal-box-back">
             <div class="modal-box-container borderBlack5pxNS">
                 <h1>Fumo Engine</h1><br>
-                <a href='https://github.com/HageFX-78/FumoEngine' target='_blank'>Github Link <i style="font-size:20px" class="fa">&#xf08e;</i></a>
-                <a href='img/side/fumo/index.html' target='_blank'>Doxygen Documentation <i style="font-size:20px" class="fa">&#xf08e;</i></a>
+                <div class="custom-link"><a href='https://github.com/HageFX-78/FumoEngine' target='_blank'>Github Link <i style="font-size:20px" class="fa">&#xf08e;</i></a></div>
+                <div class="custom-link"><a href='img/side/fumo/index.html' target='_blank'>Doxygen Documentation <i style="font-size:20px" class="fa">&#xf08e;</i></a></div>
 
                 <br><br>
 
@@ -64,7 +72,7 @@
                 
                 <br><br>
                 <b>Custom 2D Circle collider</b><br><br>
-                <a href='https://github.com/HageFX-78/FumoEngine/blob/32f968c86de782aa575152f9e0fece53af105e10/source/0133532_AssignmentBase/CircleCollider.cpp#L19C17-L19C17' target='_blank'>Main Script <i style="font-size:20px" class="fa">&#xf08e;</i></a>
+                <div class="custom-link"><a href='https://github.com/HageFX-78/FumoEngine/blob/32f968c86de782aa575152f9e0fece53af105e10/source/0133532_AssignmentBase/CircleCollider.cpp#L19C17-L19C17' target='_blank'>Main Script <i style="font-size:20px" class="fa">&#xf08e;</i></a></div>
                 <br><br>
                 <div class="code-snippet-plugin-container">
                     <pre class="code-snippet">
@@ -120,7 +128,7 @@
                 
                 <br>
                 <b>Simple Object Pooling </b><br><br>
-                <a href='https://github.com/HageFX-78/FumoEngine/blob/32f968c86de782aa575152f9e0fece53af105e10/source/0133532_AssignmentBase/ShowCaseScene.cpp#L313C35-L313C35' target='_blank'>Main Script <i style="font-size:20px" class="fa">&#xf08e;</i></a>
+                <div class="custom-link"><a href='https://github.com/HageFX-78/FumoEngine/blob/32f968c86de782aa575152f9e0fece53af105e10/source/0133532_AssignmentBase/ShowCaseScene.cpp#L313C35-L313C35' target='_blank'>Main Script <i style="font-size:20px" class="fa">&#xf08e;</i></a></div>
                 <br><br>
                 <div class="code-snippet-plugin-container">
                     <pre class="code-snippet">
@@ -193,14 +201,14 @@
                       <div id="temp">
                         This site is made from scratch and still heavily under development, do come back a few days later for a more complete build!<br><br>
 
-                        <div><a href='https://github.com/HageFX-78/Portfolio' target='_blank'>Portfolio Repo <i style="font-size:20px" class="fa">&#xf08e;</i></a></div>
+                        <div class="custom-link"><a href='https://github.com/HageFX-78/Portfolio' target='_blank'>Portfolio Repo <i style="font-size:20px" class="fa">&#xf08e;</i></a></div>
                       </div>
                       
                     </div>
                     <div class="external-container">
-                        <a class="externals" id="linkedinICON" href="https://www.linkedin.com/in/jjlim-hagefx/" target="_blank"></a>
-                        <a class="externals" id="githubICON" href="https://github.com/HageFX-78" target="_blank"></a>
-                        <a class="externals" id="itchioICON" href="https://hagefx78.itch.io" target="_blank"></a>
+                        <div class="externals" id="linkedinICON" onclick="window.open('https://www.linkedin.com/in/jjlim-hagefx/', '_blank');"></div>
+                        <div class="externals" id="githubICON" onclick="window.open('https://github.com/HageFX-78', '_blank');"></div>
+                        <div class="externals" id="itchioICON" onclick="window.open('https://hagefx78.itch.io', '_blank');"></div>
                     </div>
                 </div>
 
@@ -313,7 +321,7 @@
                 This section is 'snapshot' phase referenced from a screenshot plugin, while this part maybe heavily referenced, the rest of the code are original.<br><br>
                 This code involves the screenshot action and converting into a sprite.<br><br>
 
-                <a href='https://github.com/AaronTan1/GPS2Shadow/blob/7415065366055427e3e728f703ba873a3ac4e3ef/Assets/Scripts/Shadow2DTest/RefreshStaticShadows.cs#L334' target='_blank'>Full Snippet link  <i style="font-size:20px" class="fa">&#xf08e;</i></a>
+                <div class="custom-link"><a href='https://github.com/AaronTan1/GPS2Shadow/blob/7415065366055427e3e728f703ba873a3ac4e3ef/Assets/Scripts/Shadow2DTest/RefreshStaticShadows.cs#L334' target='_blank'>Full Snippet link  <i style="font-size:20px" class="fa">&#xf08e;</i></a></div>
                 <div class='snippet-container shadow-s1'></div>
                 Then store the sprite in a specified folder, and apply texture settings with UNITY_EDITOR, shadow generation is only done once in the editor as this is a mobile game.<br><br>
                 To change shadow shape in real-time we had a workaround that we did not have the chance to apply but, the idea is to generate multiple frames of the object at different angles then animate between them.
@@ -348,7 +356,7 @@
 
                 There is an Coroutine in this script that checks whether the light is still colliding with the collider through a custom function as the in-built unity one is catered for 3D collisions and doesn't work in our particular case. The coroutine would check every 0.5 seconds, if it is still colliding, add it to the back of the queue, else reenable the component.<br><br>
 
-                <a href='https://github.com/AaronTan1/GPS2Shadow/blob/main/Assets/Scripts/Shadow2DTest/ExclusionLight.cs' target='_blank'>Script link  <i style="font-size:20px" class="fa">&#xf08e;</i></a><br><br>
+                <div class="custom-link"><a href='https://github.com/AaronTan1/GPS2Shadow/blob/main/Assets/Scripts/Shadow2DTest/ExclusionLight.cs' target='_blank'>Script link  <i style="font-size:20px" class="fa">&#xf08e;</i></a></div><br><br>
 
                 <div class='snippet-container shadow-s3'></div>
 
@@ -357,7 +365,7 @@
                 
                 Another notable issue is when calling the .bounds variable from a disabled collider component returns 0 no matter what, hence why there is a need to cahce the extent/bounds of collided components.<br><br>
 
-                <a href='https://github.com/AaronTan1/GPS2Shadow/blob/7415065366055427e3e728f703ba873a3ac4e3ef/Assets/Scripts/Shadow2DTest/ExclusionLight.cs#L60' target='_blank'>Script link  <i style="font-size:20px" class="fa">&#xf08e;</i></a><br><br>
+                <div class="custom-link"><a href='https://github.com/AaronTan1/GPS2Shadow/blob/7415065366055427e3e728f703ba873a3ac4e3ef/Assets/Scripts/Shadow2DTest/ExclusionLight.cs#L60' target='_blank'>Script link  <i style="font-size:20px" class="fa">&#xf08e;</i></a></div><br><br>
 
                 <div class='snippet-container shadow-s4'></div>
 
@@ -391,7 +399,7 @@
                 Due to time constraints, I've decided to switch to pure blueprint part for finding the path and focus more on player experience namely the mech. I would tackle C++ later on once I've have a better grasp to the underlying paradigm of Unreal through blueprints.<br><br>
 
                 <b>Dijkstra Pathfind Function</b><br><br>
-                <a href='https://github.com/HageFX-78/KaijuMechGame/blob/main/Source/KaijuGameTest/Private/A_PathfindingManager.cpp' target='_blank'>C++ Pathfinding Script <i style="font-size:20px" class="fa">&#xf08e;</i></a>
+                <div class="custom-link"><a href='https://github.com/HageFX-78/KaijuMechGame/blob/main/Source/KaijuGameTest/Private/A_PathfindingManager.cpp' target='_blank'>C++ Pathfinding Script <i style="font-size:20px" class="fa">&#xf08e;</i></a></div>
                 <br>
 
                 <div class='snippet-container hazepoint-s1'></div>
@@ -403,7 +411,7 @@
                 </ul>
 
                 <b>AA_WaypointActor.h Structure</b><br><br>
-                <a href='https://github.com/HageFX-78/KaijuMechGame/blob/main/Source/KaijuGameTest/Public/A_WaypointActor.h' target='_blank'>Snippet Link <i style="font-size:20px" class="fa">&#xf08e;</i></a>
+                <div class="custom-link"><a href='https://github.com/HageFX-78/KaijuMechGame/blob/main/Source/KaijuGameTest/Public/A_WaypointActor.h' target='_blank'>Snippet Link <i style="font-size:20px" class="fa">&#xf08e;</i></a></div>
                 <br>
                 <div class='snippet-container hazepoint-s2'></div>
 
@@ -431,7 +439,7 @@
                 <b>Battle Manager Script</b><br>
                 I won't go into too much details on this as it is somewhat of a bad implementation, but the general idea is that it has 3 states, enemy turn, player turn and no battle state. Partial finite state machine is utilized at the start of each turn but the rest is based entirely in this one script as I was unfamiliar with FSM, the FSM was introduced at first by another programmer but he couldn't make the battle system in time for the first prototype so it was handed over.<br><br>
 
-                <a href='https://github.com/HageFX-78/gps1-Cultured/blob/prototype-base/Assets/Scripts/Battle/Mob/Buttons/DBManager.cs' target='_blank'>Battle system core script <i style="font-size:20px" class="fa">&#xf08e;</i></a>
+                <div class="custom-link"><a href='https://github.com/HageFX-78/gps1-Cultured/blob/prototype-base/Assets/Scripts/Battle/Mob/Buttons/DBManager.cs' target='_blank'>Battle system core script <i style="font-size:20px" class="fa">&#xf08e;</i></a></div>
                 <br><br>
 
                 <div class='gif-container'>
@@ -454,7 +462,7 @@
                 </ol><br>
 
                 <b>Dialogue Manager Script </b><br><br>
-                <a href='https://github.com/HageFX-78/gps1-Cultured/blob/prototype-base/Assets/Scripts/Exploration/DialogueManager.cs' target='_blank'>Dialogue Manager Script <i style="font-size:20px" class="fa">&#xf08e;</i></a>
+                <div class="custom-link"><a href='https://github.com/HageFX-78/gps1-Cultured/blob/prototype-base/Assets/Scripts/Exploration/DialogueManager.cs' target='_blank'>Dialogue Manager Script <i style="font-size:20px" class="fa">&#xf08e;</i></a></div>
                 <br><br>
                 <div class='snippet-container guilt-s1'></div><br>
 
@@ -468,7 +476,7 @@
 
 
                 <b>Displaying/Typing the dialogues :</b><br><br>
-                <a href=https://github.com/HageFX-78/gps1-Cultured/blob/68a80266a55439b07ab239b0b8cc1d74a01338d3/Assets/Scripts/Exploration/DialogueManager.cs#L73' target='_blank'>Snippet <i style="font-size:20px" class="fa">&#xf08e;</i></a>
+                <div class="custom-link"><a href=https://github.com/HageFX-78/gps1-Cultured/blob/68a80266a55439b07ab239b0b8cc1d74a01338d3/Assets/Scripts/Exploration/DialogueManager.cs#L73' target='_blank'>Snippet <i style="font-size:20px" class="fa">&#xf08e;</i></a></div>
                 <br><br>
                 <div class='snippet-container guilt-s3'></div><br>
             </div>

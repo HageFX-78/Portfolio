@@ -16,6 +16,7 @@
     font-family: 'moserrat', sans-serif;
     color: white;
     line-height: 150%;
+    z-index: 9999;
     margin: 5% auto; /* 15% from the top and centered */
     padding: 20px;
     overflow-y: scroll;

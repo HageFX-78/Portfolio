@@ -37,20 +37,52 @@ b{
   color:#ffbf3e;
   font-size: 18px;
 }
-a{
+/* a{
   font-size: 18px;
   font-weight: 1000;
   text-shadow: none;
   color:#000000;
   text-decoration: none;
+
   padding: 5px 15px;
   background-color: #ffbf3e;
-  border-radius: 2px;
-  box-shadow: 2px 2px 0px rgb(255, 193, 77);
+  border-top: 3px solid #ffdd66; 
+  border-left: 3px solid #ffdd66; 
+  border-bottom: 3px solid #a97305;
+  border-right: 3px solid #a97305;
+
+  transform: scale(1.0);
 }
 a:hover{
   color:#000000;
   background-color: #ffc85b;
+} */
+
+.custom-link {
+  display: inline-block;
+  
+  padding: 5px 15px;
+  background-color: #ffbf3e;
+  border-top: 3px solid #ffdd66;
+  border-left: 3px solid #ffdd66;
+  border-bottom: 3px solid #a97305;
+  border-right: 3px solid #a97305;
+  transform: scale(1.0);
+  transition: transform 0.2s;
+}
+
+.custom-link:hover {
+  color: #000000;
+  background-color: #ffc85b;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+.custom-link a{
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 1000;
+  text-shadow: none;
+  color: #000000;
 }
 .borderOrange3px{
   border-top: 3px solid #ffdd66; 
@@ -162,18 +194,21 @@ pre[class*="language-"] {
     box-shadow: inset 1px 0px 6px rgba(68, 68, 68, 0.5);
     border-radius: 10px;
     box-shadow: 3px 3px 10px #333333;
+    
   }
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #e4a629; 
+    cursor: pointer;
+    transform: scale(1.1);
   }
   ::-moz-selection { /* Code for Firefox */
     color: rgb(237, 237, 237);
     background: #ec9d00;
   }
   
-  ::selection {
+  ::selection { /*text highlight*/
     color: rgb(237, 237, 237);
     background: #000000;
   }

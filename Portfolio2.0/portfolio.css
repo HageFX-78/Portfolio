@@ -129,20 +129,25 @@
     bottom: 0;
     width: 100%;
     height: fit-content;
-    padding-bottom: 50px;
+    padding-bottom: 20px;
   }
   .externals{
-    height: auto;
-    width:auto;
+    display: inline-block;
+    height: 40px;
+    width:40px;
     margin:10px;
-    max-width: 60px;
-    max-height: 60px;
     border: none !important;
     box-shadow:none !important;
     background-size: contain;
     background-color: #00000000 !important;
     background-repeat: no-repeat;
+    transition: transform 0.2s;
   }
+  .externals:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+
   #linkedinICON{
     background-image: url('../img/linkedin.png');
   }
