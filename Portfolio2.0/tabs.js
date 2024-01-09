@@ -12,7 +12,10 @@ function swapGameContent(id)
 
     let container1 = "<div class='ele-container'>" + project.contentHead +"</div><br>";
     let container2 = "<div class='ele-container2'>" + project.contentImg +"</div><br>";
-    let gameCategories ="<div class='game-cat-title borderBlack3pxNS'>Project Duration : </div><div class='game-cat borderOrange3pxNS'>" + project.projectDuration + "</div><br><div class='game-cat-title borderBlack3pxNS'>Made in : </div><div class='game-cat borderOrange3pxNS'>" + project.gameEngine + "</div><br><div class='game-cat-title borderBlack3pxNS'>Type : </div><div class='game-cat borderOrange3pxNS'>" + project.type + "</div><br><div class='game-cat-title borderBlack3pxNS'>Role : </div><div class='game-cat borderOrange3pxNS'>" + project.role + "</div><br><br>";
+    let gameCategories ="<div class='game-cat-title borderBlack3pxNS'>Project Duration : </div><div class='game-cat borderOrange3pxNS'>" + 
+    project.projectDuration + "</div><br><div class='game-cat-title borderBlack3pxNS'>Made in : </div><div class='game-cat borderOrange3pxNS'>" + project.gameEngine + "</div><br><div class='game-cat-title borderBlack3pxNS'>Type : </div><div class='game-cat borderOrange3pxNS'>" + 
+    project.type + "</div><br><div class='game-cat-title borderBlack3pxNS'>Role : </div><div class='game-cat borderOrange3pxNS'>" + 
+    project.role + "</div><br><br>";
 
     let finalString = container1  + container2  + gameCategories + "<div class='game-text borderBlack3pxNS'>" + $("#"+project.content).html() + "</div>";
 

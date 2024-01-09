@@ -93,13 +93,12 @@
 .project-content-text{
     font-family: pixelfont;
     font-size: 20px;
-    padding: 16px;
+    padding: 50px;
     overflow-x:hidden;
     line-height: 200%;
     
     text-shadow: 0.8px 0.8px 2px #282828;
 }
-
 /* CONTAINER FOR VIDEO AND IMAGES FOR INDIVIDUAL GAMES*/
 .ele-container{
     display: flex;
@@ -107,7 +106,7 @@
     text-align: center;
     justify-content: center;
     justify-items: center;
-    padding: 15px;
+    padding: 20px;
     background-color: #333333;
     color: rgb(221, 221, 221);
 
@@ -176,7 +175,7 @@
     /* font-family: pixelfont; */
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
-    padding: 15px;
+    padding: 30px;
     background-color: #333333;
     color: rgb(255, 255, 255);
     line-height: 185%;
@@ -193,8 +192,7 @@
     align-items: center;
 }
 .gif-container img{
-    max-width: 100%;
-    max-height: 100%;
+    width:100%;
     object-fit: contain;
 }
 

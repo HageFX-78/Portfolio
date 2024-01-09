@@ -1,6 +1,6 @@
 #portfolio-body{
     
-    height: 90%;
+    height: 95%;
     width: 90%;
     display: grid;
     grid-template-rows: 40px auto; /* First row smaller, rest auto */
@@ -119,9 +119,12 @@
     font-weight: bold;
     text-align: center;
     letter-spacing: 2px;
-    margin: 10px;
+    margin: 5px;
     color: #ffbf3e;
     cursor: pointer;
+}
+.contact:hover{
+    color: #ffdd66;
 }
 /*  - - - - - - - - - - External links - - - - - - - */
 .external-container{
