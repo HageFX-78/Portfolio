@@ -1,0 +1,39 @@
+/* - - - - - - - - - - - - -  BACKGROUND WAVES */
+.ocean {
+    height: 5%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #004d62;
+  }
+  
+  .wave {
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x;
+    position: absolute;
+    width: 1600px;
+    top: -150px;
+    left: 0;
+    height: 198px;
+    transform: translate(0, 0, 0);
+    animation: wave 10s ease infinite;
+  }
+  
+  .wave:nth-of-type(2) {
+    top: -120px;
+    animation: swell 6s ease infinite;
+    opacity: 1;
+  }
+  
+  @keyframes wave {
+    0% { margin-left: 0; }
+    100% { margin-left: -1600px;}
+  }
+  @keyframes swell {
+    0%, 100% {
+      transform: translate(0, -30px);
+    }
+    50% {
+      transform: translate(0, 5px);
+    }
+  }

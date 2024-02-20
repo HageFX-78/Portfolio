@@ -4,8 +4,13 @@ $(document).ready(function() {
         $(".modal-box-back").hide();
     });
 
+    $(".modal-box-container").click(function(event) {
+        event.stopPropagation(); // Stop event propagation to prevent closing the modal
+    });
+
     $("#fumo").click(function() {
         $(".modal-box-back").show();
+        fetchTextFile("Portfolio2.0/SideWorks/fumo_engine.html").then(text => insertTextContent(text));
     });
 
 
@@ -13,6 +18,19 @@ $(document).ready(function() {
  
 
     // });
+
+    // Function to fetch text file content
+    function fetchTextFile(path) {
+        return fetch(path)
+            .then(response => response.text())
+            .catch(error => console.error('Error fetching text file:', error));
+    }
+
+    // Function to insert text content into div
+    function insertTextContent(text) {
+        $(".modal-box-container").html(text);
+    }
+    
 });
 
 

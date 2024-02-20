@@ -6,15 +6,16 @@
 html{
     font-family: 'Pixelify Sans', sans-serif;
     /*font-family: 'Source Code Pro', monospace;*/
-    background-image: url('../img/raymoo.png');
+    /* background-image: url('../img/raymoo.png'); */
     background-size: 30%;
-    background-repeat: repeat;
+    background-repeat: cover;
+    background-color: radial-gradient(ellipse at center, #ffbf3e 0%, #ffbf3e 100%);
 }
 body{
     background-image: url('../img/P2/aiArt2.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    background-color: #000000;
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -111,6 +112,13 @@ a:hover{
   border-left: 5px solid #ffdd66; 
   border-bottom: 5px solid #a97305;
   border-right: 5px solid #a97305;
+}
+
+.borderOrangeMain{
+  border-top: 10px solid #ffdd66; 
+  border-left: 10px solid #ffdd66; 
+  border-bottom: 10px solid #a97305;
+  border-right: 10px solid #a97305;
 }
 .borderBlack3px{
   border-top: 3px solid #3b3b3b; 
@@ -227,3 +235,6 @@ img {
     -o-user-select: none;
     user-select: none;
 } */
+
+
+
