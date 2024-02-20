@@ -9,28 +9,14 @@ $(document).ready(function() {
     });
 
     $("#fumo").click(function() {
-        $(".modal-box-back").show();
-        fetchTextFile("Portfolio2.0/SideWorks/fumo_engine.html").then(text => insertTextContent(text));
+        $(".modal-box-container").html("");
+        $(".modal-box-container").load("Portfolio2.0/SideWorks/fumo_engine.html", function() {
+            // Callback function to execute after content is loaded
+            Prism.highlightAll(); // Initialize Prism.js after content is loaded
+            $(".modal-box-back").show();
+        });
+        
     });
-
-
-    // $(document).keypress(function (event) {
- 
-
-    // });
-
-    // Function to fetch text file content
-    function fetchTextFile(path) {
-        return fetch(path)
-            .then(response => response.text())
-            .catch(error => console.error('Error fetching text file:', error));
-    }
-
-    // Function to insert text content into div
-    function insertTextContent(text) {
-        $(".modal-box-container").html(text);
-    }
-    
 });
 
 
