@@ -1,4 +1,5 @@
 
+
 $(document).ready(function() {
     $(".modal-box-back").click(function() {
         $(".modal-box-back").hide();
@@ -20,6 +21,8 @@ $(document).ready(function() {
         });//*/
         
     });
+    
+    InitializeProjectTags();
 });
 
 
@@ -39,3 +42,35 @@ $(document).on('wheel', '.ele-container2', function (e) {
     });
 });
 
+function InitializeProjectTags()
+{
+    var projectTags = {
+        cpp : ["C++", "#ebb400"],
+        cs : ["C#", "#ebb400"],
+        lua: ["Lua", "#ebb400"],
+
+        ue5 : ["Unreal Engine 5", "#ebb400"],
+        unity : ["Unity", "#ebb400"],
+        stc : ["Stencyl", "#ebb400"],
+        game2d : ["2D", "#ebb400"],
+        game3d : ["3D", "#ebb400"],
+        mobile : ["Mobile", "#ebb400"],
+        gamejam : ["Game Jam", "#ebb400"],
+        solo : ["Solo", "#ebb400"],
+        group : ["Group", "#ebb400"],
+
+    };
+    $(".projects-thumbnail").each(function() {
+        let index = parseInt($(this).attr("readID"));
+        const project = projectData.find((item) => item.index === index);
+
+        if(project && project.tags){
+            let resultText = "<div class='thumbnail-flex-container'>";
+            project.tags.forEach(element => {
+                resultText += "<div class='thumbnail-tags' style='background-color:"+ projectTags[element][1]+"'>"+ projectTags[element][0] +"</div>"
+            });
+            resultText += "</div>"
+            $(this).append(resultText);
+        }
+    });
+}

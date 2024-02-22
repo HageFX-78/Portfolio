@@ -9,12 +9,13 @@ html{
     /* background-image: url('../img/raymoo.png'); */
     background-size: 30%;
     background-repeat: cover;
-    background-color: radial-gradient(ellipse at center, #ffbf3e 0%, #ffbf3e 100%);
+    background-color: #414141;
 }
 body{
     background-image: url('../img/P2/aiArt2.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    background-color: #414141;
     
     display: flex;
     justify-content: center;
@@ -271,6 +272,39 @@ img {
     -o-user-select: none;
     user-select: none;
 } */
+
+@media screen and (max-width: 768px){
+  body{
+    font-size: 50% !important;
+  }
+  code[class*="language-"],
+  pre[class*="language-"] {
+    font-size: 0.6rem !important;
+  }
+
+
+  .snippet-container{
+    padding: 5px 2px;
+    margin: 10px 0px;
+  }
+
+
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #ffbf00;
+    box-shadow: inset 1px 0px 6px rgba(68, 68, 68, 0.5);
+    border-top: 1px solid #ffdd66; 
+    border-left: 1px solid #ffdd66; 
+    border-bottom: 1px solid #a97305;
+    border-right: 1px solid #a97305;
+    
+  }
+}
 
 
 

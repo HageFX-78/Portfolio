@@ -6,6 +6,11 @@
     grid-template-areas: 'banner content';
     
 }
+.default-format{
+    text-align: center;
+    font-size: 2em !important;
+    color: white;
+}
 .projects-banner{
     grid-area: banner;
     width: 100%;
@@ -34,11 +39,39 @@
     transform: scale(1.0);
     transition: transform 0.2s;
 }
+.thumbnail-flex-container{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 15px 10px 10px 10px;
+
+    width: 100%;
+    height: auto;
+
+    position: absolute;
+    bottom: 0;
+
+    overflow:hidden;
+    box-sizing: border-box; /* Prevents padding from increasing the size of the element */
+}
+.thumbnail-tags{
+    margin: 5px 5px;
+    font-size: 1em;
+    font-family: 'Source Code Pro', monospace;
+    display: inline-block;
+    padding: 5px 15px;
+    
+    border-radius: 25px;
+    background-color: #ffbf3e;
+    color:black;
+    box-shadow: 0.5px 0.5px 1px #282828;
+}
+
 .projects-content{
     grid-area: content;
     background-color: rgb(40, 40, 40);
     overflow-y: scroll;
-    overflow-x: none;   
+    overflow-x: hidden;   
 }
 
 /* - - - - - - -  Project content title header */
@@ -50,7 +83,6 @@
     display: flex;
 
     font-family: pixelfont;
-    font-size: 32px;
     font-weight: bold;
 
     justify-content: space-between;
@@ -59,7 +91,7 @@
     overflow: none;
 }
 .project-content-title{
-    font-size: 24px;
+    font-size: 1.5em;
     font-family: 'Source Code Pro', monospace;
     justify-content: center;
     align-items: center;
@@ -73,7 +105,7 @@
 }
 .project-content-title-link{
 
-    font-size: 20px;
+    font-size: 1.2em;
     padding: 10px 20px;
     flex: 0;
     text-align: center;
@@ -95,7 +127,6 @@
 /* - - - - - - -  Project content main text */
 .project-content-text{
     font-family: pixelfont;
-    font-size: 20px;
     padding: 50px;
     overflow-x:hidden;
     line-height: 200%;
@@ -177,7 +208,7 @@
     /* font-family: 'Roboto', sans-serif; */
     /* font-family: pixelfont; */
     font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
+    font-size: 0.9em;
     padding: 30px;
     background-color: #333333;
     color: rgb(255, 255, 255);
@@ -200,10 +231,12 @@
 }
 
 
+
+
 @media screen and (max-width: 768px) {
     #projects-tab{
 
-        grid-template-rows: 20% auto;
+        grid-template-rows: 10% auto;
         grid-template-columns: auto;
         grid-template-areas: 'banner' 'content';        
     }
@@ -228,7 +261,7 @@
         
     }
     .project-content-text{
-        font-size: 16px;
+        font-size: 12px !important;
         font-weight: lighter;
         padding: 10px;
         overflow-x:hidden;
@@ -243,5 +276,13 @@
         width: 350 !important;
         height: 145 !important;
     
+    }
+
+    .thumbnail-flex-container{
+        padding: 5px 2px;
+    }
+    .thumbnail-tags{
+        margin: 0 1px;
+        padding: 2px 5px;
     }
 }

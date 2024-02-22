@@ -10,7 +10,8 @@ const projectData = [
         role: "All",
         content: "pong-content",
         textColor: "#FFFFFF",
-        itchLink: "https://hagefx78.itch.io/modified-pong-game-kdu"
+        itchLink: "https://hagefx78.itch.io/modified-pong-game-kdu",
+        tags: ["stc", "game2d", "solo"]
     },
     {
         index: 1,
@@ -23,11 +24,12 @@ const projectData = [
         role: "All",
         content: "insemination-content",
         textColor: "#FFFFFF",
-        itchLink: "https://hagefx78.itch.io/insemination"
+        itchLink: "https://hagefx78.itch.io/insemination",
+        tags: ["stc", "game2d", "solo"]
     },
     {
         index: 2,
-        gameName: "Hazepoint (Final Year Project) - WIP",
+        gameName: "Hazepoint",
         contentHead: '<iframe width="560" height="315" src="https://www.youtube.com/embed/SRN0U647AJg?si=MI82BEk1xzV_8aIH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
         contentImg:'<img class ="showcase-img" src="img/hazepoint/s1.png" alt="guiltTrio_tn" draggable="false" ><img class ="showcase-img" src="img/hazepoint/keyart.png" alt="guiltTrio_tn" draggable="false"><img class ="showcase-img" src="img/hazepoint/s2.png" alt="guiltTrio_tn" draggable="false">',
         projectDuration: "6 months",
@@ -37,7 +39,8 @@ const projectData = [
         content: "hazepoint-content",
         snippets: ['hazepoint-s1', 'hazepoint-s2'],
         textColor: "#FFFFFF",
-        itchLink: "https://uowmgames.itch.io/fyp2-hazepoint"
+        itchLink: "https://uowmgames.itch.io/fyp2-hazepoint",
+        tags: ["cpp", "ue5", "game3d", "solo"]
     },
     {
         index: 3,
@@ -51,7 +54,8 @@ const projectData = [
         content: "guilt-content",
         snippets: ['guilt-s1', 'guilt-s2', 'guilt-s3'],
         textColor: "#FFFFFF",
-        itchLink: "https://uowmgames.itch.io/guilt-trip"
+        itchLink: "https://uowmgames.itch.io/guilt-trip",
+        tags: ["cs", "unity", "game2d", "group"]
     },
     {
         index: 4,
@@ -65,7 +69,8 @@ const projectData = [
         content: "shadow-content",//Content id redirect
         snippets: ['shadow-s1', 'shadow-s2', 'shadow-s3', 'shadow-s4'],
         textColor: "#FFFFFF",
-        itchLink: "https://aarontan1.itch.io/shadow-maiden-less"
+        itchLink: "https://aarontan1.itch.io/shadow-maiden-less",
+        tags: ["cs", "unity", "mobile", "game3d", "group"]
     },
     {
         index: 5,
@@ -78,7 +83,8 @@ const projectData = [
         role: "All",
         content: "tpmsw-content",
         textColor: "#FFFFFF",
-        itchLink: "https://hagefx78.itch.io/to-please-my-slimy-wife"
+        itchLink: "https://hagefx78.itch.io/to-please-my-slimy-wife",
+        tags: ["cs", "unity", "game2d", "solo", "gamejam"]
     },
     {
         index: 6,
@@ -91,7 +97,8 @@ const projectData = [
         role: "All",
         content: "2huBlack-content",
         textColor: "#FFFFFF",
-        itchLink: "https://hagefx78.itch.io/touhou-endless-black"
+        itchLink: "https://hagefx78.itch.io/touhou-endless-black",
+        tags: ["cs", "unity", "game2d", "solo"]
     },
     {
         index: 7,
@@ -105,7 +112,8 @@ const projectData = [
         content: "midnight-content",
         imgurl: "../img/tictactoe.png",
         textColor: "#FFFFFF",
-        itchLink: "https://hagefx78.itch.io/midnight-snacks"
+        itchLink: "https://hagefx78.itch.io/midnight-snacks",
+        tags: ["cs", "unity", "game2d", "solo"]
     },
     {
         index: 8,
@@ -118,6 +126,21 @@ const projectData = [
         role: "All",
         content: "waddle-content",
         textColor: "#FFFFFF",
-        itchLink: "https://hagefx78.itch.io/waddle-quest"
+        itchLink: "https://hagefx78.itch.io/waddle-quest",
+        tags: ["stc", "game2d", "solo"]
     },
+    {
+        index: 9,
+        gameName: "Happy Combat Train",
+        contentHead: '<iframe width="560" height="315" src="https://www.youtube.com/embed/4AuPsQPdxWA?si=qmTKVA7rIBaxscvY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+        contentImg:'<img class ="showcase-img" src="img/waddle_quest/stage1.png" alt="guiltTrio_tn" draggable="false">',
+        projectDuration: "48 Hours",
+        gameEngine: "Unity",
+        type: "2 Members",
+        role: "All",
+        content: "train-content",
+        textColor: "#FFFFFF",
+        itchLink: "https://hagefx78.itch.io/happy-combat-train",
+        tags: ["cs", "unity", "game3d", "group", "gamejam"]
+    }
   ];

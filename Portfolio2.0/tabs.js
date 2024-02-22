@@ -5,8 +5,13 @@ function swapGameContent(id)
     const project = projectData.find((item) => item.index === id);
 
     $(".projects-content").css("color", project.textColor);
+    $(".project-content-text").removeClass("default-format");
     
     $(".project-content-title").html(project.gameName);
+    $(".project-content-title").css("display", "block");
+    $(".project-content-title-link").css("display", "block");
+
+
 
     currentItchLink = project.itchLink;
 
@@ -20,9 +25,6 @@ function swapGameContent(id)
     let finalString = container1  + container2  + gameCategories + "<div class='game-text borderBlack3pxNS'>" + $("#"+project.content).html() + "</div>";
 
     $(".project-content-text").html(finalString);
-
-    //Gist refused to connect
-    // $("#gist-frame").attr("src", gistURL);
 
     //Copy and paste snippets from a hidden code-repo to their respective containers
     //Havent figured out how to include another html file so i can only store it in index.
