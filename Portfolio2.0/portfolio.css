@@ -285,9 +285,17 @@ embed{
     .side-work-item{
         display: block;
     }
+    
 
+    #splash-tab span{
+        font-size: 12px;
+    }
+    .contact{
+        font-size: 12px;
+    }
     #temp{
         width:90%;
         margin:0 5%;
+        font-size: 12px;
     }
 }

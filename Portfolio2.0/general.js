@@ -9,12 +9,15 @@ $(document).ready(function() {
     });
 
     $("#fumo").click(function() {
-        $(".modal-box-container").html("");
+        
+        $(".modal-box-container").html("<div class='loader-container'><div class='loader'></div></div>");
+        $(".modal-box-back").show();
+        
         $(".modal-box-container").load("Portfolio2.0/SideWorks/fumo_engine.html", function() {
             // Callback function to execute after content is loaded
             Prism.highlightAll(); // Initialize Prism.js after content is loaded
-            $(".modal-box-back").show();
-        });
+            
+        });//*/
         
     });
 });
