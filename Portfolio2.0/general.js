@@ -9,12 +9,12 @@ $(document).ready(function() {
         event.stopPropagation(); // Stop event propagation to prevent closing the modal
     });
 
-    $("#fumo").click(function() {
+    $(".side-work-item").click(function() {
         
         $(".modal-box-container").html("<div class='loader-container'><div class='loader'></div></div>");
         $(".modal-box-back").show();
         
-        $(".modal-box-container").load("Portfolio2.0/SideWorks/fumo_engine.html", function() {
+        $(".modal-box-container").load("Portfolio2.0/SideWorks/"+ $(this).attr("loadname")+".html", function() {
             // Callback function to execute after content is loaded
             Prism.highlightAll(); // Initialize Prism.js after content is loaded
             

@@ -215,10 +215,12 @@ a:hover{
 .secret{
   color: black;
 }
-
+div[class="code-snippet-plugin-container"]{
+  overflow-x: hidden;
+}
 code[class*="language-"],
 pre[class*="language-"] {
-  font-size: 0.8rem !important;
+  font-size: 0.75rem !important;
 }
 /* ------------------Scrollbar */
 ::-webkit-scrollbar {
