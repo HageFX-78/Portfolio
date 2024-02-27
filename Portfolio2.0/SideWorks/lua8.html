@@ -1,16 +1,18 @@
 <h1>Chip 8 Emulator in Lua</h1><br>
-<div class="custom-link"><a href='https://github.com/HageFX-78/LuaChip8' target='_blank'>Github Link <i style="font-size:20px" class="fa">&#xf08e;</i></a></div>
+<div class="custom-link"><a href='https://github.com/HageFX-78/LuaChip8' target='_blank'>Github Repo <i style="font-size:20px" class="fa">&#xf08e;</i></a></div>
 
 <br><br>
-
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IkAhq2UsVIQ?si=cqhDrxyshYs62wlr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 <br><br>
 
 <b>Brief</b><br>
 A simple Chip 8 Emulator made with Lua (JIT) and LOVE2D (Game Framework) for rendering and input handling. The emulator is capable of running most Chip 8 roms and has passed basic render and opcode tests, flags and input may not be 100% accurate due to structure of implementation but does not largely affect the results. 
 <br><br>
-
-<b>What I gained</b><br>
+FPS and IPC (Instruction per cycle) can be adjusted to fit certain games. FPS effects how often the screen flickers (and the speed somewhat) and IPC effects the speed of the game generally.
+<br><br>
+It is a fun side project to learn about emulation and hopefully be proficient enough to contribute on the RPCS3 project in the future as there's a game I want to play that is still not playable.
+<br><br>
+<b>What I learned</b><br>
     <ul>
         <li>Understanding of Chip 8 architecture and opcodes</li>
         <li>Understanding of Lua and LOVE2D</li>
@@ -19,8 +21,11 @@ A simple Chip 8 Emulator made with Lua (JIT) and LOVE2D (Game Framework) for ren
         <li>Understanding coding paradigms for Lua</li>
     </ul>
 <br><br>
-<b>Opcode Dxyn for rendering</b><br><br>
-<div class="custom-link"><a href='https://github.com/HageFX-78/LuaChip8/blob/main/instructions.lua' target='_blank'>Opcodes/Instructions script<i style="font-size:20px" class="fa">&#xf08e;</i></a></div>
+<b>Opcode Dxyn for rendering, one of the more sophisticated opcodes</b><br>
+The opcode Dxyn is used to render a sprite to the screen, the sprite is stored in memory at the address I and is n bytes long. The sprite is drawn at the coordinates (Vx, Vy) and the VF register is set to 1 if any pixels are erased and 0 if not. The sprite is drawn by XORing the pixels of the sprite with the pixels of the screen. If this causes any pixels to be erased, VF is set to 1. The sprite is wrapped around the screen if it goes out of bounds. The opcode is implemented as follows:
+
+<br><br>
+<div class="custom-link"><a href='https://github.com/HageFX-78/LuaChip8/blob/main/instructions.lua' target='_blank'>Opcodes/Instructions script <i style="font-size:20px" class="fa">&#xf08e;</i></a></div>
 <br><br>
 <div class="code-snippet-plugin-container">
     <pre class="code-snippet">

@@ -12,10 +12,12 @@ html{
     background-color: #414141;
 }
 body{
-    background-image: url('../img/P2/aiArt2.jpg');
+    /* background-image: url('../img/P2/placeholder.png');
     background-size: cover;
-    background-repeat: no-repeat;
-    background-color: #414141;
+    background-repeat: no-repeat; */
+    background: radial-gradient( #2B4F4D, #151515);
+	background-size: 200% 200%;
+	animation: gradient 10s ease infinite;
     
     display: flex;
     justify-content: center;
@@ -29,7 +31,17 @@ body{
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     overflow:hidden;
 }
-
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
 iframe{
   width: 560;
   height: 315;
@@ -81,10 +93,13 @@ a:hover{
 }
 .custom-link a{
   text-decoration: none;
-  font-size: 18px;
+  font-size: 1em;
   font-weight: 1000;
   text-shadow: none;
   color: #000000;
+}
+.custom-link a i{
+  font-size: 1em !important;
 }
 
 .loader-container{
