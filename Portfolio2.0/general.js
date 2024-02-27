@@ -21,6 +21,14 @@ $(document).ready(function() {
         });//*/
         
     });
+
+    $(".side-work-item-text").hide();
+    $(".side-work-item").hover(function() {
+        $(this).find(".side-work-item-text").fadeIn(100);
+    }
+    , function() {
+        $(this).find(".side-work-item-text").fadeOut(100);
+    });
     
     InitializeProjectTags();
 });
