@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html>
-    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-    <!-- we import arjs version without NFT but with marker + location based support -->
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <script src=”https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <head>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+        <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
+    </head>
     <body style="margin : 0px; overflow: hidden;">
         <a-scene embedded arjs>
-
+            <a-assets>
+                <a-asset-item
+                    id="animated-asset"
+                    src="../models/hazenaught.glb"
+                ></a-asset-item>
+            </a-assets>
             
         <a-marker type='pattern' preset="custom" url='../img/pattern-hp.patt'>
             <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
@@ -15,10 +23,23 @@
 
         <a-marker type='pattern' preset="custom" url='../img/pattern-raymoo.patt'>
             <a-entity
+                    id="bowser-model"
+                    scale="0.1 0.1 0.1"
+                    rotation="-90 0 0"
+                    position = "0 0 8"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#animated-asset"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+
+            <!---
+            <a-entity
             position="0 0 0"
-            scale="0.1 0.1 0.1"
-            gltf-model="https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
+            scale="0.01 0.01 0.01"
+            fbx-model="src: url(../models/hazenaught.fbx)"
             ></a-entity>
+            gltf-model="https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"-->
         </a-marker>
         <a-marker type='pattern' preset="custom" url='../img/pattern-alice2.patt'>
             <a-box position='0 0.5 0' color="red"></a-box>

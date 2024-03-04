@@ -22,6 +22,7 @@
     margin: 5% auto; /* 15% from the top and centered */
     padding: 20px;
     overflow-y: scroll;
+    overflow-x: hidden;
     max-height: 80%;
     max-width: 60%;
     background-color: rgb(40, 40, 40);
@@ -104,6 +105,13 @@
     justify-content: center; 
     flex-wrap: wrap;
 }
+.side-vid{
+    display:flex;
+    justify-content: center;
+    width: 100%;
+    position:relative;
+}
+
 @media screen and (max-width: 768px) {
     .modal-box-container{
         max-width: 80%;

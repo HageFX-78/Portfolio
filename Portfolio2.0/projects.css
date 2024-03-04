@@ -135,6 +135,9 @@
 }
 /* CONTAINER FOR VIDEO AND IMAGES FOR INDIVIDUAL GAMES*/
 .ele-container{
+    position: relative;
+    
+
     display: flex;
     width: auto;
     text-align: center;
