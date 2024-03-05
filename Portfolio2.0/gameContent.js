@@ -30,7 +30,7 @@ const projectData = [
     {
         index: 2,
         gameName: "Hazepoint",
-        contentHead: '<iframe width="560" height="315" src="https://www.youtube.com/embed/SRN0U647AJg?si=MI82BEk1xzV_8aIH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+        contentHead: '<iframe width="560" height="315" src="https://www.youtube.com/embed/J2Dco_VgSQA?si=81UODVTmcOMo6eaM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
         contentImg:'<img class ="showcase-img" src="img/hazepoint/s1.png" alt="guiltTrio_tn" draggable="false" ><img class ="showcase-img" src="img/hazepoint/keyart.png" alt="guiltTrio_tn" draggable="false"><img class ="showcase-img" src="img/hazepoint/s2.png" alt="guiltTrio_tn" draggable="false">',
         projectDuration: "6 months",
         gameEngine: "Unreal Engine 5",
