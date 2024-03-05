@@ -62,3 +62,7 @@ function man(cmdName)
     else
         AppendTerminalText("No such command exist");
 }
+function legacy()
+{
+    window.location.href = "../OutdatedPortfolio/index.html";
+}

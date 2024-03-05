@@ -1,17 +1,17 @@
 @font-face{
     /*Disposable droid font*/
     font-family: pixelfont;
-    src: url(fonts/db.ttf);   
+    src: url(../fonts/db.ttf);   
 }
 @font-face{
     /*Disposable droid bold font*/
     font-family: pixelfont2;
-    src: url(fonts/dbB.ttf);   
+    src: url(../fonts/dbB.ttf);   
 }
 @font-face{
     /*Karmatic arcade font*/
     font-family: arcade;
-    src: url(fonts/ka1.ttf);
+    src: url(../fonts/ka1.ttf);
 }
 html{
     font-family: pixelfont;
@@ -33,7 +33,7 @@ body{
 }
 .backdrop-img{
     position: absolute;
-    background-image:url('img/backdrop2.jpg');
+    background-image:url('../img/backdrop2.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;

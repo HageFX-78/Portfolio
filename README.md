@@ -4,8 +4,9 @@ Portfolio site for my game dev endeavors. xD<br>
 - [x] Procrastinate for a while
 - [x] Redesign portfolio site
 - [x] Remake the actual site
-- [ ] Make new site more presentable
-- [ ] Clean up and link to old site
+- [x] Make new site more presentable
+- [x] Clean up and link to old site
+- [ ] Get an internship :D
 
 Direct link to website: [Here](https://hagefx-78.github.io/Portfolio/) <br><br>
 

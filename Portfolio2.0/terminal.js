@@ -29,7 +29,13 @@ const commandList = {
         execute: man,
         description: "Shows the manual for a command",
         usage: "man [cmd]"
+    },
+    'legacy':{
+        execute: legacy,
+        description: "Redirects to the old portfolio site",
+        usage: "legacy"
     }
+
     
 };
 

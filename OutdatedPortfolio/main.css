@@ -1,20 +1,20 @@
 @font-face{
     /*Disposable droid font*/
     font-family: pixelfont;
-    src: url(fonts/db.ttf);   
+    src: url(../fonts/db.ttf);   
 }
 @font-face{
     /*Disposable droid bold font*/
     font-family: pixelfont2;
-    src: url(fonts/dbB.ttf);   
+    src: url(../fonts/dbB.ttf);   
 }
 @font-face{
     /*Karmatic arcade font*/
     font-family: arcade;
-    src: url(fonts/ka1.ttf);
+    src: url(../fonts/ka1.ttf);
 }
 html{
-    font-family: pixelfont;
+    font-family: pixelfont2;
 }
 body{
     margin: 0;
@@ -135,7 +135,7 @@ body{
 }
 .backdrop-img{
     position: absolute;
-    background-image:url('img/backdrop2.jpg');
+    background-image:url('../img/backdrop2.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -223,7 +223,7 @@ body{
 }
 #itchioICON{background-image:url('https://static.itch.io/images/itchio-textless-white.svg');}
 #githubICON{background-image:url('https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png');}
-#linkedinICON{background-image:url('img/linkedin.png');}
+#linkedinICON{background-image:url('../img/linkedin.png');}
 .navL:hover{
     background-color: #ddd;
     color: black;
@@ -346,11 +346,11 @@ body{
     transform: translate(3px, 3px);
     color: white;
 }
-#game-waddle{background-image: url('img/waddle_quest/title-screen.png');}
-#game-insemination{background-image: url('img/insemination/title-screen.png');}
-#game-pong{background-image: url('img/pong.png');}
-#game-2hublack{background-image: url('img/2hu/2hu.png');}
-#game-midnightSnacks{background-image: url('img/midnight/ms.png');}
+#game-waddle{background-image: url('../img/waddle_quest/title-screen.png');}
+#game-insemination{background-image: url('../img/insemination/title-screen.png');}
+#game-pong{background-image: url('../img/pong.png');}
+#game-2hublack{background-image: url('../img/2hu/2hu.png');}
+#game-midnightSnacks{background-image: url('../img/midnight/ms.png');}
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~About Me */
 .aboutme-content{
     margin: 20px 0;
@@ -386,7 +386,7 @@ body{
 }
 .agrid-image{
     grid-area: img;
-    background-image:url('img/pfp.jpg');
+    background-image:url('../img/pfp.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-color: #333;
