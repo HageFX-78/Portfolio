@@ -24,6 +24,7 @@ jobs:
           echo "::set-output name=COMMIT_DESCRIPTION::$COMMIT_DESCRIPTION"
       - name: Read JSON file and replace placeholders
         run: |
+          sed -i "s#{event_type}#${{ github.event_name }}#g" workflow_data/embed.json
           sed -i "s#{commit_title}#${{steps.extract_commit.outputs.COMMIT_TITLE}}#g" workflow_data/embed.json
           sed -i "s#{commit_description}#${{steps.extract_commit.outputs.COMMIT_DESCRIPTION}}#g" workflow_data/embed.json
           sed -i "s#{commit_id}#${{steps.get-short-sha.outputs.id}}#g" workflow_data/embed.json

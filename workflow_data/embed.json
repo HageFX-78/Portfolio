@@ -2,14 +2,18 @@
     "content": "",
     "embeds": [
         {
-            "title": "[{repository_owner}/{repository}]",
-            "description": ">>> [Repo link]({repository_url}) - [Commit link]({event_compare})",
+            "title": "[ {repository_owner}/{repository} ]",
+            "description": "Event: {event_type}",
             "url": "{repository_url}",
-            "color": 8518399,
+            "color": 16740396,
             "fields": [
                 {
                 "name": "{commit_title}",
                 "value": "{commit_description}"
+                },
+                {
+                  "name": "Links",
+                  "value": ">>> Commit: [{commit_id}]({event_compare})}) - "
                 }
             ],
             "author": {
@@ -18,7 +22,7 @@
                 "icon_url": "{actor_avatar}"
             },
             "footer": {
-                "text": "Commit: {commit_id}"
+                "text": "Timestamp: "
             },
             "timestamp": "{timestamp}",
             "image": {
