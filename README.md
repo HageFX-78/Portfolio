@@ -11,7 +11,6 @@ Portfolio site for my game dev endeavors. xD<br>
 
 
 
-
 Direct link to website: [Here](https://hagefx-78.github.io/Portfolio/) <br><br>
 
 
