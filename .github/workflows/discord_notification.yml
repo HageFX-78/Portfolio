@@ -14,8 +14,8 @@ jobs:
         with:
           webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
           embed-title: ${{ github.event.head_commit.message }}
-          embed-description: "Commit description: ${{ github.event.head_commit.description }}"
+          embed-description: ${{ github.event.head_commit.description }}
           embed-author-name: ${{ github.event.sender.login }}
-          embed-author-icon-url: ${{ github.event.sender.avatar_url }}
+          embed-author-icon-url: https://images-ext-1.discordapp.net/external/FJ8zFmp3P8APdCzT7f9YIjlRSCgScwl8p7QSYSeoUNk/https/pbs.twimg.com/media/GIeHeSgaIAE6VUv.jpg%3Alarge?format=webp&width=464&height=678
           embed-footer-text: "Commit Time"
           embed-timestamp: ${{ github.event.head_commit.timestamp }}
