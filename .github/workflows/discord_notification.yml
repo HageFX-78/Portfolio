@@ -1,0 +1,30 @@
+name: Discord Notification
+
+on:
+  push:
+    branches:
+      - main  # Adjust the branch as needed
+
+jobs:
+  send_notification:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Extract commit information
+      id: extract_commit_info
+      run: |
+        commit_message=$(git log -1 --pretty=%B)
+        commit_author=$(git log -1 --pretty=%an)
+        commit_description=$(git log -1 --pretty=%N)
+        commit_url="https://github.com/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}"
+        echo "::set-output name=message::**New commit in ${GITHUB_REPOSITORY} by ${commit_author}:**\n**Commit Message:** $commit_message\n**Commit Description:** $commit_description\n**Commit URL:** $commit_url"
+
+    - name: Send to Discord
+      uses: Ilshidur/action-discord@master
+      with:
+        args: ${{ steps.extract_commit_info.outputs.message }}
+      env:
+        DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
