@@ -8,6 +8,7 @@ Portfolio site for my game dev endeavors. xD<br>
 - [x] Clean up and link to old site
 - [x] Get an internship :D
 
+
 Direct link to website: [Here](https://hagefx-78.github.io/Portfolio/) <br><br>
 
 
