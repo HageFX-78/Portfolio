@@ -1,0 +1,34 @@
+name: Discord No Raw Notification
+
+on:
+  push:
+    branches:
+      - main
+env:
+  COMMIT_TITLE: ''
+  COMMIT_DESCRIPTION: ''
+
+jobs:
+  send_notification:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Extract commit title and description
+        run: |
+          COMMIT_MESSAGE="${{ github.event.head_commit.message }}"
+          export COMMIT_TITLE=$(echo "$COMMIT_MESSAGE" | head -n 1)
+          export COMMIT_DESCRIPTION=$(echo "$COMMIT_MESSAGE" | tail -n +3)
+      - name: Send Discord Webhook Action
+        uses: tsickert/discord-webhook@v5.2.0
+        with:
+          webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
+          embed-title: "${{ env.COMMIT_TITLE }}"
+          embed-url: "${{ github.event.repository.html_url }}/commit/${{ github.sha }}"
+          embed-description: "${{ env.COMMIT_DESCRIPTION }}"
+          embed-author-name: "${{ github.actor }}"
+          embed-author-icon-url: "${{github.actor.avatar_url}}"
+          embed-author-url: "${{ github.actor.url }}"
+          embed-thumbnail-url: "${{github.actor.avatar_url}}"
+          embed-footer-text: "[${{github.sha}}](${{github.event.compare}})"
+          embed-color: 15430476
+          embed-timestamp: "${{ github.event.head_commit.timestamp }}"
