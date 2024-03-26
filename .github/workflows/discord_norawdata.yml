@@ -23,12 +23,12 @@ jobs:
         with:
           webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
           embed-title: ${{ github.event.head_commit.message }}
-          embed-url: "${{ github.event.repository.html_url }}/commit/${{ github.sha }}"
+          embed-url: ${{ github.event.repository.html_url }}
           embed-description: "Test description without envelopes"
-          embed-author-name: ${{ github.actor }}
-          embed-author-icon-url: ${{github.actor.avatar_url}}
-          embed-author-url: ${{ github.actor.url }}
-          embed-thumbnail-url: ${{github.actor.avatar_url}}
-          embed-footer-text: "[${{github.sha}}](${{github.event.compare}})"
-          embed-color: 15430476
+          embed-author-name: ${{ github.event.sender.login }}
+          embed-author-icon-url: ${{github.event.sender.avatar_url}}
+          embed-author-url: ${{ github.event.sender.html_url }}
+          embed-thumbnail-url: ${{github.event.sender.avatar_url}}
+          embed-footer-text: "[Test](www.google.com)"
+          embed-color: 8518399
           embed-timestamp: ${{ github.event.head_commit.timestamp }}
