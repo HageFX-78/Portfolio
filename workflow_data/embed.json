@@ -1,5 +1,5 @@
 {
-    "content": "Test with embed",
+    "content": "",
     "embeds": [
         {
             "title": "[{repository_owner}/{repository}]",
@@ -18,7 +18,7 @@
                 "icon_url": "{actor_avatar}"
             },
             "footer": {
-                "text": "Commit Time"
+                "text": "Commit: {commit_id}"
             },
             "timestamp": "{timestamp}",
             "image": {

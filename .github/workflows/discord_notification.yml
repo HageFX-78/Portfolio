@@ -5,6 +5,7 @@ on:
     branches:
       - main
 env:
+  COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
   COMMIT_TITLE: ''
   COMMIT_DESCRIPTION: ''
 
@@ -13,17 +14,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Get short SHA
+        id: get-short-sha
+        run: |
+          echo ${{github.sha}} | cut -c 1-7 >> $id"
       - name: Extract commit title and description
         run: |
-          COMMIT_MESSAGE="${{ github.event.head_commit.message }}"
-          COMMIT_TITLE=$(echo "$COMMIT_MESSAGE" | grep -o '^[^ ]*')
-          COMMIT_DESCRIPTION=$(echo "$COMMIT_MESSAGE" | sed '1d')
+          COMMIT_TITLE=$(echo "${{env.COMMIT_MESSAGE}}" | awk 'NR==1')
+          COMMIT_DESCRIPTION=$(echo "${{env.COMMIT_MESSAGE}}" | awk 'NR>1')
           export COMMIT_TITLE
           export COMMIT_DESCRIPTION
       - name: Read JSON file and replace placeholders
         run: |
           sed -i "s#{commit_title}#${{env.COMMIT_TITLE}}#g" workflow_data/embed.json
           sed -i "s#{commit_description}#${{env.COMMIT_DESCRIPTION}}#g" workflow_data/embed.json
+          sed -i "s#{commit_id}#${{steps.get-short-sha.outputs.id}}#g" workflow_data/embed.json
           sed -i "s#{repository_owner}#${{ github.event.repository.owner.name }}#g" workflow_data/embed.json
           sed -i "s#{repository}#${{ github.event.repository.name }}#g" workflow_data/embed.json
           sed -i "s#{repository_url}#${{ github.event.repository.html_url }}#g" workflow_data/embed.json
