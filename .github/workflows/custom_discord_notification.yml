@@ -23,9 +23,7 @@ jobs:
       - name: Send Discord Notification
         run: |
           # Construct the JSON payload dynamically
-          JSON_PAYLOAD=
-          $(cat <<
-          EOF
+          JSON_PAYLOAD=$(cat <<EOF
           {
             "content": null,
             "embeds": [
