@@ -16,17 +16,19 @@ jobs:
       - name: Get short SHA
         id: get-short-sha
         run: |
-          echo "${{github.sha}} | cut -c 1-7" >> "$GITHUB_OUTPUT"
+          id=$(echo ${{github.sha}} | cut -c 1-7)
+          echo "::set-output name=id::$id"
       - name: Extract commit title and description
         run: |
           COMMIT_TITLE=$(echo "${{ github.event.head_commit.message }}" | awk 'NR==1')
           COMMIT_DESCRIPTION=$(echo "${{ github.event.head_commit.message }}" | awk 'NR>2')
-          echo "::set-output name=id::$id"
+          echo "::set-env name=COMMIT_TITLE::$COMMIT_TITLE"
+          echo "::set-env name=COMMIT_DESCRIPTION::$COMMIT_DESCRIPTION"
       - name: Read JSON file and replace placeholders
         run: |
           sed -i "s#{commit_title}#${{env.COMMIT_TITLE}}#g" workflow_data/embed.json
           sed -i "s#{commit_description}#${{env.COMMIT_DESCRIPTION}}#g" workflow_data/embed.json
-          sed -i "s#{commit_id}#${{steps.get-short-sha.outputs}}#g" workflow_data/embed.json
+          sed -i "s#{commit_id}#${{steps.get-short-sha.outputs.id}}#g" workflow_data/embed.json
           sed -i "s#{repository_owner}#${{ github.event.repository.owner.name }}#g" workflow_data/embed.json
           sed -i "s#{repository}#${{ github.event.repository.name }}#g" workflow_data/embed.json
           sed -i "s#{repository_url}#${{ github.event.repository.html_url }}#g" workflow_data/embed.json
