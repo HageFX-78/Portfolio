@@ -3,12 +3,13 @@
     "embeds": [
         {
             "title": "[ {repository_owner}/{repository} ]",
+            "description": "Event: {event_type}",
             "url": "{repository_url}",
             "color": 16740396,
             "fields": [
                 {
-                "name": "{commit_title}",
-                "value": "{commit_description}\n\n[{commit_id}]({event_compare})"
+                "name": ">>> {commit_title}",
+                "value": "`{commit_description}` \n\n\n `[{commit_id}]({event_compare})`"
                 }
             ],
             "author": {
@@ -17,9 +18,12 @@
                 "icon_url": "{actor_avatar}"
             },
             "footer": {
-                "text": "Timestamp: "
+                "text": "Pushed at "
             },
             "timestamp": "{timestamp}",
+            "image": {
+                "url": ""
+            },
             "thumbnail": {
                 "url": "{actor_avatar}"
             }
