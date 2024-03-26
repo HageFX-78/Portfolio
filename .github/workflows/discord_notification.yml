@@ -27,4 +27,4 @@ jobs:
       with:
         args: ${{ steps.extract_commit_info.outputs.message }}
       env:
-        DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK }}
