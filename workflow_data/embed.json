@@ -5,12 +5,6 @@
         "title": "[{repository_owner}/{repository}]",
         "description": ">>> [Repo link]({repository_url})\n [Commit link]({event_compare})",
         "color": 8518399,
-        "fields": [
-            {
-            "name": "{commit_title}",
-            "value": "{commit_description}"
-            }
-        ],
         "author": {
             "name": "{actor}",
             "url": "{actor_url}",
