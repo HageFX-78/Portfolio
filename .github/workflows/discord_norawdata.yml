@@ -22,13 +22,13 @@ jobs:
         uses: tsickert/discord-webhook@v5.2.0
         with:
           webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
-          embed-title: ${{ github.event.head_commit.message }}
+          embed-title: ${{ github.event.repository.name }}
           embed-url: ${{ github.event.repository.html_url }}
-          embed-description: "Test description without envelopes"
+          embed-description: ${{ github.event.head_commit.message }}
           embed-author-name: ${{ github.event.sender.login }}
           embed-author-icon-url: ${{github.event.sender.avatar_url}}
           embed-author-url: ${{ github.event.sender.html_url }}
           embed-thumbnail-url: ${{github.event.sender.avatar_url}}
           embed-footer-text: "[Test](www.google.com)"
-          embed-color: 8518399
+          embed-color: 4757759
           embed-timestamp: ${{ github.event.head_commit.timestamp }}
