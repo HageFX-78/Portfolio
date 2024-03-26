@@ -22,8 +22,8 @@ jobs:
           export COMMIT_DESCRIPTION
       - name: Read JSON file and replace placeholders
         run: |
-          sed -i "s#{commit_title}#${COMMIT_TITLE}#g" workflow_data/embed.json
-          sed -i "s#{commit_description}#${COMMIT_DESCRIPTION}#g" workflow_data/embed.json
+          sed -i "s#{commit_title}#${{env.COMMIT_TITLE}}#g" workflow_data/embed.json
+          sed -i "s#{commit_description}#${{env.COMMIT_DESCRIPTION}}#g" workflow_data/embed.json
           sed -i "s#{repository_owner}#${{ github.event.repository.owner.name }}#g" workflow_data/embed.json
           sed -i "s#{repository}#${{ github.event.repository.name }}#g" workflow_data/embed.json
           sed -i "s#{repository_url}#${{ github.event.repository.html_url }}#g" workflow_data/embed.json
