@@ -1,27 +1,5 @@
 {
     "content": null,
-    "embeds": [
-        {
-        "title": "[{repository_owner}/{repository}]",
-        "description": ">>> [Repo link]({repository_url})\n [Commit link]({event_compare})",
-        "color": 8518399,
-        "author": {
-            "name": "{actor}",
-            "url": "{actor_url}",
-            "icon_url": "${actor_avatar}"
-        },
-        "footer": {
-            "text": "Commit Time"
-        },
-        "timestamp": "{timestamp}",
-        "image": {
-            "url": "{actor_avatar}"
-        },
-        "thumbnail": {
-            "url": "{actor_avatar}"
-        }
-        }
-    ],
     "username": "GitHub Action",
     "attachments": []
 }
