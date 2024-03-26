@@ -24,11 +24,11 @@ jobs:
           webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
           embed-title: ${{ github.event.repository.name }}
           embed-url: ${{ github.event.repository.html_url }}
-          embed-description: ${{ github.event.head_commit.message }}
+          embed-description: ${{ github.event.head_commit.message }} \n\n\n test
           embed-author-name: ${{ github.event.sender.login }}
           embed-author-icon-url: ${{github.event.sender.avatar_url}}
           embed-author-url: ${{ github.event.sender.html_url }}
           embed-thumbnail-url: ${{github.event.sender.avatar_url}}
-          embed-footer-text: "[Test](www.google.com)"
+          embed-footer-text: "Commit Timestamp"
           embed-color: 4757759
           embed-timestamp: ${{ github.event.head_commit.timestamp }}

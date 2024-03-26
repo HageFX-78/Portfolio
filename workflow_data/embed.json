@@ -2,30 +2,26 @@
     "content": "Test with embed",
     "embeds": [
         {
-        "title": "[{repository_owner}/{repository}]",
-        "description": ">>> [Repo link]({repository_url}) - [Commit link]({event_compare})",
-        "color": 8518399,
-        "fields": [
-            {
-            "name": "{commit_title}",
-            "value": "{commit_description}"
+            "title": "[{repository_owner}/{repository}]",
+            "description": ">>> [Repo link]({repository_url}) - [Commit link]({event_compare})",
+            "url": "{repository_url}",
+            "color": 8518399,
+            "fields": [
+                {
+                "name": "{commit_title}",
+                "value": "{commit_description}"
+                }
+            ],
+            "footer": {
+                "text": "Commit Time"
+            },
+            "timestamp": "{timestamp}",
+            "image": {
+                "url": "{actor_avatar}"
+            },
+            "thumbnail": {
+                "url": "{actor_avatar}"
             }
-        ],
-        "author": {
-            "name": "{actor}",
-            "url": "{actor_url}",
-            "icon_url": "${actor_avatar}"
-        },
-        "footer": {
-            "text": "Commit Time"
-        },
-        "timestamp": "{timestamp}",
-        "image": {
-            "url": "{actor_avatar}"
-        },
-        "thumbnail": {
-            "url": "{actor_avatar}"
-        }
         }
     ],
     "username": "GitHub Action",
