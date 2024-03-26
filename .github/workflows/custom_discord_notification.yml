@@ -23,42 +23,44 @@ jobs:
       - name: Send Discord Notification
         run: |
           # Construct the JSON payload dynamically
-          JSON_PAYLOAD=$(cat <<EOF
-            {
-              "content": null,
-              "embeds": [
-                {
-                  "title": "[${{ github.repository_owner }}/]",
-                  "description": ">>> [Repo link](${{ github.repository_url }})\n [Commit link](${{ github.event.compare }})",
-                  "color": 8518399,
-                  "fields": [
-                    {
-                      "name": "Commit title",
-                      "value": "${{ github.event.head_commit.message }}"
-                    }
-                  ],
-                  "author": {
-                    "name": "${{ github.actor }}",
-                    "url": "${{ github.actor_url }}",
-                    "icon_url": "${{ github.actor_avatar }}"
-                  },
-                  "footer": {
-                    "text": "Commit Time"
-                  },
-                  "timestamp": "${{ github.event.head_commit.timestamp }}",
-                  "image": {
-                    "url": "${{ github.actor_avatar }}"
-                  },
-                  "thumbnail": {
-                    "url": "${{ github.actor_avatar }}"
+          JSON_PAYLOAD=
+          $(cat <<
+          EOF
+          {
+            "content": null,
+            "embeds": [
+              {
+                "title": "[${{ github.repository_owner }}/]",
+                "description": ">>> [Repo link](${{ github.repository_url }})\n [Commit link](${{ github.event.compare }})",
+                "color": 8518399,
+                "fields": [
+                  {
+                    "name": "Commit title",
+                    "value": "${{ github.event.head_commit.message }}"
                   }
+                ],
+                "author": {
+                  "name": "${{ github.actor }}",
+                  "url": "${{ github.actor_url }}",
+                  "icon_url": "${{ github.actor_avatar }}"
+                },
+                "footer": {
+                  "text": "Commit Time"
+                },
+                "timestamp": "${{ github.event.head_commit.timestamp }}",
+                "image": {
+                  "url": "${{ github.actor_avatar }}"
+                },
+                "thumbnail": {
+                  "url": "${{ github.actor_avatar }}"
                 }
-              ],
-              "username": "GitHub Action",
-              "attachments": []
-            }
-            EOF
-            )
+              }
+            ],
+            "username": "GitHub Action",
+            "attachments": []
+          }
+          EOF
+          )
 
           # Send the JSON payload to the Discord webhook
           curl -X POST -H "Content-Type: application/json" -d "$JSON_PAYLOAD" ${{ secrets.DISCORD_WEBHOOK }}
