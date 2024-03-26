@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-env:
-  COMMIT_TITLE: ''
-  COMMIT_DESCRIPTION: ''
 
 jobs:
   send_notification:
@@ -19,15 +16,16 @@ jobs:
           id=$(echo ${{github.sha}} | cut -c 1-7)
           echo "::set-output name=id::$id"
       - name: Extract commit title and description
+        id: extract_commit
         run: |
           COMMIT_TITLE=$(echo "${{ github.event.head_commit.message }}" | awk 'NR==1')
           COMMIT_DESCRIPTION=$(echo "${{ github.event.head_commit.message }}" | awk 'NR>2')
-          echo "::set-env name=COMMIT_TITLE::$COMMIT_TITLE"
-          echo "::set-env name=COMMIT_DESCRIPTION::$COMMIT_DESCRIPTION"
+          echo "::set-output name=COMMIT_TITLE::$COMMIT_TITLE"
+          echo "::set-output name=COMMIT_DESCRIPTION::$COMMIT_DESCRIPTION"
       - name: Read JSON file and replace placeholders
         run: |
-          sed -i "s#{commit_title}#${{env.COMMIT_TITLE}}#g" workflow_data/embed.json
-          sed -i "s#{commit_description}#${{env.COMMIT_DESCRIPTION}}#g" workflow_data/embed.json
+          sed -i "s#{commit_title}#${{steps.extract_commit.outputs.COMMIT_TITLE}}#g" workflow_data/embed.json
+          sed -i "s#{commit_description}#${{steps.extract_commit.outputs.COMMIT_DESCRIPTION}}#g" workflow_data/embed.json
           sed -i "s#{commit_id}#${{steps.get-short-sha.outputs.id}}#g" workflow_data/embed.json
           sed -i "s#{repository_owner}#${{ github.event.repository.owner.name }}#g" workflow_data/embed.json
           sed -i "s#{repository}#${{ github.event.repository.name }}#g" workflow_data/embed.json
