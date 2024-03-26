@@ -12,5 +12,10 @@ jobs:
       - name: Discord Webhook Action
         uses: tsickert/discord-webhook@v5.3.0
         with:
-          webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
-          content: "New commit in HageFX-78/Portfolio by Hage:\nCommit Message: Update README.md"
+          webhook-url: ${{ secrets.WEBHOOK_URL }}
+          embed-title: ${{ github.event.head_commit.message }}
+          embed-description: "Commit description: ${{ github.event.head_commit.description }}"
+          embed-author-name: ${{ github.event.sender.login }}
+          embed-author-icon-url: ${{ github.event.sender.avatar_url }}
+          embed-footer-text: "Commit Time"
+          embed-timestamp: ${{ github.event.head_commit.timestamp }}
