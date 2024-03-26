@@ -22,7 +22,7 @@ jobs:
         run: |
           sed -i "s#{commit_title}#TEST COMMIT TITLE#g" workflow_data/embed.json
           sed -i "s#{commit_description}#TEST COMMIT DESCRIPTION#g" workflow_data/embed.json
-          sed -i "s#{repository_owner}#${{ github.event.repository.owner }}#g" workflow_data/embed.json
+          sed -i "s#{repository_owner}#${{ github.event.repository.name }}#g" workflow_data/embed.json
           sed -i "s#{repository}#${{ github.event.repository.name }}#g" workflow_data/embed.json
           sed -i "s#{repository_url}#${{ github.event.repository.html_url }}#g" workflow_data/embed.json
           sed -i "s#{event_compare}#${{ github.event.compare }}#g" workflow_data/embed.json
