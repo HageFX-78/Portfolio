@@ -13,9 +13,9 @@
                 }
             ],
             "author": {
-                "name": "HageFX78",
-                "url": "https://github.com/HageFX-78",
-                "icon_url": "https://avatars.githubusercontent.com/u/89595749?v=4"
+                "name": "{actor}",
+                "url": "{actor_url}",
+                "icon_url": "{actor_avatar}"
             },
             "footer": {
                 "text": "Commit Time"
