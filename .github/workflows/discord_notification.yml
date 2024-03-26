@@ -4,18 +4,34 @@ on:
   push:
     branches:
       - main
+env:
+  COMMIT_TITLE: ''
+  COMMIT_DESCRIPTION: ''
 
 jobs:
   send_notification:
     runs-on: ubuntu-latest
     steps:
-      - name: Discord Webhook Action
-        uses: tsickert/discord-webhook@v5.3.0
+      - name: Extract commit title and description
+        run: |
+          COMMIT_MESSAGE="${{ github.event.head_commit.message }}"
+          export COMMIT_TITLE=$(echo "$COMMIT_MESSAGE" | head -n 1)
+          export COMMIT_DESCRIPTION=$(echo "$COMMIT_MESSAGE" | tail -n +3)
+      - name: Read JSON file and replace placeholders
+        run: |
+          sed -i "s/{commit_title}/${{ env.COMMIT_DESCRIPTION }}/g" workflow_data/embed.json
+          sed -i "s/{commit_description}/${{ env.COMMIT_DESCRIPTION }}/g" workflow_data/embed.json
+          sed -i "s/{repository_owner}/${{ github.repository_owner }}/g" workflow_data/embed.json
+          sed -i "s/{repository}/${{ github.repository }}/g" workflow_data/embed.json
+          sed -i "s/{repository_url}/${{ github.repositoryUrl }}/g" workflow_data/embed.json
+          sed -i "s/{event_compare}/${{ github.event.compare }}/g" workflow_data/embed.json
+          sed -i "s/{commit_title}/${{ env.COMMIT_TITLE }}/g" workflow_data/embed.json
+          sed -i "s/{actor}/${{ github.actor }}/g" workflow_data/embed.json
+          sed -i "s/{actor_url}/${{ github.actor.url }}/g" workflow_data/embed.json
+          sed -i "s/{actor_avatar}/${{ github.actor.avatar_url }}/g" workflow_data/embed.json
+          sed -i "s/{timestamp}/${{ github.event.head_commit.timestamp }}/g" workflow_data/embed.json
+      - name: Send Discord Webhook Action
+        uses: ./
         with:
           webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
-          embed-title: ${{ github.event.head_commit.message }}
-          embed-description: ${{ github.event.head_commit.description }}
-          embed-author-name: ${{ github.event.sender.login }}
-          embed-author-icon-url: https://images-ext-1.discordapp.net/external/FJ8zFmp3P8APdCzT7f9YIjlRSCgScwl8p7QSYSeoUNk/https/pbs.twimg.com/media/GIeHeSgaIAE6VUv.jpg%3Alarge?format=webp&width=464&height=678
-          embed-footer-text: "Commit Time"
-          embed-timestamp: ${{ github.event.head_commit.timestamp }}
+          raw-data: workflow_data/embed.json
