@@ -22,7 +22,7 @@ jobs:
         uses: tsickert/discord-webhook@v5.2.0
         with:
           webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
-          embed-title: ${{ env.COMMIT_TITLE }}
+          embed-title: ${{ github.event.head_commit.message }}
           embed-url: "${{ github.event.repository.html_url }}/commit/${{ github.sha }}"
           embed-description: "Test description without envelopes"
           embed-author-name: ${{ github.actor }}
