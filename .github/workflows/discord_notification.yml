@@ -29,7 +29,7 @@ jobs:
           sed -i "s#{commit_description}#${{steps.extract_commit.outputs.COMMIT_DESCRIPTION}}#g" workflow_data/embed.json
           sed -i "s#{commit_id}#${{steps.get-short-sha.outputs.id}}#g" workflow_data/embed.json
           sed -i "s#{branch}#${{ github.ref_name}}#g" workflow_data/embed.json
-          sed -i "s#{branch_url}#${{ github.event.repository.branches_url}}#g" workflow_data/embed.json
+          sed -i "s#{branch_url}#${{ github.ref}}#g" workflow_data/embed.json
           sed -i "s#{repository_owner}#${{ github.event.repository.owner.name }}#g" workflow_data/embed.json
           sed -i "s#{repository}#${{ github.event.repository.name }}#g" workflow_data/embed.json
           sed -i "s#{repository_url}#${{ github.event.repository.html_url }}#g" workflow_data/embed.json
