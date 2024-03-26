@@ -10,7 +10,12 @@
             "name": "{commit_title}",
             "value": "{commit_description}"
             }
-        ]
+        ],
+        "author": {
+            "name": "{actor}",
+            "url": "{actor_url}",
+            "icon_url": "${actor_avatar}"
+        }
         }
     ],
     "username": "GitHub Action",

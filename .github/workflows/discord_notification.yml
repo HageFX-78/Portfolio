@@ -24,7 +24,7 @@ jobs:
           sed -i "s#{commit_description}#${{ env.COMMIT_DESCRIPTION }}#g" workflow_data/embed.json
           sed -i "s#{repository_owner}#${{ github.repository_owner }}#g" workflow_data/embed.json
           sed -i "s#{repository}#${{ github.repository }}#g" workflow_data/embed.json
-          sed -i "s#{repository_url}#${{ github.repositoryUrl }}#g" workflow_data/embed.json
+          sed -i "s#{repository_url}#${{ github.event.repository.html_url }}#g" workflow_data/embed.json
           sed -i "s#{event_compare}#${{ github.event.compare }}#g" workflow_data/embed.json
           sed -i "s#{commit_title}#${{ env.COMMIT_TITLE }}#g" workflow_data/embed.json
           sed -i "s#{actor}#${{ github.actor }}#g" workflow_data/embed.json
