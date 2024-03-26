@@ -3,17 +3,12 @@
     "embeds": [
         {
             "title": "[ {repository_owner}/{repository} ]",
-            "description": "Event: {event_type}",
             "url": "{repository_url}",
             "color": 16740396,
             "fields": [
                 {
                 "name": "{commit_title}",
-                "value": "{commit_description}"
-                },
-                {
-                  "name": "Links",
-                  "value": ">>> Commit: [{commit_id}]({event_compare})}) - "
+                "value": "{commit_description}\n\n[{commit_id}]({event_compare})"
                 }
             ],
             "author": {
@@ -25,14 +20,12 @@
                 "text": "Timestamp: "
             },
             "timestamp": "{timestamp}",
-            "image": {
-                "url": "{actor_avatar}"
-            },
             "thumbnail": {
                 "url": "{actor_avatar}"
             }
         }
     ],
-    "username": "GitHub Action",
+    "username": "Melusine",
+    "avatar_url": "https://avatars.githubusercontent.com/u/89595749?v=4",
     "attachments": []
 }
