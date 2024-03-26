@@ -11,10 +11,15 @@
             "value": "{commit_description}"
             }
         ],
-        "author": {
-            "name": "{actor}",
-            "url": "{actor_url}",
-            "icon_url": "${actor_avatar}"
+        "footer": {
+            "text": "Commit Time"
+        },
+        "timestamp": "{timestamp}",
+        "image": {
+            "url": "{actor_avatar}"
+        },
+        "thumbnail": {
+            "url": "{actor_avatar}"
         }
         }
     ],
