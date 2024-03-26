@@ -3,13 +3,13 @@
     "embeds": [
         {
             "title": "[ {repository_owner}/{repository} ]",
-            "description": "Event: {event_type}",
+            "description": "Branch - [{branch}]({branch_url})",
             "url": "{repository_url}",
             "color": 16740396,
             "fields": [
                 {
                 "name": ">>> {commit_title}",
-                "value": "`{commit_description}` \n\n\n `[{commit_id}]({event_compare})`"
+                "value": "\n`{commit_description}` \n\n [`{commit_id}`]({event_compare})"
                 }
             ],
             "author": {
