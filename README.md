@@ -6,7 +6,7 @@ Portfolio site for my game dev endeavors. xD<br>
 - [x] Remake the actual site
 - [x] Make new site more presentable
 - [x] Clean up and link to old site
-- [ ] Get an internship :D
+- [x] Get an internship :D
 
 Direct link to website: [Here](https://hagefx-78.github.io/Portfolio/) <br><br>
 
