@@ -19,14 +19,19 @@ jobs:
         id: extract_commit
         run: |
           COMMIT_TITLE=$(echo "${{ github.event.head_commit.message }}" | awk 'NR==1')
-          COMMIT_DESCRIPTION=$(echo "${{ github.event.head_commit.message }}" | awk 'NR>2')
+          COMMIT_DESCRIPTION=$(echo "${{ github.event.head_commit.message }}" | awk 'NR>2' | sed ':a;N;$!ba;s/\n/\\n/g') #replace new line with \n
+          COMMIT_DESCRIPTION="${COMMIT_DESCRIPTION//'%'/'%25'}"
+          COMMIT_DESCRIPTION="${COMMIT_DESCRIPTION//$'\n'/'%0A'}"
+          COMMIT_DESCRIPTION="${COMMIT_DESCRIPTION//$'\r'/'%0D'}"
           echo "::set-output name=COMMIT_TITLE::$COMMIT_TITLE"
           echo "::set-output name=COMMIT_DESCRIPTION::$COMMIT_DESCRIPTION"
       - name: Read JSON file and replace placeholders
         run: |
+          COMMIT_TITLE=$(echo "${{ steps.extract_commit.outputs.COMMIT_TITLE}}"  | sed 's/\\n/\\\\n/g')
+          COMMIT_DESCRIPTION=$(echo "${{steps.extract_commit.outputs.COMMIT_DESCRIPTION}}" | sed 's/\\n/\\\\n/g')
           sed -i "s#{event_type}#${{ github.event_name }}#g" workflow_data/embed.json
-          sed -i "s#{commit_title}#${{steps.extract_commit.outputs.COMMIT_TITLE}}#g" workflow_data/embed.json
-          sed -i "s#{commit_description}#${{steps.extract_commit.outputs.COMMIT_DESCRIPTION}}#g" workflow_data/embed.json
+          sed -i "s#{commit_title}#$COMMIT_TITLE#g" workflow_data/embed.json
+          sed -i "s#{commit_description}#$COMMIT_DESCRIPTION#g" workflow_data/embed.json
           sed -i "s#{commit_id}#${{steps.get-short-sha.outputs.id}}#g" workflow_data/embed.json
           sed -i "s#{branch}#${{ github.ref_name}}#g" workflow_data/embed.json
           sed -i "s#{branch_url}#${{ github.ref_type}}#g" workflow_data/embed.json
@@ -38,6 +43,7 @@ jobs:
           sed -i "s#{actor_url}#${{ github.event.sender.html_url }}#g" workflow_data/embed.json
           sed -i "s#{actor_avatar}#${{ github.event.sender.avatar_url }}#g" workflow_data/embed.json
           sed -i "s#{timestamp}#${{ github.event.head_commit.timestamp }}#g" workflow_data/embed.json
+          cat workflow_data/embed.json
       - name: Send Discord Webhook Action
         uses: tsickert/discord-webhook@v5.2.0
         with:

@@ -5,11 +5,11 @@
             "title": "[ {repository_owner}/{repository} ]",
             "description": "Branch - [{branch}]({branch_url})",
             "url": "{repository_url}",
-            "color": 16740396,
+            "color": 7918427,
             "fields": [
                 {
                 "name": ">>> {commit_title}",
-                "value": "\n```{commit_description}``` \n `Link` - [`{commit_id}`]({event_compare})"
+                "value": "```\n{commit_description} ``` \n `Link` - [`{commit_id}`]({event_compare})"
                 }
             ],
             "author": {
