@@ -5,12 +5,13 @@
 
         <!-- CSS -->
         <link href="themes/Update/prism.css" rel="stylesheet" />
-        <link rel="stylesheet" href="Portfolio2.0/global.css">
-        <link rel="stylesheet" href="Portfolio2.0/background.css">
-        <link rel="stylesheet" href="Portfolio2.0/terminal.css">
-        <link rel="stylesheet" href="Portfolio2.0/portfolio.css">
-        <link rel="stylesheet" href="Portfolio2.0/projects.css">
-        <link rel="stylesheet" href="Portfolio2.0/sidework.css">
+        <link rel="stylesheet" href="Portfolio2.0/Style/global.css">
+        <link rel="stylesheet" href="Portfolio2.0/Style/background.css">
+        <link rel="stylesheet" href="Portfolio2.0/Style/terminal.css">
+        <link rel="stylesheet" href="Portfolio2.0/Style/portfolio.css">
+        <link rel="stylesheet" href="Portfolio2.0/Style/projects.css">
+        <link rel="stylesheet" href="Portfolio2.0/Style/sidework.css">
+        <link rel="stylesheet" href="Portfolio2.0/Style/game_projects.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <!-- Google Fonts -->
@@ -68,17 +69,23 @@
             </div>
         </div>
 
+        <div class="game-modal-box-back">
+            <div id="close-game-modal">X</div>
+            <div class="game-modal-box-container borderBlack5pxNS">
+            </div> 
+        </div>
+
         <!--Main pages -->
         <div id="portfolio-body">
             <div class = "portfolio-externals"></div>
             <div class="portfolio-tabs">
-                <div class="portfolio-tab active">Portfolio</div>
-                <div class="portfolio-tab">Games</div>
-                <div class="portfolio-tab">Side Works</div>
+                <div class="portfolio-tab active">[ Portfolio ]</div>
+                <div class="portfolio-tab">[ Projects ]</div>
+                <div class="portfolio-tab">[ Games ]</div>
                 <div class="portfolio-tab">About Me</div>
                 <div class="portfolio-tab">Resume</div>
             </div>
-            <div class="portfolio-tab-content borderBlackMain">
+            <div class="portfolio-tab-content">
                 <!--  Splash Tab  -->
                 <div id="splash-tab" class="portfolio-tab-pane active">
                     <div class="splash-tab-inner">
@@ -96,6 +103,66 @@
                         <div class="externals" id="linkedinICON" onclick="window.open('https://www.linkedin.com/in/jjlim-hagefx/', '_blank');"></div>
                         <div class="externals" id="githubICON" onclick="window.open('https://github.com/HageFX-78', '_blank');"></div>
                         <div class="externals" id="itchioICON" onclick="window.open('https://hagefx78.itch.io', '_blank');"></div>
+                    </div>
+                </div>
+
+                <!--  Test Game Tab  -->
+                <div id = "game-projects-tab" class="portfolio-tab-pane">
+                    
+
+                    <div id = "tile-projects-container">
+                        <div  id= "tile-1" class = "tile-item" ptype="main">
+                            <div class="tile-project-text">Game Projects</div>
+                        </div>
+                        <div id="game-projects-container">
+                            <div loadname="hazepoint" class="game-item">
+                                <img src="img/hazepoint/tn.png" alt="fumo_tn" draggable="false" />
+                                <div class = "game-item-text">
+                                    <b>Hazepoint</b>
+                                    <p>RRatss</p>
+                                </div>
+                            </div>
+                            <div loadname="shadow" class="game-item">
+                                <img src="img/shadow/shadow1.png" alt="fumo_tn" draggable="false" />
+                                <div class = "game-item-text">
+                                    <b>Shadow</b>
+                                    <p>RRatss</p>
+                                </div>
+                            </div>
+                            <div loadname="shadow" class="game-item">
+                                <img src="img/shadow/shadow1.png" alt="fumo_tn" draggable="false" />
+                                <div class = "game-item-text">
+                                    <b>Shadow</b>
+                                    <p>RRatss</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div  id= "tile-2" class = "tile-item" ptype="jam">
+                            <div class="tile-project-text">Jam Projects</div>
+                        </div>
+                        
+
+                        <!-- Side projecys-->
+                        <div  id= "tile-3" class = "tile-item" ptype="side">
+                            <div class="tile-project-text">Side Projects</div>
+                        </div>
+                        <div class="side-work-container">
+                            <div loadname="fumo_engine" class="side-work-item">
+                                <img src="img/side/fumoEngine.png" alt="fumo_tn" draggable="false" />
+                                <div class = "side-work-item-text">
+                                    <b>Fumo Engine</b>
+                                    A 2D game engine made in C++ with GLFW by OpenGL with ECS architecture.
+                                </div>
+                            </div>
+                            <div loadname="lua8" class="side-work-item">
+                                <img src="img/side/lua8.png" alt="chip8_tn" draggable="false" />
+                                <div class = "side-work-item-text">
+                                    <b>Chip 8 Emulator</b>
+                                    A chip 8 emulator made in Lua with Love2D framework.
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -130,27 +197,6 @@
                         </div> 
                         <div id="" class="project-content-text default-format">
                             Choose a game from the left/top
-                        </div>
-                    </div>
-                </div>
-
-
-                <!--  Side project Tab  -->
-                <div id="side-work-tab" class="portfolio-tab-pane">
-                    <div class="side-work-container">
-                        <div loadname="fumo_engine" class="side-work-item">
-                            <img src="img/side/fumoEngine.png" alt="fumo_tn" draggable="false" />
-                            <div class = "side-work-item-text">
-                                <b>Fumo Engine</b>
-                                A 2D game engine made in C++ with GLFW by OpenGL with ECS architecture.
-                            </div>
-                        </div>
-                        <div loadname="lua8" class="side-work-item">
-                            <img src="img/side/lua8.png" alt="chip8_tn" draggable="false" />
-                            <div class = "side-work-item-text">
-                                <b>Chip 8 Emulator</b>
-                                A chip 8 emulator made in Lua with Love2D framework.
-                            </div>
                         </div>
                     </div>
                 </div>

@@ -8,6 +8,7 @@
     grid-template-areas:
         'ext ext tabs tabs'
         'tabC tabC tabC tabC';
+    
 }
 .portfolio-externals{
     grid-area: ext;
@@ -22,32 +23,35 @@
 .portfolio-tab {
     align-items: center;
     text-align: center;
-    padding: 10px 15px;
 
-    background-color: #ffbf3e;
-    border-top: 5px solid #ffdd66; 
-    border-left: 5px solid #ffdd66;
-    border-right: 5px solid #a97305;
+    border-radius: 3px 3px 0 0;
+    font-size: 0.5em;
+    padding: 10px 15px;
+    background-color: #ffbf3e70;
     cursor: pointer;
     
     /* clip-path: polygon(0 100%, 100% 100%, 95% 0, 5% 0); file like shape but border wont change so gave up*/
     transition: background-color 0.2s, transform 0.2s;
+    box-shadow: 0px 5px 20px 5px #3131317c;
+
+    font-family: 'Mai10';
 }
 .portfolio-tab:hover {
-    background-color: #ffdd66;
+    background-color: #ffbf3e;
     transform: translateY(-2px) scale(1.05);
 }
 .portfolio-tab.active {
-    background-color: #ffdd66;
-    transform: translateY(-2px) scale(1.15);
+    background-color: #ffbf3e;
+    transform: translateY(-4px) scale(1.15);
 }
 
 .portfolio-tab-content {
     grid-area: tabC;
-
     overflow-Y: hidden;
+    background-color: rgba(37, 37, 37, 0.221);
+    border-radius: 0.5em;
 
-    background-color: rgba(0, 0, 0, 0.459);
+    box-shadow: 0px 0px 40px 5px #3131317c;
 }
 
 .portfolio-tab-pane {
@@ -71,7 +75,7 @@
     padding: 30px;
     box-sizing: border-box;
 
-    background-image: url('../img/P2/haze.png');
+    background-image: url('../../img/hazepoint/promotional_art_nologo.png');
     background-position: center center;
     background-size: cover;
     background-position: fixed; 
@@ -92,8 +96,8 @@
     margin-bottom: 0;
 }
 #raymoo{
-    max-width: 20%;
-    max-height: 20%;
+    max-width: 15%;
+    max-height: 15%;
     width: auto;
     height: auto;
 }
@@ -156,13 +160,13 @@
   }
 
   #linkedinICON{
-    background-image: url('../img/linkedin.png');
+    background-image: url('../../img/linkedin.png');
   }
   #githubICON{
-    background-image: url('../img/github.png');
+    background-image: url('../../img/github.png');
   }
   #itchioICON{
-    background-image: url('../img/itch.png');
+    background-image: url('../../img/itch.png');
   }
 
 
@@ -179,7 +183,7 @@
     justify-content: center;
     justify-items: center;
 
-    background-color: #000000;
+    background-color:   #0000007a;
 
    /* background-image: url('../img/waddle_quest/bg.png');
     background-size: contain;
@@ -261,14 +265,8 @@ embed{
     }
 
     .portfolio-tab {
-        font-size: 12px;    
-        padding: 0px 2px;
-        
-        background-color: #ffbf3e;
-        border-top: 5px solid #ffdd66; 
-        border-left: 5px solid #ffdd66;
-        border-right: 5px solid #a97305;
-        cursor: pointer;
+        font-size: 6px;    
+        padding: 5px 2px;
     }
     .portfolio-tab:hover {
         background-color: #ffdd66;

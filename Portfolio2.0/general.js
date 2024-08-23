@@ -4,8 +4,14 @@ $(document).ready(function() {
     $(".modal-box-back").click(function() {
         $(".modal-box-back").hide();
     });
+    $(".game-modal-box-back").click(function() {
+        $(".game-modal-box-back").hide();
+    });
 
     $(".modal-box-container").click(function(event) {
+        event.stopPropagation(); // Stop event propagation to prevent closing the modal
+    });
+    $(".game-modal-box-container").click(function(event) {
         event.stopPropagation(); // Stop event propagation to prevent closing the modal
     });
 
@@ -21,6 +27,24 @@ $(document).ready(function() {
         });//*/
         
     });
+    $(".game-item").click(function() {
+        $(".game-modal-box-container").html("<div class='loader-container'><div class='loader'></div></div>");
+        $(".game-modal-box-back").show();
+
+        $(".game-modal-box-container").load("Portfolio2.0/GameProjects/"+ $(this).attr("loadname")+".html", function() {
+            // Callback function to execute after content is loaded
+            Prism.highlightAll(); // Initialize Prism.js after content is loaded
+            
+        });//*/
+    });
+
+    $(".game-item-text").hide();
+    $(".game-item").hover(function() {
+        $(this).find(".game-item-text").fadeIn(100);
+    }
+    , function() {
+        $(this).find(".game-item-text").fadeOut(100);
+    });
 
     $(".side-work-item-text").hide();
     $(".side-work-item").hover(function() {
@@ -30,6 +54,45 @@ $(document).ready(function() {
         $(this).find(".side-work-item-text").fadeOut(100);
     });
     
+
+    // Project tile hover
+    $(".tile-item").hover(function(){
+        $(this).find(".tile-project-text").css({
+            "background-color": "rgba(0,0,0,0.4)",
+            "backdrop-filter": "blur(5px)",
+            "transform": "scale(1.1)"
+        });
+    },
+    function(){
+        $(this).find(".tile-project-text").css({
+            "background-color": "rgba(0,0,0,0)",
+            "backdrop-filter": "blur(0px)",
+            "transform": "scale(1)"
+        });
+    });
+
+    var categorySelected = false;
+    // Project tile click
+    $(".tile-item").click(function(){
+        if(!categorySelected){
+            categorySelected = true;
+
+            var projectCategory = $(this).attr("ptype");
+            $("#tile-projects-container").css({
+                "grid-template-areas": ' "'+ $(this).css("grid-area") +'" "'+ projectCategory +'" ',
+                "grid-template-rows": "20% 80%",
+                "grid-template-columns": "100%"
+            }); 
+        }else{
+            categorySelected = false;
+            $("#tile-projects-container").css({
+                "grid-template-areas": ' "L1 R1" "L1 R2" ',
+                "grid-template-rows": "50% 50%",
+                "grid-template-columns": "50% 50%"
+            });
+        }
+    });
+
     InitializeProjectTags();
 });
 
@@ -49,6 +112,7 @@ $(document).on('wheel', '.ele-container2', function (e) {
         $('.ele-container2').scrollLeft($('.ele-container2').scrollLeft() + scrollAmount);
     });
 });
+
 
 function InitializeProjectTags()
 {

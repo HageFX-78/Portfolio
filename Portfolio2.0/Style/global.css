@@ -1,7 +1,15 @@
 @font-face{
   /*Disposable droid font*/
   font-family: pixelfont;
-  src: url(../fonts/db.ttf);   
+  src: url(../../fonts/db.ttf);   
+}
+@font-face {
+  font-family: '04b';
+  src: url(../../fonts/04B_19__.TTF);
+}
+@font-face {
+  font-family: Mai10;
+  src: url(../../fonts/mai10.ttf);
 }
 html{
     font-family: 'Pixelify Sans', sans-serif;
@@ -15,7 +23,7 @@ body{
     /* background-image: url('../img/P2/placeholder.png');
     background-size: cover;
     background-repeat: no-repeat; */
-    background: radial-gradient(#2B4F4D, #151515);
+    background: radial-gradient(#437a77, #151515);
     background-size: 200% 200%;
     animation: gradient 8s ease infinite;
     
@@ -49,7 +57,7 @@ iframe{
 }
 b{
   color:#ffbf3e;
-  font-size: 1em;
+  font-size: 1.5em;
 }
 /* a{
   font-size: 18px;
@@ -228,7 +236,7 @@ a:hover{
   display: none;
 }
 .secret{
-  color: black;
+  color: rgba(0, 0, 0, 0);
 }
 div[class="code-snippet-plugin-container"]{
   overflow-x: hidden;
@@ -239,29 +247,31 @@ pre[class*="language-"] {
 }
 /* ------------------Scrollbar */
 ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    width: 0.8em;
+    height: 0.8em;
   }
   
   /* Track */
   ::-webkit-scrollbar-track {
-    background: linear-gradient( #ff4e65, #ffbf00); 
+    /* background: linear-gradient( #2f2f2f, #bababa);  */
+    background: #000000;
   }
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
     background: #ffbf00;
-    box-shadow: inset 1px 0px 6px rgba(68, 68, 68, 0.5);
-    border-top: 5px solid #ffdd66; 
+    box-shadow: 1px 0px 6px rgba(68, 68, 68, 0.5);
+    /* border-top: 5px solid #ffdd66; 
     border-left: 5px solid #ffdd66; 
     border-bottom: 5px solid #a97305;
-    border-right: 5px solid #a97305;
+    border-right: 5px solid #a97305; */
+    border-radius: 25em;
     
   }
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #e4a629; 
+    background: #ffd044; 
     cursor: pointer;
     transform: scale(1.1);
   }
@@ -315,10 +325,6 @@ img {
   ::-webkit-scrollbar-thumb {
     background: #ffbf00;
     box-shadow: inset 1px 0px 6px rgba(68, 68, 68, 0.5);
-    border-top: 1px solid #ffdd66; 
-    border-left: 1px solid #ffdd66; 
-    border-bottom: 1px solid #a97305;
-    border-right: 1px solid #a97305;
     
   }
 }

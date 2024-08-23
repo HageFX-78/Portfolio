@@ -47,9 +47,12 @@
     height: 100%;
     /* background-image: url('../img/P2/aiArt3.jpg');
     background-size: cover; */
-    background:linear-gradient( #ff4e65, #ffbf00); 
+    /* background:linear-gradient( #171a56 50%, #97d7fe);  */
+    background-color: #000000;
 }
 .side-work-container{
+    grid-area: side;
+
     justify-content: center;
     justify-items: center;
     text-align: center;
