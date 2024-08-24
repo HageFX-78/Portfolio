@@ -34,6 +34,11 @@ const commandList = {
         execute: legacy,
         description: "Redirects to the old portfolio site",
         usage: "legacy"
+    },
+    'flash':{
+        execute: flashlight,
+        description: "Toggles flashlight mode",
+        usage: "flash"
     }
 
     
@@ -135,13 +140,9 @@ $(document).ready(function() {
             terminal.css("top", event.pageY - offsetY);
         }
     });
-    $("#minimizeButton").on("click", function() {
-        ToggleTerminal();
-    });
+    $("#minimizeButton").on("click", ToggleTerminal);
 
-    $("#terminal-toggle").on("click", function() {
-        ToggleTerminal();
-    });
+    $("#terminal-toggle").on("click", ToggleTerminal);
 
     // Temp Command enter event listener
     $(".inputBox").keypress(function (event) {

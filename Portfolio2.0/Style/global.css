@@ -20,12 +20,12 @@ html{
     background-color: #414141;
 }
 body{
-    /* background-image: url('../img/P2/placeholder.png');
+    /* background-image: url('../../img/background/forest2.webp');
     background-size: cover;
     background-repeat: no-repeat; */
-    background: radial-gradient(#437a77, #151515);
+    /* background: radial-gradient(#437a77, #151515);
     background-size: 200% 200%;
-    animation: gradient 8s ease infinite;
+    animation: gradient 8s ease infinite; */
     
     display: flex;
     justify-content: center;
@@ -39,6 +39,7 @@ body{
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     overflow:hidden;
 }
+
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
@@ -53,32 +54,12 @@ body{
 iframe{
   width: 560;
   height: 315;
-  
+  pointer-events: none;
 }
 b{
   color:#ffbf3e;
   font-size: 1.5em;
 }
-/* a{
-  font-size: 18px;
-  font-weight: 1000;
-  text-shadow: none;
-  color:#000000;
-  text-decoration: none;
-
-  padding: 5px 15px;
-  background-color: #ffbf3e;
-  border-top: 3px solid #ffdd66; 
-  border-left: 3px solid #ffdd66; 
-  border-bottom: 3px solid #a97305;
-  border-right: 3px solid #a97305;
-
-  transform: scale(1.0);
-}
-a:hover{
-  color:#000000;
-  background-color: #ffc85b;
-} */
 
 .custom-link {
   display: inline-block;

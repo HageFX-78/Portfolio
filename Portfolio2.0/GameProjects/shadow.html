@@ -1,4 +1,4 @@
-<div id="shadow-content">
+<div class="project-vid"></div>
     <b>Contributions :</b>
     <ul>
         <li>Developed and maintained a tool to generate interactable flat 2D shadows from 3D models</li>
@@ -35,7 +35,30 @@
     To change shadow shape in real-time we had a workaround that we did not have the chance to apply but, the idea is to generate multiple frames of the object at different angles then animate between them.
 
 
-    <div class='snippet-container shadow-s2 line-numbers'></div>
+    <div id="shadow-s1" class="snippet-container">
+        <pre class="code-snippet">
+            <code class='language-csharp code-snippet-text'>
+                // - Creating the texture and capturing
+                RenderTexture renderTexture = new RenderTexture(horizontalResolution, verticalResolution, captureDepth);
+                Rect rect = new Rect(0, 0, horizontalResolution, verticalResolution);
+                Texture2D texture = new Texture2D(horizontalResolution, verticalResolution, TextureFormat.ARGB32, false);
+            
+                generationCam.targetTexture = renderTexture;
+                generationCam.Render();
+            
+                RenderTexture currentRenderTexture = RenderTexture.active;
+                RenderTexture.active = renderTexture;
+                texture.ReadPixels(rect, 0, 0);
+                texture.Apply();
+            
+                generationCam.targetTexture = null;
+                RenderTexture.active = currentRenderTexture;
+                DestroyImmediate(renderTexture);
+            
+                Sprite sprite = Sprite.Create(texture, rect, Vector2.zero);
+            </code>
+        </pre>
+    </div>
 
 
     <b>Note</b><br><br>
@@ -78,4 +101,3 @@
     <div class='snippet-container shadow-s4'></div>
 
    
-</div>

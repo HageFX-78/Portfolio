@@ -66,3 +66,15 @@ function legacy()
 {
     window.location.href = "../OutdatedPortfolio/index.html";
 }
+
+function flashlight()
+{
+    var isOn = $(".flashlight").css("display") === "block";
+    if(isOn){
+        AppendTerminalText("Flashlight turned off");
+        $(".flashlight").css("display", "none");
+    }else{
+        AppendTerminalText("Flashlight turned on");
+        $(".flashlight").css("display", "block");
+    }
+}

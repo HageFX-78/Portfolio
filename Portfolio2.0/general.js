@@ -4,54 +4,53 @@ $(document).ready(function() {
     $(".modal-box-back").click(function() {
         $(".modal-box-back").hide();
     });
-    $(".game-modal-box-back").click(function() {
-        $(".game-modal-box-back").hide();
-    });
-
     $(".modal-box-container").click(function(event) {
         event.stopPropagation(); // Stop event propagation to prevent closing the modal
     });
-    $(".game-modal-box-container").click(function(event) {
-        event.stopPropagation(); // Stop event propagation to prevent closing the modal
-    });
-
-    $(".side-work-item").click(function() {
+    $(".project-item").click(function() {
         
         $(".modal-box-container").html("<div class='loader-container'><div class='loader'></div></div>");
         $(".modal-box-back").show();
         
-        $(".modal-box-container").load("Portfolio2.0/SideWorks/"+ $(this).attr("loadname")+".html", function() {
-            // Callback function to execute after content is loaded
-            Prism.highlightAll(); // Initialize Prism.js after content is loaded
+        var projectID = parseInt($(this).attr("readID"));
+        var directory = "None"
+        if($(this).attr("dirType")== "game"){
+            directory = "GameProjects";
+        }else if($(this).attr("dirType")== "side"){
+            directory = "SideWorks";
+        }
+
+        // Load html content of the project
+        $(".modal-box-container").load("Portfolio2.0/"+ directory +"/"+ $(this).attr("loadname")+".html", function(response, status, xhr) {
+            if (status == "error") {
+                var msg = "Sorry but there was an error: ";
+                $(".modal-box-container").html(msg + xhr.status + " " + xhr.statusText);
+            }
+            else if(status == "success"){
+
+                var tempDiv = $("<div>").html(response);
+                const project = projectData.find((item) => item.index == projectID);
+    
+                tempDiv.find(".project-vid").html(project.contentHead);
+
+
+
+                $(".modal-box-container").html(tempDiv.html());
+
+                Prism.highlightAll(); // Initialize Prism.js after content is loaded
+            }
             
-        });//*/
+        });
         
     });
-    $(".game-item").click(function() {
-        $(".game-modal-box-container").html("<div class='loader-container'><div class='loader'></div></div>");
-        $(".game-modal-box-back").show();
 
-        $(".game-modal-box-container").load("Portfolio2.0/GameProjects/"+ $(this).attr("loadname")+".html", function() {
-            // Callback function to execute after content is loaded
-            Prism.highlightAll(); // Initialize Prism.js after content is loaded
-            
-        });//*/
-    });
 
-    $(".game-item-text").hide();
-    $(".game-item").hover(function() {
-        $(this).find(".game-item-text").fadeIn(100);
+    $(".project-item-text").hide();
+    $(".project-item").hover(function() {
+        $(this).find(".project-item-text").fadeIn(100);
     }
     , function() {
-        $(this).find(".game-item-text").fadeOut(100);
-    });
-
-    $(".side-work-item-text").hide();
-    $(".side-work-item").hover(function() {
-        $(this).find(".side-work-item-text").fadeIn(100);
-    }
-    , function() {
-        $(this).find(".side-work-item-text").fadeOut(100);
+        $(this).find(".project-item-text").fadeOut(100);
     });
     
 
@@ -94,6 +93,24 @@ $(document).ready(function() {
     });
 
     InitializeProjectTags();
+
+    //----------------------------------------------------------------- Mouse functions
+    //ON mouse mmove move background slightly to create parallax effect
+    $(document).on('mousemove', function(e){
+        var x = e.pageX / $(window).width();
+        var y = e.pageY / $(window).height();
+        $(".parallax-back").css('transform', 'translate(-'+x*50+'px, -'+y*50+'px)');
+
+        // Move flashlight element where center is mouse position
+        $(".flashlight").css({
+            "left": e.pageX - $(window).width(),
+            "top": e.pageY - $(window).height()
+        });
+    });
+
+    $(document).on('mousedown', function(e){
+        $("iframe").css("pointer-events", "auto");
+    });
 });
 
 
@@ -132,7 +149,22 @@ function InitializeProjectTags()
         group : ["Group", "#ebb400"],
 
     };
+
     $(".projects-thumbnail").each(function() {
+        let index = parseInt($(this).attr("readID"));
+        const project = projectData.find((item) => item.index === index);
+
+        if(project && project.tags){
+            let resultText = "<div class='thumbnail-flex-container'>";
+            project.tags.forEach(element => {
+                resultText += "<div class='thumbnail-tags' style='background-color:"+ projectTags[element][1]+"'>"+ projectTags[element][0] +"</div>"
+            });
+            resultText += "</div>"
+            $(this).append(resultText);
+        }
+    });
+
+    $(".tile-project-thumbnail").each(function() {
         let index = parseInt($(this).attr("readID"));
         const project = projectData.find((item) => item.index === index);
 
