@@ -39,6 +39,19 @@ body{
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     overflow:hidden;
 }
+/* CRT effect */
+body::after{
+    content:" ";
+    display:block;
+    position:absolute;
+    top:0;left:0;bottom:0;right:0;
+    background:
+      linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+      linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index:2;
+    background-size:100% 4px, 2px 100%;
+    pointer-events:none;
+  }
 
 @keyframes gradient {
 	0% {
@@ -54,7 +67,6 @@ body{
 iframe{
   width: 560;
   height: 315;
-  pointer-events: none;
 }
 b{
   color:#ffbf3e;
@@ -235,19 +247,15 @@ pre[class*="language-"] {
   /* Track */
   ::-webkit-scrollbar-track {
     /* background: linear-gradient( #2f2f2f, #bababa);  */
-    background: #000000;
+    background: #00000037;
+    border-radius: 25em;
   }
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #ffbf00;
-    box-shadow: 1px 0px 6px rgba(68, 68, 68, 0.5);
-    /* border-top: 5px solid #ffdd66; 
-    border-left: 5px solid #ffdd66; 
-    border-bottom: 5px solid #a97305;
-    border-right: 5px solid #a97305; */
+    background: #ec9d00;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 25em;
-    
   }
   
   /* Handle on hover */

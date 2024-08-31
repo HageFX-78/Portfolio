@@ -14,6 +14,8 @@
         <link rel="stylesheet" href="Portfolio2.0/Style/sidework.css">
         <link rel="stylesheet" href="Portfolio2.0/Style/game_projects.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+          
 
         <!-- Google Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700">
@@ -26,11 +28,13 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 
-        <script src="Portfolio2.0/commands.js"></script>
-        <script src="Portfolio2.0/terminal.js"></script>
-        <script src="Portfolio2.0/gameContent.js"></script>
-        <script src="Portfolio2.0/tabs.js"></script>
-        <script src="Portfolio2.0/general.js"></script>
+        <script src="Portfolio2.0/Scripts/commands.js"></script>
+        <script src="Portfolio2.0/Scripts/terminal.js"></script>
+        <script src="Portfolio2.0/Scripts/gameContent.js"></script>
+        <script src="Portfolio2.0/Scripts/projectContent.js"></script>
+        <script src="Portfolio2.0/Scripts/tabs.js"></script>
+        <script src="Portfolio2.0/Scripts/general.js"></script>
+        <script src="Portfolio2.0/Scripts/project.js"></script>
 
         
         <!-- Mobile viewport fix -->
@@ -71,9 +75,8 @@
         <!-- Side work Modal box-->
         <div class="modal-box-back">
             <div id="close-modal">X</div>
-            <div class="modal-box-container borderBlack5pxNS">
-                
-            </div>
+            <div class="modal-box-container borderBlack5pxNS"></div>
+            <div class="modal-box-side-image-container"></div>
         </div>
 
         <!--Main pages -->
@@ -116,29 +119,7 @@
                             <div class="tile-project-text">Game Projects</div>
                         </div>
                         <div id="game-projects-container">
-                            <div loadname="hazepoint" dirType="game" class="project-item" readID = "2">
-                                <img src="img/hazepoint/tn.png" alt="fumo_tn" draggable="false" />
-                                <div class = "project-item-text">
-                                    <b>Hazepoint</b>
-                                    <p>RRatss</p>
-                                    <div class="tile-project-thumbnail" readID="2"></div>
-                                    
-                                </div>
-                            </div>
-                            <div loadname="shadow" dirType="game" class="project-item" readID = "4">
-                                <img src="img/shadow/shadow1.png" alt="fumo_tn" draggable="false" />
-                                <div class = "project-item-text">
-                                    <b>Shadow</b>
-                                    <p>RRatss</p>
-                                </div>
-                            </div>
-                            <div loadname="guittrip" dirType="game" class="project-item">
-                                <img src="img/gt/gt1.png" alt="fumo_tn" draggable="false" />
-                                <div class = "project-item-text">
-                                    <b>Guilt Trip</b>
-                                    <p>RRatss</p>
-                                </div>
-                            </div>
+                            
                         </div>
 
                         <div  id= "tile-2" class = "tile-item" ptype="jam">
@@ -151,7 +132,7 @@
                             <div class="tile-project-text">Side Projects</div>
                         </div>
                         <div class="side-work-container">
-                            <div loadname="fumo_engine" dirType="side" class="project-item">
+                            <div loadname="fumo_engine" dirType="side" class="project-item" readID = "0">
                                 <img src="img/side/fumoEngine.png" alt="fumo_tn" draggable="false" />
                                 <div class = "project-item-text">
                                     <b>Fumo Engine</b>

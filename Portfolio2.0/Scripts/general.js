@@ -1,57 +1,18 @@
-
+var flashLightState = false; // Global flashlight state
+var categorySelected = false;
 
 $(document).ready(function() {
+    // --------------------------- Main modal box for projects
     $(".modal-box-back").click(function() {
-        $(".modal-box-back").hide();
+        ClearModalBox();
     });
     $(".modal-box-container").click(function(event) {
         event.stopPropagation(); // Stop event propagation to prevent closing the modal
     });
-    $(".project-item").click(function() {
-        
-        $(".modal-box-container").html("<div class='loader-container'><div class='loader'></div></div>");
-        $(".modal-box-back").show();
-        
-        var projectID = parseInt($(this).attr("readID"));
-        var directory = "None"
-        if($(this).attr("dirType")== "game"){
-            directory = "GameProjects";
-        }else if($(this).attr("dirType")== "side"){
-            directory = "SideWorks";
-        }
 
-        // Load html content of the project
-        $(".modal-box-container").load("Portfolio2.0/"+ directory +"/"+ $(this).attr("loadname")+".html", function(response, status, xhr) {
-            if (status == "error") {
-                var msg = "Sorry but there was an error: ";
-                $(".modal-box-container").html(msg + xhr.status + " " + xhr.statusText);
-            }
-            else if(status == "success"){
 
-                var tempDiv = $("<div>").html(response);
-                const project = projectData.find((item) => item.index == projectID);
+    // --------------------------- Project item instances, hover for summary and stuff
     
-                tempDiv.find(".project-vid").html(project.contentHead);
-
-
-
-                $(".modal-box-container").html(tempDiv.html());
-
-                Prism.highlightAll(); // Initialize Prism.js after content is loaded
-            }
-            
-        });
-        
-    });
-
-
-    $(".project-item-text").hide();
-    $(".project-item").hover(function() {
-        $(this).find(".project-item-text").fadeIn(100);
-    }
-    , function() {
-        $(this).find(".project-item-text").fadeOut(100);
-    });
     
 
     // Project tile hover
@@ -70,7 +31,8 @@ $(document).ready(function() {
         });
     });
 
-    var categorySelected = false;
+    
+    
     // Project tile click
     $(".tile-item").click(function(){
         if(!categorySelected){
@@ -92,31 +54,35 @@ $(document).ready(function() {
         }
     });
 
+    // --------------------------- Initialize project tags
     InitializeProjectTags();
 
     //----------------------------------------------------------------- Mouse functions
     //ON mouse mmove move background slightly to create parallax effect
+
+
+
     $(document).on('mousemove', function(e){
+        
+
         var x = e.pageX / $(window).width();
         var y = e.pageY / $(window).height();
         $(".parallax-back").css('transform', 'translate(-'+x*50+'px, -'+y*50+'px)');
 
         // Move flashlight element where center is mouse position
+        if(!flashLightState) return;
         $(".flashlight").css({
             "left": e.pageX - $(window).width(),
             "top": e.pageY - $(window).height()
         });
     });
 
-    $(document).on('mousedown', function(e){
-        $("iframe").css("pointer-events", "auto");
-    });
 });
 
 
-// Horizontal scrolling on screenshots
-$(document).on('wheel', '.ele-container2', function (e) {
-    var $scrollArea = $('.ele-container2');
+// -------------------------------- Horizontal scrolling on screenshots
+$(document).on('wheel', '.modal-box-side-image-container', function (e) {
+    var $scrollArea = $('.modal-box-side-image-container');
     if ($scrollArea.get(0).scrollWidth <= $scrollArea.get(0).clientWidth) {
         // No need to scroll horizontally if there's no overflow
         return;
@@ -124,31 +90,20 @@ $(document).on('wheel', '.ele-container2', function (e) {
 
     var scrollAmount = e.originalEvent.deltaY;
 
-    $('.ele-container2').on('wheel', function (e) {
+    $('.modal-box-side-image-container').on('wheel', function (e) {
         e.preventDefault();
-        $('.ele-container2').scrollLeft($('.ele-container2').scrollLeft() + scrollAmount);
+        $('.modal-box-side-image-container').scrollLeft($('.modal-box-side-image-container').scrollLeft() + scrollAmount);
     });
 });
 
 
+
+function ClearModalBox(){
+    $(".modal-box-back").hide();
+    $(".modal-box-container").html("");
+}
 function InitializeProjectTags()
 {
-    var projectTags = {
-        cpp : ["C++", "#ebb400"],
-        cs : ["C#", "#ebb400"],
-        lua: ["Lua", "#ebb400"],
-
-        ue5 : ["Unreal Engine 5", "#ebb400"],
-        unity : ["Unity", "#ebb400"],
-        stc : ["Stencyl", "#ebb400"],
-        game2d : ["2D", "#ebb400"],
-        game3d : ["3D", "#ebb400"],
-        mobile : ["Mobile", "#ebb400"],
-        gamejam : ["Game Jam", "#ebb400"],
-        solo : ["Solo", "#ebb400"],
-        group : ["Group", "#ebb400"],
-
-    };
 
     $(".projects-thumbnail").each(function() {
         let index = parseInt($(this).attr("readID"));

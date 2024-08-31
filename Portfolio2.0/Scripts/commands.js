@@ -71,9 +71,11 @@ function flashlight()
 {
     var isOn = $(".flashlight").css("display") === "block";
     if(isOn){
+        flashLightState = false;
         AppendTerminalText("Flashlight turned off");
         $(".flashlight").css("display", "none");
     }else{
+        flashLightState = true;
         AppendTerminalText("Flashlight turned on");
         $(".flashlight").css("display", "block");
     }

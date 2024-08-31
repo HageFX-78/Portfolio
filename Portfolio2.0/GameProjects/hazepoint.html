@@ -1,181 +1,189 @@
 <!--  Hazepoint content repo lmao  -->
 
-<div class="project-vid"></div>
+    <b>Brief</b><br>
 
-<b>Brief</b><br>
+    First solo project made on unreal engine 5 for Final Year Project.<br><br>
 
-First unreal engine game made for Final Year Project. Still currently being devloped!<br>
+    The game is mainly a mech simulator where you have to kill a kaiju 10x the size of the player. The mech is equipped with some utilities that could help traverse the map, attack the kaiju and mainly survive.<br><br>
 
-The game is mainly a mech simulator where you have to kill a kaiju 10x the size of the player. The mech is equipped with some utilities that could help traverse the map, attack the kaiju and mainly survive.<br><br>
+    There is no core mechanic per say, but the one mechanic that could be considered the main is the grapple ability. Player can grapple onto any building within a set distance, reel towards it OR reel halfway and dangle around. You could imagine it being similar to the classic attack on titan tribute game on PC quite a few years back.<br><br>
 
-There is no core mechanic per say, but the one mechanic that could be considered the main is the grapple ability. Player can grapple onto any building within a set distance, reel towards it OR reel halfway and dangle around. You could imagine it being similar to the classic attack on titan tribute game on PC quite a few years back.<br><br>
+    <b>Notable Features</b><br>
+    <ul>
+        <li>Grapple mechanic, grapple onto structures in a set distance and have the ability to reel towards it. Reeling halfway allows the player to 'hang' around like spiderman. This allows player to jump off building without accumulating too much fall damage and have a way to quickly traverse and scale the landscape.</li>
+        <li>Scanning shader, a tool equipped onto the mech to scan more interactables on the map such as cars to destroy and alert the kaiju. A side functionality is to scout the landscape surrounding the player as the map tend to get pretty dark.</li>
+        <li>Drone deployment, set a static area on the map whereby if the kaiju enters it, it will notify the player.</li>
+    </ul><br>
 
-<b>Notable Features</b><br>
-<ul>
-    <li>Grapple mechanic, grapple onto structures in a set distance and have the ability to reel towards it. Reeling halfway allows the player to 'hang' around like spiderman. This allows player to jump off building without accumulating too much fall damage and have a way to quickly traverse and scale the landscape.</li>
-    <li>Scanning shader, a tool equipped onto the mech to scan more interactables on the map such as cars to destroy and alert the kaiju. A side functionality is to scout the landscape surrounding the player as the map tend to get pretty dark.</li>
-    <li>Drone deployment, set a static area on the map whereby if the kaiju enters it, it will notify the player.</li>
-</ul><br>
+    <b>C++ in Unreal</b><br><br>
 
-<b>C++ in Unreal</b><br><br>
+    As this is my first time dabbling with Unreal, I've attempted to mix blueprint and C++ to get a feel of the system, I managed to create scripts for enemy(the large kaiju) pathfinding with Dijkstra algorithm as I wanted to test implementing a simpler algorithm. This took way longer than expected as there a bunch of hurdles on both the editor and Unreal's own C++ framework, the result wasn't as satisfactory either. <br><br>
 
-As this is my first time dabbling with Unreal, I've attempted to mix blueprint and C++ to get a feel of the system, I managed to create scripts for enemy(the large kaiju) pathfinding with Dijkstra algorithm as I wanted to test implementing a simpler algorithm. This took way longer than expected as there a bunch of hurdles on both the editor and Unreal's own C++ framework, the result wasn't as satisfactory either. <br><br>
+    To elaborate, the patfinding code works and always returns a path, the next part where Unreal's behaviour tree system somehow fails to find the next path on random intervals. I've tried to debug this issue for a week and nothing seemed to make sense, I am absolutely certain my code was working as a path is returned everytime the previous one ends, but the behaviour tree clears the path at very random intervals with no notable patterns. <br><br>
 
-To elaborate, the patfinding code works and always returns a path, the next part where Unreal's behaviour tree system somehow fails to find the next path on random intervals. I've tried to debug this issue for a week and nothing seemed to make sense, I am absolutely certain my code was working as a path is returned everytime the previous one ends, but the behaviour tree clears the path at very random intervals with no notable patterns. <br><br>
+    Due to time constraints, I've decided to switch to pure blueprint part for finding the path and focus more on player experience namely the mech. I would tackle C++ later on once I've have a better grasp to the underlying paradigm of Unreal through blueprints.<br><br>
 
-Due to time constraints, I've decided to switch to pure blueprint part for finding the path and focus more on player experience namely the mech. I would tackle C++ later on once I've have a better grasp to the underlying paradigm of Unreal through blueprints.<br><br>
+    <div class="code-header-container">
+        <b>Dijkstra Pathfind Function</b>
+        <div class="custom-link-container">
+            <a href='https://github.com/HageFX-78/KaijuMechGame/blob/main/Source/KaijuGameTest/Private/A_PathfindingManager.cpp' target='_blank'>
+                C++ Pathfinding Script <i style="font-size:20px" class="fa">&#xf08e;</i>
+            </a>
+        </div>
+    </div>
+    <div id="hazepoint-s1" class="snippet-container">
+        <pre class="code-snippet">
+            <code class='language-cpp code-snippet-text'>
+                TArray<AA_WaypointActor*> AA_PathfindingManager::FindPath(AA_WaypointActor* StartWaypoint, AA_WaypointActor* TargetWaypoint){
+                TArray<AA_WaypointActor*> resultPath;
+                TMap<AA_WaypointActor*, int> DistanceMap
+                TMap<AA_WaypointActor*, AA_WaypointActor*> ParentMap;
+                
+                for (AA_WaypointActor* thisWp : AllWaypoints){
+                    DistanceMap.Add(thisWp, 999999);
+                    ParentMap.Add(thisWp, nullptr);
+                }
 
-<b>Dijkstra Pathfind Function</b><br><br>
-<div class="custom-link"><a href='https://github.com/HageFX-78/KaijuMechGame/blob/main/Source/KaijuGameTest/Private/A_PathfindingManager.cpp' target='_blank'>C++ Pathfinding Script <i style="font-size:20px" class="fa">&#xf08e;</i></a></div>
-<br>
+                if(AllWaypoints.Num() == 0){
+                    GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Purple, TEXT("NO WAYPOINTS WTF"));
+                    return TArray<AA_WaypointActor*>();
+                }	
+                if(DistanceMap.Num() == 0){
+                    return TArray<AA_WaypointActor*>();
+                }
+                
+                
+                DistanceMap[StartWaypoint] = 0;
 
-<div id="hazepoint-s1" class="snippet-container">
-    <pre class="code-snippet">
-        <code class='language-cpp code-snippet-text'>
-            TArray<AA_WaypointActor*> AA_PathfindingManager::FindPath(AA_WaypointActor* StartWaypoint, AA_WaypointActor* TargetWaypoint){
-            TArray<AA_WaypointActor*> resultPath;
-            TMap<AA_WaypointActor*, int> DistanceMap
-            TMap<AA_WaypointActor*, AA_WaypointActor*> ParentMap;
-            
-            for (AA_WaypointActor* thisWp : AllWaypoints){
-                DistanceMap.Add(thisWp, 999999);
-                ParentMap.Add(thisWp, nullptr);
-            }
+                // Create an empty set to keep record all visited waypoints
+                TSet<AA_WaypointActor*> VisitedWaypoints;
 
-            if(AllWaypoints.Num() == 0){
-                GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Purple, TEXT("NO WAYPOINTS WTF"));
-                return TArray<AA_WaypointActor*>();
-            }	
-            if(DistanceMap.Num() == 0){
-                return TArray<AA_WaypointActor*>();
-            }
-            
-            
-            DistanceMap[StartWaypoint] = 0;
+                // Main loop for Dijkstra's algorithm
+                while (VisitedWaypoints.Num() < AllWaypoints.Num()){
+                    // Find the waypoint with the smallest distance that has not been visited
+                    AA_WaypointActor* CurrentWaypoint = nullptr;
+                    float MinDistance = 999999;//From big to small, reminder to self at 3am
+                    for (AA_WaypointActor* thisWaypoint : AllWaypoints){
+                        if (!VisitedWaypoints.Contains(thisWaypoint) && DistanceMap[thisWaypoint] < MinDistance){
+                            CurrentWaypoint = thisWaypoint;
+                            MinDistance = DistanceMap[thisWaypoint];
+                        }
+                    }
 
-            // Create an empty set to keep record all visited waypoints
-            TSet<AA_WaypointActor*> VisitedWaypoints;
+                    if (!CurrentWaypoint){
+                        GEngine->AddOnScreenDebugMessage(10, 5.f, FColor::White, TEXT("Cant seem to find path or smtg broke"));
+                        break;
+                    }
 
-            // Main loop for Dijkstra's algorithm
-            while (VisitedWaypoints.Num() < AllWaypoints.Num()){
-                // Find the waypoint with the smallest distance that has not been visited
-                AA_WaypointActor* CurrentWaypoint = nullptr;
-                float MinDistance = 999999;//From big to small, reminder to self at 3am
-                for (AA_WaypointActor* thisWaypoint : AllWaypoints){
-                    if (!VisitedWaypoints.Contains(thisWaypoint) && DistanceMap[thisWaypoint] < MinDistance){
-                        CurrentWaypoint = thisWaypoint;
-                        MinDistance = DistanceMap[thisWaypoint];
+                    // Mark the current waypoint as visited
+                    VisitedWaypoints.Add(CurrentWaypoint);
+
+                    // Update distances and parents for adjacent waypoints
+                    for (FWaypointConnection connectionStruct : CurrentWaypoint->ConnectedWaypoints){
+                        AA_WaypointActor* theConnectedWaypoint = connectionStruct.ConnectedWaypoint;//Singular
+                        float NewDistance = DistanceMap[CurrentWaypoint] + 1.0f; // Assume all connections have the same weight (1.0f)
+
+                        if (NewDistance < DistanceMap[theConnectedWaypoint]){
+                            DistanceMap[theConnectedWaypoint] = NewDistance;
+                            ParentMap[theConnectedWaypoint] = CurrentWaypoint;
+                        }
                     }
                 }
 
-                if (!CurrentWaypoint){
-                    GEngine->AddOnScreenDebugMessage(10, 5.f, FColor::White, TEXT("Cant seem to find path or smtg broke"));
-                    break;
+                // Get parent->parent->parent of defined path from the target
+                AA_WaypointActor* tPoint = TargetWaypoint;
+                while (tPoint != nullptr){
+                    resultPath.Insert(tPoint, 0);//First goes all the way back
+                    tPoint = ParentMap[tPoint];
                 }
-
-                // Mark the current waypoint as visited
-                VisitedWaypoints.Add(CurrentWaypoint);
-
-                // Update distances and parents for adjacent waypoints
-                for (FWaypointConnection connectionStruct : CurrentWaypoint->ConnectedWaypoints){
-                    AA_WaypointActor* theConnectedWaypoint = connectionStruct.ConnectedWaypoint;//Singular
-                    float NewDistance = DistanceMap[CurrentWaypoint] + 1.0f; // Assume all connections have the same weight (1.0f)
-
-                    if (NewDistance < DistanceMap[theConnectedWaypoint]){
-                        DistanceMap[theConnectedWaypoint] = NewDistance;
-                        ParentMap[theConnectedWaypoint] = CurrentWaypoint;
-                    }
-                }
+                return resultPath;
             }
+            </code>
+        </pre>
+    </div>
 
-            // Get parent->parent->parent of defined path from the target
-            AA_WaypointActor* tPoint = TargetWaypoint;
-            while (tPoint != nullptr){
-                resultPath.Insert(tPoint, 0);//First goes all the way back
-                tPoint = ParentMap[tPoint];
-            }
-            return resultPath;
-        }
-        </code>
-    </pre>
-</div>
+    <b>Context on what PathFindingManager is working with : </b>
+    <ul>
+        <li>A custom object class to store an array of path rerturned by the pathfinder (this is because Uneral's blaackboard component doesn't accept arrays as keys for some reason)</li>
+        <li>A custom waypoint actor that is placed on the map to act as path points, each contain data linking to other waypoints</li>
+    </ul>
 
-<b>Context on what PathFindingManager is working with : </b>
-<ul>
-    <li>A custom object class to store an array of path rerturned by the pathfinder (this is because Uneral's blaackboard component doesn't accept arrays as keys for some reason)</li>
-    <li>A custom waypoint actor that is placed on the map to act as path points, each contain data linking to other waypoints</li>
-</ul>
+    <br>
+    <div class="code-header-container">
+        <b>AA_WaypointActor.h Structure</b>
+        <div class="custom-link-container">
+            
+            <a href='https://github.com/HageFX-78/KaijuMechGame/blob/main/Source/KaijuGameTest/Public/A_WaypointActor.h' target='_blank'>Snippet Link <i style="font-size:20px" class="fa">&#xf08e;</i></a>
+        </div>
+    </div>
+    <br>
 
-<b>AA_WaypointActor.h Structure</b><br><br>
-<div class="custom-link"><a href='https://github.com/HageFX-78/KaijuMechGame/blob/main/Source/KaijuGameTest/Public/A_WaypointActor.h' target='_blank'>Snippet Link <i style="font-size:20px" class="fa">&#xf08e;</i></a></div>
-<br>
-
-<div id="hazepoint-s2" class="snippet-container">
-    <pre class="code-snippet">
-        <code class='language-cpp code-snippet-text'>
-            #include "CoreMinimal.h"
-            #include "GameFramework/Actor.h"
-            #include "Components/BillboardComponent.h"
-            #include "A_WaypointActor.generated.h"
+    <div id="hazepoint-s2" class="snippet-container">
+        <pre class="code-snippet">
+            <code class='language-cpp code-snippet-text'>
+                #include "CoreMinimal.h"
+                #include "GameFramework/Actor.h"
+                #include "Components/BillboardComponent.h"
+                #include "A_WaypointActor.generated.h"
 
 
-            USTRUCT(BlueprintType)
-            struct FWaypointConnection//Struct for each connection to waypoints with state to see if is blocked
-            {
-                GENERATED_BODY()
+                USTRUCT(BlueprintType)
+                struct FWaypointConnection//Struct for each connection to waypoints with state to see if is blocked
+                {
+                    GENERATED_BODY()
 
-                UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pathfinding")
-                AA_WaypointActor* ConnectedWaypoint;
+                    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pathfinding")
+                    AA_WaypointActor* ConnectedWaypoint;
 
-                UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pathfinding")
-                bool bIsRoadBlocked = false;
+                    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pathfinding")
+                    bool bIsRoadBlocked = false;
 
-                UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pathfinding")
-                int distanceWeighted = 1;//Default 1 for now
-            };
+                    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pathfinding")
+                    int distanceWeighted = 1;//Default 1 for now
+                };
 
-            UCLASS()
-            class KAIJUGAMETEST_API AA_WaypointActor : public AActor
-            {
-                GENERATED_BODY()
-                
-            public:	
-                // Sets default values for this actor's properties
-                AA_WaypointActor();
+                UCLASS()
+                class KAIJUGAMETEST_API AA_WaypointActor : public AActor
+                {
+                    GENERATED_BODY()
+                    
+                public:	
+                    // Sets default values for this actor's properties
+                    AA_WaypointActor();
 
-            protected:
-                // Called when the game starts or when spawned
-                virtual void BeginPlay() override;
+                protected:
+                    // Called when the game starts or when spawned
+                    virtual void BeginPlay() override;
 
-            public:
-                // Called every frame
-                virtual void Tick(float DeltaTime) override;
+                public:
+                    // Called every frame
+                    virtual void Tick(float DeltaTime) override;
 
-                UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pathfinding")
-                int nodeID;
-                
-                UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pathfinding")
-                TArray<FWaypointConnection> ConnectedWaypoints;//Waypoints connected to this specific node
-                
-                UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pathfinding")
-                FString pointName = "default_name";
+                    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pathfinding")
+                    int nodeID;
+                    
+                    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pathfinding")
+                    TArray<FWaypointConnection> ConnectedWaypoints;//Waypoints connected to this specific node
+                    
+                    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pathfinding")
+                    FString pointName = "default_name";
 
-                UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Pathfinding")
-                class USceneComponent* DefaultSceneRoot; // Declaration of DefaultSceneRoot component
-                
-                UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Pathfinding")
-                class UBillboardComponent* SpriteComponent;
+                    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Pathfinding")
+                    class USceneComponent* DefaultSceneRoot; // Declaration of DefaultSceneRoot component
+                    
+                    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Pathfinding")
+                    class UBillboardComponent* SpriteComponent;
 
-            };
-        </code>
-    </pre>
-</div>
+                };
+            </code>
+        </pre>
+    </div>
 
-<b>Flow of PathFindingManager :</b>
-<ol>
-    <li>Determine kaiju initial location by finding the closest waypoint to it</li>
-    <li>Set it as start position and randomly select another waypoint as end point on the map</li>
-    <li>Pass both data as parameters to FindPath() function to find the path</li>
-    <li>Function returns a path by setting the aforementioned custom array class as key in Unreal's built-in blackboard</li>
-    <li>Blackboard checks if the key has changed, executes the path</li>
-</ol>
+    <b>Flow of PathFindingManager :</b>
+    <ol>
+        <li>Determine kaiju initial location by finding the closest waypoint to it</li>
+        <li>Set it as start position and randomly select another waypoint as end point on the map</li>
+        <li>Pass both data as parameters to FindPath() function to find the path</li>
+        <li>Function returns a path by setting the aforementioned custom array class as key in Unreal's built-in blackboard</li>
+        <li>Blackboard checks if the key has changed, executes the path</li>
+    </ol>
