@@ -1,0 +1,171 @@
+<b>Contributions :</b><br>
+<ul>
+    <li>Turn-based dialogue battle system for mobs</li>
+    <li>Dialogue system that takes input from text files with custom markup</li>
+    <li>Modular UI system for collected items that displays on inventory</li>
+    <li>Battle / Exploration UI design and art</li>
+    <li>Few sprite art in tutorial stage</li>
+</ul><br>
+
+<b>Battle Manager Script</b><br>
+I won't go into too much details on this as it is somewhat of a bad implementation, but the general idea is that it has 3 states, enemy turn, player turn and no battle state. Partial finite state machine is utilized at the start of each turn but the rest is based entirely in this one script as I was unfamiliar with FSM, the FSM was introduced at first by another programmer but he couldn't make the battle system in time for the first prototype so it was handed over.<br><br>
+
+<div class="code-header-container">
+    <div class="custom-link-container">
+        <a href='https://github.com/HageFX-78/gps1-Cultured/blob/prototype-base/Assets/Scripts/Battle/Mob/Buttons/DBManager.cs' target='_blank'>Battle system core script <i style="font-size:20px" class="fa">&#xf08e;</i></a>
+    </div>
+</div>
+<br><br>
+
+<div class='gif-container'>
+    <img src='img/gt/g2.gif' alt='guiltTrio_tn' draggable='false' />
+</div><br><br>
+
+<b>Dialogue Manager</b><br>
+A modular dialogue system that takes input from text files with custom markup, that displays text letter by letter as well as lerp the camera to locations to focus on during conversation.<br><br>
+
+<div class='gif-container'>
+    <img src='img/gt/g1.gif' alt='guiltTrio_tn' draggable='false' />
+</div><br><br>
+
+The general flow goes like this : <br>
+<ol>
+    <li>Any actor or object that is interactable would have a script called TriggerDialogue.cs where it can reference a txt file contains the conversation, and locations that it would like to focus on duing conversation.</li>
+    <li>Another script called InteractablePrompt.cs should also be present that instantiates a collider that allows the dialogue script to be triggered if needed.</li>
+    <li>If an interaction is triggered, the TriggerDialigue script would call startConvo() on a global DialogueManager and the conversation will begin, by passing the text file referenced as well as locations to lerp to which is optional.</li>
+    <li>The manager would then split the content of the text file into names, the lines as well as which line to act on a camera lerp scenario.</li>
+</ol><br>
+
+<br><br>
+<div class="code-header-container">
+    <b>Dialogue Manager Script </b>
+    <div class="custom-link-container">
+        <a href='https://github.com/HageFX-78/gps1-Cultured/blob/prototype-base/Assets/Scripts/Exploration/DialogueManager.cs' target='_blank'>Dialogue Manager Script <i style="font-size:20px" class="fa">&#xf08e;</i></a>
+    </div>
+</div>
+        <br><br>
+
+
+        <div class="code-snippet-plugin-container">
+            <pre class="code-snippet">
+                <code class='language-csharp code-snippet-text'>
+                    //Conversation functions that are called once to initiate by TriggerDialigue.cs
+                    public void startConversation(TextAsset targetFile)
+                    {
+                        currentText = "";
+                        canInput = true;
+
+                        dialogueUI.SetActive(true);
+                        dialogueActive = true;
+                        dialogueCooldown = true;
+                        curLineNum = 0;
+
+                        //Dialogue lines, split by line breaks in text file
+                        dls = targetFile.text.Split('\n');
+                        dlsSize = dls.Length;
+                        Time.timeScale = 0;
+                        displayCurrentDialogue();
+                    }
+                    //Overloaded funciton to start conversations with locations to lerp camera to mid convo
+                    public void startConversation(TextAsset targetFile, List<TransformList> trList)//Function override
+                    {
+                        canInput = true;
+                        currentText = "";
+
+                        gotoDC.Clear();
+                        gotoDC.Add("player", playerPos);
+                        if (trList.Count > 0)
+                        {
+                            foreach (TransformList x in trList)
+                            {
+                                gotoDC.Add(x.locationName, x.transformReference);
+                            }
+                        }
+                        //*/
+
+                        dialogueUI.SetActive(true);
+                        dialogueActive = true;
+                        dialogueCooldown = true;
+                        curLineNum = 0;
+
+                        dls = targetFile.text.Split('\n');
+                        dlsSize = dls.Length;
+                        Time.timeScale = 0;
+                        displayCurrentDialogue();
+                    }
+                </code>
+            </pre>
+        </div>
+        <br><br>
+
+<b>Example text file for mark-up format :</b><br>
+<code>name:</code> is the format for the name to be displayed for the character.<br>
+<code>:player</code> is the format to set the camera to focus on.<br>
+Example: <code>:puzzleGuy</code> will focus the camera on the puzzle guy on this line.<br><br>
+Rest are the dialogue lines itself.<br><br>
+
+<div class="code-snippet-plugin-container">
+    <pre class="code-snippet">
+        <code class='code-snippet-text'>
+            Alex:Um do you know where is this?
+            ???:Not really
+            ???:Why don't you try asking that guy over there..:puzzleGuy
+            ???:Dudes been rambling about some kind of puzzle the whole time
+            ???:Might be useful you know hehe..
+            Alex:Uh.. ok thanks?...:player
+        </code>
+    </pre>
+</div>
+<br><br>
+
+<div class="code-header-container">
+    <b>Displaying/Typing the dialogues :</b>
+    <div class="custom-link-container">
+        <a href=https://github.com/HageFX-78/gps1-Cultured/blob/68a80266a55439b07ab239b0b8cc1d74a01338d3/Assets/Scripts/Exploration/DialogueManager.cs#L73' target='_blank'>Snippet <i style="font-size:20px" class="fa">&#xf08e;</i></a>
+    </div>
+</div>
+<br><br>
+<div class="code-snippet-plugin-container">
+    <pre class="code-snippet">
+        <code class='language-csharp code-snippet-text'>
+            void displayCurrentDialogue()
+            {
+                StartCoroutine(enableInput());
+
+                //Spliting for format
+                string[] thisLine = dls[curLineNum].Split(':');
+
+                //  name : character line format is split into a tiny array
+                talkerName.text = thisLine[0];
+                typeD = typeDialogue(thisLine[1]);
+
+                //Set pointer to start on first line
+                currentText = thisLine[1];
+
+                //Lerp camera to specified target if needed
+                if (thisLine.Length>2)
+                {
+                    string sanitizedKey;
+                    if(curLineNum == dlsSize-1)
+                    {
+                        sanitizedKey = thisLine[2];//Last line doesnt have a weird extra character at the end so no need to sanitize
+                    }
+                    else
+                    {
+                        sanitizedKey = thisLine[2].Substring(0, thisLine[2].Length - 1);
+                    }
+                    camState.isCutScene = true;
+
+                    Vector3 targetPosition = new Vector3(gotoDC[sanitizedKey].position.x, gotoDC[sanitizedKey].position.y, camPos.position.z);
+                    Vector3 defaultPosition = new Vector3(camPos.position.x, camPos.position.y, camPos.position.z);
+
+                    StartCoroutine(lerpToTarget(defaultPosition, targetPosition));
+                }
+
+                //Start the typing letter by letter coroutine
+                StartCoroutine(typeD);
+                curLineNum++; 
+            }
+        </code>
+    </pre>
+</div>

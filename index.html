@@ -9,8 +9,12 @@
         <link rel="stylesheet" href="Portfolio2.0/Style/background.css">
         <link rel="stylesheet" href="Portfolio2.0/Style/terminal.css">
         <link rel="stylesheet" href="Portfolio2.0/Style/portfolio.css">
+        
         <link rel="stylesheet" href="Portfolio2.0/Style/projects.css">
+        <link rel="stylesheet" href="Portfolio2.0/Style/projects_inner.css">
+        <link rel="stylesheet" href="Portfolio2.0/Style/projects_mobile.css">
         <link rel="stylesheet" href="Portfolio2.0/Style/legacy-projects.css">
+
         <link rel="stylesheet" href="Portfolio2.0/Style/sidework.css">
         <link rel="stylesheet" href="Portfolio2.0/Style/game_projects.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -27,7 +31,7 @@
         <!-- Jquery/AJAX -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-
+        <script src="Portfolio2.0/Scripts/tags.js"></script>
         <script src="Portfolio2.0/Scripts/commands.js"></script>
         <script src="Portfolio2.0/Scripts/terminal.js"></script>
         <script src="Portfolio2.0/Scripts/gameContent.js"></script>
@@ -37,11 +41,18 @@
         <script src="Portfolio2.0/Scripts/project.js"></script>
 
         
+
+        
         <!-- Mobile viewport fix -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>HageFX Portfolio</title>
     </head>
-    <body class ="line-numbers">
+    <!---
+        line-numbers:  is for line numbers plugin from prism, without this class on body line numbers will not appear
+
+        effects:  is for certain effects to be toggled on and off
+    -->
+    <body class="effects line-numbers">
         <!-- Background -->
         <!-- <div class="ocean">
             <div class="wave"></div>
@@ -100,7 +111,9 @@
                       <div id="temp">
                         Aspiring game programmer confident in unconventional bug-solving, continuously learning, and proficient in Unity. Exploring Unreal. Passionate about crafting tools and scripts for issue-solving and workflow optimization.<br><br>
 
-                        <div class="custom-link"><a href='https://github.com/HageFX-78/Portfolio' target='_blank'>Portfolio Repo <i style="font-size:20px" class="fa">&#xf08e;</i></a></div>
+                        <div class="custom-link">
+                            <a href='https://github.com/HageFX-78/Portfolio' target='_blank'>Portfolio Repo <i style="font-size:20px" class="fa">&#xf08e;</i></a>
+                        </div>
                       </div>
                     </div>
                     <div class="external-container">
@@ -118,12 +131,16 @@
                         <div  id= "tile-1" class = "tile-item" ptype="main">
                             <div class="tile-project-text">Game Projects</div>
                         </div>
-                        <div id="game-projects-container">
+                        <div id="game-projects-container" class="projects-list-container">
                             
                         </div>
 
                         <div  id= "tile-2" class = "tile-item" ptype="jam">
                             <div class="tile-project-text">Jam Projects</div>
+                        </div>
+
+                        <div id="jam-projects-container" class="projects-list-container">
+                            
                         </div>
                         
 
@@ -131,7 +148,7 @@
                         <div  id= "tile-3" class = "tile-item" ptype="side">
                             <div class="tile-project-text">Side Projects</div>
                         </div>
-                        <div class="side-work-container">
+                        <div id="side-projects-container" class="projects-list-container">
                             <div loadname="fumo_engine" dirType="side" class="project-item" readID = "0">
                                 <img src="img/side/fumoEngine.png" alt="fumo_tn" draggable="false" />
                                 <div class = "project-item-text">

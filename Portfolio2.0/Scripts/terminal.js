@@ -39,6 +39,11 @@ const commandList = {
         execute: flashlight,
         description: "Toggles flashlight mode",
         usage: "flash"
+    },
+    'crt':{
+        execute: crt,
+        description: "Toggles CRT mode",
+        usage: "crt"
     }
 
     

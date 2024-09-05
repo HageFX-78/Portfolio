@@ -31,7 +31,7 @@
             </a>
         </div>
     </div>
-    <div id="hazepoint-s1" class="snippet-container">
+    <div class="code-snippet-plugin-container">
         <pre class="code-snippet">
             <code class='language-cpp code-snippet-text'>
                 TArray<AA_WaypointActor*> AA_PathfindingManager::FindPath(AA_WaypointActor* StartWaypoint, AA_WaypointActor* TargetWaypoint){
@@ -101,7 +101,7 @@
             </code>
         </pre>
     </div>
-
+    <br><br>
     <b>Context on what PathFindingManager is working with : </b>
     <ul>
         <li>A custom object class to store an array of path rerturned by the pathfinder (this is because Uneral's blaackboard component doesn't accept arrays as keys for some reason)</li>
@@ -118,7 +118,7 @@
     </div>
     <br>
 
-    <div id="hazepoint-s2" class="snippet-container">
+    <div class="code-snippet-plugin-container">
         <pre class="code-snippet">
             <code class='language-cpp code-snippet-text'>
                 #include "CoreMinimal.h"
@@ -178,7 +178,8 @@
             </code>
         </pre>
     </div>
-
+    <br><br>
+    
     <b>Flow of PathFindingManager :</b>
     <ol>
         <li>Determine kaiju initial location by finding the closest waypoint to it</li>

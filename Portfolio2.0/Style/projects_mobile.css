@@ -1,0 +1,43 @@
+@media screen and (max-width: 768px) {
+  .modal-box-container {
+    width: 100%;
+    font-size: 1.3em;
+    padding: 20px;
+  }
+
+  #close-modal {
+    position: absolute;
+    bottom: 2%;
+    text-align: center;
+  }
+
+  .project-content-container {
+    backdrop-filter: blur(6px) brightness(60%);
+    font-size: 16px;
+    width: 100% + 80px;
+
+    margin: 40px -40px -40px -40px;
+    padding: 20px 80px;
+  }
+
+  .project-header img {
+    object-fit: cover;
+    object-position: center;
+    max-width: 120%;
+  }
+
+  .project-link-text {
+    font-size: 0.5em;
+    letter-spacing: 1px;
+    padding: 10px;
+  }
+  .project-link-text i {
+    font-size: 12px !important;
+  }
+  .project-tags img {
+    width: 40px;
+    height: 40px;
+
+    margin: 2px;
+  }
+}

@@ -80,3 +80,8 @@ function flashlight()
         $(".flashlight").css("display", "block");
     }
 }
+
+function crt()
+{
+    $("body").toggleClass("effects");
+}

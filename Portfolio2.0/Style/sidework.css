@@ -1,26 +1,23 @@
-
-#side-work-tab{
-    width: 100%;
-    height: 100%;
-    /* background-image: url('../img/P2/aiArt3.jpg');
+#side-work-tab {
+	width: 100%;
+	height: 100%;
+	/* background-image: url('../img/P2/aiArt3.jpg');
     background-size: cover; */
-    /* background:linear-gradient( #171a56 50%, #97d7fe);  */
-    background-color: #000000;
+	/* background:linear-gradient( #171a56 50%, #97d7fe);  */
+	background-color: #000000;
 }
-.side-work-container{
-    grid-area: side;
+.side-projects-container {
+	grid-area: side;
 
-    justify-content: center;
-    justify-items: center;
-    text-align: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    overflow-y:scroll;
-    overflow-x: hidden;
-    backdrop-filter: blur(5px);
-    flex-wrap: wrap;
-    display: flex;
+	justify-content: center;
+	justify-items: center;
+	text-align: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	backdrop-filter: blur(5px);
+	flex-wrap: wrap;
+	display: flex;
 }
-
-

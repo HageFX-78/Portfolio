@@ -1,5 +1,4 @@
-<div class="project-vid"></div>
-    <b>Contributions :</b>
+<b>Contributions :</b>
     <ul>
         <li>Developed and maintained a tool to generate interactable flat 2D shadows from 3D models</li>
         <li>Created the mechanic of light exclusion</li>
@@ -27,15 +26,12 @@
     This section is 'snapshot' phase referenced from a screenshot plugin, while this part maybe heavily referenced, the rest of the code are original.<br><br>
     This code involves the screenshot action and converting into a sprite.<br><br>
 
-    <div class="custom-link"><a href='https://github.com/AaronTan1/GPS2Shadow/blob/7415065366055427e3e728f703ba873a3ac4e3ef/Assets/Scripts/Shadow2DTest/RefreshStaticShadows.cs#L334' target='_blank'>Full Snippet link  <i style="font-size:20px" class="fa">&#xf08e;</i></a></div>
-
-    <div class='snippet-container shadow-s1'></div>
-    
-    Then store the sprite in a specified folder, and apply texture settings with UNITY_EDITOR, shadow generation is only done once in the editor as this is a mobile game.<br><br>
-    To change shadow shape in real-time we had a workaround that we did not have the chance to apply but, the idea is to generate multiple frames of the object at different angles then animate between them.
-
-
-    <div id="shadow-s1" class="snippet-container">
+    <div class="code-header-container">
+        <div class="custom-link-container">
+            <a href='https://github.com/AaronTan1/GPS2Shadow/blob/7415065366055427e3e728f703ba873a3ac4e3ef/Assets/Scripts/Shadow2DTest/RefreshStaticShadows.cs#L334' target='_blank'>Full Snippet link  <i style="font-size:20px" class="fa">&#xf08e;</i></a>
+        </div>
+    </div>
+    <div class="code-snippet-plugin-container">
         <pre class="code-snippet">
             <code class='language-csharp code-snippet-text'>
                 // - Creating the texture and capturing
@@ -56,6 +52,53 @@
                 DestroyImmediate(renderTexture);
             
                 Sprite sprite = Sprite.Create(texture, rect, Vector2.zero);
+            </code>
+        </pre>
+    </div>
+    
+    Then store the sprite in a specified folder, and apply texture settings with UNITY_EDITOR, shadow generation is only done once in the editor as this is a mobile game.<br><br>
+    To change shadow shape in real-time we had a workaround that we did not have the chance to apply but, the idea is to generate multiple frames of the object at different angles then animate between them.
+
+    
+    <div class="code-snippet-plugin-container">
+        <pre class="code-snippet">
+            <code class='language-csharp code-snippet-text'>
+                if (specifiedSpritePath != null)
+                        {
+                            spritePath = specifiedSpritePath;
+                        }
+
+                        // - Saving texture as PNG
+                        byte[] itemBGBytes = sprite.texture.EncodeToPNG();
+                        outputfilename = $"{parentName}_ShadowSprite";
+                        textureFailsafeID++;
+                        File.WriteAllBytes($"{spritePath}/{outputfilename}.png", itemBGBytes);
+
+                #if UNITY_EDITOR
+
+                        // - Setting texture settings
+                        UnityEditor.AssetDatabase.Refresh();
+                        TextureImporter importer = (TextureImporter)TextureImporter.GetAtPath($"{spritePath}/{outputfilename}.png");
+                        importer.textureType = TextureImporterType.Sprite;
+                        importer.alphaIsTransparency = true;
+                        importer.filterMode = FilterMode.Point;
+                        importer.spritePixelsPerUnit = (100 * (shadowQuality - 8)) / (shadowSizeOffset / 2);
+                        EditorUtility.SetDirty(importer);
+                        importer.SaveAndReimport();
+                #endif
+                            // - Applying sprite to shadow
+                        if (specifiedSpritePath != null)
+                        {
+                            tempSR.sprite = Resources.Load<Sprite>($"GeneratedShadowTextures/PermanentSprites/{outputfilename}");
+                        }
+                        else
+                        {
+                            tempSR.sprite = Resources.Load<Sprite>($"GeneratedShadowTextures/{SceneManager.GetActiveScene().name}/{outputfilename}");
+                        }
+
+                        tempSR.color = shadowColor;
+                        tempSR.material = shadowMaterial;
+                        tempSR.gameObject.AddComponent<PolygonCollider2D>();
             </code>
         </pre>
     </div>
@@ -87,17 +130,110 @@
 
     There is an Coroutine in this script that checks whether the light is still colliding with the collider through a custom function as the in-built unity one is catered for 3D collisions and doesn't work in our particular case. The coroutine would check every 0.5 seconds, if it is still colliding, add it to the back of the queue, else reenable the component.<br><br>
 
-    <div class="custom-link"><a href='https://github.com/AaronTan1/GPS2Shadow/blob/main/Assets/Scripts/Shadow2DTest/ExclusionLight.cs' target='_blank'>Script link  <i style="font-size:20px" class="fa">&#xf08e;</i></a></div><br><br>
+    <div class="code-header-container">
+        <div class="custom-link-container">
+            <a href='https://github.com/AaronTan1/GPS2Shadow/blob/main/Assets/Scripts/Shadow2DTest/ExclusionLight.cs' target='_blank'>Script link  <i style="font-size:20px" class="fa">&#xf08e;</i></a>
+        </div><br><br>
+    </div>
 
-    <div class='snippet-container shadow-s3'></div>
+    <div class="code-snippet-plugin-container">
+        <pre class="code-snippet">
+            <code class='language-csharp code-snippet-text'>
+                [SerializeField] float extentScaleIncreaseX;
+                [SerializeField] float extentScaleIncreaseY;
+                private Collider2D thisBounds; //Exclusion own bounds
+                Queue<KeyValuePair<Collider2D, Vector2>> collidedList = new Queue<KeyValuePair<Collider2D, Vector2>>();
+                Coroutine crCheck = null;
+
+                private void Start(){
+                    thisBounds = GetComponent<Collider2D>();
+                }
+                void OnTriggerEnter2D(Collider2D collision)
+                {
+                    //Enqueue collided collider components, and disable them
+                    if (collision.CompareTag("Blight") || collision.CompareTag("ExcludableProp"))
+                    {
+                        collidedList.Enqueue(new KeyValuePair<Collider2D, Vector2>(collision, collision.bounds.extents));
+                        collision.enabled = false;
+                        if (crCheck == null)
+                        {
+                            //Start coroutine that checks if it's in bound every few milliseconds
+                            crCheck = StartCoroutine(ColliderUpdate());
+                        }
+                    }
+                }
+
+                IEnumerator ColliderUpdate()
+                {
+                    while (collidedList.Count > 0)
+                    {
+                        KeyValuePair<Collider2D, Vector2> item = collidedList.Dequeue();
+                        if (!IntersectCheck(thisBounds.bounds, item.Key.bounds, item.Value))
+                        {
+                            item.Key.enabled = true;
+                        }
+                        else
+                        {
+                            collidedList.Enqueue(item);
+                        }
+                        yield return new WaitForSeconds(0.5f);
+                    }
+                    crCheck = null;
+                }
+
+            </code>
+        </pre>
+    </div>
 
     <b>Custom bound functions</b><br>
     The following are just a slight rewrite to Unity's default bounds functions and removing the Z axis, the reason for this is because Unity's default bounds functions checks for Z value, which is not needed in our case.<br><br>
     
     Another notable issue is when calling the .bounds variable from a disabled collider component returns 0 no matter what, hence why there is a need to cahce the extent/bounds of collided components.<br><br>
 
-    <div class="custom-link"><a href='https://github.com/AaronTan1/GPS2Shadow/blob/7415065366055427e3e728f703ba873a3ac4e3ef/Assets/Scripts/Shadow2DTest/ExclusionLight.cs#L60' target='_blank'>Script link  <i style="font-size:20px" class="fa">&#xf08e;</i></a></div><br><br>
+    <div class="code-header-container">
+        <div class="custom-link-container">
+            <a href='https://github.com/AaronTan1/GPS2Shadow/blob/7415065366055427e3e728f703ba873a3ac4e3ef/Assets/Scripts/Shadow2DTest/ExclusionLight.cs#L60' target='_blank'>Script link  <i style="font-size:20px" class="fa">&#xf08e;</i></a>
+        </div><br><br>
+    </div>
 
-    <div class='snippet-container shadow-s4'></div>
+    <div class="code-snippet-plugin-container">
+        <pre class="code-snippet">
+            <code class='language-csharp code-snippet-text'>
+                //Made own intersect because unity default intersect checks for Z val, will return false even though its 0 <= 0 and think nothing is intersecting at all
+                //And also to check for cached bounds.extents val instead of the disabled one.
+                public bool IntersectCheck(Bounds thisB, Bounds collidedB, Vector2 collidedExtentCache)
+                {
+                    return IMin(thisB, true) <= IMax(collidedB, true, collidedExtentCache) && 
+                        IMax(thisB, true) >= IMin(collidedB, true, collidedExtentCache) && 
+                        IMin(thisB, false) <= IMax(collidedB, false, collidedExtentCache) && 
+                        IMax(thisB, false) >= IMin(collidedB, false, collidedExtentCache);
+                }
+                public float IMin(Bounds boundStruct, bool isX, Vector2? cache = null)
+                {
+                    if (cache != null)
+                    {
+                        return isX ? boundStruct.center.x - (cache.ConvertTo<Vector2>().x + extentScaleIncreaseX) : boundStruct.center.y - (cache.ConvertTo<Vector2>().y + extentScaleIncreaseY);
+                    }
+                    else
+                    {
+                        return isX ? boundStruct.center.x - boundStruct.extents.x : boundStruct.center.y - boundStruct.extents.y;
+                    }
+
+                }
+                public float IMax(Bounds boundStruct, bool isX, Vector2? cache = null)
+                {
+                    if (cache != null)
+                    {
+                        return isX ? boundStruct.center.x + (cache.ConvertTo<Vector2>().x + extentScaleIncreaseX) : boundStruct.center.y + (cache.ConvertTo<Vector2>().y + extentScaleIncreaseY);
+                    }
+                    else
+                    {
+                        return isX ? boundStruct.center.x + boundStruct.extents.x : boundStruct.center.y + boundStruct.extents.y;
+                    }
+
+                }
+            </code>
+        </pre>
+    </div>
 
    
