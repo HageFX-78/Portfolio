@@ -16,7 +16,7 @@
 	display: none;
 }
 
-.modal-box-container {
+#modal-box-container {
 	font-family: "Montserrat", sans-serif;
 
 	position: absolute;
@@ -34,8 +34,6 @@
 	max-height: 80%;
 	width: 60%;
 
-	background-image: url("../../img/hazepoint/keyart.png");
-	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
 }
@@ -70,15 +68,15 @@
 	/* backdrop-filter: blur(6px); */
 	background-image: linear-gradient(
 		transparent 0%,
-		rgba(0, 0, 0, 0.6) calc(0% + 300px),
-		rgba(0, 0, 0, 0.6) calc(100% - 300px),
+		rgba(0, 0, 0, 0.7) calc(0% + 300px),
+		rgba(0, 0, 0, 0.7) calc(100% - 300px),
 		transparent 100%
 	);
 	font-size: 16px;
 	width: 100% + 80px;
 
 	margin: 0px -40px -40px -40px;
-	padding: 150px 40px;
+	padding: 80px 40px 150px 40px;
 }
 .project-header-divider {
 	height: 150px;
@@ -90,6 +88,7 @@
 	-webkit-mask-image: linear-gradient(transparent, black);
 	mask-image: linear-gradient(transparent, black);
 }
+
 .project-footer {
 	height: 200px;
 	width: 100% + 80px;
@@ -224,7 +223,7 @@
 
 #tile-1 {
 	grid-area: L1;
-	background-image: url("../../img/hazepoint/promotional_art_nologo.png");
+	background-image: url("../../img/projects/hazepoint/promotional_art_nologo.png");
 	background-position: right;
 }
 #tile-2 {

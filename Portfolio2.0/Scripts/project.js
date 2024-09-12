@@ -14,7 +14,7 @@ $(document).ready(function () {
 
 	// Open project modal
 	$(".project-item").click(function () {
-		$(".modal-box-container").html(
+		$("#modal-box-container").html(
 			"<div class='loader-container'><div class='loader'></div></div>"
 		);
 		$(".modal-box-back").show();
@@ -27,7 +27,7 @@ $(document).ready(function () {
 		var project = dirData[1];
 
 		// Load html content of the project
-		$(".modal-box-container").load(
+		$("#modal-box-container").load(
 			"Portfolio2.0/" + directory + "/" + project.htmlFile + ".html",
 			function (response, status, xhr) {
 				GenerateProjectContent(
@@ -60,23 +60,16 @@ function InitProjectItems(containerString, dataMap, dType) {
 		projectBody += "<p>" + element.summary + "</p>";
 		projectBody +=
 			'<div class="project-thumbnail-tags">' +
-			GetProjectTags(index, "game") +
+			GetProjectTags(element.tags) +
 			"</div></div></div>";
 	}
 	$(containerString).html(projectBody);
 }
 
-function GetProjectTags(index, projectType) {
+function GetProjectTags(tagArray) {
 	let resultText = "";
-	var projectDataMap;
-	if (projectType == "game") {
-		projectDataMap = gameDataMap;
-	} else if (projectType == "jam") {
-		projectDataMap = jamDataMap;
-	} else if (projectType == "side") {
-		projectDataMap = sideDataMap;
-	}
-	projectDataMap[index].tags.forEach((element) => {
+	console.log(tagArray);
+	tagArray.forEach((element) => {
 		resultText +=
 			"<div class='thumbnail-tags' style='background-color:" +
 			projectTags[element][1] +
@@ -107,21 +100,42 @@ function GetProjectDirectory(projectType, ID) {
 
 	return [dir, project];
 }
+const colorClass = {
+	bliss: "bg-gradient-purpleBliss",
+	combi: "bg-gradient-combi",
+};
+
+function RemoveBackgroundClass() {
+	$("#modal-box-container").css("background-image", "");
+
+	$("#modal-box-container").removeClass();
+	$("#modal-box-container").addClass("borderBlack5pxNS");
+}
+
 function GenerateProjectContent(response, status, xhr, project, projectType) {
 	if (status == "error") {
 		var msg = "Page not found or unfinished: ";
-		$(".modal-box-container").html(msg + xhr.status + " " + xhr.statusText);
+		$("#modal-box-container").html(msg + xhr.status + " " + xhr.statusText);
 	} else if (status == "success") {
 		var projectHeader = "",
 			projectContent = "",
 			projectFooter = "";
 
 		// Set background image if it exists
+
 		if (project.background) {
-			$(".modal-box-container").css(
-				"background-image",
-				"url(" + project.background + ")"
-			);
+			RemoveBackgroundClass();
+			if (project.background == "combi") {
+				$("#modal-box-container").addClass(colorClass.combi);
+			} else if (project.background == "bliss") {
+				$("#modal-box-container").addClass(colorClass.bliss);
+			} else {
+				$("#modal-box-container").addClass("bg-image");
+				$(".bg-image").css(
+					"background-image",
+					"url(" + project.background + ")"
+				);
+			}
 		}
 
 		// Side project doesn't need header or divider
@@ -149,7 +163,10 @@ function GenerateProjectContent(response, status, xhr, project, projectType) {
 
 			// Add logo and complete header
 			projectHeader +=
-				headerTop + "<img src='" + project.logoImg + "'/></div>";
+				headerTop +
+				(project.logoImg == ""
+					? "<h1>" + project.gameName + "</h1></div>"
+					: "<img src='" + project.logoImg + "'/></div>");
 
 			// ---- Project Content ----
 			projectContent = '<div class="project-content-container">';
@@ -167,18 +184,32 @@ function GenerateProjectContent(response, status, xhr, project, projectType) {
 					"' draggable='false'/>";
 			});
 			projectContent += "</div><br><br>";
+		} else {
+			projectHeader =
+				'<div class="project-header-side">' +
+				project.gameName +
+				"</div>";
+			projectContent = '<div class="project-content-container-side">';
+			var projectTags = '<div class="project-content-tags-side">';
+			project.tools.forEach((element) => {
+				projectTags += tagIcons[element];
+			});
+			projectTags += "</div>";
+			projectContent += projectTags;
 		}
 
 		// ---- Project Footer ----
 		projectFooter = '<div class="project-footer"></div>';
 
 		// Append content and highlight code snippets
-		$(".modal-box-container").html(
+		$("#modal-box-container").html(
 			projectHeader + projectContent + response + "</div>"
 		);
-		$(".modal-box-container").append(projectFooter);
+		$("#modal-box-container").append(projectFooter);
 
 		// Initialize Prism.js for syntax highlighting
 		Prism.highlightAll();
 	}
 }
+
+// -------------------------------- LEGACY

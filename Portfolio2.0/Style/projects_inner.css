@@ -18,6 +18,15 @@
 	object-position: center;
 	max-width: 70%;
 }
+.project-header h1 {
+	font-size: 40px;
+	font-weight: 100;
+	font-family: "04b" !important;
+	letter-spacing: 5px;
+
+	text-shadow: 0px 0px 10px #1d1d1ddb;
+}
+
 .project-header-top {
 	position: absolute;
 	display: grid;

@@ -1,889 +1,294 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="icon" href="img/PFP.png">
+	<head>
+		<link rel="icon" href="img/PFP.png" />
 
-        <!-- CSS -->
-        <link href="themes/Update/prism.css" rel="stylesheet" />
-        <link rel="stylesheet" href="Portfolio2.0/Style/global.css">
-        <link rel="stylesheet" href="Portfolio2.0/Style/background.css">
-        <link rel="stylesheet" href="Portfolio2.0/Style/terminal.css">
-        <link rel="stylesheet" href="Portfolio2.0/Style/portfolio.css">
-        
-        <link rel="stylesheet" href="Portfolio2.0/Style/projects.css">
-        <link rel="stylesheet" href="Portfolio2.0/Style/projects_inner.css">
-        <link rel="stylesheet" href="Portfolio2.0/Style/projects_mobile.css">
-        <link rel="stylesheet" href="Portfolio2.0/Style/legacy-projects.css">
+		<!-- CSS -->
+		<link href="themes/Update/prism.css" rel="stylesheet" />
+		<link rel="stylesheet" href="Portfolio2.0/Style/global.css" />
+		<link rel="stylesheet" href="Portfolio2.0/Style/terminal.css" />
+		<link rel="stylesheet" href="Portfolio2.0/Style/portfolio.css" />
 
-        <link rel="stylesheet" href="Portfolio2.0/Style/sidework.css">
-        <link rel="stylesheet" href="Portfolio2.0/Style/game_projects.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-          
+		<link
+			rel="stylesheet"
+			href="Portfolio2.0/Style/VisualEffect/background.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="Portfolio2.0/Style/VisualEffect/animations.css"
+		/>
 
-        <!-- Google Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700">
-        <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="Portfolio2.0/Style/projects.css" />
+		<link rel="stylesheet" href="Portfolio2.0/Style/projects_inner.css" />
+		<link rel="stylesheet" href="Portfolio2.0/Style/projects_mobile.css" />
+		<link rel="stylesheet" href="Portfolio2.0/Style/legacy-projects.css" />
 
-        
-        <!-- Jquery/AJAX -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="Portfolio2.0/Style/sidework.css" />
+		<link rel="stylesheet" href="Portfolio2.0/Style/game_projects.css" />
+		<link rel="stylesheet" href="Portfolio2.0/Style/aboutme.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+		/>
 
-        <script src="Portfolio2.0/Scripts/tags.js"></script>
-        <script src="Portfolio2.0/Scripts/commands.js"></script>
-        <script src="Portfolio2.0/Scripts/terminal.js"></script>
-        <script src="Portfolio2.0/Scripts/gameContent.js"></script>
-        <script src="Portfolio2.0/Scripts/projectContent.js"></script>
-        <script src="Portfolio2.0/Scripts/tabs.js"></script>
-        <script src="Portfolio2.0/Scripts/general.js"></script>
-        <script src="Portfolio2.0/Scripts/project.js"></script>
+		<!-- Google Fonts -->
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto&display=swap"
+			rel="stylesheet"
+		/>
 
-        
+		<!-- Jquery/AJAX -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-        
-        <!-- Mobile viewport fix -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>HageFX Portfolio</title>
-    </head>
-    <!---
+		<script src="Portfolio2.0/Scripts/tags.js"></script>
+		<script src="Portfolio2.0/Scripts/commands.js"></script>
+		<script src="Portfolio2.0/Scripts/terminal.js"></script>
+		<script src="Portfolio2.0/Scripts/gameContent.js"></script>
+		<script src="Portfolio2.0/Scripts/projectContent.js"></script>
+		<script src="Portfolio2.0/Scripts/tabs.js"></script>
+		<script src="Portfolio2.0/Scripts/general.js"></script>
+		<script src="Portfolio2.0/Scripts/project.js"></script>
+
+		<!-- Mobile viewport fix -->
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>HageFX Portfolio</title>
+	</head>
+	<!---
         line-numbers:  is for line numbers plugin from prism, without this class on body line numbers will not appear
 
         effects:  is for certain effects to be toggled on and off
     -->
-    <body class="effects line-numbers">
-        <!-- Background -->
-        <!-- <div class="ocean">
+	<body class="line-numbers">
+		<!-- Background -->
+		<!-- <div class="ocean">
             <div class="wave"></div>
             <div class="wave wave2"></div>
         </div> -->
 
-        <!-- Background Parallax -->
-        <div class="parallax-back"></div>
-        <div class="flashlight"></div>
-
-
-        <!-- Terminal -->
-        <div id ="terminal-toggle" class="borderOrange5px">
-            >_
-        </div>
-        <div class="terminal" id="draggableTerminal">
-            <div class="handle">&nbsp;&nbsp;&nbsp;PFX2.0 Terminal</div>
-            <div class="terminalBody" >
-                <button class="minimizeButton" id="minimizeButton"> - </button>
-                <div id= "textInputLine" class="terminalText">
-                  <span class="gtext">guest</span><span class="gPort">@portfolio</span><span class="gCash">$</span>
-                  <input type="text" class="inputBox" autofocus />
-                </div>
-                
-            </div>
-        </div>
-
-        <!-- Copy notice box-->
-        <div class="copy-notice borderOrange3px">Copied!</div>
-
-        <!-- Side work Modal box-->
-        <div class="modal-box-back">
-            <div id="close-modal">X</div>
-            <div class="modal-box-container borderBlack5pxNS"></div>
-            <div class="modal-box-side-image-container"></div>
-        </div>
-
-        <!--Main pages -->
-        <div id="portfolio-body">
-            <div class = "portfolio-externals"></div>
-            <div class="portfolio-tabs">
-                <div class="portfolio-tab active">[ Portfolio ]</div>
-                <div class="portfolio-tab">[ Projects ]</div>
-                <div class="portfolio-tab">[ Games ]</div>
-                <div class="portfolio-tab">About Me</div>
-                <div class="portfolio-tab">Resume</div>
-            </div>
-            <div class="portfolio-tab-content">
-                <!--  Splash Tab  -->
-                <div id="splash-tab" class="portfolio-tab-pane active">
-                    <div class="splash-tab-inner">
-                      <img id="raymoo" src="img/raymoo.png" alt="pong_tn" draggable="false" ><br>
-                      Lim Jun Jie | HageFX<br>
-                      <span>Gameplay Programmer + Tools Programmer</span><br>
-                      <pre id="number" class="contact">+60 12-9704195 <i class="fa fa-copy"></i></pre><pre id="email" class="contact">jjfreelim@gmail.com <i class="fa fa-copy"></i></pre><br>
-                      <div id="temp">
-                        Aspiring game programmer confident in unconventional bug-solving, continuously learning, and proficient in Unity. Exploring Unreal. Passionate about crafting tools and scripts for issue-solving and workflow optimization.<br><br>
-
-                        <div class="custom-link">
-                            <a href='https://github.com/HageFX-78/Portfolio' target='_blank'>Portfolio Repo <i style="font-size:20px" class="fa">&#xf08e;</i></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="external-container">
-                        <div class="externals" id="linkedinICON" onclick="window.open('https://www.linkedin.com/in/jjlim-hagefx/', '_blank');"></div>
-                        <div class="externals" id="githubICON" onclick="window.open('https://github.com/HageFX-78', '_blank');"></div>
-                        <div class="externals" id="itchioICON" onclick="window.open('https://hagefx78.itch.io', '_blank');"></div>
-                    </div>
-                </div>
-
-                <!--  Test Game Tab  -->
-                <div id = "game-projects-tab" class="portfolio-tab-pane">
-                    
-
-                    <div id = "tile-projects-container">
-                        <div  id= "tile-1" class = "tile-item" ptype="main">
-                            <div class="tile-project-text">Game Projects</div>
-                        </div>
-                        <div id="game-projects-container" class="projects-list-container">
-                            
-                        </div>
-
-                        <div  id= "tile-2" class = "tile-item" ptype="jam">
-                            <div class="tile-project-text">Jam Projects</div>
-                        </div>
-
-                        <div id="jam-projects-container" class="projects-list-container">
-                            
-                        </div>
-                        
-
-                        <!-- Side projecys-->
-                        <div  id= "tile-3" class = "tile-item" ptype="side">
-                            <div class="tile-project-text">Side Projects</div>
-                        </div>
-                        <div id="side-projects-container" class="projects-list-container">
-                            <div loadname="fumo_engine" dirType="side" class="project-item" readID = "0">
-                                <img src="img/side/fumoEngine.png" alt="fumo_tn" draggable="false" />
-                                <div class = "project-item-text">
-                                    <b>Fumo Engine</b>
-                                    A 2D game engine made in C++ with GLFW by OpenGL with ECS architecture.
-                                </div>
-                            </div>
-                            <div loadname="lua8" dirType="side" class="project-item">
-                                <img src="img/side/lua8.png" alt="chip8_tn" draggable="false" />
-                                <div class = "project-item-text">
-                                    <b>Chip 8 Emulator</b>
-                                    A chip 8 emulator made in Lua with Love2D framework.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--  Games Tab  -->
-                <div id="projects-tab" class="portfolio-tab-pane">
-                    <div class="projects-banner">
-                        <div class="projects-thumbnail" readID="2"><img src="img/hazepoint/tn.png" alt="insemination_tn" draggable="false"></div>
-
-                        <div class="projects-thumbnail" readID="4"><img src="img/shadow/shadow1.png" alt="shadow_tn" draggable="false" ></div>
-
-                        <div class="projects-thumbnail" readID="3"><img src="img/gt/gt1.png" alt="guiltTrio_tn" draggable="false" ></div>
-
-                        <div class="projects-thumbnail" readID="5"><img src="img/tpmsw/tn.png" alt="guiltTrio_tn" draggable="false" ></div>
-
-                        <div class="projects-thumbnail" readID="7"><img src="img/midnight/ms.png" alt="guiltTrio_tn" draggable="false" ></div>
-                        
-                        <div class="projects-thumbnail" readID="6"><img src="img/2hu/2hu.png" alt="guiltTrio_tn" draggable="false" ></div>
-
-                        <div class="projects-thumbnail" readID="8"><img src="img/waddle_quest/title-screen.png" alt="guiltTrio_tn" draggable="false" ></div>
-
-                        <div class="projects-thumbnail" readID="1"><img src="img/insemination/title-screen.png" alt="insemination_tn" draggable="false" ></div>
-
-                        <div class="projects-thumbnail" readID="0"><img src="img/pong.png" alt="pong_tn" draggable="false" ></div>
-
-                        
-                        
-                    </div>
-                    <div class="projects-content">
-                        <div class="project-content-title-container">
-                            <div class="project-content-title borderOrange5px" style="display: none;"></div>
-                            <div class="project-content-title-link borderBlack5pxNS" style="display: none;">Itch<i style="font-size:24px" class="fa">&#xf08e;</i></div>
-                        </div> 
-                        <div id="" class="project-content-text default-format">
-                            Choose a game from the left/top
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-----------------------------------------------  About me Tab  ---------------------------->
-                <div id="front-tab" class="portfolio-tab-pane">
-                  <div class="portfolio-face">
-                      <img src="img/pfp.jpg" alt="pong_tn" draggable="false" >
-                  </div>
-                  <div class="portfolio-summary-text">
-                    <div class = "portfolio-summary-text-block">
-                      &nbsp;&nbsp;&nbsp;&nbsp;I'm Lim Jun Jie or you can call me JJ, I'm a gameplay programmer and tools programmer. I'm currently a final year student in UOWKDU University College, majoring in Game Development. <span class="secret">There</span><br><br>
-
-                      &nbsp;&nbsp;&nbsp;&nbsp;I'm confident in problem-solving and creating tools to help speed up the development process as the faster you can get a prototype out, the faster you can iterate and improve on it. <span class="secret">is</span><br><br>
-
-                      &nbsp;&nbsp;&nbsp;&nbsp;On a more personal note, my favourtie genre of games are Eroges, Puzzle, Simulation, Comedy and Metroidvanias. My hobbies involve watching anime/reading manga, building Gunpla and creating scripts/tools for fun and jokes. I also like to look into varying topics such as retro hardware emulation, cryptography, astronomy cause who doesn't like space and so much more that I could keep going till this page dies. <span class="secret">no</span><br><br>
-
-                      &nbsp;&nbsp;&nbsp;&nbsp;I love programming and drawing as well, hence why I spent so much effort working on this portfolio be it that it didn't turn out as great as I thought, this was made in a rush in 3 days haha. Nonetheless, thank you for spending time reading through this and visiting my work (this site). <span class="secret">secret</span><br><br>
-
-                      &nbsp;&nbsp;&nbsp;&nbsp;That aside, there's a reason why this site has such weird designs, hmmm, maybe something hidden? Something to do with that terminal? Who knows, maybe you'll find it. Starting from this page perhaps. Good luck. <span class="secret">yet.</span><br><br>
-
-                      <span class="secret">The puzzle is not completed yet so wait a few more days.. lol</span><br>
-                    </div>
-                  </div>
-                </div>
-
-
-                <!------------------------------------------------------  Skills Tab  -->
-                <div id="skills-tab"class="portfolio-tab-pane">
-                    <br><br><b>This page will be replaced in the future!</b>
-                    <embed src="resume.pdf"/>
-                </div>
-            </div>
-        </div>
-
-        <!-----------------------------------------------------  Syntax hightlight  -->
-        <script src="themes/Update/prism.js"></script>
-    </body>
-    <footer>
-        <!---------------------------------------------- Game Content Repo---------------------------------------------------------------------------------->
-        <div class="content-repo">
-            <!--  Shodow content repo lmao  -->
-            <div id="shadow-content">
-                <b>Contributions :</b>
-                <ul>
-                    <li>Developed and maintained a tool to generate interactable flat 2D shadows from 3D models</li>
-                    <li>Created the mechanic of light exclusion</li>
-                    <li>Rigged and animated 2D skeletal meshes of enemy sprites</li>
-                    <li>Worked on some puzzles</li>
-                </ul><br>
-                The way the shadow script genrally works is it generates shadows of 3D models and place it in the scene, each shadow have a script that determines its size and position based on the distance to the light source and wall casted on.<br><br>
-                
-                <b>For a basic flow of sequence :</b>
-                <ol>
-                    <li>Assuming you have a 3D object to generate for, instantiate copy of object in front of sub camera.</li>
-                    <li>Adjust translation and size to fit the camera lens</li>
-                    <li>Snap a photo with background removed</li>
-                    <li>Save the picture as sprite and apply some settings to it</li>
-                    <li>Create an empty object and place a sprite rendere component on it</li>
-                    <li>Attach to the original 3D game object and adjust the size and positon of the spirite based on distance to the \"main light source\" and \"main wall\"</li>
-                </ol>
-                <b>Shadow generation showcase :</b><br><br>
-                <div class='gif-container'>
-                    <img src='img/shadow/g3.gif' alt='guiltTrio_tn' draggable='false' />
-                </div><br><br>
-                <b>The main script for shadow generated is as follows :</b><br><br>
-                This section is 'snapshot' phase referenced from a screenshot plugin, while this part maybe heavily referenced, the rest of the code are original.<br><br>
-                This code involves the screenshot action and converting into a sprite.<br><br>
-
-                <div class="custom-link"><a href='https://github.com/AaronTan1/GPS2Shadow/blob/7415065366055427e3e728f703ba873a3ac4e3ef/Assets/Scripts/Shadow2DTest/RefreshStaticShadows.cs#L334' target='_blank'>Full Snippet link  <i style="font-size:20px" class="fa">&#xf08e;</i></a></div>
-                <div class='snippet-container shadow-s1'></div>
-                Then store the sprite in a specified folder, and apply texture settings with UNITY_EDITOR, shadow generation is only done once in the editor as this is a mobile game.<br><br>
-                To change shadow shape in real-time we had a workaround that we did not have the chance to apply but, the idea is to generate multiple frames of the object at different angles then animate between them.
-
-
-                <div class='snippet-container shadow-s2 line-numbers'></div>
-
-
-                <b>Note</b><br><br>
-
-                The rest of the code can be found at the snippet link from the first snippet.<br><br>
-
-                The idea for this way of generating shadows was conceived on week 2 of the project when it was approved by the lecturer, the rest of the time was spent on improving the tool and making it more user friendly.<br><br>
-
-                It was somewhat of a cheese way that doesn't require real time shadow rendering which is a heavy task for mobile devices, but it was a fun experiment. The other reason for this method is normal 3D shadow has a complex shape, which makes it hard to build a 2D level. <br><br>
-
-                Our method however snaps the objects in orthographic mode therefore generating flat sprites, allowing for easy level blocking.<br><br><b>Week 2 Concept Demo :</b><br><br>
-                <div class='gif-container'>
-                    <img src='img/shadow/g1.gif' alt='guiltTrio_tn' draggable='false' />
-                </div><br><br>
-
-                <b>Shadow/Light exclusion</b><br>
-                Another mechanic was planned and added for the second level, but the second level didn't make it to the final build but I'll be explaining it here. This mechanic is to negate shadows, making them passable, it can be enemies or obstacles.<br><br>
-                
-                <b>Light disabling enemy specific colliders and reenabling out of range</b><br><br>
-                <div class='gif-container'>
-                    <img src='img/shadow/g2.gif' alt='guiltTrio_tn' draggable='false' />
-                </div><br><br>
-
-                <b>How it works</b><br>
-                The script is a simple one, for context, the enemy has 3 different colliders. Any colliders that intersect with the 'light' will be disabled and enqued into a queue, once the collider is out of range, it will be reenabled based on sequence, hence the queue data structure<br><br>
-
-                There is an Coroutine in this script that checks whether the light is still colliding with the collider through a custom function as the in-built unity one is catered for 3D collisions and doesn't work in our particular case. The coroutine would check every 0.5 seconds, if it is still colliding, add it to the back of the queue, else reenable the component.<br><br>
-
-                <div class="custom-link"><a href='https://github.com/AaronTan1/GPS2Shadow/blob/main/Assets/Scripts/Shadow2DTest/ExclusionLight.cs' target='_blank'>Script link  <i style="font-size:20px" class="fa">&#xf08e;</i></a></div><br><br>
-
-                <div class='snippet-container shadow-s3'></div>
-
-                <b>Custom bound functions</b><br>
-                The following are just a slight rewrite to Unity's default bounds functions and removing the Z axis, the reason for this is because Unity's default bounds functions checks for Z value, which is not needed in our case.<br><br>
-                
-                Another notable issue is when calling the .bounds variable from a disabled collider component returns 0 no matter what, hence why there is a need to cahce the extent/bounds of collided components.<br><br>
-
-                <div class="custom-link"><a href='https://github.com/AaronTan1/GPS2Shadow/blob/7415065366055427e3e728f703ba873a3ac4e3ef/Assets/Scripts/Shadow2DTest/ExclusionLight.cs#L60' target='_blank'>Script link  <i style="font-size:20px" class="fa">&#xf08e;</i></a></div><br><br>
-
-                <div class='snippet-container shadow-s4'></div>
-
-               
-            </div>
-
-
-            <!--  Hazepoint content repo lmao  -->
-            <div id="hazepoint-content">
-                <b>Brief</b><br>
-               
-                First unreal engine game made for Final Year Project. Still currently being devloped!<br>
-
-                The game is mainly a mech simulator where you have to kill a kaiju 10x the size of the player. The mech is equipped with some utilities that could help traverse the map, attack the kaiju and mainly survive.<br><br>
-
-                There is no core mechanic per say, but the one mechanic that could be considered the main is the grapple ability. Player can grapple onto any building within a set distance, reel towards it OR reel halfway and dangle around. You could imagine it being similar to the classic attack on titan tribute game on PC quite a few years back.<br><br>
-
-                <b>Notable Features</b><br>
-                <ul>
-                    <li>Grapple mechanic, grapple onto structures in a set distance and have the ability to reel towards it. Reeling halfway allows the player to 'hang' around like spiderman. This allows player to jump off building without accumulating too much fall damage and have a way to quickly traverse and scale the landscape.</li>
-                    <li>Scanning shader, a tool equipped onto the mech to scan more interactables on the map such as cars to destroy and alert the kaiju. A side functionality is to scout the landscape surrounding the player as the map tend to get pretty dark.</li>
-                    <li>Drone deployment, set a static area on the map whereby if the kaiju enters it, it will notify the player.</li>
-                </ul><br>
-
-                <b>C++ in Unreal</b><br><br>
-
-                As this is my first time dabbling with Unreal, I've attempted to mix blueprint and C++ to get a feel of the system, I managed to create scripts for enemy(the large kaiju) pathfinding with Dijkstra algorithm as I wanted to test implementing a simpler algorithm. This took way longer than expected as there a bunch of hurdles on both the editor and Unreal's own C++ framework, the result wasn't as satisfactory either. <br><br>
-                
-                To elaborate, the patfinding code works and always returns a path, the next part where Unreal's behaviour tree system somehow fails to find the next path on random intervals. I've tried to debug this issue for a week and nothing seemed to make sense, I am absolutely certain my code was working as a path is returned everytime the previous one ends, but the behaviour tree clears the path at very random intervals with no notable patterns. <br><br>
-                
-                Due to time constraints, I've decided to switch to pure blueprint part for finding the path and focus more on player experience namely the mech. I would tackle C++ later on once I've have a better grasp to the underlying paradigm of Unreal through blueprints.<br><br>
-
-                <b>Dijkstra Pathfind Function</b><br><br>
-                <div class="custom-link"><a href='https://github.com/HageFX-78/KaijuMechGame/blob/main/Source/KaijuGameTest/Private/A_PathfindingManager.cpp' target='_blank'>C++ Pathfinding Script <i style="font-size:20px" class="fa">&#xf08e;</i></a></div>
-                <br>
-
-                <div class='snippet-container hazepoint-s1'></div>
-
-                <b>Context on what PathFindingManager is working with : </b>
-                <ul>
-                    <li>A custom object class to store an array of path rerturned by the pathfinder (this is because Uneral's blaackboard component doesn't accept arrays as keys for some reason)</li>
-                    <li>A custom waypoint actor that is placed on the map to act as path points, each contain data linking to other waypoints</li>
-                </ul>
-
-                <b>AA_WaypointActor.h Structure</b><br><br>
-                <div class="custom-link"><a href='https://github.com/HageFX-78/KaijuMechGame/blob/main/Source/KaijuGameTest/Public/A_WaypointActor.h' target='_blank'>Snippet Link <i style="font-size:20px" class="fa">&#xf08e;</i></a></div>
-                <br>
-                <div class='snippet-container hazepoint-s2'></div>
-
-                <b>Flow of PathFindingManager :</b>
-                <ol>
-                    <li>Determine kaiju initial location by finding the closest waypoint to it</li>
-                    <li>Set it as start position and randomly select another waypoint as end point on the map</li>
-                    <li>Pass both data as parameters to FindPath() function to find the path</li>
-                    <li>Function returns a path by setting the aforementioned custom array class as key in Unreal's built-in blackboard</li>
-                    <li>Blackboard checks if the key has changed, executes the path</li>
-                </ol>
-            </div>
-
-            <!--  Guilt Trip content repo lmao  -->
-            <div id="guilt-content">
-                <b>Contributions :</b><br>
-                <ul>
-                    <li>Turn-based dialogue battle system for mobs</li>
-                    <li>Dialogue system that takes input from text files with custom markup</li>
-                    <li>Modular UI system for collected items that displays on inventory</li>
-                    <li>Battle / Exploration UI design and art</li>
-                    <li>Few sprite art in tutorial stage</li>
-                </ul><br>
-
-                <b>Battle Manager Script</b><br>
-                I won't go into too much details on this as it is somewhat of a bad implementation, but the general idea is that it has 3 states, enemy turn, player turn and no battle state. Partial finite state machine is utilized at the start of each turn but the rest is based entirely in this one script as I was unfamiliar with FSM, the FSM was introduced at first by another programmer but he couldn't make the battle system in time for the first prototype so it was handed over.<br><br>
-
-                <div class="custom-link"><a href='https://github.com/HageFX-78/gps1-Cultured/blob/prototype-base/Assets/Scripts/Battle/Mob/Buttons/DBManager.cs' target='_blank'>Battle system core script <i style="font-size:20px" class="fa">&#xf08e;</i></a></div>
-                <br><br>
-
-                <div class='gif-container'>
-                    <img src='img/gt/g2.gif' alt='guiltTrio_tn' draggable='false' />
-                </div><br><br>
-
-                <b>Dialogue Manager</b><br>
-                A modular dialogue system that takes input from text files with custom markup, that displays text letter by letter as well as lerp the camera to locations to focus on during conversation.<br><br>
-
-                <div class='gif-container'>
-                    <img src='img/gt/g1.gif' alt='guiltTrio_tn' draggable='false' />
-                </div><br><br>
-
-                The general flow goes like this : <br>
-                <ol>
-                    <li>Any actor or object that is interactable would have a script called TriggerDialogue.cs where it can reference a txt file contains the conversation, and locations that it would like to focus on duing conversation.</li>
-                    <li>Another script called InteractablePrompt.cs should also be present that instantiates a collider that allows the dialogue script to be triggered if needed.</li>
-                    <li>If an interaction is triggered, the TriggerDialigue script would call startConvo() on a global DialogueManager and the conversation will begin, by passing the text file referenced as well as locations to lerp to which is optional.</li>
-                    <li>The manager would then split the content of the text file into names, the lines as well as which line to act on a camera lerp scenario.</li>
-                </ol><br>
-
-                <b>Dialogue Manager Script </b><br><br>
-                <div class="custom-link"><a href='https://github.com/HageFX-78/gps1-Cultured/blob/prototype-base/Assets/Scripts/Exploration/DialogueManager.cs' target='_blank'>Dialogue Manager Script <i style="font-size:20px" class="fa">&#xf08e;</i></a></div>
-                <br><br>
-                <div class='snippet-container guilt-s1'></div><br>
-
-                <b>Example text file for mark-up format :</b><br>
-                <code>name:</code> is the format for the name to be displayed for the character.<br>
-                <code>:player</code> is the format to set the camera to focus on.<br>
-                Example: <code>:puzzleGuy</code> will focus the camera on the puzzle guy on this line.<br><br>
-                Rest are the dialogue lines itself.<br><br>
-
-                <div class='snippet-container guilt-s2'></div><br>
-
-
-                <b>Displaying/Typing the dialogues :</b><br><br>
-                <div class="custom-link"><a href=https://github.com/HageFX-78/gps1-Cultured/blob/68a80266a55439b07ab239b0b8cc1d74a01338d3/Assets/Scripts/Exploration/DialogueManager.cs#L73' target='_blank'>Snippet <i style="font-size:20px" class="fa">&#xf08e;</i></a></div>
-                <br><br>
-                <div class='snippet-container guilt-s3'></div><br>
-            </div>
-
-            <!--  Untitled content repo lmao  -->
-            <div id="tpmsw-content">
-                <b>Brief :</b><br>
-                Submission for September Sem Jam 2023, theme was 'Slime'.<br><br>
-                
-                Gameplay is a 2D platformer where you play as a slime trying to please your wife by going on a journey to harden yourself. Game mechanic involves sucking on harder items and become harder yourself.<br>
-                
-                This is also to experiment with 2D softbody physics.
-            </div>
-
-            <!--  Untitled content repo lmao  -->
-            <div id="midnight-content">
-                A 2D puzzle/stealth game where the player plays as a blob that can turn into any human being it eats. You came onto the streets outside an apartment feeling hungry, so you decided to take a quick midnight snack in the apartment.<br><br>
-                
-                The mechanics are simple, you can consume any human as long as you're in blob form. You can morph back and forth to the latest form you've taken. Being spotted in your blob form or somewhere you shouldn't be in as a human (like a cop in some family home) will trigger suspicion.
-
-            </div>
-
-            <!--  Untitled content repo lmao  -->
-            <div id="2huBlack-content">
-                A 2D vertical shooter and a fan-parody of the Touhou series. My first completed Unity game.
-            </div>
-
-            <!--  Untitled content repo lmao  -->
-            <div id="insemination-content">
-                Second stencyl game, a shoot-em-up with 3 stages each with their own boss battles.<br><br>
-
-                All art are drawn by myself.
-            </div>
-
-            <!--  Untitled content repo lmao  -->
-            <div id="waddle-content">
-                My personal favourite game made in Stencyl with 3 difficult stages.<br><br>
-
-                Cool features include gliding, shift-jumping, sliding and blood!<br><br>
-
-                Warning: This game is way too hard. Do give it a try!
-                
-            </div>
-
-            <!--  Untitled content repo lmao  -->
-            <div id="pong-content">
-                My first stencyl game made for assignment, also my first completed game. A modified pong with additional power ups.
-            </div>
-
-
-            <!--+++++++++++++++++++++++++  End of content Repo  -->
-        </div>
-        <!-------------------------------------- Code Repo---------------------------------------------------------------------------------->
-        <div class="snippet-repo line-numbers">
-            <!-- Shadow snippet 1-->
-            <div id="shadow-s1" class="code-snippet-plugin-container">
-                <pre class="code-snippet">
-                    <code class='language-csharp code-snippet-text'>
-                        // - Creating the texture and capturing
-                        RenderTexture renderTexture = new RenderTexture(horizontalResolution, verticalResolution, captureDepth);
-                        Rect rect = new Rect(0, 0, horizontalResolution, verticalResolution);
-                        Texture2D texture = new Texture2D(horizontalResolution, verticalResolution, TextureFormat.ARGB32, false);
-                    
-                        generationCam.targetTexture = renderTexture;
-                        generationCam.Render();
-                    
-                        RenderTexture currentRenderTexture = RenderTexture.active;
-                        RenderTexture.active = renderTexture;
-                        texture.ReadPixels(rect, 0, 0);
-                        texture.Apply();
-                    
-                        generationCam.targetTexture = null;
-                        RenderTexture.active = currentRenderTexture;
-                        DestroyImmediate(renderTexture);
-                    
-                        Sprite sprite = Sprite.Create(texture, rect, Vector2.zero);
-                    </code>
-                </pre>
-            </div>
-            <!-- Shadow snippet 2-->
-            <div id="shadow-s2" class="code-snippet-plugin-container">
-                <pre class="code-snippet">
-                    <code class='language-csharp code-snippet-text'>
-                        if (specifiedSpritePath != null)
-                        {
-                            spritePath = specifiedSpritePath;
-                        }
-
-                        // - Saving texture as PNG
-                        byte[] itemBGBytes = sprite.texture.EncodeToPNG();
-                        outputfilename = $"{parentName}_ShadowSprite";
-                        textureFailsafeID++;
-                        File.WriteAllBytes($"{spritePath}/{outputfilename}.png", itemBGBytes);
-
-                #if UNITY_EDITOR
-
-                        // - Setting texture settings
-                        UnityEditor.AssetDatabase.Refresh();
-                        TextureImporter importer = (TextureImporter)TextureImporter.GetAtPath($"{spritePath}/{outputfilename}.png");
-                        importer.textureType = TextureImporterType.Sprite;
-                        importer.alphaIsTransparency = true;
-                        importer.filterMode = FilterMode.Point;
-                        importer.spritePixelsPerUnit = (100 * (shadowQuality - 8)) / (shadowSizeOffset / 2);
-                        EditorUtility.SetDirty(importer);
-                        importer.SaveAndReimport();
-                #endif
-                            // - Applying sprite to shadow
-                        if (specifiedSpritePath != null)
-                        {
-                            tempSR.sprite = Resources.Load<Sprite>($"GeneratedShadowTextures/PermanentSprites/{outputfilename}");
-                        }
-                        else
-                        {
-                            tempSR.sprite = Resources.Load<Sprite>($"GeneratedShadowTextures/{SceneManager.GetActiveScene().name}/{outputfilename}");
-                        }
-
-                        tempSR.color = shadowColor;
-                        tempSR.material = shadowMaterial;
-                        tempSR.gameObject.AddComponent<PolygonCollider2D>();
-                    </code>
-                </pre>
-            </div>
-            <div id="shadow-s3" class="code-snippet-plugin-container">
-                <pre class="code-snippet">
-                    <code class='language-csharp code-snippet-text'>
-                        [SerializeField] float extentScaleIncreaseX;
-                        [SerializeField] float extentScaleIncreaseY;
-                        private Collider2D thisBounds; //Exclusion own bounds
-                        Queue<KeyValuePair<Collider2D, Vector2>> collidedList = new Queue<KeyValuePair<Collider2D, Vector2>>();
-                        Coroutine crCheck = null;
-
-                        private void Start(){
-                            thisBounds = GetComponent<Collider2D>();
-                        }
-                        void OnTriggerEnter2D(Collider2D collision)
-                        {
-                            //Enqueue collided collider components, and disable them
-                            if (collision.CompareTag("Blight") || collision.CompareTag("ExcludableProp"))
-                            {
-                                collidedList.Enqueue(new KeyValuePair<Collider2D, Vector2>(collision, collision.bounds.extents));
-                                collision.enabled = false;
-                                if (crCheck == null)
-                                {
-                                    //Start coroutine that checks if it's in bound every few milliseconds
-                                    crCheck = StartCoroutine(ColliderUpdate());
-                                }
-                            }
-                        }
-
-                        IEnumerator ColliderUpdate()
-                        {
-                            while (collidedList.Count > 0)
-                            {
-                                KeyValuePair<Collider2D, Vector2> item = collidedList.Dequeue();
-                                if (!IntersectCheck(thisBounds.bounds, item.Key.bounds, item.Value))
-                                {
-                                    item.Key.enabled = true;
-                                }
-                                else
-                                {
-                                    collidedList.Enqueue(item);
-                                }
-                                yield return new WaitForSeconds(0.5f);
-                            }
-                            crCheck = null;
-                        }
-
-                    </code>
-                </pre>
-            </div>
-            <div id="shadow-s4" class="code-snippet-plugin-container">
-                <pre class="code-snippet">
-                    <code class='language-csharp code-snippet-text'>
-                        //Made own intersect because unity default intersect checks for Z val, will return false even though its 0 <= 0 and think nothing is intersecting at all
-                        //And also to check for cached bounds.extents val instead of the disabled one.
-                        public bool IntersectCheck(Bounds thisB, Bounds collidedB, Vector2 collidedExtentCache)
-                        {
-                            return IMin(thisB, true) <= IMax(collidedB, true, collidedExtentCache) && 
-                                IMax(thisB, true) >= IMin(collidedB, true, collidedExtentCache) && 
-                                IMin(thisB, false) <= IMax(collidedB, false, collidedExtentCache) && 
-                                IMax(thisB, false) >= IMin(collidedB, false, collidedExtentCache);
-                        }
-                        public float IMin(Bounds boundStruct, bool isX, Vector2? cache = null)
-                        {
-                            if (cache != null)
-                            {
-                                return isX ? boundStruct.center.x - (cache.ConvertTo<Vector2>().x + extentScaleIncreaseX) : boundStruct.center.y - (cache.ConvertTo<Vector2>().y + extentScaleIncreaseY);
-                            }
-                            else
-                            {
-                                return isX ? boundStruct.center.x - boundStruct.extents.x : boundStruct.center.y - boundStruct.extents.y;
-                            }
-
-                        }
-                        public float IMax(Bounds boundStruct, bool isX, Vector2? cache = null)
-                        {
-                            if (cache != null)
-                            {
-                                return isX ? boundStruct.center.x + (cache.ConvertTo<Vector2>().x + extentScaleIncreaseX) : boundStruct.center.y + (cache.ConvertTo<Vector2>().y + extentScaleIncreaseY);
-                            }
-                            else
-                            {
-                                return isX ? boundStruct.center.x + boundStruct.extents.x : boundStruct.center.y + boundStruct.extents.y;
-                            }
-
-                        }
-                    </code>
-                </pre>
-            </div>
-
-
-            <!------------ Hazepoint code snippet repo ------------>
-            <div id="hazepoint-s1" class="code-snippet-plugin-container">
-                <pre class="code-snippet">
-                    <code class='language-cpp code-snippet-text'>
-                        TArray<AA_WaypointActor*> AA_PathfindingManager::FindPath(AA_WaypointActor* StartWaypoint, AA_WaypointActor* TargetWaypoint){
-                        TArray<AA_WaypointActor*> resultPath;
-                        TMap<AA_WaypointActor*, int> DistanceMap
-                        TMap<AA_WaypointActor*, AA_WaypointActor*> ParentMap;
-                        
-                        for (AA_WaypointActor* thisWp : AllWaypoints){
-                            DistanceMap.Add(thisWp, 999999);
-                            ParentMap.Add(thisWp, nullptr);
-                        }
-
-                        if(AllWaypoints.Num() == 0){
-                            GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Purple, TEXT("NO WAYPOINTS WTF"));
-                            return TArray<AA_WaypointActor*>();
-                        }	
-                        if(DistanceMap.Num() == 0){
-                            return TArray<AA_WaypointActor*>();
-                        }
-                        
-                        
-                        DistanceMap[StartWaypoint] = 0;
-
-                        // Create an empty set to keep record all visited waypoints
-                        TSet<AA_WaypointActor*> VisitedWaypoints;
-
-                        // Main loop for Dijkstra's algorithm
-                        while (VisitedWaypoints.Num() < AllWaypoints.Num()){
-                            // Find the waypoint with the smallest distance that has not been visited
-                            AA_WaypointActor* CurrentWaypoint = nullptr;
-                            float MinDistance = 999999;//From big to small, reminder to self at 3am
-                            for (AA_WaypointActor* thisWaypoint : AllWaypoints){
-                                if (!VisitedWaypoints.Contains(thisWaypoint) && DistanceMap[thisWaypoint] < MinDistance){
-                                    CurrentWaypoint = thisWaypoint;
-                                    MinDistance = DistanceMap[thisWaypoint];
-                                }
-                            }
-
-                            if (!CurrentWaypoint){
-                                GEngine->AddOnScreenDebugMessage(10, 5.f, FColor::White, TEXT("Cant seem to find path or smtg broke"));
-                                break;
-                            }
-
-                            // Mark the current waypoint as visited
-                            VisitedWaypoints.Add(CurrentWaypoint);
-
-                            // Update distances and parents for adjacent waypoints
-                            for (FWaypointConnection connectionStruct : CurrentWaypoint->ConnectedWaypoints){
-                                AA_WaypointActor* theConnectedWaypoint = connectionStruct.ConnectedWaypoint;//Singular
-                                float NewDistance = DistanceMap[CurrentWaypoint] + 1.0f; // Assume all connections have the same weight (1.0f)
-
-                                if (NewDistance < DistanceMap[theConnectedWaypoint]){
-                                    DistanceMap[theConnectedWaypoint] = NewDistance;
-                                    ParentMap[theConnectedWaypoint] = CurrentWaypoint;
-                                }
-                            }
-                        }
-
-                        // Get parent->parent->parent of defined path from the target
-                        AA_WaypointActor* tPoint = TargetWaypoint;
-                        while (tPoint != nullptr){
-                            resultPath.Insert(tPoint, 0);//First goes all the way back
-                            tPoint = ParentMap[tPoint];
-                        }
-                        return resultPath;
-                    }
-                    </code>
-                </pre>
-            </div>
-
-            <div id="hazepoint-s2" class="code-snippet-plugin-container">
-                <pre class="code-snippet">
-                    <code class='language-cpp code-snippet-text'>
-                        #include "CoreMinimal.h"
-                        #include "GameFramework/Actor.h"
-                        #include "Components/BillboardComponent.h"
-                        #include "A_WaypointActor.generated.h"
-
-
-                        USTRUCT(BlueprintType)
-                        struct FWaypointConnection//Struct for each connection to waypoints with state to see if is blocked
-                        {
-                            GENERATED_BODY()
-
-                            UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pathfinding")
-                            AA_WaypointActor* ConnectedWaypoint;
-
-                            UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pathfinding")
-                            bool bIsRoadBlocked = false;
-
-                            UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pathfinding")
-                            int distanceWeighted = 1;//Default 1 for now
-                        };
-
-                        UCLASS()
-                        class KAIJUGAMETEST_API AA_WaypointActor : public AActor
-                        {
-                            GENERATED_BODY()
-                            
-                        public:	
-                            // Sets default values for this actor's properties
-                            AA_WaypointActor();
-
-                        protected:
-                            // Called when the game starts or when spawned
-                            virtual void BeginPlay() override;
-
-                        public:
-                            // Called every frame
-                            virtual void Tick(float DeltaTime) override;
-
-                            UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pathfinding")
-                            int nodeID;
-                            
-                            UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pathfinding")
-                            TArray<FWaypointConnection> ConnectedWaypoints;//Waypoints connected to this specific node
-                            
-                            UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pathfinding")
-                            FString pointName = "default_name";
-
-                            UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Pathfinding")
-                            class USceneComponent* DefaultSceneRoot; // Declaration of DefaultSceneRoot component
-                            
-                            UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Pathfinding")
-                            class UBillboardComponent* SpriteComponent;
-
-                        };
-                    </code>
-                </pre>
-            </div>
-
-
-
-            <!------------ Guilt trip code snippet repo ------------>
-            <div id="guilt-s1" class="code-snippet-plugin-container">
-                <pre class="code-snippet">
-                    <code class='language-csharp code-snippet-text'>
-                        //Conversation functions that are called once to initiate by TriggerDialigue.cs
-                        public void startConversation(TextAsset targetFile)
-                        {
-                            currentText = "";
-                            canInput = true;
-
-                            dialogueUI.SetActive(true);
-                            dialogueActive = true;
-                            dialogueCooldown = true;
-                            curLineNum = 0;
-
-                            //Dialogue lines, split by line breaks in text file
-                            dls = targetFile.text.Split('\n');
-                            dlsSize = dls.Length;
-                            Time.timeScale = 0;
-                            displayCurrentDialogue();
-                        }
-                        //Overloaded funciton to start conversations with locations to lerp camera to mid convo
-                        public void startConversation(TextAsset targetFile, List<TransformList> trList)//Function override
-                        {
-                            canInput = true;
-                            currentText = "";
-
-                            gotoDC.Clear();
-                            gotoDC.Add("player", playerPos);
-                            if (trList.Count > 0)
-                            {
-                                foreach (TransformList x in trList)
-                                {
-                                    gotoDC.Add(x.locationName, x.transformReference);
-                                }
-                            }
-                            //*/
-
-                            dialogueUI.SetActive(true);
-                            dialogueActive = true;
-                            dialogueCooldown = true;
-                            curLineNum = 0;
-
-                            dls = targetFile.text.Split('\n');
-                            dlsSize = dls.Length;
-                            Time.timeScale = 0;
-                            displayCurrentDialogue();
-                        }
-                    </code>
-                </pre>
-            </div>
-            <div id="guilt-s2" class="code-snippet-plugin-container">
-                <pre class="code-snippet">
-                    <code class='code-snippet-text'>
-                        Alex:Um do you know where is this?
-                        ???:Not really
-                        ???:Why don't you try asking that guy over there..:puzzleGuy
-                        ???:Dudes been rambling about some kind of puzzle the whole time
-                        ???:Might be useful you know hehe..
-                        Alex:Uh.. ok thanks?...:player
-                    </code>
-                </pre>
-            </div>
-            <div id="guilt-s3" class="code-snippet-plugin-container">
-                <pre class="code-snippet">
-                    <code class='language-csharp code-snippet-text'>
-                        void displayCurrentDialogue()
-                        {
-                            StartCoroutine(enableInput());
-
-                            //Spliting for format
-                            string[] thisLine = dls[curLineNum].Split(':');
-
-                            //  name : character line format is split into a tiny array
-                            talkerName.text = thisLine[0];
-                            typeD = typeDialogue(thisLine[1]);
-
-                            //Set pointer to start on first line
-                            currentText = thisLine[1];
-
-                            //Lerp camera to specified target if needed
-                            if (thisLine.Length>2)
-                            {
-                                string sanitizedKey;
-                                if(curLineNum == dlsSize-1)
-                                {
-                                    sanitizedKey = thisLine[2];//Last line doesnt have a weird extra character at the end so no need to sanitize
-                                }
-                                else
-                                {
-                                    sanitizedKey = thisLine[2].Substring(0, thisLine[2].Length - 1);
-                                }
-                                camState.isCutScene = true;
-
-                                Vector3 targetPosition = new Vector3(gotoDC[sanitizedKey].position.x, gotoDC[sanitizedKey].position.y, camPos.position.z);
-                                Vector3 defaultPosition = new Vector3(camPos.position.x, camPos.position.y, camPos.position.z);
-
-                                StartCoroutine(lerpToTarget(defaultPosition, targetPosition));
-                            }
-
-                            //Start the typing letter by letter coroutine
-                            StartCoroutine(typeD);
-                            curLineNum++; 
-                        }
-                    </code>
-                </pre>
-            </div>
-
-
-
-
-            <!------------  code snippet repo  end ------------>
-        </div>
-
-    </footer>
+		<!-- Background Parallax -->
+		<div class="parallax-back"></div>
+		<div class="flashlight"></div>
+
+		<!-- Terminal -->
+		<div id="terminal-toggle" class="borderOrange5px">>_</div>
+		<div class="terminal" id="draggableTerminal">
+			<div class="handle">&nbsp;&nbsp;&nbsp;PFX2.0 Terminal</div>
+			<div class="terminalBody">
+				<button class="minimizeButton" id="minimizeButton">-</button>
+				<div id="textInputLine" class="terminalText">
+					<span class="gtext">guest</span
+					><span class="gPort">@portfolio</span
+					><span class="gCash">$</span>
+					<input type="text" class="inputBox" autofocus />
+				</div>
+			</div>
+		</div>
+
+		<!-- Copy notice box-->
+		<div class="copy-notice borderOrange3px">Copied!</div>
+
+		<!-- Side work Modal box-->
+		<div class="modal-box-back">
+			<div id="close-modal">X</div>
+			<div id="modal-box-container" class="borderBlack5pxNS"></div>
+			<div class="modal-box-side-image-container"></div>
+		</div>
+
+		<!--Main pages -->
+		<div id="portfolio-body">
+			<div class="portfolio-externals"></div>
+			<div class="portfolio-tabs">
+				<div class="portfolio-tab active">Portfolio</div>
+				<div class="portfolio-tab">Projects</div>
+				<div class="portfolio-tab">About Me</div>
+				<div class="portfolio-tab">Resume</div>
+			</div>
+			<div class="portfolio-tab-content">
+				<!--  Splash Tab  -->
+				<div id="splash-tab" class="portfolio-tab-pane active">
+					<div class="splash-tab-inner">
+						<img
+							id="raymoo"
+							src="img/HUMAN/raymoo.png"
+							alt="raymoo"
+							draggable="false"
+						/><br />
+						Lim Jun Jie | HageFX<br />
+						<span>Gameplay Programmer + Tools Programmer</span
+						><br />
+						<pre
+							id="number"
+							class="contact"
+						>+60 12-9704195 <i class="fa fa-copy"></i></pre>
+						<pre
+							id="email"
+							class="contact"
+						>jjfreelim@gmail.com <i class="fa fa-copy"></i></pre>
+						<br />
+						<div id="temp">
+							Aspiring game programmer confident in unconventional
+							bug-solving, continuously learning, and proficient
+							in Unity. Exploring Unreal. Passionate about
+							crafting tools and scripts for issue-solving and
+							workflow optimization.<br /><br />
+
+							<div class="custom-link">
+								<a
+									href="https://github.com/HageFX-78/Portfolio"
+									target="_blank"
+									>Portfolio Repo
+									<i style="font-size: 20px" class="fa"
+										>&#xf08e;</i
+									></a
+								>
+							</div>
+						</div>
+					</div>
+					<div class="external-container">
+						<div
+							class="externals"
+							id="linkedinICON"
+							onclick="window.open('https://www.linkedin.com/in/jjlim-hagefx/', '_blank');"
+						></div>
+						<div
+							class="externals"
+							id="githubICON"
+							onclick="window.open('https://github.com/HageFX-78', '_blank');"
+						></div>
+						<div
+							class="externals"
+							id="itchioICON"
+							onclick="window.open('https://hagefx78.itch.io', '_blank');"
+						></div>
+					</div>
+				</div>
+
+				<!--  Test Game Tab  -->
+				<div id="game-projects-tab" class="portfolio-tab-pane">
+					<div id="tile-projects-container">
+						<div id="tile-1" class="tile-item" ptype="main">
+							<div class="tile-project-text">Game Projects</div>
+						</div>
+						<div
+							id="game-projects-container"
+							class="projects-list-container"
+						></div>
+
+						<div id="tile-2" class="tile-item" ptype="jam">
+							<div class="tile-project-text">Jam Projects</div>
+						</div>
+
+						<div
+							id="jam-projects-container"
+							class="projects-list-container"
+						></div>
+
+						<!-- Side projecys-->
+						<div id="tile-3" class="tile-item" ptype="side">
+							<div class="tile-project-text">Side Projects</div>
+						</div>
+						<div
+							id="side-projects-container"
+							class="projects-list-container"
+						></div>
+					</div>
+				</div>
+
+				<!-----------------------------------------------  About me Tab  ---------------------------->
+				<div id="front-tab" class="portfolio-tab-pane">
+					<div class="portfolio-face">
+						<img
+							src="img/HUMAN/pfp.jpg"
+							alt="myface"
+							draggable="false"
+						/>
+					</div>
+					<div class="portfolio-summary-text">
+						<div class="portfolio-summary-text-block">
+							&nbsp;&nbsp;&nbsp;&nbsp;I'm Lim Jun Jie or you can
+							call me JJ, I'm a gameplay programmer and tools
+							programmer. I'm currently a final year student in
+							UOWKDU University College, majoring in Game
+							Development. <span class="secret">There</span
+							><br /><br />
+
+							&nbsp;&nbsp;&nbsp;&nbsp;I'm confident in
+							problem-solving and creating tools to help speed up
+							the development process as the faster you can get a
+							prototype out, the faster you can iterate and
+							improve on it. My favourite programming languages
+							are C++ and Lua.<span class="secret">is</span
+							><br /><br />
+
+							&nbsp;&nbsp;&nbsp;&nbsp;On a more personal note, my
+							favourtie genre of games are Puzzle, Simulation,
+							Mech, Comedy and Metroidvanias. My hobbies involve
+							watching anime/reading manga, building Gunpla and
+							creating scripts/tools for fun and jokes. I also
+							like to look into varying topics such as retro
+							hardware emulation, cryptography, astronomy cause
+							who doesn't like space and so much more.
+							<span class="secret">no</span><br /><br />
+
+							&nbsp;&nbsp;&nbsp;&nbsp;I love programming and
+							drawing as well, although non profesionally. Most
+							solo game artwork are done by myself, I tend to
+							prefere Pixel art but I've drawned some raster art
+							like for my FYP game Hazepoint. I also have some
+							experience in Blender and Blockbench for hobby
+							projects that I won't reveal yet.
+							<span class="secret">secret</span><br /><br />
+
+							&nbsp;&nbsp;&nbsp;&nbsp;That aside, there's a reason
+							why this site has such weird designs, hmmm, maybe
+							something hidden? Something to do with that
+							terminal? Who knows, maybe you'll find it. Starting
+							from this page perhaps. Good luck.
+							<span class="secret">yet.</span><br /><br />
+
+							<span class="secret"
+								>There will be a puzzle once it is done.</span
+							><br />
+						</div>
+					</div>
+					<div class="portfolio-side-icons-container">
+						<div class="psic-header borderOrange3px">Languages</div>
+						<div id="langIcon" class="psic-icons"></div>
+						<br /><br />
+						<div class="psic-header borderOrange3px">
+							Tools/Software
+						</div>
+						<div id="toolsIcon" class="psic-icons"></div>
+					</div>
+				</div>
+
+				<!------------------------------------------------------  Skills Tab  -->
+				<div id="skills-tab" class="portfolio-tab-pane">
+					<br /><br /><b>This page will be replaced in the future!</b>
+					<embed src="resume.pdf" />
+				</div>
+			</div>
+		</div>
+
+		<!-----------------------------------------------------  Syntax hightlight  -->
+		<script src="themes/Update/prism.js"></script>
+	</body>
+	<footer></footer>
 </html>
-
