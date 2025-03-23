@@ -67,10 +67,10 @@ jobs:
             });
 
             const payload = {
-              content: "Honk Honk :D",
+              content: ":D マスターまだやってるの",
               embeds: embedsmap,
-              username: "Clown",
-              avatar_url: "https://media.discordapp.net/attachments/1267808136937476199/1267809393236508735/SPOILER_images_1.jpg?ex=66aa2302&is=66a8d182&hm=5c0b2bf0677d21499b4e82da2ec76fb546d3f9431711ebb1365aa58162a907e8&=&format=webp",
+              username: "Melusine",
+              avatar_url: "https://avatars.githubusercontent.com/u/89595749?v=4",
               attachments: []
             };
 
