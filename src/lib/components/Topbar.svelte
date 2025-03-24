@@ -1,24 +1,58 @@
+<script lang="ts">
+	let gitIcon = 'images/icons/github.png';
+	let linkedinIcon = 'images/icons/linkedin.png';
+	let itchIcon = 'images/icons/itchio.png';
+
+	function openLink(url: string) {
+		window.open(url, '_blank');
+	}
+</script>
+
 <div class="top-links">
-    <a href="https://github.com/yourprofile" target="_blank">GitHub</a>
-    <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+	<button
+		type="button"
+		class="icon-button"
+		on:click={() => openLink('https://github.com/HageFX-78')}
+	>
+		<img src={gitIcon} alt="GitHub" />
+	</button>
+	<button
+		type="button"
+		class="icon-button"
+		on:click={() => openLink('https://www.linkedin.com/in/jjlim-hagefx/')}
+	>
+		<img src={linkedinIcon} alt="LinkedIn" />
+	</button>
+
+	<button type="button" class="icon-button" on:click={() => openLink('https://hagefx.itch.io/')}>
+		<img src={itchIcon} alt="Itch.io" />
+	</button>
 </div>
 
 <style>
-.top-links {
-    display: flex;
-    justify-content: flex-end;
-    box-sizing: border-box;
-    padding: 10px;
-    width: 100%;
-    background-color: #333;
-    margin: 0;
-}
-a {
-    margin-left: 15px;
-    text-decoration: none;
-    color: #a5a5a5;
-}
-a:hover {
-    color: white;
-}
+	.top-links {
+		display: flex;
+		justify-content: flex-end;
+		box-sizing: border-box;
+		padding: 20px 50px;
+		width: 100%;
+		gap: 20px;
+		margin: 0;
+
+		position: absolute;
+	}
+	.icon-button {
+		background: none;
+		border: none;
+		padding: 0;
+		cursor: pointer;
+
+		display: inline-block;
+		height: 40px;
+		width: 40px;
+	}
+	.icon-button img {
+		height: 100%;
+		width: 100%;
+	}
 </style>
