@@ -1,6 +1,6 @@
 <nav>
 	<div><a href="/">Home</a></div>
-	<div><a href="/aboutme">About</a></div>
+	<div><a href="/aboutme">About Me</a></div>
 	<div><a href="/games">Projects</a></div>
 </nav>
 
@@ -15,6 +15,8 @@
 		width: auto;
 		display: flex;
 		flex-direction: column;
+
+		z-index: 2;
 	}
 	div {
 		color: #cecece;
@@ -26,7 +28,7 @@
 		padding-left: 50px;
 		text-align: center;
 		width: fit-content;
-		transition: 0.3s;
+		transition: 0.2s;
 	}
 	div:hover {
 		background: #cecece;
@@ -38,6 +40,6 @@
 	}
 	a {
 		text-decoration: none;
-		transition: 0.3s;
+		transition: 0.2s;
 	}
 </style>

@@ -1,14 +1,27 @@
-<script>
+<script lang="ts">
 	import Navbar from '$lib/components/Navbar.svelte';
 	import TopLinks from '$lib/components/Topbar.svelte';
+	import { onMount } from 'svelte';
+
+	let x = 0;
+	let y = 0;
+
+	function handleMouseMove(event: MouseEvent) {
+		x = (event.pageX / window.innerWidth) * 10;
+		y = (event.pageY / window.innerHeight) * 10;
+	}
+
+	onMount(() => {
+		window.addEventListener('mousemove', handleMouseMove);
+		return () => window.removeEventListener('mousemove', handleMouseMove);
+	});
 </script>
 
 <div class="container">
 	<Navbar />
-	<!-- Left Navigation Bar -->
 	<TopLinks />
-	<!-- Top Right Links -->
-	<div class="content">
+
+	<div class="content" style="transform: translate(-{x}px, -{y}px)">
 		<slot />
 		<!-- This is where the page-specific content goes -->
 	</div>
@@ -16,20 +29,44 @@
 
 <style>
 	@font-face {
-		font-family: 'Agave';
-		src: url('/fonts/Agave-Regular') format('agave');
+		font-family: 'crtbest';
+		src: url('/fonts/BestTen-CRT.otf');
 		font-weight: normal;
 		font-style: normal;
 	}
 	@font-face {
 		font-family: 'mononoki';
-		src: url('/fonts/mononoki-Regular') format('mononoki');
+		src: url('/fonts/mononoki-Regular.ttf') format('mononoki');
+		font-weight: normal;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'dotbest';
+		src: url('/fonts/BestTen-DOT.otf');
+		font-weight: normal;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'pixeloid';
+		src: url('/fonts/PixeloidMono-d94EV.ttf');
+		font-weight: normal;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'summerpixel';
+		src: url('/fonts/SummerPixel.ttf');
+		font-weight: normal;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'pixelFJ';
+		src: url('/fonts/pixelFJ8pt1__.TTF');
 		font-weight: normal;
 		font-style: normal;
 	}
 	:global(*) {
-		font-family: 'mononoki', sans-serif;
-		font-size: 16px;
+		font-family: 'dotbest', monospace;
+		font-size: 24px;
 		color: #ffffff;
 	}
 
@@ -43,13 +80,12 @@
 		padding: 0;
 		width: 100%;
 		height: 100vh;
-		/*glow text*/
-
 		/* text-shadow: 0px 0px 2px white,0px 0px 10px white; */
-
+	}
+	:global(body) {
 		background: radial-gradient(
 			circle,
-			rgb(30, 30, 30) 0%,
+			rgb(46, 46, 46) 0%,
 			rgba(0, 0, 0, 1) 85%,
 			rgba(0, 0, 0, 1) 100%
 		);
@@ -73,10 +109,9 @@
 	}
 
 	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
+		display: block;
+		position: relative;
+
 		margin: 0;
 		padding: 0;
 		width: 100%;
@@ -85,5 +120,6 @@
 	.container {
 		margin: 0;
 		width: 100%;
+		height: 100%;
 	}
 </style>

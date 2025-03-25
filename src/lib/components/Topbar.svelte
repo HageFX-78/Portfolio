@@ -1,7 +1,7 @@
 <script lang="ts">
 	let gitIcon = 'images/icons/github.png';
 	let linkedinIcon = 'images/icons/linkedin.png';
-	let itchIcon = 'images/icons/itchio.png';
+	let itchIcon = 'images/icons/itch.png';
 
 	function openLink(url: string) {
 		window.open(url, '_blank');
@@ -40,6 +40,7 @@
 		margin: 0;
 
 		position: absolute;
+		z-index: 2;
 	}
 	.icon-button {
 		background: none;
