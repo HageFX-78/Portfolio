@@ -6,9 +6,14 @@
 	let x = 0;
 	let y = 0;
 
+	// MOre bias towards top left, TODO: make it more centered
 	function handleMouseMove(event: MouseEvent) {
-		x = (event.pageX / window.innerWidth) * 10;
-		y = (event.pageY / window.innerHeight) * 10;
+		let mscale = 20;
+
+		x = -((event.pageX / window.innerWidth) * mscale - mscale * 0.5);
+		y = -((event.pageY / window.innerHeight) * mscale - mscale * 0.5);
+
+		console.log(x, y);
 	}
 
 	onMount(() => {
@@ -21,9 +26,10 @@
 	<Navbar />
 	<TopLinks />
 
-	<div class="content" style="transform: translate(-{x}px, -{y}px)">
-		<slot />
-		<!-- This is where the page-specific content goes -->
+	<div class="content">
+		<div class="inner-content" style="transform: translate({x}px, {y}px)">
+			<slot />
+		</div>
 	</div>
 </div>
 
@@ -53,26 +59,20 @@
 		font-style: normal;
 	}
 	@font-face {
-		font-family: 'summerpixel';
-		src: url('/fonts/SummerPixel.ttf');
-		font-weight: normal;
-		font-style: normal;
-	}
-	@font-face {
 		font-family: 'pixelFJ';
 		src: url('/fonts/pixelFJ8pt1__.TTF');
 		font-weight: normal;
 		font-style: normal;
 	}
 	:global(*) {
-		font-family: 'dotbest', monospace;
-		font-size: 24px;
+		font-family: 'mononoki', monospace;
+		font-size: 20px;
 		color: #ffffff;
 	}
 
-	:root {
-		--primary-color: #333;
-		--secondary-color: #a5a5a5;
+	:global(:root) {
+		--cwhite: #ffffff;
+		--cblack: #a5a5a5;
 		--tertiary-color: #ff00de;
 	}
 	:global(html, body) {
@@ -82,14 +82,20 @@
 		height: 100vh;
 		/* text-shadow: 0px 0px 2px white,0px 0px 10px white; */
 	}
-	:global(body) {
-		background: radial-gradient(
-			circle,
-			rgb(46, 46, 46) 0%,
-			rgba(0, 0, 0, 1) 85%,
-			rgba(0, 0, 0, 1) 100%
-		);
+	:global(html) {
+		cursor: url('/images/general/cursor.png'), auto;
 	}
+
+	:global(img) {
+		pointer-events: none;
+		user-select: none;
+		-webkit-user-drag: none;
+	}
+	:global(body) {
+		/* background-color: aqua; */
+		background-image: url('/images/background/forest2.webp');
+	}
+
 	:global(body)::after {
 		content: '';
 		display: block;
@@ -99,13 +105,73 @@
 		bottom: 0;
 		right: 0;
 		background:
-			linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+			linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.366) 50%),
 			linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
 		z-index: 2;
 		background-size:
 			100% 3px,
 			1px 100%;
 		pointer-events: none;
+
+		animation: flicker 0.1s infinite alternate;
+	}
+	:global(body)::before {
+		content: '';
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+
+		background: radial-gradient(
+			ellipse at center,
+			rgba(0, 0, 0, 0) 30%,
+			rgba(0, 0, 0, 0.445) 70%,
+			rgba(0, 0, 0, 0.601) 100%
+		);
+	}
+
+	:global(::-webkit-scrollbar) {
+		width: 20px;
+	}
+
+	:global(::-webkit-scrollbar-thumb) {
+		background: rgb(255, 255, 255);
+	}
+
+	:global(::-webkit-scrollbar-track) {
+		background: var(--cwhite);
+		border-left: 8px solid transparent;
+		border-right: 8px solid transparent;
+		background-clip: padding-box;
+		margin: 10vh 0;
+	}
+	:global(::-webkit-scrollbar-track-piece) {
+		background-color: transparent;
+	}
+
+	:global(.noselect) {
+		-webkit-touch-callout: none; /* iOS Safari */
+		-webkit-user-select: none; /* Safari */
+		-khtml-user-select: none; /* Konqueror HTML */
+		-moz-user-select: none; /* Firefox */
+		-ms-user-select: none; /* Internet Explorer/Edge */
+		user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+	}
+
+	/* Subtle Flicker */
+	@keyframes flicker {
+		0% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0.95;
+		}
+		100% {
+			opacity: 1;
+		}
 	}
 
 	.content {
@@ -113,13 +179,35 @@
 		position: relative;
 
 		margin: 0;
-		padding: 0;
 		width: 100%;
 		height: 100vh;
+		/* overflow: hidden; */
+		box-sizing: border-box;
+	}
+	.inner-content {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		box-sizing: border-box;
+
+		will-change: transform;
 	}
 	.container {
 		margin: 0;
 		width: 100%;
 		height: 100%;
+		/* background-color: aqua; */
+
+		background: radial-gradient(
+			circle,
+			rgb(46, 46, 46) 0%,
+			rgba(0, 0, 0, 1) 85%,
+			rgba(0, 0, 0, 1) 100%
+		);
+
+		/* transform: perspective(1000px) scale(0.9) rotateX(5deg) rotateY(-5deg);
+		border: 5px solid var(--cwhite); */
+
+		overflow: hidden;
 	}
 </style>

@@ -19,7 +19,7 @@
 		z-index: 2;
 	}
 	div {
-		color: #cecece;
+		color: var(--cwhite);
 		text-decoration: none;
 		display: block;
 		transition: 0.3s;
@@ -31,7 +31,7 @@
 		transition: 0.2s;
 	}
 	div:hover {
-		background: #cecece;
+		background: var(--cwhite);
 		cursor: pointer;
 	}
 	div:hover a {
