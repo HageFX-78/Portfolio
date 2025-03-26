@@ -40,7 +40,7 @@
 		margin: 0;
 
 		position: absolute;
-		z-index: 2;
+		z-index: 5;
 	}
 	.icon-button {
 		background: none;

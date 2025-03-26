@@ -8,14 +8,11 @@
 	let x = 0;
 	let y = 0;
 
-	// MOre bias towards top left, TODO: make it more centered
 	function handleMouseMove(event: MouseEvent) {
 		let mscale = 20;
 
 		x = (event.pageX / window.innerWidth) * mscale - mscale * 0.5;
 		y = -((event.pageY / window.innerHeight) * mscale - mscale * 0.5);
-
-		//console.log(x, y);
 	}
 
 	onMount(() => {
@@ -26,7 +23,7 @@
 
 <div
 	class="profile noselect"
-	style="transform: translate(-50%, -50%) perspective(1000px) rotateX({y}deg) rotateY({x}deg)"
+	style="transform: translate(-50%, -50%) translate({-x}px, {y}px) perspective(1000px) rotateX({y}deg) rotateY({x}deg)"
 >
 	<div class="top-sec">
 		<div>

@@ -1,19 +1,30 @@
 <script lang="ts">
 	import Navbar from '$lib/components/Navbar.svelte';
 	import TopLinks from '$lib/components/Topbar.svelte';
-	import { onMount } from 'svelte';
+
+	import { setContext, onMount } from 'svelte';
+
+	let backgroundImage = '';
+	let lastBackgroundImage = '';
+
+	setContext('backgroundImage', {
+		get: () => backgroundImage,
+		set: (newImage: string) => {
+			if (newImage !== '') {
+				lastBackgroundImage = newImage; // Store last valid image
+			}
+			backgroundImage = newImage;
+		}
+	});
 
 	let x = 0;
 	let y = 0;
 
-	// MOre bias towards top left, TODO: make it more centered
 	function handleMouseMove(event: MouseEvent) {
-		let mscale = 20;
+		let mscale = 150;
 
 		x = -((event.pageX / window.innerWidth) * mscale - mscale * 0.5);
 		y = -((event.pageY / window.innerHeight) * mscale - mscale * 0.5);
-
-		console.log(x, y);
 	}
 
 	onMount(() => {
@@ -22,14 +33,24 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Hage's Portfolio</title>
+</svelte:head>
 <div class="container">
+	<div
+		class="background"
+		style={`
+			background-image: url(${lastBackgroundImage});
+			transform: translate(${x}px, ${y}px) scale(1.1);
+		`}
+		class:opacityFilled={backgroundImage !== ''}
+	></div>
+
 	<Navbar />
 	<TopLinks />
 
 	<div class="content">
-		<div class="inner-content" style="transform: translate({x}px, {y}px)">
-			<slot />
-		</div>
+		<slot />
 	</div>
 </div>
 
@@ -72,7 +93,8 @@
 
 	:global(:root) {
 		--cwhite: #ffffff;
-		--cblack: #a5a5a5;
+		--lowWhite: #dedede;
+		--cblack: #00000095;
 		--tertiary-color: #ff00de;
 	}
 	:global(html, body) {
@@ -81,6 +103,7 @@
 		width: 100%;
 		height: 100vh;
 		/* text-shadow: 0px 0px 2px white,0px 0px 10px white; */
+		overflow: hidden;
 	}
 	:global(html) {
 		cursor: url('/images/general/cursor.png'), auto;
@@ -107,7 +130,8 @@
 		background:
 			linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.366) 50%),
 			linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-		z-index: 2;
+		z-index: 9999;
+		mix-blend-mode: overlay;
 		background-size:
 			100% 3px,
 			1px 100%;
@@ -161,6 +185,16 @@
                                   supported by Chrome and Opera */
 	}
 
+	:global(.page-title) {
+		font-size: 50px;
+		letter-spacing: 5px;
+		margin: 0;
+		margin-top: 40px;
+
+		width: fit-content;
+		padding: 10px;
+	}
+
 	/* Subtle Flicker */
 	@keyframes flicker {
 		0% {
@@ -174,24 +208,6 @@
 		}
 	}
 
-	.content {
-		display: block;
-		position: relative;
-
-		margin: 0;
-		width: 100%;
-		height: 100vh;
-		/* overflow: hidden; */
-		box-sizing: border-box;
-	}
-	.inner-content {
-		width: 100%;
-		height: 100%;
-		overflow: hidden;
-		box-sizing: border-box;
-
-		will-change: transform;
-	}
 	.container {
 		margin: 0;
 		width: 100%;
@@ -205,9 +221,44 @@
 			rgba(0, 0, 0, 1) 100%
 		);
 
-		/* transform: perspective(1000px) scale(0.9) rotateX(5deg) rotateY(-5deg);
-		border: 5px solid var(--cwhite); */
-
 		overflow: hidden;
+	}
+	.content {
+		display: block;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center;
+
+		margin: 0;
+		width: 100%;
+		height: 100vh;
+		overflow: hidden;
+		box-sizing: border-box;
+		z-index: 2;
+	}
+
+	.background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+
+		/* background-image: url({backgroundImage}); */
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		z-index: 1;
+		transition: opacity 0.5s ease-in-out;
+
+		filter: blur(2px) saturate(160%) brightness(50%);
+
+		opacity: 0;
+		overflow: hidden;
+	}
+	.opacityFilled {
+		opacity: 1;
 	}
 </style>

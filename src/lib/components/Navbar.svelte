@@ -1,7 +1,9 @@
 <nav>
 	<div><a href="/">Home</a></div>
-	<div><a href="/aboutme">About Me</a></div>
 	<div><a href="/games">Projects</a></div>
+	<div><a href="/jams">Jams</a></div>
+	<div><a href="/tools">Tools</a></div>
+	<div><a href="/aboutme">About Me</a></div>
 </nav>
 
 <style>
@@ -16,7 +18,7 @@
 		display: flex;
 		flex-direction: column;
 
-		z-index: 2;
+		z-index: 5;
 	}
 	div {
 		color: var(--cwhite);
