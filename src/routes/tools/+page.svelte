@@ -1,28 +1,70 @@
 <script lang="ts">
 	import Divider from '$lib/components/Projects/TitleDivider.svelte';
+	import Card from '$lib/components/Tools/Card.svelte';
+	import Arrow from '$lib/components/Visual/ArrowSelector.svelte';
+	import Gear from '$lib/components/Visual/Gear.svelte';
+	import { Direction } from '$lib/components/Types/Direction';
+
+	const ActiveTab = {
+		SideProjects: 0,
+		Tools: 1
+	};
+
+	let activeTab: (typeof ActiveTab)[keyof typeof ActiveTab] = ActiveTab.SideProjects;
+
+	function changeTab(tab: (typeof ActiveTab)[keyof typeof ActiveTab]) {
+		activeTab = tab;
+	}
 </script>
 
 <div class="projects-container">
-	<h1 class="page-title">Tools</h1>
-	<Divider width="60%" />
+	<div class="page-title">Tools / Side Projects</div>
+	<!-- <Divider width="60%" /> -->
+	<div class="tab-selector noselect">
+		<button
+			class="tab"
+			on:click={() => changeTab(ActiveTab.SideProjects)}
+			type="button"
+			aria-pressed="true"
+			class:active={activeTab === ActiveTab.SideProjects}
+		>
+			<Gear size="40px" />
+			{#if activeTab === ActiveTab.SideProjects}
+				<Arrow direction={Direction.LEFT} isDark={true} size="15px" />
+			{/if}
+		</button>
+		<button
+			class="tab"
+			on:click={() => changeTab(ActiveTab.Tools)}
+			type="button"
+			aria-pressed="false"
+			class:active={activeTab === ActiveTab.Tools}
+		>
+			<Gear size="40px" />
+			{#if activeTab === ActiveTab.Tools}
+				<Arrow direction={Direction.LEFT} isDark={true} size="15px" />
+			{/if}
+		</button>
+	</div>
 
-	<div class="fake-window">
-		<div class="fake-titlebar">
-			<div class="fake-title">Toolbox</div>
-			<div class="fake-buttons">
-				<div class="fake-button close"></div>
-				<div class="fake-button minimize"></div>
-				<div class="fake-button maximize"></div>
-			</div>
-		</div>
-		<div class="fake-content">
-			<p>Here is a list of tools that I have created for various purposes.</p>
-		</div>
+	<div class="card-container">
+		<Card
+			image={'images/normalgames/shadow/g3.gif'}
+			gametitle={'Test'}
+			link={'https://google.com'}
+		/>
+		<Card image={'images/general/raymoo.png'} gametitle={'Test'} link={'https://google.com'} />
+		<Card image={'images/general/raymoo.png'} gametitle={'Test'} link={'https://google.com'} />
+		<Card image={'images/general/raymoo.png'} gametitle={'Test'} link={'https://google.com'} />
+		<Card image={'images/general/raymoo.png'} gametitle={'Test'} link={'https://google.com'} />
+		<Card image={'images/general/raymoo.png'} gametitle={'Test'} link={'https://google.com'} />
+		<Card image={'images/general/raymoo.png'} gametitle={'Test'} link={'https://google.com'} />
 	</div>
 </div>
 
 <style>
 	.projects-container {
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -30,50 +72,54 @@
 		height: 100%;
 		gap: 30px;
 		margin: 0 10%;
-		padding-bottom: 50px;
-		overflow: hidden;
+		overflow-y: auto;
+		overflow-x: hidden;
 		box-sizing: border-box;
-	}
-	.projects-container h1 {
-		font-size: 50px;
-	}
-	/* Fake window */
 
-	.fake-window {
-		width: 80%;
-		height: 400px; /* Set a fixed height */
-		position: relative;
-		background-color: var(--cwhite);
-
-		box-sizing: border-box;
-		/* padding: 10px; */
-		padding-top: 0;
-		display: flex;
-		flex-direction: column;
+		/* background-color: #0800ff; */
 	}
 
-	.fake-titlebar {
-		height: auto;
-		margin: 0;
-		box-sizing: border-box;
-		margin: 0px;
-		width: 100%;
-	}
-	.fake-title {
-		color: var(--cblack);
-
-		font-size: 20px;
+	.page-title {
+		font-size: 2rem;
 		font-weight: bold;
-		padding: 5px;
-		display: inline-block;
+		margin-bottom: 20px; /* Adds spacing between title and container */
+		text-align: center;
 	}
 
-	.fake-content {
-		background-color: black;
-		width: 100%;
-		flex-grow: 1;
+	.tab-selector {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: flex;
+
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
 		box-sizing: border-box;
-		border: 3px solid blue;
-		border-top: none;
+		/* grid-area: tab-selector; */
+		z-index: 6;
+	}
+
+	.card-container {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		gap: 20px;
+		width: 80%;
+		height: auto;
+		padding: 20px 0;
+	}
+	.tab {
+		border: none;
+		/* background-color: rgb(236, 66, 66); */
+		padding: 10px;
+
+		color: white;
+		aspect-ratio: 1;
+	}
+	.tab:hover {
+		background-color: rgba(255, 255, 255, 0.1);
+		cursor: pointer;
 	}
 </style>

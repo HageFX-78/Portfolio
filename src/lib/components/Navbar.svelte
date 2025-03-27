@@ -1,8 +1,7 @@
-<nav>
+<nav class="noselect">
 	<div><a href="/">Home</a></div>
 	<div><a href="/games">Projects</a></div>
-	<!-- <div><a href="/jams">Jams</a></div> -->
-	<div><a href="/tools">Tools</a></div>
+	<div><a href="/tools">Tools+Side</a></div>
 	<div><a href="/aboutme">About Me</a></div>
 </nav>
 
@@ -20,28 +19,22 @@
 
 		z-index: 5;
 	}
-	div {
+	a {
 		color: var(--cwhite);
 		text-decoration: none;
 		display: block;
 		transition: 0.3s;
 		margin: 10px 0;
 		padding: 10px;
+		font-size: 22px;
 		padding-left: 50px;
 		text-align: center;
 		width: fit-content;
-		transition: 0.2s;
+		transition: all 0.2s ease-in-out;
 	}
-	div:hover {
-		background: var(--cwhite);
-		cursor: pointer;
-	}
-	div:hover a {
+	a:hover {
 		color: #333;
 		font-size: 30px;
-	}
-	a {
-		text-decoration: none;
-		transition: 0.2s;
+		background: var(--cwhite);
 	}
 </style>
