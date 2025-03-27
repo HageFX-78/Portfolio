@@ -11,26 +11,32 @@
 
 <div
 	class="project-block noselect"
-	onmouseenter={() => onHover?.(backimage)}
-	onmouseleave={() => onHover?.('')}
+	onmouseenter={() => {
+		onHover?.(backimage);
+	}}
+	onmouseleave={() => {
+		onHover?.('');
+	}}
 	role="button"
 	tabindex="0"
 >
 	<div class="backdrop">
 		<img src={backimage} alt={gametitle} />
 	</div>
-	<div class="thumbnail">
-		<img src={image} alt={gametitle} />
-	</div>
-	<div class="project-info">
-		<h3>{gametitle}</h3>
-		<p>{summary}</p>
-	</div>
+	<div class="project-overlay">
+		<div class="thumbnail">
+			<img src={image} alt={gametitle} />
+		</div>
+		<div class="project-info">
+			<h3>{gametitle}</h3>
+			<p>{summary}</p>
+		</div>
 
-	<div class="tags">
-		{#each tags as tag}
-			<span>{tag}</span>
-		{/each}
+		<div class="tags">
+			{#each tags as tag}
+				<span>{tag}</span>
+			{/each}
+		</div>
 	</div>
 </div>
 
@@ -39,22 +45,22 @@
 		position: relative;
 		background-color: rgb(40, 40, 40);
 		width: 70%;
-		display: grid;
-		grid-template-columns: 20% 60% 20%;
-
-		grid-template-areas: 'thumbnail info tags';
 
 		/* padding: 10px; */
 		color: var(--cwhite);
 		transition: 0.2s;
 		box-sizing: border-box;
 
-		border: 5px solid transparent;
+		/* border: 5px solid transparent; */
 	}
 	.project-block:hover {
 		background-color: rgb(50, 50, 50);
 		transform: scale(1.1);
-		border: 5px solid var(--cwhite);
+		outline: 5px solid var(--cwhite);
+	}
+
+	.project-block:hover .project-overlay .tags span {
+		opacity: 1;
 	}
 
 	.project-block img {
@@ -79,6 +85,21 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+	}
+
+	.project-overlay {
+		position: relative;
+		width: 100%;
+		height: 100%;
+
+		display: grid;
+		grid-template-columns: 20% 60% 20%;
+
+		grid-template-areas: 'thumbnail info tags';
+
+		box-sizing: border-box;
+		background-color: var(--cblack);
+		z-index: 2;
 	}
 
 	.thumbnail {
@@ -110,8 +131,6 @@
 
 		grid-area: info;
 		box-sizing: border-box;
-
-		background-color: var(--cblack);
 	}
 
 	.project-info h3 {
@@ -124,7 +143,12 @@
 		font-size: 18px;
 		max-width: 80%;
 		line-height: 1.4;
-		opacity: 0.8;
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+
+	.project-block:hover .project-info p {
+		opacity: 1;
 	}
 
 	.tags {
@@ -134,7 +158,7 @@
 		width: 100%;
 		overflow: hidden;
 		flex-wrap: wrap; /* Allows wrapping if needed */
-		gap: 6px; /* Adds spacing between tags */
+		gap: 10px; /* Adds spacing between tags */
 		z-index: 2;
 		margin: auto;
 		padding: 0 20px;
@@ -144,13 +168,16 @@
 	}
 
 	.tags span {
-		background-color: var(--lowWhite);
-		color: black;
+		color: var(--cwhite);
 		padding: 2.5px 5px;
-		font-size: 18px;
+		font-size: 16px;
 
 		/* border-radius: 50px; */
-		border: none;
+		border: 2px solid var(--cwhite);
+		opacity: 0.8;
+		/* border-radius: 50px; */
+
+		transition: all 0.3s ease;
 	}
 
 	@media (max-width: 768px) {

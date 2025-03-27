@@ -95,6 +95,7 @@
 		--cwhite: #ffffff;
 		--lowWhite: #dedede;
 		--cblack: #00000095;
+		--cblackHard: #000000;
 		--tertiary-color: #ff00de;
 	}
 	:global(html, body) {
@@ -161,11 +162,15 @@
 	}
 
 	:global(::-webkit-scrollbar-thumb) {
+		background: rgb(208, 208, 208);
+	}
+	:global(::-webkit-scrollbar-thumb:hover) {
+		/* outline: 4px solid rgb(255, 255, 255); */
 		background: rgb(255, 255, 255);
 	}
 
 	:global(::-webkit-scrollbar-track) {
-		background: var(--cwhite);
+		background: var(--lowWhite);
 		border-left: 8px solid transparent;
 		border-right: 8px solid transparent;
 		background-clip: padding-box;
@@ -186,7 +191,7 @@
 	}
 
 	:global(.page-title) {
-		font-size: 50px;
+		font-size: 40px;
 		letter-spacing: 5px;
 		margin: 0;
 		margin-top: 40px;

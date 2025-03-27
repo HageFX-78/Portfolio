@@ -54,21 +54,23 @@
 		gap: 20px;
 
 		padding: 30px;
-		height: auto;
-		width: 50%;
+		height: 400px;
+		width: 750px;
 
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
 		align-items: center;
-		overflow-y: auto;
+		overflow: none;
 
 		box-sizing: border-box;
-		/* border: 1px solid #fff; */
 
 		background-image: url('images/normalgames/hazepoint/promotional_art_nologo.png');
 		background-size: cover;
 		background-position: center;
+	}
+	.profile:hover {
+		outline: 2px solid #fff;
 	}
 
 	.top-sec {

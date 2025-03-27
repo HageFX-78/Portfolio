@@ -6,7 +6,6 @@
 
 <style>
 	.divider {
-		border-top: 5px solid var(--cwhite);
-		margin: 10px 0;
+		border-top: 2px solid var(--cwhite);
 	}
 </style>

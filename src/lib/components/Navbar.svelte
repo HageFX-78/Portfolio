@@ -1,7 +1,7 @@
 <nav>
 	<div><a href="/">Home</a></div>
 	<div><a href="/games">Projects</a></div>
-	<div><a href="/jams">Jams</a></div>
+	<!-- <div><a href="/jams">Jams</a></div> -->
 	<div><a href="/tools">Tools</a></div>
 	<div><a href="/aboutme">About Me</a></div>
 </nav>
