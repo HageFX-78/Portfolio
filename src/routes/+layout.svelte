@@ -14,6 +14,7 @@
 				lastBackgroundImage = newImage; // Store last valid image
 			}
 			backgroundImage = newImage;
+			console.log('Background image set to:', backgroundImage);
 		}
 	});
 
@@ -149,12 +150,9 @@
 		height: 100%;
 		pointer-events: none;
 
-		background: radial-gradient(
-			ellipse at center,
-			rgba(0, 0, 0, 0) 30%,
-			rgba(0, 0, 0, 0.445) 70%,
-			rgba(0, 0, 0, 0.601) 100%
-		);
+		background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.467) 100%);
+
+		z-index: 9998;
 	}
 
 	:global(::-webkit-scrollbar) {
@@ -258,7 +256,7 @@
 		z-index: 1;
 		transition: opacity 0.5s ease-in-out;
 
-		filter: blur(2px) saturate(160%) brightness(50%);
+		filter: blur(0px) saturate(130%) brightness(0.7);
 
 		opacity: 0;
 		overflow: hidden;

@@ -24,15 +24,17 @@
 	}
 </script>
 
-<div class="projects-container">
+<div
+	class="projects-container"
+	in:fly={{ y: 200, duration: 400 }}
+	out:fly={{ y: 200, duration: 200 }}
+>
 	<div class="page-title">Game Projects</div>
 	<!-- <Divider width="50%" /> -->
 	<div class="tab-selector noselect">
 		<button
 			class="tab"
 			on:click={() => changeTab(ActiveTab.Normal)}
-			type="button"
-			aria-pressed="true"
 			class:active={activeTab === ActiveTab.Normal}
 		>
 			Normal Games
@@ -43,8 +45,6 @@
 		<button
 			class="tab"
 			on:click={() => changeTab(ActiveTab.Jam)}
-			type="button"
-			aria-pressed="false"
 			class:active={activeTab === ActiveTab.Jam}
 		>
 			Jam Games

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { scale } from 'svelte/transition';
 
 	let name = 'Lim Jun Jie';
 	let description = 'Tools + Gameplay Programmer';
@@ -24,6 +25,7 @@
 <div
 	class="profile noselect"
 	style="transform: translate(-50%, -50%) translate({-x}px, {y}px) perspective(1000px) rotateX({y}deg) rotateY({x}deg)"
+	in:scale={{ duration: 500 }}
 >
 	<div class="top-sec">
 		<div>
