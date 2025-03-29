@@ -49,7 +49,7 @@
 		width: 100%;
 		flex-grow: 1;
 		box-sizing: border-box;
-		border: 3px solid blue;
+		border: 3px solid rgb(255, 255, 255);
 		border-top: none;
 	}
 </style>

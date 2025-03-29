@@ -156,28 +156,29 @@
 	}
 
 	:global(::-webkit-scrollbar) {
-		width: 20px;
+		width: 15px;
 	}
 
 	:global(::-webkit-scrollbar-thumb) {
-		background: rgb(208, 208, 208);
-	}
-	:global(::-webkit-scrollbar-thumb:hover) {
-		/* outline: 4px solid rgb(255, 255, 255); */
-		background: rgb(255, 255, 255);
+		background: rgb(235, 235, 235);
 	}
 
 	:global(::-webkit-scrollbar-track) {
 		background: var(--lowWhite);
-		border-left: 8px solid transparent;
-		border-right: 8px solid transparent;
+		border-left: 6px solid transparent;
+		border-right: 6px solid transparent;
 		background-clip: padding-box;
-		margin: 10vh 0;
+		margin: 20vh 0;
 	}
 	:global(::-webkit-scrollbar-track-piece) {
 		background-color: transparent;
 	}
 
+	:global(::-webkit-scrollbar-button) {
+		width: 0px;
+		height: 0px;
+		display: none;
+	}
 	:global(.noselect) {
 		-webkit-touch-callout: none; /* iOS Safari */
 		-webkit-user-select: none; /* Safari */
@@ -186,6 +187,10 @@
 		-ms-user-select: none; /* Internet Explorer/Edge */
 		user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
+	}
+	:global(::selection) {
+		background: var(--cwhite);
+		color: var(--cblack);
 	}
 
 	:global(.page-title) {

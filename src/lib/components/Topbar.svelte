@@ -41,6 +41,7 @@
 
 		position: absolute;
 		z-index: 5;
+		pointer-events: none;
 	}
 	.icon-button {
 		background: none;
@@ -51,6 +52,7 @@
 		display: inline-block;
 		height: 40px;
 		width: 40px;
+		pointer-events: all;
 	}
 	.icon-button img {
 		height: 100%;

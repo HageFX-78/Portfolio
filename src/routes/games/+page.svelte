@@ -2,9 +2,8 @@
 	import { getContext } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import GameBlock from '$lib/components/Projects/Game.svelte';
-	import Divider from '$lib/components/Projects/TitleDivider.svelte';
-	import Arrow from '$lib/components/Visual/ArrowSelector.svelte';
-	import { Direction } from '$lib/components/Types/Direction';
+	import Tabs from '$lib/components/Projects/Tabs.svelte';
+	import ScrollButtons from '$lib/components/Visual/ScrollButtons.svelte';
 
 	const bgContext = getContext<{ set: (image: string) => void }>('backgroundImage');
 
@@ -16,12 +15,12 @@
 		Normal: 0,
 		Jam: 1
 	};
+	const tabs = [
+		{ project: ActiveTab.Normal, tabname: 'Non-Jam Games' },
+		{ project: ActiveTab.Jam, tabname: 'Jam Games' }
+	];
 
 	let activeTab: (typeof ActiveTab)[keyof typeof ActiveTab] = ActiveTab.Normal;
-
-	function changeTab(tab: (typeof ActiveTab)[keyof typeof ActiveTab]) {
-		activeTab = tab;
-	}
 </script>
 
 <div
@@ -31,28 +30,8 @@
 >
 	<div class="page-title">Game Projects</div>
 	<!-- <Divider width="50%" /> -->
-	<div class="tab-selector noselect">
-		<button
-			class="tab"
-			on:click={() => changeTab(ActiveTab.Normal)}
-			class:active={activeTab === ActiveTab.Normal}
-		>
-			Normal Games
-			{#if activeTab === ActiveTab.Normal}
-				<Arrow direction={Direction.LEFT} isDark={true} size="15px" />
-			{/if}
-		</button>
-		<button
-			class="tab"
-			on:click={() => changeTab(ActiveTab.Jam)}
-			class:active={activeTab === ActiveTab.Jam}
-		>
-			Jam Games
-			{#if activeTab === ActiveTab.Jam}
-				<Arrow direction={Direction.LEFT} isDark={true} size="15px" />
-			{/if}
-		</button>
-	</div>
+
+	<Tabs {tabs} bind:activeTab />
 
 	{#if activeTab === ActiveTab.Normal}
 		<div
@@ -171,36 +150,9 @@
 		overflow-y: auto;
 		overflow-x: hidden;
 		box-sizing: border-box;
-	}
-	.tab-selector {
-		display: flex;
-		width: 80%;
-	}
 
-	.tab {
-		flex: 1; /* Makes both tabs equally take up full width */
-		padding: 10px 0;
-		text-align: center;
-		cursor: pointer;
-		font-size: 20px;
-		color: white;
-		background: black;
-		border: 2px solid transparent;
-		transition: background 0.2s ease-in-out;
+		/* max-height: 500px; */
 	}
-
-	.tab:hover {
-		border: 2px solid white;
-		background: rgba(255, 255, 255, 0.1);
-	}
-
-	.tab.active {
-		border: 2px solid white;
-		background: white;
-		color: black;
-		font-weight: bold;
-	}
-
 	.game-container {
 		width: 100%;
 
