@@ -4,13 +4,14 @@
 
 	export let tabs: { project: number; tabname: string }[] = [];
 	export let activeTab: number = 0;
+	export let width: string = '80%'; // Default width
 
 	function changeTab(tab: number) {
 		activeTab = tab;
 	}
 </script>
 
-<div class="tab-selector noselect">
+<div class="tab-selector noselect" style="width: {width};">
 	{#each tabs as { project, tabname }}
 		<button class="tab" on:click={() => changeTab(project)} class:active={activeTab === project}>
 			{#if activeTab === project}
@@ -29,7 +30,7 @@
 <style>
 	.tab-selector {
 		display: flex;
-		width: 80%;
+		/* width: 80%; */
 	}
 	.tab {
 		flex: 1; /* Makes both tabs equally take up full width */

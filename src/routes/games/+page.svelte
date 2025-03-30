@@ -1,9 +1,12 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import { fly } from 'svelte/transition';
+
+	import { njGameData } from '$lib/data/njGameData';
+	import { jamData } from '$lib/data/jamGameData';
+
 	import GameBlock from '$lib/components/Projects/Game.svelte';
 	import Tabs from '$lib/components/Projects/Tabs.svelte';
-	import ScrollButtons from '$lib/components/Visual/ScrollButtons.svelte';
 
 	const bgContext = getContext<{ set: (image: string) => void }>('backgroundImage');
 
@@ -39,30 +42,16 @@
 			in:fly={{ x: -200, duration: 600 }}
 			out:fly={{ x: -200, duration: 100 }}
 		>
-			<GameBlock
-				gametitle="Hazepoint"
-				image="images/normalgames/hazepoint/tn.png"
-				backimage="images/normalgames/hazepoint/promotional_art_nologo.png"
-				summary="This is a summary of the project"
-				tags={['Unreal 5', 'C++', 'Solo']}
-				onHover={changeBackground}
-			/>
-			<GameBlock
-				gametitle="Shadow"
-				image="images/normalgames/shadow/shadow1.png"
-				backimage="images/normalgames/shadow/g2.gif"
-				summary="This is a summary of the project"
-				tags={['Unity', 'C#', 'Group', 'Tools']}
-				onHover={changeBackground}
-			/>
-			<GameBlock
-				gametitle="Guilt Trip"
-				image="images/normalgames/guilttrip/gt1.png"
-				backimage="images/normalgames/guilttrip/g1.gif"
-				summary="This is a summary of the project"
-				tags={['Unity', 'C#', 'Group']}
-				onHover={changeBackground}
-			/>
+			{#each njGameData as game}
+				<GameBlock
+					gametitle={game.gametitle}
+					image={game.image}
+					backimage={game.backimage}
+					summary={game.summary}
+					tags={game.tags}
+					onHover={changeBackground}
+				/>
+			{/each}
 		</div>
 	{:else if activeTab === ActiveTab.Jam}
 		<div
@@ -70,70 +59,16 @@
 			in:fly={{ x: 200, duration: 600 }}
 			out:fly={{ x: 200, duration: 100 }}
 		>
-			<GameBlock
-				gametitle="Guilt Trip"
-				image="images/normalgames/guilttrip/gt1.png"
-				backimage="images/normalgames/guilttrip/g1.gif"
-				summary="This is a summary of the project"
-				tags={['Unity', 'C#', 'Group']}
-				onHover={changeBackground}
-			/>
-			<GameBlock
-				gametitle="Guilt Trip"
-				image="images/normalgames/guilttrip/gt1.png"
-				backimage="images/normalgames/guilttrip/g1.gif"
-				summary="This is a summary of the project"
-				tags={['Unity', 'C#', 'Group']}
-				onHover={changeBackground}
-			/>
-			<GameBlock
-				gametitle="Guilt Trip"
-				image="images/normalgames/guilttrip/gt1.png"
-				backimage="images/normalgames/guilttrip/g1.gif"
-				summary="This is a summary of the project"
-				tags={['Unity', 'C#', 'Group']}
-				onHover={changeBackground}
-			/>
-			<GameBlock
-				gametitle="Guilt Trip"
-				image="images/normalgames/guilttrip/gt1.png"
-				backimage="images/normalgames/guilttrip/g1.gif"
-				summary="This is a summary of the project"
-				tags={['Unity', 'C#', 'Group']}
-				onHover={changeBackground}
-			/>
-			<GameBlock
-				gametitle="Guilt Trip"
-				image="images/normalgames/guilttrip/gt1.png"
-				backimage="images/normalgames/guilttrip/g1.gif"
-				summary="This is a summary of the project"
-				tags={['Unity', 'C#', 'Group']}
-				onHover={changeBackground}
-			/>
-			<GameBlock
-				gametitle="Guilt Trip"
-				image="images/normalgames/guilttrip/gt1.png"
-				backimage="images/normalgames/guilttrip/g1.gif"
-				summary="This is a summary of the project"
-				tags={['Unity', 'C#', 'Group']}
-				onHover={changeBackground}
-			/>
-			<GameBlock
-				gametitle="Guilt Trip"
-				image="images/normalgames/guilttrip/gt1.png"
-				backimage="images/normalgames/guilttrip/g1.gif"
-				summary="This is a summary of the project"
-				tags={['Unity', 'C#', 'Group']}
-				onHover={changeBackground}
-			/>
-			<GameBlock
-				gametitle="Guilt Trip"
-				image="images/normalgames/guilttrip/gt1.png"
-				backimage="images/normalgames/guilttrip/g1.gif"
-				summary="This is a summary of the project"
-				tags={['Unity', 'C#', 'Group']}
-				onHover={changeBackground}
-			/>
+			{#each jamData as game}
+				<GameBlock
+					gametitle={game.gametitle}
+					image={game.image}
+					backimage={game.backimage}
+					summary={game.summary}
+					tags={game.tags}
+					onHover={changeBackground}
+				/>
+			{/each}
 		</div>
 	{/if}
 </div>

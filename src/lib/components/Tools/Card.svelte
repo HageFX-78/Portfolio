@@ -128,7 +128,7 @@
 
 	.card-content.hover {
 		clip-path: inset(0 0 0 60%); /* Clipped at 50% initially */
-		transition: clip-path 0.3s ease-in-out;
+		transition: clip-path 0.6s cubic-bezier(0.25, 1, 0.5, 1); /*Quant out iirc*/
 	}
 
 	.card-content.no-hover {
@@ -140,7 +140,7 @@
 	}
 
 	.card:hover .card-content {
-		clip-path: inset(0 0 0 0); /* Expands smoothly */
+		clip-path: inset(0 0 0 0);
 	}
 
 	.game-title {
@@ -153,7 +153,6 @@
 	.game-details {
 		font-size: 16px;
 		text-align: left;
-		/* opacity: 1; Always visible, but clipped */
 		visibility: visible;
 		transition: opacity 0.3s ease-in-out;
 		opacity: 0.8;

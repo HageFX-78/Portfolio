@@ -1,29 +1,53 @@
 <script lang="ts">
 	import Arrow from '$lib/components/Visual/AnimatedArrow.svelte';
-	import { Direction } from '$lib/components/Types/Direction';
+	import { getContext } from 'svelte';
 	import { Page } from '$lib/components/Types/Page';
+
+	const bgContext = getContext<{ set: (image: string) => void }>('backgroundImage');
 
 	let activeTab: (typeof Page)[keyof typeof Page] = Page.HOME;
 
-	const navItems = [
+	type NavItem = {
+		name: string;
+		page: (typeof Page)[keyof typeof Page];
+		href: string;
+		background?: string;
+	};
+
+	const navItems: NavItem[] = [
 		{ name: 'Home', page: Page.HOME, href: '/' },
 		{ name: 'Games', page: Page.GAMES, href: '/games' },
 		{ name: 'Tools', page: Page.TOOLS, href: '/tools' },
-		{ name: 'About Me', page: Page.ABOUTME, href: '/aboutme' }
+		{
+			name: 'About Me',
+			page: Page.ABOUTME,
+			href: '/aboutme',
+			background: 'https://media1.tenor.com/m/ZjR_YoigTqIAAAAC/popsicle-relax.gif'
+		}
 	];
 
-	function handleClick(page: (typeof Page)[keyof typeof Page]) {
+	function handleClick(page: (typeof Page)[keyof typeof Page], backgroundURL?: string) {
 		activeTab = page;
+
+		if (backgroundURL) {
+			bgContext.set(backgroundURL);
+		} else {
+			bgContext.set('');
+		}
 	}
 </script>
 
 <nav class="noselect">
-	{#each navItems as { name, page, href }}
+	{#each navItems as item}
 		<div>
-			<a class:active={activeTab === page} {href} on:click={() => handleClick(page)}>
-				{name}
+			<a
+				class:active={activeTab === item.page}
+				href={item.href}
+				on:click={() => handleClick(item.page, item.background)}
+			>
+				{item.name}
 			</a>
-			{#if activeTab === page}
+			{#if activeTab === item.page}
 				<Arrow isDark={false} animationDuration={0.3} />
 			{/if}
 		</div>
@@ -35,7 +59,7 @@
 		color: white;
 		left: 0;
 		top: 50%;
-		transform: translateY(-50%); /* Centers vertically */
+		transform: translateY(-50%);
 		position: absolute;
 		width: auto;
 		display: flex;

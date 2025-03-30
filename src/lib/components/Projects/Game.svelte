@@ -45,11 +45,13 @@
 		position: relative;
 		background-color: rgb(40, 40, 40);
 		width: 70%;
+		height: 200px;
 
 		/* padding: 10px; */
 		color: var(--cwhite);
 		transition: 0.2s;
 		box-sizing: border-box;
+		overflow: hidden;
 
 		/* border: 5px solid transparent; */
 	}
