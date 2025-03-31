@@ -11,17 +11,13 @@
 <div class="skillblock noselect">
 	<img src={url} alt={name} style="filter: invert({invert ? 1.0 : 0}) saturate(0.8)" />
 	<!-- {#if isHovered} -->
-	<span in:fly={{ y: 200, duration: 400 }} out:fly={{ y: 200, duration: 200 }}>{name}</span>
+	<span>{name}</span>
 </div>
 
 <style>
 	.skillblock {
 		width: 70px;
 		aspect-ratio: 1/1;
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: center;
 		gap: 10px;
 
 		/* background-color: black; */
@@ -35,20 +31,20 @@
 	img {
 		width: 100%;
 		height: 100%;
-		object-fit: cover;
-		transition: all 0.2s ease-in-out;
+		object-fit: contain;
+		transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 	}
 
 	span {
 		display: block;
 		opacity: 0;
-		font-size: 16px;
+		font-size: 14px;
 		color: var(--cwhite);
 		position: absolute;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		transition: all 0.2s ease-in-out;
+		transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 		background-color: rgba(0, 0, 0, 0.815);
 		padding: 5px 10px;
 		width: 100%;
@@ -63,7 +59,7 @@
 		opacity: 1;
 	}
 
-	/* .skillblock:hover img {
+	.skillblock:hover img {
 		transform: scale(1.2);
-	} */
+	}
 </style>

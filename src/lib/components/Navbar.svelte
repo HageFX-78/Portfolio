@@ -2,7 +2,10 @@
 	import Arrow from '$lib/components/Visual/AnimatedArrow.svelte';
 	import { getContext } from 'svelte';
 	import { Page } from '$lib/components/Types/Page';
+	import { isMobile } from '$lib/data/utils';
+	import { Direction } from './Types/Direction';
 
+	const isMobileDevice: boolean = isMobile();
 	const bgContext = getContext<{ set: (image: string) => void }>('backgroundImage');
 
 	let activeTab: (typeof Page)[keyof typeof Page] = Page.HOME;
@@ -40,6 +43,9 @@
 <nav class="noselect">
 	{#each navItems as item}
 		<div>
+			<!-- {#if activeTab === item.page && isMobileDevice}
+				<Arrow isDark={false} animationDuration={0.3} size={0.8} direction={Direction.DOWN} />
+			{/if} -->
 			<a
 				class:active={activeTab === item.page}
 				href={item.href}
@@ -47,7 +53,7 @@
 			>
 				{item.name}
 			</a>
-			{#if activeTab === item.page}
+			{#if activeTab === item.page && !isMobileDevice}
 				<Arrow isDark={false} animationDuration={0.3} />
 			{/if}
 		</div>
@@ -68,6 +74,14 @@
 
 		z-index: 5;
 	}
+	/* nav > div {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		width: fit-content;
+		height: fit-content;
+	} */
 	a {
 		color: var(--cwhite);
 		text-decoration: none;
@@ -91,5 +105,53 @@
 		color: #333;
 		font-size: 30px;
 		background: var(--cwhite);
+	}
+
+	@media (max-width: 768px) {
+		nav {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			top: auto;
+			transform: translate(0, 0);
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			align-items: center;
+			width: 100%;
+			padding: 10px 0;
+			background-color: black;
+			height: 5%;
+			gap: 0;
+			margin: 0;
+		}
+
+		nav > div {
+			flex-grow: 1; /* Ensure each div stretches */
+			/* display: flex; Ensure flexbox layout */
+			width: fit-content;
+			height: fit-content;
+		}
+
+		a {
+			/* flex-grow: 1; Make each item stretch */
+			text-align: center;
+			font-size: 14px;
+			padding: 10px 0;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		a.active {
+			font-size: 16px;
+			transform: scale(1.1);
+		}
+		a:hover {
+			font-size: 16px;
+			transform: scale(1.1);
+		}
 	}
 </style>

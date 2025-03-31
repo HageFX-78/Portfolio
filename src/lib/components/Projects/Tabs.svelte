@@ -30,6 +30,8 @@
 <style>
 	.tab-selector {
 		display: flex;
+		position: sticky;
+		top: 0;
 		/* width: 80%; */
 	}
 	.tab {
@@ -54,5 +56,19 @@
 		background: white;
 		color: black;
 		font-weight: bold;
+	}
+
+	@media (max-width: 768px) {
+		.tab-selector {
+			flex-direction: column;
+			width: 100%;
+		}
+		.tab {
+			width: 100%;
+			margin-bottom: 10px;
+		}
+		.tab:last-child {
+			margin-bottom: 0;
+		}
 	}
 </style>

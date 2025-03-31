@@ -56,8 +56,8 @@
 		gap: 20px;
 
 		padding: 30px;
-		height: 400px;
 		width: 750px;
+		aspect-ratio: 1.9/1;
 
 		display: flex;
 		flex-direction: column;
@@ -143,5 +143,32 @@
 	}
 	#email:hover {
 		background-color: #fe7e28;
+	}
+
+	@media (max-width: 768px) {
+		.profile {
+			width: 100%;
+			padding: 10px;
+			gap: 5px;
+		}
+		.top-sec > img {
+			width: 150px;
+			height: 150px;
+			padding: 10px;
+		}
+		.top-sec > div > h1 {
+			font-size: 20px;
+		}
+		.top-sec > div > p {
+			font-size: 14px;
+			margin: 5px 0;
+			padding: 5px;
+		}
+		.sec-title {
+			font-size: 16px;
+			height: 20px;
+			width: fit-content;
+			padding: 5px;
+		}
 	}
 </style>

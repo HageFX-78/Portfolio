@@ -7,15 +7,19 @@
 		tags: string[];
 		onHover?: (image: string) => void;
 	}>();
+
+	let isHovered: boolean = $state(false);
 </script>
 
 <div
 	class="project-block noselect"
 	onmouseenter={() => {
 		onHover?.(backimage);
+		isHovered = true;
 	}}
 	onmouseleave={() => {
 		onHover?.('');
+		isHovered = false;
 	}}
 	role="button"
 	tabindex="0"
@@ -28,15 +32,16 @@
 			<img src={image} alt={gametitle} />
 		</div>
 		<div class="project-info">
-			<h3>{gametitle}</h3>
+			<div>{gametitle}</div>
 			<p>{summary}</p>
+			<div class="profile-tags">
+				{#each tags as tag}
+					<span>{tag}</span>
+				{/each}
+			</div>
 		</div>
 
-		<div class="tags">
-			{#each tags as tag}
-				<span>{tag}</span>
-			{/each}
-		</div>
+		<div class="project-link-block">Link</div>
 	</div>
 </div>
 
@@ -61,7 +66,7 @@
 		outline: 5px solid var(--cwhite);
 	}
 
-	.project-block:hover .project-overlay .tags span {
+	.project-block:hover span {
 		opacity: 1;
 	}
 
@@ -91,108 +96,162 @@
 
 	.project-overlay {
 		position: relative;
-		width: 100%;
+		display: flex;
+		flex-direction: row;
+		width: 130%;
 		height: 100%;
-
-		display: grid;
-		grid-template-columns: 20% 60% 20%;
-
-		grid-template-areas: 'thumbnail info tags';
+		left: 0;
+		transition: left 0.6s var(--easeOutCirc);
 
 		box-sizing: border-box;
 		background-color: var(--cblack);
 		z-index: 2;
 	}
+	.project-block:hover .project-overlay {
+		left: -30%;
+	}
 
 	.thumbnail {
-		width: 100%;
-		height: auto;
-		padding-top: 100%; /* Makes it square */
+		width: 30%;
+		height: 100%;
 		position: relative;
 		z-index: 2;
 		grid-area: thumbnail;
+
+		transition: all 0.6s var(--easeOutCirc);
 	}
 
 	.thumbnail img {
 		position: absolute;
-		top: 0;
-		left: 0;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		object-position: center;
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
 	}
 
+	/** - - - - - - --------------------------------------------------*/
 	.project-info {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		justify-content: center;
 		text-align: center;
 		padding: 20px;
 		z-index: 2;
-		width: 100%;
+		width: 80%;
+		height: 100%;
 
-		grid-area: info;
+		/* grid-area: info; */
 		box-sizing: border-box;
+		transition: all 0.3s ease;
 	}
 
-	.project-info h3 {
-		font-size: 36px;
+	.project-info div {
+		font-size: 30px;
 		font-weight: bold;
-		margin-bottom: 5px;
+		letter-spacing: 2px;
+		transition: all 0.3s ease;
+		padding: 10px;
+		height: fit-content;
 	}
 
 	.project-info p {
-		font-size: 18px;
+		color: var(--c2white);
+		font-size: 16px;
+		margin: 0;
 		max-width: 80%;
-		line-height: 1.4;
+		max-height: 0;
+		overflow: hidden;
+		/* line-height: 1.2; */
+		box-sizing: border-box;
+
 		opacity: 0;
-		transition: opacity 0.3s ease;
+		transition: all 0.6s var(--easeOutCirc);
 	}
 
 	.project-block:hover .project-info p {
+		height: fit-content;
 		opacity: 1;
+		transform: translateY(0);
+		max-height: 100px;
+	}
+	.project-block:hover .profile-tags {
+		padding: 20px !important;
+		max-height: 100px;
 	}
 
-	.tags {
+	.profile-tags {
 		display: flex;
-		justify-content: center;
+		margin: 0;
+		padding: 0 !important;
+		flex-direction: row;
+		flex-wrap: wrap;
 		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		height: fit-content;
 		width: 100%;
-		overflow: hidden;
-		flex-wrap: wrap; /* Allows wrapping if needed */
-		gap: 10px; /* Adds spacing between tags */
-		z-index: 2;
-		margin: auto;
-		padding: 0 20px;
-		align-content: flex-start;
-		grid-area: tags;
+		max-height: 0;
+		box-sizing: border-box;
+		/* padding: 0px; */
+
+		transition: all 0.6s var(--easeOutCirc);
+	}
+
+	.profile-tags span {
+		font-size: 14px;
+		color: var(--c2white);
+		opacity: 0;
+		transition: all 0.6s var(--easeOutCirc);
+		padding: 5px;
+		background-color: var(--cblack);
+		border: 2px solid var(--c2white);
+		letter-spacing: normal;
 		box-sizing: border-box;
 	}
+	.project-link-block {
+		background-color: #f45f5d;
+		height: 100%;
 
-	.tags span {
-		color: var(--cwhite);
-		padding: 2.5px 5px;
-		font-size: 16px;
+		transition:
+			right 0.6s var(--easeOutCirc),
+			background-color 0.2s var(--easeOutQuad);
+		width: 20%;
 
-		/* border-radius: 50px; */
-		border: 2px solid var(--cwhite);
-		opacity: 0.8;
-		/* border-radius: 50px; */
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		box-sizing: border-box;
+	}
+	.project-block:hover .project-link-block {
+		right: 0;
+		/* width: 20%; */
+		padding: 10px;
+	}
 
-		transition: all 0.3s ease;
+	.project-link-block:hover {
+		background-color: #ffa5a3;
+		/* transition: background-color 0.2s var(--easeOutQuad); */
 	}
 
 	@media (max-width: 768px) {
 		.project-block {
 			display: flex;
+			width: 100%;
 			flex-direction: column;
 			align-items: center;
 			text-align: center;
+			box-sizing: border-box;
 		}
 
 		.project-info,
-		.tags {
+		.profile-tags {
 			width: 100%;
+			font-size: 10px;
 		}
 
 		.thumbnail {

@@ -51,7 +51,9 @@
 					out:fly={{ y: 200, duration: 200 }}
 				>
 					Hey I'm JJ / Hage, a gameplay programmer + tools programmer. I'm a fresh grad from UOWKDU
-					Malaysia with a degree in Game Tech.
+					Malaysia with a degree in Game Tech. I like developing plugins, tools and mods for
+					software and games to cheat or improve the workflow. My personal philosophy is every
+					coding problem has a solution.
 					<br />
 					<br />
 					I'm confident in problem-solving and creating tools to help speed up the development process

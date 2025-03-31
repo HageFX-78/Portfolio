@@ -95,9 +95,14 @@
 	:global(:root) {
 		--cwhite: #ffffff;
 		--lowWhite: #dedede;
+		--c2white: #b7b7b7;
 		--cblack: #00000095;
 		--cblackHard: #000000;
 		--tertiary-color: #ff00de;
+
+		--easeOutExpo: cubic-bezier(0.16, 1, 0.3, 1);
+		--easeOutQuad: cubic-bezier(0.25, 1, 0.5, 1);
+		--easeOutCirc: cubic-bezier(0, 0.55, 0.45, 1);
 	}
 	:global(html, body) {
 		margin: 0;
@@ -138,6 +143,8 @@
 			100% 3px,
 			1px 100%;
 		pointer-events: none;
+		width: 100%;
+		height: 100%;
 
 		animation: flicker 0.1s infinite alternate;
 	}
@@ -241,7 +248,7 @@
 
 		margin: 0;
 		width: 100%;
-		height: 100vh;
+		height: 100%;
 		overflow: hidden;
 		box-sizing: border-box;
 		z-index: 2;
@@ -268,5 +275,26 @@
 	}
 	.opacityFilled {
 		opacity: 1;
+	}
+
+	@media (max-width: 768px) {
+		:global(html, body) {
+			font-size: 10px !important;
+			width: 100vw;
+			height: 100vh;
+		}
+
+		:global(.page-title) {
+			font-size: 28px;
+
+			margin-top: 50px;
+
+			width: fit-content;
+			/* padding: 10px; */
+		}
+		.container {
+			position: relative;
+			height: 100vh;
+		}
 	}
 </style>

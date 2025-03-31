@@ -4,10 +4,12 @@
 
 	import { njGameData } from '$lib/data/njGameData';
 	import { jamData } from '$lib/data/jamGameData';
+	import { isMobile } from '$lib/data/utils';
 
 	import GameBlock from '$lib/components/Projects/Game.svelte';
 	import Tabs from '$lib/components/Projects/Tabs.svelte';
 
+	const isMobileDevice: boolean = isMobile();
 	const bgContext = getContext<{ set: (image: string) => void }>('backgroundImage');
 
 	function changeBackground(newImage: string) {
@@ -99,5 +101,15 @@
 		padding-bottom: 100px;
 		/* overflow-y: auto; */
 		box-sizing: border-box;
+	}
+
+	@media (max-width: 768px) {
+		.projects-container {
+			margin: 0 5%;
+		}
+		.game-container {
+			width: 100%;
+			padding-bottom: 50px;
+		}
 	}
 </style>

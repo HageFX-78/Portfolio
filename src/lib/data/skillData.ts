@@ -66,8 +66,8 @@ export const gameEngines = [
 	},
 	{ url: 'images/icons/love2d.png', name: 'Love2D' },
 	{
-		url: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opengl/opengl-original.svg',
-		name: 'OpenGL'
+		url: 'images/icons/roblox.png',
+		name: 'Roblox Studio'
 	}
 ];
 
@@ -87,6 +87,22 @@ export const frameworks = [
 	{
 		url: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg',
 		name: 'NodeJS'
+	},
+	{
+		url: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dot-net/dot-net-original.svg',
+		name: '.NET Framework'
+	},
+	{
+		url: 'images/icons/wpf.jpg',
+		name: '.NET WPF'
+	},
+	{
+		url: 'images/icons/winform.webp',
+		name: '.NET Winforms'
+	},
+	{
+		url: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opengl/opengl-original.svg',
+		name: 'OpenGL'
 	}
 ];
 
@@ -141,6 +157,31 @@ export const devTools = [
 	{
 		url: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg',
 		name: 'MySQL'
+	},
+	{
+		url: 'images/icons/notepadpp.png',
+		name: 'Notepad++'
+	},
+	{
+		url: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg',
+		name: 'Firebase'
+	},
+	{
+		url: 'images/icons/luarocks.png',
+		name: 'LuaRocks',
+		invert: true
+	},
+	{
+		url: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/atom/atom-original.svg',
+		name: 'Atom'
+	},
+	{
+		url: 'images/icons/netbeans.png',
+		name: 'NetBeans'
+	},
+	{
+		url: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/eclipse/eclipse-original.svg',
+		name: 'Eclipse'
 	}
 ];
 

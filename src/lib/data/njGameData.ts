@@ -5,7 +5,7 @@ export const njGameData = [
 		backimage: 'images/normalgames/hazepoint/promotional_art_nologo.png',
 		summary:
 			'3D Thriller FPS game where you hunt down a towering kaiju in a old skirmish-use mech.',
-		tags: ['Unreal 5', 'C++', 'Solo']
+		tags: ['Unreal 5', 'C++', 'Blueprint', 'Solo']
 	},
 	{
 		gametitle: 'Shadow',

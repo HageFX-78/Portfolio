@@ -58,4 +58,14 @@
 		height: 100%;
 		width: 100%;
 	}
+	@media (max-width: 768px) {
+		.top-links {
+			padding: 20px 20px;
+			gap: 10px;
+		}
+		.icon-button {
+			height: 30px;
+			width: 30px;
+		}
+	}
 </style>
