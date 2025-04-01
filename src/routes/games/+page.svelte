@@ -2,9 +2,9 @@
 	import { getContext } from 'svelte';
 	import { fly } from 'svelte/transition';
 
-	import { njGameData } from '$lib/data/njGameData';
-	import { jamData } from '$lib/data/jamGameData';
-	import { isMobile } from '$lib/data/utils';
+	import { njGameData } from '$lib/data/NJGameData';
+	import { jamData } from '$lib/data/JamGameData';
+	import { isMobile } from '$lib/data/Utils';
 
 	import GameBlock from '$lib/components/Projects/Game.svelte';
 	import Tabs from '$lib/components/Projects/Tabs.svelte';
@@ -51,6 +51,7 @@
 					backimage={game.backimage}
 					summary={game.summary}
 					tags={game.tags}
+					svelteComponent={game.svelteComponent}
 					onHover={changeBackground}
 				/>
 			{/each}

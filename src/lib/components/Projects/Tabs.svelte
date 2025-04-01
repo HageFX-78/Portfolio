@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Arrow from '$lib/components/Visual/AnimatedArrow.svelte';
+	import Arrow from '$lib/components/GeneralComponents/AnimatedArrow.svelte';
 	import { Direction } from '$lib/components/Types/Direction';
 
 	export let tabs: { project: number; tabname: string }[] = [];
@@ -32,6 +32,7 @@
 		display: flex;
 		position: sticky;
 		top: 0;
+		z-index: 10;
 		/* width: 80%; */
 	}
 	.tab {

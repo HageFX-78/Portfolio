@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Arrow from '$lib/components/Visual/AnimatedArrow.svelte';
+	import Arrow from '$lib/components/GeneralComponents/AnimatedArrow.svelte';
 	import { getContext } from 'svelte';
 	import { Page } from '$lib/components/Types/Page';
-	import { isMobile } from '$lib/data/utils';
+	import { isMobile } from '$lib/data/Utils';
 	import { Direction } from './Types/Direction';
 
 	const isMobileDevice: boolean = isMobile();
@@ -74,20 +74,10 @@
 
 		z-index: 5;
 	}
-	/* nav > div {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: center;
-		width: fit-content;
-		height: fit-content;
-	} */
 	a {
 		color: var(--cwhite);
 		text-decoration: none;
 		display: inline-block;
-		/* transition: 0.3s; */
-		/* margin: 10px 0; */
 		padding: 5px 40px;
 		font-size: 22px;
 		padding-left: 50px;

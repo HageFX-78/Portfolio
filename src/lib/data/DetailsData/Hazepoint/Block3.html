@@ -1,0 +1,11 @@
+<b>Flow of PathFindingManager :</b>
+<ol>
+	<li>Determine kaiju initial location by finding the closest waypoint to it</li>
+	<li>Set it as start position and randomly select another waypoint as end point on the map</li>
+	<li>Pass both data as parameters to FindPath() function to find the path</li>
+	<li>
+		Function returns a path by setting the aforementioned custom array class as key in Unreal's
+		built-in blackboard
+	</li>
+	<li>Blackboard checks if the key has changed, executes the path</li>
+</ol>

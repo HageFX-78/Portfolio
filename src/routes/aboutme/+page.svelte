@@ -2,7 +2,7 @@
 	import { fly } from 'svelte/transition';
 	import Tabs from '$lib/components/Projects/Tabs.svelte';
 	import Window from '$lib/components/Tools/Window.svelte';
-	import SkillSection from '$lib/components/Visual/SkillSection.svelte';
+	import SkillSection from '$lib/components/GeneralComponents/SkillSection.svelte';
 
 	import {
 		languages,
@@ -12,7 +12,7 @@
 		devTools,
 		creativeTools,
 		hardware
-	} from '$lib/data/skillData';
+	} from '$lib/data/SkillData';
 
 	const ActiveTab = {
 		Lore: 0,
@@ -28,6 +28,8 @@
 	];
 
 	let activeTab: (typeof ActiveTab)[keyof typeof ActiveTab] = ActiveTab.Lore;
+
+	function onImageClick() {}
 </script>
 
 <div
@@ -39,7 +41,15 @@
 
 	<div class="page-container">
 		<div class="profile-summary">
-			<img src="images/general/face.jpg" alt="Profile" class="profile-pic" />
+			<button
+				class="profile-pic-button"
+				on:click={() => {
+					onImageClick();
+				}}
+				aria-label="Profile picture"
+			>
+				<img src="images/pixelated/face/face-1.jpg" alt="Profile" class="profile-pic" />
+			</button>
 			<!-- https://media1.tenor.com/m/x8v1oNUOmg4AAAAd/rickroll-roll.gif -->
 		</div>
 		<div class="profile-lore">
@@ -128,10 +138,10 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content: flex-start;
+		justify-content: center;
 		gap: 20px;
 
-		width: auto;
+		width: 40%;
 		position: relative;
 
 		grid-area: psum;
@@ -152,7 +162,7 @@
 		position: relative;
 		display: flex;
 		flex-wrap: wrap;
-		width: 100%;
+		width: 60%;
 		height: fit-content;
 		gap: 20px;
 		position: relative;
@@ -177,11 +187,26 @@
 		box-sizing: border-box;
 	}
 
+	.profile-pic-button {
+		all: unset;
+		width: 80%;
+		aspect-ratio: 1/1;
+		background-color: var(--cwhite);
+		padding: 2%;
+
+		box-sizing: border-box;
+		cursor: pointer;
+	}
+	.profile-pic-button:hover {
+		transform: scale(1.05);
+	}
+
 	.profile-pic {
-		width: 250px;
-		height: 250px;
+		width: 100%;
+		height: 100%;
 		object-fit: cover;
-		filter: saturate(0.9) sepia(0.2) brightness(0.9);
+		/* filter: saturate(0.9) sepia(0.2) brightness(0.9); */
+		image-rendering: pixelated;
 	}
 
 	/**-----------------------------------------------------*/

@@ -1,12 +1,26 @@
 <script lang="ts">
-	const { gametitle, image, backimage, summary, tags, onHover } = $props<{
-		gametitle: string;
-		image: string;
-		backimage: string;
-		summary: string;
-		tags: string[];
-		onHover?: (image: string) => void;
-	}>();
+	import BackdropImage from './SubComponents/BackdropImage.svelte';
+	import SubButton from './SubComponents/SubButton.svelte';
+
+	import type { WindowContent } from '$lib/components/Types/WindowContent';
+	import { getContext } from 'svelte';
+	import type { Component } from 'svelte';
+
+	const svelteComponentContext = getContext<{ set: (data: Component) => void }>(
+		'windowContentComponent'
+	);
+	const svelteComponentData = getContext<{ set: (data: WindowContent) => void }>(
+		'windowContentData'
+	);
+
+	const data = $props();
+
+	function openLink(link: string) {
+		window.open(link, '_blank');
+	}
+	function openPageWindow(newContent: Component, props: WindowContent) {
+		svelteComponentContext.set(newContent); // Opens window when set
+	}
 
 	let isHovered: boolean = $state(false);
 </script>
@@ -14,34 +28,49 @@
 <div
 	class="project-block noselect"
 	onmouseenter={() => {
-		onHover?.(backimage);
+		data.onHover?.(data.backimage);
 		isHovered = true;
 	}}
 	onmouseleave={() => {
-		onHover?.('');
+		data.onHover?.('');
 		isHovered = false;
 	}}
 	role="button"
 	tabindex="0"
 >
-	<div class="backdrop">
-		<img src={backimage} alt={gametitle} />
-	</div>
+	<BackdropImage backimage={data.backimage} gametitle={data.gameTitle} />
+
 	<div class="project-overlay">
 		<div class="thumbnail">
-			<img src={image} alt={gametitle} />
+			<img src={data.image} alt={data.gametitle} />
 		</div>
 		<div class="project-info">
-			<div>{gametitle}</div>
-			<p>{summary}</p>
+			<div>{data.gametitle}</div>
+			<p>{data.summary}</p>
 			<div class="profile-tags">
-				{#each tags as tag}
+				{#each data.tags as tag}
 					<span>{tag}</span>
 				{/each}
 			</div>
 		</div>
 
-		<div class="project-link-block">Link</div>
+		<div class="project-link-block">
+			<SubButton
+				buttonContent={'Details'}
+				backgroundHoverColor="#1fb4ff"
+				callback={() => {
+					openPageWindow(data.svelteComponent, data.props);
+				}}
+			/>
+			<SubButton
+				buttonContent={'Play Now'}
+				icon="images/icons/redirect.png"
+				backgroundHoverColor="#ff4060"
+				callback={() => {
+					openLink('');
+				}}
+			/>
+		</div>
 	</div>
 </div>
 
@@ -75,22 +104,6 @@
 		height: 200px;
 		/*cover*/
 
-		object-fit: cover;
-	}
-
-	.backdrop {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		overflow: hidden;
-		z-index: 1;
-	}
-
-	.backdrop img {
-		width: 100%;
-		height: 100%;
 		object-fit: cover;
 	}
 
@@ -213,29 +226,25 @@
 		box-sizing: border-box;
 	}
 	.project-link-block {
-		background-color: #f45f5d;
+		background-color: transparent;
 		height: 100%;
 
 		transition:
 			right 0.6s var(--easeOutCirc),
 			background-color 0.2s var(--easeOutQuad);
-		width: 20%;
+		width: 30%;
 
+		border: none;
 		overflow: hidden;
+		padding: 20px;
+		gap: 20px;
+
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		box-sizing: border-box;
-	}
-	.project-block:hover .project-link-block {
-		right: 0;
-		/* width: 20%; */
-		padding: 10px;
-	}
+		flex-direction: column;
 
-	.project-link-block:hover {
-		background-color: #ffa5a3;
-		/* transition: background-color 0.2s var(--easeOutQuad); */
+		box-sizing: border-box;
 	}
 
 	@media (max-width: 768px) {

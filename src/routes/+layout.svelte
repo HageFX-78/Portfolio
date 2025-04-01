@@ -1,11 +1,23 @@
 <script lang="ts">
 	import Navbar from '$lib/components/Navbar.svelte';
 	import TopLinks from '$lib/components/Topbar.svelte';
+	import Window from '$lib/components/Tools/Window.svelte';
 
 	import { setContext, onMount } from 'svelte';
+	import type { Component } from 'svelte';
+	import type { WindowContent } from '$lib/components/Types/WindowContent';
 
 	let backgroundImage = '';
 	let lastBackgroundImage = '';
+
+	// Parallax effect variables
+	let x = 0;
+	let y = 0;
+
+	// Pop up window
+	let windowOpen: boolean = false;
+	let windowContentComponent: Component;
+	let windowContentData: WindowContent;
 
 	setContext('backgroundImage', {
 		get: () => backgroundImage,
@@ -18,8 +30,13 @@
 		}
 	});
 
-	let x = 0;
-	let y = 0;
+	setContext('windowContentComponent', {
+		get: () => windowContentComponent,
+		set: (newData: Component) => {
+			windowContentComponent = newData;
+			windowOpen = true; // Open the window when new data is set
+		}
+	});
 
 	function handleMouseMove(event: MouseEvent) {
 		let mscale = 80;
@@ -49,6 +66,7 @@
 
 	<Navbar />
 	<TopLinks />
+	<Window bind:isOpen={windowOpen} svelteComponent={windowContentComponent} />
 
 	<div class="content">
 		<slot />

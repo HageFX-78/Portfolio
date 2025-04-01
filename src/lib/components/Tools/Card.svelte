@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { fly, slide } from 'svelte/transition';
-	import Tags from '$lib/components/Visual/Tags.svelte';
+	import Tags from '$lib/components/GeneralComponents/Tags.svelte';
 
 	export let image: string;
 	export let gametitle: string;
