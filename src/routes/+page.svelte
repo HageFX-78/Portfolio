@@ -102,9 +102,6 @@
 		align-items: center;
 	}
 
-	#card-front {
-		/* display: flex; */
-	}
 	#card-back {
 		background: black;
 		color: white;

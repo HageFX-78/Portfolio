@@ -27,12 +27,14 @@
 		class="overlay-backdrop"
 		in:fade={{ duration: 200 }}
 		out:fade={{ duration: 400 }}
-		on:click|stopPropagation={() => (isOpen = false)}
+		on:click|stopPropagation={() => {
+			isOpen = false;
+		}}
 		aria-label="Close window"
 	></button>
 	<div
 		class="fake-window"
-		in:scale={{ duration: 200 }}
+		in:scale={{ duration: 100 }}
 		out:scale={{ duration: 400 }}
 		style="transform: translate(-50%, -50%) perspective(1000px) rotateX({y}deg) rotateY({x}deg)"
 	>

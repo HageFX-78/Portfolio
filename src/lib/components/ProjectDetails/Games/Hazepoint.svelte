@@ -1,34 +1,38 @@
 <script lang="ts">
-	import BaseDetails from '$lib/components/ProjectDetails/Components/Header.svelte';
+	import Header from '$lib/components/ProjectDetails/Components/Header.svelte';
 	import TextContent from '$lib/components/ProjectDetails/Components/TextContent.svelte';
+	import CodeBlock from '$lib/components/ProjectDetails/Components/CodeBlock.svelte';
 
-	import block1 from '$lib/data/DetailsData/Hazepoint/Block1.html?raw';
-	import block2 from '$lib/data/DetailsData/Hazepoint/Block2.html?raw';
-	import block3 from '$lib/data/DetailsData/Hazepoint/Block3.html?raw';
-
-	import codeblock1 from '$lib/data/DetailsData/Hazepoint/CodeBlock1.cpp?raw';
-	import codeblock2 from '$lib/data/DetailsData/Hazepoint/CodeBlock2.cpp?raw';
-
+	import contentBlock from '$lib/data/DetailsData/Hazepoint/Content.json';
 	import { hazepointProps } from '$lib/data/GameData';
-	import CodeBlock from '../Components/CodeBlock.svelte';
+	import { onMount } from 'svelte';
+
+	let codeblock1 = '';
+	let codeblock2 = '';
+
+	onMount(async () => {
+		// Load Markdown lazily
+		const [cb1, cb2] = await Promise.all([
+			import('$lib/data/DetailsData/Hazepoint/CodeBlock1.md?raw'),
+			import('$lib/data/DetailsData/Hazepoint/CodeBlock2.md?raw')
+		]);
+		codeblock1 = cb1.default;
+		codeblock2 = cb2.default;
+	});
 </script>
 
-<BaseDetails
-	projectLogo={hazepointProps.projectLogo}
-	projectVideo={hazepointProps.projectVideo}
-	projectItchLink={hazepointProps.projectItchLink}
-	projectBackdrop={hazepointProps.projectBackdrop}
-/>
+<Header data={hazepointProps} />
 
-<TextContent text={block1} />
+<TextContent text={contentBlock.block1} />
 
-<CodeBlock code={codeblock1} />
+{#if codeblock1 !== ''}
+	<CodeBlock code={codeblock1} />
+{/if}
 
-<TextContent text={block2} />
+<TextContent text={contentBlock.block2} />
 
-<CodeBlock code={codeblock2} />
+{#if codeblock2 !== ''}
+	<CodeBlock code={codeblock2} />
+{/if}
 
-<TextContent text={block3} />
-
-<style>
-</style>
+<TextContent text={contentBlock.block3} />

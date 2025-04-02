@@ -1,9 +1,10 @@
 <script lang="ts">
 	import AnimatedArrow from '$lib/components/GeneralComponents/AnimatedArrow.svelte';
+	import type { WindowContent } from '$lib/components/Types/WindowContent';
 	import { onMount } from 'svelte';
 	import { fly, scale } from 'svelte/transition';
-	let fx = $state(0);
-	let fy = $state(0);
+	let fx = 0;
+	let fy = 0;
 
 	function handleMouseMove(event: MouseEvent) {
 		let mscale = 40;
@@ -17,7 +18,12 @@
 		return () => window.removeEventListener('mousemove', handleMouseMove);
 	});
 
-	let data = $props();
+	export let data: WindowContent = {
+		projectBackdrop: 'images/projects/ProjectBackdrop.png',
+		projectLogo: 'images/projects/ProjectLogo.png',
+		projectVideo: '',
+		projectItchLink: 'https://itch.io/project-link'
+	};
 </script>
 
 <div class="logo-container">
