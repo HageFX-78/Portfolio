@@ -1,5 +1,6 @@
 export type WindowContent = {
 	projectLogo: string;
 	projectVideo: string;
-	projectItchFrame: string;
+	projectItchLink: string;
+	projectBackdrop: string;
 };

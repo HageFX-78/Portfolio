@@ -2,7 +2,7 @@
 	import { getContext } from 'svelte';
 	import { fly } from 'svelte/transition';
 
-	import { njGameData } from '$lib/data/NJGameData';
+	import { njGameData } from '$lib/data/GameData';
 	import { jamData } from '$lib/data/JamGameData';
 	import { isMobile } from '$lib/data/Utils';
 
@@ -46,12 +46,13 @@
 		>
 			{#each njGameData as game}
 				<GameBlock
-					gametitle={game.gametitle}
+					gametitle={game.projectTitle}
 					image={game.image}
 					backimage={game.backimage}
 					summary={game.summary}
 					tags={game.tags}
 					svelteComponent={game.svelteComponent}
+					itchLink={game.itchLink}
 					onHover={changeBackground}
 				/>
 			{/each}
@@ -64,7 +65,7 @@
 		>
 			{#each jamData as game}
 				<GameBlock
-					gametitle={game.gametitle}
+					gametitle={game.projectTitle}
 					image={game.image}
 					backimage={game.backimage}
 					summary={game.summary}

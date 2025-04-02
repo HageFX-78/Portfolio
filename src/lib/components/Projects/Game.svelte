@@ -67,7 +67,7 @@
 				icon="images/icons/redirect.png"
 				backgroundHoverColor="#ff4060"
 				callback={() => {
-					openLink('');
+					openLink(data.itchLink);
 				}}
 			/>
 		</div>

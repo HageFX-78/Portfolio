@@ -17,7 +17,7 @@
 	:global(.rich-text p) {
 		color: var(--c2white) !important;
 		text-align: justify;
-		padding: 10px 0;
+		padding: 10px 40px;
 		text-indent: 50px;
 		line-height: 1.2rem;
 	}
@@ -25,7 +25,8 @@
 	:global(.rich-text li) {
 		color: var(--c2white) !important;
 		text-align: justify;
-		padding: 10px 0;
+		padding: 10px 40px;
+		/* padding: 10px 0; */
 		line-height: 1.2rem;
 	}
 </style>

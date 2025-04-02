@@ -9,11 +9,16 @@
 	let x = 0;
 	let y = 0;
 
+	let isFlipped = false;
+
 	function handleMouseMove(event: MouseEvent) {
 		let mscale = 20;
 
 		x = (event.pageX / window.innerWidth) * mscale - mscale * 0.5;
 		y = -((event.pageY / window.innerHeight) * mscale - mscale * 0.5);
+	}
+	function flipCard() {
+		isFlipped = !isFlipped;
 	}
 
 	onMount(() => {
@@ -22,33 +27,44 @@
 	});
 </script>
 
-<div
+<button
 	class="profile noselect"
-	style="transform: translate(-50%, -50%) translate({-x}px, {y}px) perspective(1000px) rotateX({y}deg) rotateY({x}deg)"
+	style="transform: translate(-50%, -50%) translate({-x}px, {y}px) perspective(1000px) rotateX({y}deg) rotateY({x}deg) rotateY({isFlipped
+		? 180
+		: 0}deg);"
 	in:scale={{ duration: 500 }}
+	on:click={flipCard}
 >
-	<div class="top-sec">
-		<div>
-			<h1>{name}</h1>
-			<h1>HageFX</h1>
-			<p>{description}</p>
-		</div>
-		<img src={image} alt="{name}'s profile picture" />
-	</div>
+	{#if !isFlipped}
+		<div id="card-front" class="card-face">
+			<div class="top-sec">
+				<div>
+					<h1>{name}</h1>
+					<h1>HageFX</h1>
+					<p>{description}</p>
+				</div>
+				<img src={image} alt="{name}'s profile picture" />
+			</div>
 
-	<div class="bottom-sec">
-		<div class="sec-title" id="email">
-			<img class="sec-icon" src="images/icons/email.png" alt="Email icon" />Email
+			<div class="bottom-sec">
+				<div class="sec-title" id="email">
+					<img class="sec-icon" src="images/icons/email.png" alt="Email icon" />Email
+				</div>
+				<div class="sec-title" id="discord">
+					<img class="sec-icon" src="images/icons/discord.png" alt="Discord icon" />
+					Discord
+				</div>
+			</div>
 		</div>
-		<div class="sec-title" id="discord">
-			<img class="sec-icon" src="images/icons/discord.png" alt="Discord icon" />
-			Discord
-		</div>
-	</div>
-</div>
+	{:else}
+		<div id="card-back" class="card-face">Where cunny wife</div>
+	{/if}
+</button>
 
 <style>
 	.profile {
+		all: unset;
+
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -65,6 +81,8 @@
 		align-items: center;
 		overflow: none;
 
+		transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
 		box-sizing: border-box;
 
 		background-image: url('images/normalgames/hazepoint/promotional_art_nologo.png');
@@ -73,6 +91,24 @@
 	}
 	.profile:hover {
 		outline: 2px solid #fff;
+	}
+	.card-face {
+		display: flex;
+
+		width: 100%;
+		height: 100%;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	#card-front {
+		/* display: flex; */
+	}
+	#card-back {
+		background: black;
+		color: white;
+		transform: rotateY(180deg);
 	}
 
 	.top-sec {

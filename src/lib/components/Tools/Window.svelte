@@ -5,6 +5,21 @@
 
 	export let isOpen: boolean = true;
 	export let svelteComponent: Component;
+
+	let x = 0;
+	let y = 0;
+
+	function handleMouseMove(event: MouseEvent) {
+		let mscale = 5;
+
+		x = (event.pageX / window.innerWidth) * mscale - mscale * 0.5;
+		y = -((event.pageY / window.innerHeight) * mscale - mscale * 0.5);
+	}
+
+	onMount(() => {
+		window.addEventListener('mousemove', handleMouseMove);
+		return () => window.removeEventListener('mousemove', handleMouseMove);
+	});
 </script>
 
 {#if isOpen}
@@ -15,7 +30,12 @@
 		on:click|stopPropagation={() => (isOpen = false)}
 		aria-label="Close window"
 	></button>
-	<div class="fake-window" in:scale={{ duration: 200 }} out:scale={{ duration: 400 }}>
+	<div
+		class="fake-window"
+		in:scale={{ duration: 200 }}
+		out:scale={{ duration: 400 }}
+		style="transform: translate(-50%, -50%) perspective(1000px) rotateX({y}deg) rotateY({x}deg)"
+	>
 		<div class="fake-titlebar">
 			<div class="fake-title">Toolbox</div>
 			<div class="fake-buttons">
@@ -55,7 +75,7 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 
-		width: 70%;
+		width: 80%;
 		/* z-index: 51; */
 
 		max-height: 85%;
@@ -106,8 +126,9 @@
 	}
 
 	.fake-content-inner {
-		padding: 100px 10px;
-		padding-right: 40px;
+		padding: 100px 40px;
+		/* padding-right: 80px; */
+		padding-top: 0px;
 		width: 100%;
 		max-height: 100%;
 		overflow-y: auto;

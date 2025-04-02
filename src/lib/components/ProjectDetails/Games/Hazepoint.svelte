@@ -6,20 +6,28 @@
 	import block2 from '$lib/data/DetailsData/Hazepoint/Block2.html?raw';
 	import block3 from '$lib/data/DetailsData/Hazepoint/Block3.html?raw';
 
-	import { hazepointProps } from '$lib/data/NJGameData';
+	import codeblock1 from '$lib/data/DetailsData/Hazepoint/CodeBlock1.cpp?raw';
+	import codeblock2 from '$lib/data/DetailsData/Hazepoint/CodeBlock2.cpp?raw';
+
+	import { hazepointProps } from '$lib/data/GameData';
+	import CodeBlock from '../Components/CodeBlock.svelte';
 </script>
 
 <BaseDetails
 	projectLogo={hazepointProps.projectLogo}
 	projectVideo={hazepointProps.projectVideo}
-	projectItchFrame={hazepointProps.projectItchFrame}
+	projectItchLink={hazepointProps.projectItchLink}
+	projectBackdrop={hazepointProps.projectBackdrop}
 />
+
 <TextContent text={block1} />
 
-<!-- 	CODE HERE -->
+<CodeBlock code={codeblock1} />
+
 <TextContent text={block2} />
 
-<!-- 	CODE HERE -->
+<CodeBlock code={codeblock2} />
+
 <TextContent text={block3} />
 
 <style>
