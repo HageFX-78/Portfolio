@@ -57,7 +57,10 @@
 			</div>
 		</div>
 	{:else}
-		<div id="card-back" class="card-face">Where cunny wife</div>
+		<div id="card-back" class="card-face">
+			This site is still WIP :P <br /> Not everything is here <br />
+			Check out my itch page from the top right!
+		</div>
 	{/if}
 </button>
 

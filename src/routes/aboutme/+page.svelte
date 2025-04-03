@@ -68,7 +68,8 @@
 					<br />
 					I'm confident in problem-solving and creating tools to help speed up the development process
 					as the faster you can get a prototype out, the faster you can iterate and improve on it. I
-					also tend to focus on the UI/UX as it irks me if they look herrendous. My favourite programming
+					also tend to focus on the UI/UX as it irks me if they look horrendous. I have experience with
+					Network programmng at my previous intern as well from Roblox Studio. My favourite programming
 					languages are C++ and Lua.
 					<br />
 					<br />

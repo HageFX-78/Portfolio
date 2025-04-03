@@ -24,7 +24,7 @@
 		<img src={linkedinIcon} alt="LinkedIn" />
 	</button>
 
-	<button type="button" class="icon-button" on:click={() => openLink('https://hagefx.itch.io/')}>
+	<button type="button" class="icon-button" on:click={() => openLink('https://hagefx78.itch.io')}>
 		<img src={itchIcon} alt="Itch.io" />
 	</button>
 </div>

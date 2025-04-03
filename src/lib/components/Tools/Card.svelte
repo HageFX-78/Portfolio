@@ -14,17 +14,21 @@
 	function handleMouseEnter() {
 		isHovered = true;
 		onHoverChange?.(image);
-		console.log('Hovered:', image);
 	}
 	function handleMouseLeave() {
 		isHovered = false;
 		onHoverChange?.('');
 	}
+
+	function handleCardClick() {
+		if (link === '') return;
+		window.open(link, '_blank');
+	}
 </script>
 
 <button
 	class="card"
-	on:click={() => window.open(link, '_blank')}
+	on:click={() => handleCardClick()}
 	on:mouseenter={handleMouseEnter}
 	on:mouseleave={handleMouseLeave}
 	aria-label={`Open ${gametitle}`}
@@ -120,7 +124,7 @@
 		align-items: flex-start;
 
 		justify-content: center;
-		/* padding: 15%; */
+		text-justify: inter-word !important;
 		padding: 20px 40px;
 
 		box-sizing: border-box;

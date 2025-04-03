@@ -2,6 +2,7 @@
 	import Header from '$lib/components/ProjectDetails/Components/Header.svelte';
 	import TextContent from '$lib/components/ProjectDetails/Components/TextContent.svelte';
 	import CodeBlock from '$lib/components/ProjectDetails/Components/CodeBlock.svelte';
+	import Loading from '$lib/components/GeneralComponents/Loading.svelte';
 
 	import contentBlock from '$lib/data/DetailsData/Hazepoint/Content.json';
 	import { hazepointProps } from '$lib/data/GameData';
@@ -9,6 +10,7 @@
 
 	let codeblock1 = '';
 	let codeblock2 = '';
+	let isLoaded = false;
 
 	onMount(async () => {
 		// Load Markdown lazily
@@ -18,21 +20,23 @@
 		]);
 		codeblock1 = cb1.default;
 		codeblock2 = cb2.default;
+
+		isLoaded = true;
 	});
 </script>
 
-<Header data={hazepointProps} />
+{#if isLoaded}
+	<Header data={hazepointProps} />
 
-<TextContent text={contentBlock.block1} />
+	<TextContent text={contentBlock.block1} />
 
-{#if codeblock1 !== ''}
 	<CodeBlock code={codeblock1} />
-{/if}
 
-<TextContent text={contentBlock.block2} />
+	<TextContent text={contentBlock.block2} />
 
-{#if codeblock2 !== ''}
 	<CodeBlock code={codeblock2} />
-{/if}
 
-<TextContent text={contentBlock.block3} />
+	<TextContent text={contentBlock.block3} />
+{:else}
+	<Loading />
+{/if}
