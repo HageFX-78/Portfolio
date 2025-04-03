@@ -23,15 +23,14 @@
 			import('$lib/data/DetailsData/Shadow/CodeBlock1.md?raw'),
 			import('$lib/data/DetailsData/Shadow/CodeBlock2.md?raw'),
 			import('$lib/data/DetailsData/Shadow/CodeBlock3.md?raw'),
-			import('$lib/data/DetailsData/Shadow/CodeBlock4.md?raw'),
-			import('$lib/data/DetailsData/TEST_FILLER.md?raw')
+			import('$lib/data/DetailsData/Shadow/CodeBlock4.md?raw')
 		]);
 		codeblock1 = cb1.default;
 		codeblock2 = cb2.default;
 		codeblock3 = cb3.default;
 		codeblock4 = cb4.default;
 
-		// isLoaded = true;
+		isLoaded = true;
 	});
 </script>
 

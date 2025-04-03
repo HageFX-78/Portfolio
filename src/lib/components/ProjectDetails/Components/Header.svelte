@@ -3,14 +3,20 @@
 	import type { WindowContent } from '$lib/components/Types/WindowContent';
 	import { onMount } from 'svelte';
 	import { fly, scale } from 'svelte/transition';
+
 	let fx = 0;
 	let fy = 0;
+
+	let iframePointerAllow = false;
 
 	function handleMouseMove(event: MouseEvent) {
 		let mscale = 40;
 
 		fx = -((event.pageX / window.innerWidth) * mscale - mscale * 0.5);
 		fy = -((event.pageY / window.innerHeight) * mscale - mscale * 0.5);
+	}
+	function allowIframePointer() {
+		iframePointerAllow = true;
 	}
 
 	onMount(() => {
@@ -42,7 +48,15 @@
 		out:scale={{ duration: 400 }}
 	/>
 </div>
-<div class="video-container">{@html data.projectVideo}</div>
+<div class="video-container" class:allowPointer={iframePointerAllow}>
+	{#if !iframePointerAllow}
+		<button class="activate-video" on:click={() => allowIframePointer()}>
+			Click to activate video
+		</button>
+	{/if}
+
+	{@html data.projectVideo}
+</div>
 <div class="itch-container">
 	<a href={data.projectItchLink} target="_blank" rel="noopener noreferrer">
 		<img src="images/icons/itch.png" alt="itch" /> Play on Itch.io
@@ -51,11 +65,15 @@
 
 <style>
 	:global(iframe) {
-		/* pointer-events: none; */
+		pointer-events: none;
 		width: 80%;
 		aspect-ratio: 16/9;
 		z-index: 2; /* Ensure it's in front of the backdrop */
 	}
+	:global(.allowPointer > iframe) {
+		pointer-events: all !important;
+	}
+
 	.logo-container {
 		width: 100%;
 		display: flex;
@@ -65,6 +83,35 @@
 		position: relative; /* Needed to contain the backdrop */
 		padding: 20px 0;
 		box-sizing: border-box;
+	}
+
+	.activate-video {
+		all: unset;
+		position: absolute; /* Constrain button inside logo-container */
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		box-sizing: border-box;
+
+		padding: 50px;
+		font-size: 24px;
+		font-weight: bold;
+		color: var(--cwhite);
+		background-color: rgba(0, 0, 0, 0.725);
+		padding: 50px;
+		transition: all 0.1s var(--easeOutQuad);
+
+		cursor: pointer;
+		z-index: 10; /* Ensure it's in front of the backdrop */
+	}
+	.activate-video:hover {
+		transform: translate(-50%, -50%) scale(1.05);
+		/* box-shadow: 0 0 10px var(--cwhite); */
+		outline: solid 4px var(--cwhite);
 	}
 
 	#logo-backdrop {
@@ -82,11 +129,14 @@
 		width: 100%;
 		max-width: 800px;
 
-		object-fit: cover;
+		object-fit: contain;
 		z-index: 1; /* Ensure it's in front of the backdrop */
 	}
 
 	.video-container {
+		all: unset;
+
+		position: relative;
 		width: 100%;
 		height: 100%;
 		display: flex;

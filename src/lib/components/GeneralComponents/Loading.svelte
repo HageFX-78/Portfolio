@@ -1,9 +1,5 @@
 <div class="loading-container noselect">
-	<img
-		src="https://media1.tenor.com/m/mvwMlJbEyTsAAAAd/neco-arc.gif"
-		alt="Loading GIF"
-		class="loading-gif"
-	/>
+	<img src="images/general/neco.gif" alt="Loading GIF" class="loading-gif" />
 	<div class="loading-text">Loading...</div>
 </div>
 

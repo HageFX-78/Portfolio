@@ -3,6 +3,7 @@ import type { ProjectData } from '$lib/components/Types/ProjectData';
 
 import Hazepoint from '../components/ProjectDetails/Games/Hazepoint.svelte';
 import Shadow from '../components/ProjectDetails/Games/Shadow.svelte';
+import GuiltTrip from '../components/ProjectDetails/Games/GuiltTrip.svelte';
 
 export const hazepointProps: WindowContent = {
 	projectLogo: 'images/normalgames/hazepoint/logo.png',
@@ -13,7 +14,7 @@ export const hazepointProps: WindowContent = {
 };
 
 export const shadowProps: WindowContent = {
-	projectLogo: 'images/normalgames/hazepoint/logo.png',
+	projectLogo: 'images/normalgames/shadow/logo.png',
 	projectVideo:
 		'<iframe width="560" height="315" src="https://www.youtube.com/embed/XefaRMtpqR4?si=FiAjMQ7RdRuhgMvR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
 	projectItchLink: 'https://aarontan1.itch.io/shadow-maiden-less',
@@ -32,7 +33,7 @@ export const njGameData: ProjectData[] = [
 	{
 		projectTitle: 'Hazepoint',
 		image: 'images/normalgames/hazepoint/tn.png',
-		backimage: 'images/normalgames/hazepoint/promotional_art_nologo.png',
+		backimage: 'images/normalgames/hazepoint/g2.gif',
 		summary:
 			'3D Thriller FPS game where you hunt down a towering kaiju in an old skirmish-use mech.',
 		tags: ['Unreal 5', 'C++', 'Blueprint', 'Solo'],
@@ -54,7 +55,7 @@ export const njGameData: ProjectData[] = [
 		backimage: 'images/normalgames/guilttrip/g1.gif',
 		summary: '2D Topdown turn-based RPG where you battle with emotions.',
 		tags: ['Unity', 'C#', 'Group'],
-		svelteComponent: Hazepoint,
+		svelteComponent: GuiltTrip,
 		itchLink: 'https://uowmgames.itch.io/guilt-trip'
 	}
 ];

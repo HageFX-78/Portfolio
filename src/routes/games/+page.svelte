@@ -70,7 +70,9 @@
 					backimage={game.backimage}
 					summary={game.summary}
 					tags={game.tags}
+					itchLink={game.itchLink}
 					onHover={changeBackground}
+					isJamGame={true}
 				/>
 			{/each}
 		</div>

@@ -5,21 +5,86 @@ import Hazepoint from '../components/ProjectDetails/Games/Hazepoint.svelte';
 
 export const hazepointProps: WindowContent = {
 	projectLogo: 'images/normalgames/hazepoint/logo.png',
-	projectVideo:
-		'<iframe width="560" height="315" src="https://www.youtube.com/embed/J2Dco_VgSQA?si=AFvXABkIL8BFyVlF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-	projectItchLink:
-		'<iframe frameborder="0" src="https://itch.io/embed/2209420?border_width=5&amp;bg_color=000000&amp;fg_color=d6d6d6&amp;link_color=00f2df&amp;border_color=537775" width="560" height="175"><a href="https://uowmgames.itch.io/fyp2-hazepoint">Hazepoint by UOWM Game Development, HageFX78</a></iframe>'
+	projectVideo: '',
+	projectItchLink: '',
+	projectBackdrop: 'images/normalgames/hazepoint/promotional_art_nologo.png'
 };
 
 export const jamData: ProjectData[] = [
 	{
-		projectTitle: 'Hazepoint',
-		image: 'images/normalgames/hazepoint/tn.png',
-		backimage: 'images/normalgames/hazepoint/promotional_art_nologo.png',
-		summary:
-			'3D Thriller FPS game where you hunt down a towering kaiju in an old skirmish-use mech.',
-		tags: ['Unreal 5', 'C++', 'Blueprint', 'Solo'],
+		projectTitle: 'Touhou Scarlet Dreamer',
+		image: 'images/jams/ScarletDreamer/tn.png',
+		backimage: 'images/jams/ScarletDreamer/back.gif',
+		summary: 'First person beat-em-up as Meiling from Touhou',
+		tags: ['Unity', 'C#', 'Group', 'Touhou Jam 14'],
 		svelteComponent: Hazepoint,
-		itchLink: 'https://uowmgames.itch.io/fyp2-hazepoint'
+		itchLink: 'https://hagefx78.itch.io/scarlet-dreamer'
+	},
+	{
+		projectTitle: 'Touhou KAPPA OS',
+		image: 'images/jams/KappaOS/tn.png',
+		backimage: 'images/jams/KappaOS/back.gif',
+		summary:
+			"A simulation clicker where you hijack Reimu's stream causing havoc. Warning it's in JAPANESE only as it's made for a japanese jam",
+		tags: ['Unity', 'C#', 'Solo', 'Touhou Station Jam 2024'],
+		svelteComponent: Hazepoint,
+		itchLink: 'https://hagefx78.itch.io/touhou-kappaos'
+	},
+	{
+		projectTitle: 'Blackout Protocol',
+		image: 'images/jams/BlackoutProtocol/tn.png',
+		backimage: 'images/jams/BlackoutProtocol/back.gif',
+		summary:
+			'Winner of Sea Game Jam 2024! Top-down 2D horror survival game where you play as a robot',
+		tags: ['Unity', 'C#', 'Group', 'Sea Game Jam 2024'],
+		svelteComponent: Hazepoint,
+		itchLink: 'https://justinooncx.itch.io/blackout-protocol'
+	},
+	{
+		projectTitle: "Berry's Under Belly",
+		image: 'images/jams/BerryUnderBelly/tn.png',
+		backimage: 'images/jams/BerryUnderBelly/back.png',
+		summary: 'Feed your new adopted cat Berry and bond with her!',
+		tags: ['Unity', 'C#', 'Group', 'Micro Jam 026'],
+		svelteComponent: Hazepoint,
+		itchLink: 'https://alexmah.itch.io/under-belly'
+	},
+	{
+		projectTitle: 'Gastric Buster',
+		image: 'images/jams/GastricBuster/tn.png',
+		backimage: 'images/jams/GastricBuster/back.png',
+		summary: 'A bullet hell where you play as an medicine tasked to cleanse  the acidic bubbles.',
+		tags: ['Unity', 'C#', 'Group', 'Global Game Jam 2025'],
+		svelteComponent: Hazepoint,
+		itchLink: 'https://alexmah.itch.io/gastric-buster'
+	},
+	{
+		projectTitle: 'Keep It Off',
+		image: 'images/jams/KeepItOff/tn.png',
+		backimage: 'images/jams/KeepItOff/back.png',
+		summary: "Don't turn the car lights on while your dad is driving! A simple horror game.",
+		tags: ['Unity', 'C#', 'Group', 'Indie Jam 2024'],
+		svelteComponent: Hazepoint,
+		itchLink: 'https://alexmah.itch.io/keepitoff'
+	},
+	{
+		projectTitle: 'Planetary Decay',
+		image: 'images/jams/PlanetaryDecay/tn.png',
+		backimage: 'images/jams/PlanetaryDecay/back.gif',
+		summary:
+			'An unfinished game wh0ere you determine whether a planet is decaying and save them...?',
+		tags: ['Unity', 'C#', 'Solo', 'Djam 8'],
+		svelteComponent: Hazepoint,
+		itchLink: 'https://hagefx78.itch.io/planatary-decay'
+	},
+
+	{
+		projectTitle: 'Blood Drive',
+		image: 'images/jams/BloodDrive/tn.png',
+		backimage: 'images/jams/BloodDrive/back.png',
+		summary: 'Top down management game where you defend your employees while fending off vampires.',
+		tags: ['Unity', 'C#', 'Group', 'Micro Jam 025'],
+		svelteComponent: Hazepoint,
+		itchLink: 'https://alexmah.itch.io/blooddrive'
 	}
 ];

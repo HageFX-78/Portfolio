@@ -55,13 +55,15 @@
 		</div>
 
 		<div class="project-link-block">
-			<SubButton
-				buttonContent={'Details'}
-				backgroundHoverColor="#1fb4ff"
-				callback={() => {
-					openPageWindow(data.svelteComponent, data.props);
-				}}
-			/>
+			{#if !data.isJamGame}
+				<SubButton
+					buttonContent={'Details'}
+					backgroundHoverColor="#1fb4ff"
+					callback={() => {
+						openPageWindow(data.svelteComponent, data.props);
+					}}
+				/>
+			{/if}
 			<SubButton
 				buttonContent={'Play Now'}
 				icon="images/icons/redirect.png"
