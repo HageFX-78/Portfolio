@@ -2,8 +2,7 @@
 	import Arrow from '$lib/components/GeneralComponents/AnimatedArrow.svelte';
 	import { getContext } from 'svelte';
 	import { Page } from '$lib/components/Types/Page';
-	import { isMobile } from '$lib/data/Utils';
-	import { Direction } from './Types/Direction';
+	import { isMobile } from '$lib/data/Utility';
 
 	const isMobileDevice: boolean = isMobile();
 	const bgContext = getContext<{ set: (image: string) => void }>('backgroundImage');
