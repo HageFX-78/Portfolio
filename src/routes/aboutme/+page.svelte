@@ -14,6 +14,49 @@
 		hardware
 	} from '$lib/data/SkillData';
 
+	const pairValues = {
+		p0: { image: 'images/general/face.jpg', name: 'Hope you can see my eyes :D' },
+		p1: { image: 'images/pixelated/face/face-1.jpg', name: 'Click to dipixelate! :D' },
+		p2: { image: 'images/pixelated/face/face-2.jpg', name: 'Yup like that!' },
+		p3: { image: 'images/pixelated/face/face-3.jpg', name: "That's it, keep going!" },
+		p4: { image: 'images/pixelated/face/face-4.jpg', name: 'Almost there!' },
+		p5: { image: 'images/general/rick.gif', name: 'Gottcha :D' }
+	};
+
+	const faceImages = [
+		pairValues.p1,
+		pairValues.p2,
+		pairValues.p2,
+		pairValues.p2,
+		pairValues.p2,
+		pairValues.p2,
+		pairValues.p3,
+		pairValues.p3,
+		pairValues.p3,
+		pairValues.p3,
+		pairValues.p3,
+		pairValues.p4,
+		pairValues.p4,
+		pairValues.p4,
+		pairValues.p4,
+		pairValues.p4,
+		pairValues.p4,
+		pairValues.p5,
+		pairValues.p5,
+		pairValues.p5,
+		pairValues.p5,
+		pairValues.p5,
+		pairValues.p5,
+		pairValues.p5,
+		pairValues.p5,
+		pairValues.p5,
+		pairValues.p0
+	];
+
+	let currentFace = 0;
+	let currentFaceImage = faceImages[currentFace].image;
+	let currentHint = 'Click the picture to dipixelate! :D';
+
 	const ActiveTab = {
 		Lore: 0,
 		Skills: 1,
@@ -22,14 +65,19 @@
 	};
 	const tabs = [
 		{ project: ActiveTab.Lore, tabname: 'Lore' },
-		{ project: ActiveTab.Skills, tabname: 'Skills' },
-		{ project: ActiveTab.Certificates, tabname: 'Certificates' },
-		{ project: ActiveTab.Hobby, tabname: 'Hobbies' }
+		{ project: ActiveTab.Skills, tabname: 'Skills' }
 	];
 
 	let activeTab: (typeof ActiveTab)[keyof typeof ActiveTab] = ActiveTab.Lore;
 
-	function onImageClick() {}
+	function onImageClick() {
+		if (currentFace == faceImages.length - 1) {
+			return;
+		}
+		currentFace = currentFace + 1;
+		currentFaceImage = faceImages[currentFace].image;
+		currentHint = faceImages[currentFace].name;
+	}
 </script>
 
 <div
@@ -48,9 +96,11 @@
 				}}
 				aria-label="Profile picture"
 			>
-				<img src="images/pixelated/face/face-1.jpg" alt="Profile" class="profile-pic" />
+				<img src={currentFaceImage} alt="Profile" class="profile-pic" />
 			</button>
-			<!-- https://media1.tenor.com/m/x8v1oNUOmg4AAAAd/rickroll-roll.gif -->
+			<div class="profile-pic-text">
+				<p>{currentHint}</p>
+			</div>
 		</div>
 		<div class="profile-lore">
 			<Tabs {tabs} bind:activeTab width={'100%'} />
@@ -197,11 +247,23 @@
 
 		box-sizing: border-box;
 		cursor: pointer;
+		transition: all 0.1s ease-in-out;
 	}
 	.profile-pic-button:hover {
 		transform: scale(1.05);
 	}
+	.profile-pic-button:active {
+		transform: scale(0.95);
+	}
 
+	.profile-pic-text {
+		text-align: center;
+
+		color: var(--cwhite);
+		background-color: black;
+		padding: 10px 20px;
+		box-sizing: border-box;
+	}
 	.profile-pic {
 		width: 100%;
 		height: 100%;

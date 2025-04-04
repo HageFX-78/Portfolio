@@ -90,6 +90,9 @@
 		font-size: 30px;
 		background: var(--cwhite);
 	}
+	a:active {
+		transform: scale(0.9);
+	}
 
 	a.active {
 		color: #333;

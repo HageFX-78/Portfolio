@@ -1,4 +1,5 @@
 <script lang="ts">
+	export const prerender = true;
 	import Navbar from '$lib/components/Navbar.svelte';
 	import TopLinks from '$lib/components/Topbar.svelte';
 	import Window from '$lib/components/Tools/Window.svelte';

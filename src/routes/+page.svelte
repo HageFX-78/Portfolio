@@ -17,7 +17,18 @@
 		x = (event.pageX / window.innerWidth) * mscale - mscale * 0.5;
 		y = -((event.pageY / window.innerHeight) * mscale - mscale * 0.5);
 	}
-	function flipCard() {
+
+	function copyToClipboard(text: string) {
+		navigator.clipboard.writeText(text).then(
+			() => {
+				console.log(`Text copied to clipboard: ${text}`);
+			},
+			(err) => {
+				console.error('Could not copy text: ', err);
+			}
+		);
+	}
+	function flipCard(event: MouseEvent) {
 		isFlipped = !isFlipped;
 	}
 
@@ -47,12 +58,28 @@
 			</div>
 
 			<div class="bottom-sec">
-				<div class="sec-title" id="email">
-					<img class="sec-icon" src="images/icons/email.png" alt="Email icon" />Email
+				<div
+					class="sec-title"
+					id="email"
+					on:click={(event) => {
+						event.stopPropagation();
+						copyToClipboard('jjfreelim@gmail.com');
+					}}
+				>
+					<img class="sec-icon" src="images/icons/email.png" alt="Email icon" />
+					jjfreelim@gmail.com
 				</div>
-				<div class="sec-title" id="discord">
+
+				<div
+					class="sec-title"
+					id="discord"
+					on:click={(event) => {
+						event.stopPropagation();
+						copyToClipboard('hagetonakaifx');
+					}}
+				>
 					<img class="sec-icon" src="images/icons/discord.png" alt="Discord icon" />
-					Discord
+					hagetonakaifx
 				</div>
 			</div>
 		</div>
@@ -170,6 +197,9 @@
 		width: fit-content;
 		background-color: black;
 		padding: 5px 10px;
+	}
+	.sec-title:active {
+		transform: scale(0.95);
 	}
 	.sec-title:hover {
 		cursor: pointer;
