@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Arrow from '$lib/components/GeneralComponents/AnimatedArrow.svelte';
+	import { base } from '$app/paths';
 	import { getContext } from 'svelte';
 	import { Page } from '$lib/components/Types/Page';
 	import { isMobile } from '$lib/data/Utility';
@@ -17,9 +18,9 @@
 	};
 
 	const navItems: NavItem[] = [
-		{ name: 'Home', page: Page.HOME, href: '/' },
-		{ name: 'Games', page: Page.GAMES, href: '/games' },
-		{ name: 'Tools', page: Page.TOOLS, href: '/tools' },
+		{ name: 'Home', page: Page.HOME, href: base + '/' },
+		{ name: 'Games', page: Page.GAMES, href: base + '/games' },
+		{ name: 'Tools', page: Page.TOOLS, href: base + '/tools' },
 		{
 			name: 'About Me',
 			page: Page.ABOUTME,
