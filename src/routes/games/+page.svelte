@@ -3,7 +3,7 @@
 	import { fly } from 'svelte/transition';
 
 	import { njGameData } from '$lib/data/GameData';
-	import { jamData } from '$lib/data/JamGameData';
+	import { jamData } from '$lib/data/jamGameData';
 	import { isMobile } from '$lib/data/Utils';
 
 	import GameBlock from '$lib/components/Projects/Game.svelte';
