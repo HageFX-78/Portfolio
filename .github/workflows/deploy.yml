@@ -32,6 +32,11 @@ jobs:
         run: |
           npm run build
 
+      - name: Copies any documentation to public directory
+        run: |
+          mkdir -p public/docs
+          cp -r docs/* public/docs/
+
       - name: Upload Artifacts
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:

@@ -10,7 +10,7 @@ export const hazepointProps: WindowContent = {
 	projectVideo:
 		'<iframe  src="https://www.youtube.com/embed/J2Dco_VgSQA?si=AFvXABkIL8BFyVlF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
 	projectItchLink: 'https://uowmgames.itch.io/fyp2-hazepoint',
-	projectBackdrop: 'images/normalgames/hazepoint/promotional_art_nologo.png'
+	projectBackdrop: 'images/normalgames/hazepoint/promo_art.png'
 };
 
 export const shadowProps: WindowContent = {
