@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
 	import Tabs from '$lib/components/Projects/Tabs.svelte';
-	import Window from '$lib/components/Tools/Window.svelte';
 	import SkillSection from '$lib/components/GeneralComponents/SkillSection.svelte';
 
 	import {
@@ -12,7 +11,7 @@
 		devTools,
 		creativeTools,
 		hardware
-	} from '$lib/data/skillData';
+	} from '$lib/data/SkillData';
 
 	const pairValues = {
 		p0: { image: 'images/general/face.jpg', name: 'Hope you can see my eyes :D' },
