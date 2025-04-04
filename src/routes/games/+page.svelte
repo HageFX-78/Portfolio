@@ -3,8 +3,8 @@
 	import { fly } from 'svelte/transition';
 
 	import { njGameData } from '$lib/data/GameData';
-	import { jamData } from '$lib/data/JamGameData';
-	import { isMobile } from '$lib/data/Utils';
+	import { jamData } from '$lib/data/JamGData';
+	import { isMobile } from '$lib/data/Utility';
 
 	import GameBlock from '$lib/components/Projects/Game.svelte';
 	import Tabs from '$lib/components/Projects/Tabs.svelte';

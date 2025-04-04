@@ -11,7 +11,7 @@
 		devTools,
 		creativeTools,
 		hardware
-	} from '$lib/data/SkillData';
+	} from '$lib/data/MySkillData';
 
 	const pairValues = {
 		p0: { image: 'images/general/face.jpg', name: 'Hope you can see my eyes :D' },

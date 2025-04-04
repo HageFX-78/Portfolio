@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Highlight, { LineNumbers, HighlightAuto } from 'svelte-highlight';
-	import { getFileName } from '$lib/data/Utils';
+	import { getFileName } from '$lib/data/Utility';
 
 	import theme from 'svelte-highlight/styles/atom-one-dark';
 	import theme2 from 'svelte-highlight/styles/snazzy';
