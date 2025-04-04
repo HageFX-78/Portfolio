@@ -115,7 +115,7 @@
 
 		box-sizing: border-box;
 
-		background-image: url('images/normalgames/hazepoint/promotional_art_nologo.png');
+		background-image: url('/images/normalgames/hazepoint/promo_art.png');
 		background-size: cover;
 		background-position: center;
 	}
