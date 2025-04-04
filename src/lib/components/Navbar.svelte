@@ -24,7 +24,7 @@
 		{
 			name: 'About Me',
 			page: Page.ABOUTME,
-			href: '/aboutme',
+			href: base + '/aboutme',
 			background: 'https://media1.tenor.com/m/ZjR_YoigTqIAAAAC/popsicle-relax.gif'
 		}
 	];
