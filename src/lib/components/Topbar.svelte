@@ -40,7 +40,7 @@
 		margin: 0;
 
 		position: absolute;
-		z-index: 5;
+		z-index: 10;
 		pointer-events: none;
 	}
 	.icon-button {
@@ -53,6 +53,15 @@
 		height: 40px;
 		width: 40px;
 		pointer-events: all;
+	}
+	.icon-button:hover {
+		transform: scale(1.1);
+	}
+	.icon-button:active {
+		transform: scale(0.9);
+	}
+	.icon-button:hover img {
+		filter: brightness(2);
 	}
 	.icon-button img {
 		height: 100%;

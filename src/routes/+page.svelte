@@ -85,7 +85,7 @@
 		</div>
 	{:else}
 		<div id="card-back" class="card-face">
-			This site is still WIP :P <br /> Not everything is here <br />
+			This site is still WIP :P <br /> Make sure you're on desktop! <br />
 			Check out my itch page from the top right!
 		</div>
 	{/if}
@@ -112,6 +112,7 @@
 		overflow: none;
 
 		transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+		border-radius: 10px;
 
 		box-sizing: border-box;
 
@@ -197,12 +198,17 @@
 		width: fit-content;
 		background-color: black;
 		padding: 5px 10px;
+
+		transition: transform 0.1s cubic-bezier(0.34, 1.56, 0.64, 1)
 	}
 	.sec-title:active {
-		transform: scale(0.95);
+		transform: scale(0.9);
 	}
 	.sec-title:hover {
 		cursor: pointer;
+	}
+	.sec-title:active {
+		transform: scaale(0.95);
 	}
 	#discord:hover {
 		background-color: #5865f2;

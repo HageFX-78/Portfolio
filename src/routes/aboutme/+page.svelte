@@ -23,6 +23,7 @@
 	};
 
 	const faceImages = [
+		// Temporary hard coded images, will be replaced with a better system later
 		pairValues.p1,
 		pairValues.p2,
 		pairValues.p2,
@@ -77,6 +78,8 @@
 		currentFaceImage = faceImages[currentFace].image;
 		currentHint = faceImages[currentFace].name;
 	}
+
+	let spaceVar = '&nbsp;&nbsp;&nbsp;&nbsp;';
 </script>
 
 <div
@@ -109,29 +112,30 @@
 					in:fly={{ y: 200, duration: 400 }}
 					out:fly={{ y: 200, duration: 200 }}
 				>
-					Hey I'm JJ / Hage, a gameplay programmer + tools programmer. I'm a fresh grad from UOWKDU
-					Malaysia with a degree in Game Tech. I like developing plugins, tools and mods for
-					software and games to cheat or improve the workflow. My personal philosophy is every
-					coding problem has a solution.
+					{@html spaceVar}Hey I'm JJ / Hage, a gameplay programmer + tools programmer. I'm a fresh
+					grad from UOWKDU Malaysia with a degree in Game Tech. I like developing plugins, tools and
+					mods for software and games to cheat or improve the workflow. My personal philosophy is
+					every coding problem has a solution.
 					<br />
 					<br />
-					I'm confident in problem-solving and creating tools to help speed up the development process
-					as the faster you can get a prototype out, the faster you can iterate and improve on it. I
-					also tend to focus on the UI/UX as it irks me if they look horrendous. I have experience with
-					Network programmng at my previous intern as well from Roblox Studio. My favourite programming
-					languages are C++ and Lua.
+					{@html spaceVar}I'm confident in problem-solving and creating tools to help speed up the
+					development process as the faster you can get a prototype out, the faster you can iterate
+					and improve on it. I also tend to focus on the UI/UX as it irks me if they look
+					horrendous. I have experience with Network programmng at my previous intern as well from
+					Roblox Studio. My favourite programming languages are C++ and Lua.
 					<br />
 					<br />
-					Favourite genres of games are Puzzle, Simulation, Mech, Comedy and Eroges. My hobbies involve
-					watching anime/reading manga, building Gunpla and creating scripts/tools for minor inconveniences.
-					I also like to look into varying topics such as retro hardware emulation, cryptography, astronomy
-					cause who doesn't like space and things I forgot about.
+					{@html spaceVar}Favourite genres of games are Puzzle, Simulation, Mech, Comedy and Eroges.
+					My hobbies involve watching anime/reading manga, building Gunpla and creating
+					scripts/tools for minor inconveniences. I also like to look into varying topics such as
+					retro hardware emulation, cryptography, astronomy cause who doesn't like space and things
+					I forgot about.
 					<br />
 					<br />
-					I like drawing as well, although non profesionally. Most solo game artwork are done by myself,
-					I tend to prefer Pixel art but I've drawn some raster art like the promotional for my FYP game
-					Hazepoint. I also have some experience in Blender and Blockbench for hobby projects that are
-					work in progress.
+					{@html spaceVar}I like drawing as well, although non profesionally. Most solo game artwork
+					are done by myself, I tend to prefer Pixel art but I've drawn some raster art like the
+					promotional for my FYP game Hazepoint. I also have some experience in Blender and
+					Blockbench for hobby projects that are work in progress.
 				</div>
 			{:else if activeTab === ActiveTab.Skills}
 				<div
@@ -206,6 +210,8 @@
 		line-height: 1.5em;
 		padding: 20px;
 		box-sizing: border-box;
+
+		background-color: rgba(0, 0, 0, 0.5);
 	}
 
 	.profile-lore {
@@ -246,7 +252,7 @@
 
 		box-sizing: border-box;
 		cursor: pointer;
-		transition: all 0.1s ease-in-out;
+		transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 	}
 	.profile-pic-button:hover {
 		transform: scale(1.05);
