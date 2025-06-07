@@ -82,11 +82,7 @@
 	let spaceVar = '&nbsp;&nbsp;&nbsp;&nbsp;';
 </script>
 
-<div
-	class="projects-container"
-	in:fly={{ y: 200, duration: 400 }}
-	out:fly={{ y: 200, duration: 200 }}
->
+<div class="projects-container" in:fly={{ y: 200, duration: 300 }}>
 	<div class="page-title">About Me</div>
 
 	<div class="page-container">
@@ -107,11 +103,7 @@
 		<div class="profile-lore">
 			<Tabs {tabs} bind:activeTab width={'100%'} />
 			{#if activeTab === ActiveTab.Lore}
-				<div
-					class="profile-text"
-					in:fly={{ y: 200, duration: 400 }}
-					out:fly={{ y: 200, duration: 200 }}
-				>
+				<div class="profile-text" in:fly={{ x: -200, duration: 300 }}>
 					{@html spaceVar}Hey I'm JJ / Hage, a gameplay programmer + tools programmer. I'm a fresh
 					grad from UOWKDU Malaysia with a degree in Game Tech. I like developing plugins, tools and
 					mods for software and games to cheat or improve the workflow. My personal philosophy is
@@ -138,11 +130,7 @@
 					Blockbench for hobby projects that are work in progress.
 				</div>
 			{:else if activeTab === ActiveTab.Skills}
-				<div
-					class="profile-skills"
-					in:fly={{ y: 200, duration: 400 }}
-					out:fly={{ y: 200, duration: 200 }}
-				>
+				<div class="profile-skills" in:fly={{ x: 200, duration: 300 }}>
 					<SkillSection sectionTitle="Languages" skills={languages} />
 					<SkillSection sectionTitle="Libs/Framework" skills={frameworks} />
 					<SkillSection sectionTitle="Game Engines" skills={gameEngines} />

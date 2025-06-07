@@ -1,5 +1,5 @@
 <div class="loading-container noselect">
-	<img src="images/general/neco.gif" alt="Loading GIF" class="loading-gif" />
+	<!-- <img src="images/general/neco.gif" alt="Loading GIF" class="loading-gif" /> -->
 	<div class="loading-text">Loading...</div>
 </div>
 
@@ -10,25 +10,27 @@
 		align-items: center;
 		justify-content: center;
 		width: 100%;
-		background-color: #000; /* Optional: Set a background color */
+		background-color: #000;
 		padding: 50px;
 		padding-top: 100px;
 		box-sizing: border-box;
 	}
 
+	/* 
 	.loading-gif {
-		width: 300px; /* Adjust size as needed */
+		width: 300px;
 		height: auto;
 
-		animation: loading-gif-animation 0.2s infinite; /* Animation for the GIF */
-	}
+		animation: loading-gif-animation 0.2s infinite;
+	} 
+	*/
 
 	.loading-text {
 		margin-top: 20px;
 		font-size: 24px;
-		color: #fff; /* Optional: Set text color */
+		color: #fff;
 
-		animation: loading-animation 2s infinite; /* Animation for the text */
+		animation: loading-animation 2s infinite;
 	}
 
 	@keyframes loading-animation {

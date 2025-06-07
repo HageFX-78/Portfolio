@@ -4,7 +4,7 @@
 </script>
 
 <div class="backdrop">
-	<img src={backimage} alt={gametitle} />
+	<img src={backimage} alt={gametitle} loading="lazy" />
 </div>
 
 <style>

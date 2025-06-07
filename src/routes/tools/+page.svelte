@@ -25,21 +25,13 @@
 	];
 </script>
 
-<div
-	class="projects-container"
-	in:fly={{ y: 200, duration: 400 }}
-	out:fly={{ y: 200, duration: 200 }}
->
+<div class="projects-container" in:fly={{ y: 200, duration: 300 }}>
 	<div class="page-title">Tools / Side Projects</div>
 
 	<Tabs {tabs} bind:activeTab />
 
 	{#if activeTab === ActiveTab.Tools}
-		<div
-			class="card-container"
-			in:fly={{ x: 200, duration: 600 }}
-			out:fly={{ x: 200, duration: 100 }}
-		>
+		<div class="card-container">
 			<Card
 				image={'images/normalgames/shadow/g3.gif'}
 				gametitle={'2D-SG'}
@@ -75,11 +67,7 @@
 		</div>
 	{/if}
 	{#if activeTab === ActiveTab.SideProjects}
-		<div
-			class="card-container"
-			in:fly={{ x: -200, duration: 600 }}
-			out:fly={{ x: -200, duration: 100 }}
-		>
+		<div class="card-container">
 			<Card
 				image={'images/side/tools/fumoEngine.png'}
 				gametitle={'Fumo Engine'}

@@ -64,6 +64,18 @@
 		`}
 		class:opacityFilled={backgroundImage !== ''}
 	></div>
+	<!-- <video
+		class="background"
+		autoplay
+		loop
+		muted
+		style={`
+			transform: translate(${x}px, ${y}px) scale(1.1);
+		`}
+		class:opacityFilled={backgroundImage !== ''}
+	>
+		<source src="${lastBackgroundImage}" type="video/mp4" />
+	</video> -->
 	<div class="el"></div>
 
 	<Navbar />

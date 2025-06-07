@@ -9,10 +9,6 @@
 	const svelteComponentContext = getContext<{ set: (data: Component) => void }>(
 		'windowContentComponent'
 	);
-	const svelteComponentData = getContext<{ set: (data: WindowContent) => void }>(
-		'windowContentData'
-	);
-
 	const data = $props();
 
 	function openLink(link: string) {
@@ -28,7 +24,7 @@
 <div
 	class="project-block noselect"
 	onmouseenter={() => {
-		data.onHover?.(data.backimage);
+		data.onHover?.(data.gifbg);
 		isHovered = true;
 	}}
 	onmouseleave={() => {
@@ -42,7 +38,7 @@
 
 	<div class="project-overlay">
 		<div class="thumbnail">
-			<img src={data.image} alt={data.gametitle} />
+			<img src={data.image} alt={data.gametitle} loading="lazy" />
 		</div>
 		<div class="project-info">
 			<div>{data.gametitle}</div>
@@ -94,6 +90,7 @@
 	.project-block:hover {
 		background-color: rgb(50, 50, 50);
 		transform: scale(1.1);
+		will-change: transform;
 		outline: 5px solid var(--cwhite);
 	}
 

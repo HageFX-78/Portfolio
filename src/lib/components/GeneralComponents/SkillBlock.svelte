@@ -9,7 +9,12 @@
 </script>
 
 <div class="skillblock noselect">
-	<img src={url} alt={name} style="filter: invert({invert ? 1.0 : 0}) saturate(0.8)" />
+	<img
+		src={url}
+		alt={name}
+		style="filter: invert({invert ? 1.0 : 0}) saturate(0.8)"
+		loading="lazy"
+	/>
 	<!-- {#if isHovered} -->
 	<span>{name}</span>
 </div>

@@ -54,7 +54,7 @@
 				{item.name}
 			</a>
 			{#if activeTab === item.page && !isMobileDevice}
-				<Arrow isDark={false} animationDuration={0.3} />
+				<Arrow isDark={false} animationDuration={0.2} />
 			{/if}
 		</div>
 	{/each}

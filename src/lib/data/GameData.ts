@@ -33,7 +33,8 @@ export const njGameData: ProjectData[] = [
 	{
 		projectTitle: 'Hazepoint',
 		image: 'images/normalgames/hazepoint/tn.png',
-		backimage: 'images/normalgames/hazepoint/g2.gif',
+		backimage: 'images/normalgames/hazepoint/s3.png',
+		gifbg: 'images/normalgames/hazepoint/g2.gif',
 		summary:
 			'3D Thriller FPS game where you hunt down a towering kaiju in an old skirmish-use mech.',
 		tags: ['Unreal 5', 'C++', 'Blueprint', 'Solo'],
@@ -43,7 +44,8 @@ export const njGameData: ProjectData[] = [
 	{
 		projectTitle: 'Shadow',
 		image: 'images/normalgames/shadow/shadow1.png',
-		backimage: 'images/normalgames/shadow/g2.gif',
+		backimage: 'images/normalgames/shadow/shadow4.png',
+		gifbg: 'images/normalgames/shadow/g2.gif',
 		summary: 'Mobile 3D + 2D platformer where you can switch between both realms to solve puzzles.',
 		tags: ['Unity', 'C#', 'Group', 'Tools'],
 		svelteComponent: Shadow,
@@ -52,7 +54,8 @@ export const njGameData: ProjectData[] = [
 	{
 		projectTitle: 'Guilt Trip',
 		image: 'images/normalgames/guilttrip/gt1.png',
-		backimage: 'images/normalgames/guilttrip/g1.gif',
+		backimage: 'images/normalgames/guilttrip/gt2.png',
+		gifbg: 'images/normalgames/guilttrip/g1.gif',
 		summary: '2D Topdown turn-based RPG where you battle with emotions.',
 		tags: ['Unity', 'C#', 'Group'],
 		svelteComponent: GuiltTrip,

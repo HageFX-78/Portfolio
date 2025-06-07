@@ -28,11 +28,7 @@
 	let activeTab: (typeof ActiveTab)[keyof typeof ActiveTab] = ActiveTab.Normal;
 </script>
 
-<div
-	class="projects-container"
-	in:fly={{ y: 200, duration: 400 }}
-	out:fly={{ y: 200, duration: 200 }}
->
+<div class="projects-container" in:fly={{ y: 200, duration: 300 }}>
 	<div class="page-title">Game Projects</div>
 	<!-- <Divider width="50%" /> -->
 
@@ -49,6 +45,7 @@
 					gametitle={game.projectTitle}
 					image={game.image}
 					backimage={game.backimage}
+					gifbg={game.gifbg}
 					summary={game.summary}
 					tags={game.tags}
 					svelteComponent={game.svelteComponent}
@@ -68,6 +65,7 @@
 					gametitle={game.projectTitle}
 					image={game.image}
 					backimage={game.backimage}
+					gifbg={game.gifbg}
 					summary={game.summary}
 					tags={game.tags}
 					itchLink={game.itchLink}
