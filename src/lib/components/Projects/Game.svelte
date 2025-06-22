@@ -113,14 +113,15 @@
 		width: 130%;
 		height: 100%;
 		left: 0;
-		transition: left 0.6s var(--easeOutCirc);
+		transform: translateX(0%);
+		transition: transform 0.6s var(--easeOutCirc);
 
 		box-sizing: border-box;
 		background-color: var(--cblack);
 		z-index: 2;
 	}
 	.project-block:hover .project-overlay {
-		left: -30%;
+		transform: translateX(-22%);
 	}
 
 	.thumbnail {
@@ -180,14 +181,21 @@
 		/* line-height: 1.2; */
 		box-sizing: border-box;
 
+		transform: scaleY(0);
 		opacity: 0;
-		transition: all 0.6s var(--easeOutCirc);
+		transition:
+			transform 0.4s ease,
+			opacity 0.4s ease;
+		transform-origin: top;
+	}
+	.project-overlay {
+		will-change: transform;
 	}
 
 	.project-block:hover .project-info p {
 		height: fit-content;
 		opacity: 1;
-		transform: translateY(0);
+		transform: scaleY(1);
 		max-height: 100px;
 	}
 	.project-block:hover .profile-tags {

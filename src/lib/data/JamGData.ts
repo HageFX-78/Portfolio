@@ -14,7 +14,7 @@ export const jamData: ProjectData[] = [
 	{
 		projectTitle: 'Touhou Scarlet Dreamer',
 		image: 'images/jams/ScarletDreamer/tn.png',
-		backimage: 'images/jams/ScarletDreamer/back.gif',
+		backimage: 'images/jams/ScarletDreamer/back.png',
 		gifbg: 'images/jams/ScarletDreamer/back.gif',
 		summary: 'First person beat-em-up as Meiling from Touhou',
 		tags: ['Unity', 'C#', 'Group', 'Touhou Jam 14'],
@@ -24,8 +24,8 @@ export const jamData: ProjectData[] = [
 	{
 		projectTitle: 'Touhou KAPPA OS',
 		image: 'images/jams/KappaOS/tn.png',
-		backimage: 'images/jams/KappaOS/back.gif',
-		gifbg: 'images/jams/KappaOS/back.gif',
+		backimage: 'images/jams/KappaOS/back.png',
+		gifbg: 'images/jams/KappaOS/mini.gif',
 		summary:
 			"A simulation clicker where you hijack Reimu's stream causing havoc. Warning it's in JAPANESE only as it's made for a japanese jam",
 		tags: ['Unity', 'C#', 'Solo', 'Touhou Station Jam 2024'],

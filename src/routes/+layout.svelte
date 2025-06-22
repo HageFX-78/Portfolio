@@ -39,11 +39,14 @@
 		}
 	});
 
+	let raf = 0;
 	function handleMouseMove(event: MouseEvent) {
-		let mscale = 80;
-
-		x = -((event.pageX / window.innerWidth) * mscale - mscale * 0.5);
-		y = -((event.pageY / window.innerHeight) * mscale - mscale * 0.5);
+		if (raf) cancelAnimationFrame(raf);
+		raf = requestAnimationFrame(() => {
+			let mscale = 80;
+			x = -((event.pageX / window.innerWidth) * mscale - mscale * 0.5);
+			y = -((event.pageY / window.innerHeight) * mscale - mscale * 0.5);
+		});
 	}
 
 	onMount(() => {
@@ -100,6 +103,9 @@
 			opacity: 1;
 		}
 	}
+	.background {
+		will-change: transform, opacity;
+	}
 
 	.container {
 		margin: 0;
@@ -146,7 +152,7 @@
 		z-index: 1;
 		transition: opacity 0.5s ease-in-out;
 
-		filter: blur(0px) saturate(130%) brightness(0.6);
+		filter: saturate(130%) brightness(0.8);
 
 		opacity: 0;
 		overflow: hidden;
@@ -173,6 +179,11 @@
 		.container {
 			position: relative;
 			height: 100vh;
+		}
+
+		.background {
+			transition: none !important;
+			transform: none !important;
 		}
 	}
 </style>

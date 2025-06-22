@@ -11,11 +11,14 @@
 
 	let isFlipped = false;
 
+	let raf = 0;
 	function handleMouseMove(event: MouseEvent) {
-		let mscale = 20;
-
-		x = (event.pageX / window.innerWidth) * mscale - mscale * 0.5;
-		y = -((event.pageY / window.innerHeight) * mscale - mscale * 0.5);
+		if (raf) cancelAnimationFrame(raf);
+		raf = requestAnimationFrame(() => {
+			let mscale = 20;
+			x = (event.pageX / window.innerWidth) * mscale - mscale * 0.5;
+			y = -((event.pageY / window.innerHeight) * mscale - mscale * 0.5);
+		});
 	}
 
 	function copyToClipboard(text: string) {
@@ -199,7 +202,7 @@
 		background-color: black;
 		padding: 5px 10px;
 
-		transition: transform 0.1s cubic-bezier(0.34, 1.56, 0.64, 1)
+		transition: transform 0.1s cubic-bezier(0.34, 1.56, 0.64, 1);
 	}
 	.sec-title:active {
 		transform: scale(0.9);

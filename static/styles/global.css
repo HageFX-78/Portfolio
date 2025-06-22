@@ -67,7 +67,6 @@
 }
 :global(body) {
 	/* background-color: aqua; */
-	background-image: url('/images/background/forest2.webp');
 }
 
 :global(body)::after {
