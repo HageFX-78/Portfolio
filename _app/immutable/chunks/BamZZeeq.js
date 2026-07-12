@@ -1,0 +1,3 @@
+import{A as e,M as t,U as n,ct as r,it as i,q as a,rt as o,s,u as c,v as l,y as u}from"./DwYcmvEo.js";import"./xihTtKlq.js";import"./B2qFd-Hm.js";var d={LEFT:`left`,UP:`up`,DOWN:`down`,RIGHT:`right`},f=t(`<div class="arrow-container svelte-1fr10l1"><div></div></div>`);function p(t,p){i(p,!1);let m=s(p,`direction`,24,()=>d.LEFT),h=s(p,`isDark`,8,!0),g=s(p,`animationDuration`,8,.5),_=s(p,`size`,8,1);c();var v=f(),y=a(v);let b;r(v),n(()=>{l(v,`height: ${_()??``}em;`),b=u(y,1,`arrow ${m()??``}`,`svelte-1fr10l1`,b,{bouncing:m()===d.DOWN||m()===d.UP,sliding:m()===d.LEFT||m()===d.RIGHT}),l(y,`
+			background-color: ${h()?`var(--cblackHard)`:`var(--cwhite)`};
+			--anim-duration: ${g()??``}s;`)}),e(t,v),o()}export{d as n,p as t};
